@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bf218991-89da-46c1-a675-f1b05ee5d3cb" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/group1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/group1.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -15,6 +13,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
+        <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -35,6 +35,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -95,7 +96,7 @@
       <workItem from="1584285265169" duration="615000" />
       <workItem from="1588509708028" duration="608000" />
       <workItem from="1588700668131" duration="12439000" />
-      <workItem from="1588778450593" duration="324000" />
+      <workItem from="1588778450593" duration="882000" />
     </task>
     <task id="LOCAL‎00001" summary="initial commit">
       <created>1588510576414</created>
