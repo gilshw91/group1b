@@ -2,12 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bf218991-89da-46c1-a675-f1b05ee5d3cb" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/group1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/group1.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/main_menu/templates/main_menu.html" beforeDir="false" afterPath="$PROJECT_DIR$/components/main_menu/templates/main_menu.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/about/templates/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/about/templates/about.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/home/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/home/templates/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/base.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/base.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,9 +61,9 @@
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="" />
+      <option name="SDK_HOME" value="C:\Users\רותם\PycharmProjects\group1\venv\Scripts\python.exe" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
+      <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
@@ -98,6 +95,7 @@
       <workItem from="1584285265169" duration="615000" />
       <workItem from="1588509708028" duration="608000" />
       <workItem from="1588700668131" duration="12439000" />
+      <workItem from="1588778450593" duration="324000" />
     </task>
     <task id="LOCAL‎00001" summary="initial commit">
       <created>1588510576414</created>
@@ -119,6 +117,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="initial commit" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="97" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1588778775536">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="97" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.680@0.0.1280.680" timestamp="1588778775536" />
     <state width="1286" height="222" key="GridCell.Tab.0.bottom" timestamp="1588751309472">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -135,9 +137,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1286" height="222" key="GridCell.Tab.0.right/0.0.1366.728/-1280.0.1280.680@0.0.1366.728" timestamp="1588751309471" />
-    <state x="189" y="11" key="SettingsEditor" timestamp="1588700991870">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="177" y="0" key="SettingsEditor" timestamp="1588778740718">
+      <screen x="0" y="0" width="1280" height="680" />
     </state>
+    <state x="177" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1588778740718" />
     <state x="189" y="11" key="SettingsEditor/0.0.1366.728/-1280.0.1280.680@0.0.1366.728" timestamp="1588700991870" />
     <state x="384" y="192" key="com.intellij.ide.util.TipDialog" timestamp="1588700668546">
       <screen x="0" y="0" width="1366" height="728" />
