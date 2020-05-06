@@ -1,8 +1,8 @@
 {#
 Base page variables:
 - page_lang | default: 'en'
-- page_head_title_brand | default: 'Barak Pinchovski'
-- page_head_title | default: 'Flask skeleton project'
+- page_head_title_brand | default: 'Hokus Mokus'
+- page_head_title | default: 'Flask project'
 #}
 
 {#
@@ -27,27 +27,30 @@ Base page blocks:
 -- page_body_js
  #}
 <!DOCTYPE html>
- <html lang="{{ page_lang|default("en", true) }}">
+ <html lang="{{ page_lang|default('en', true) }}">
     <head>
     {% block page_head %}
         {# Title #}
-        <title>{{ page_head_title_brand|default('Barak Pinchovski', true) }} | {{ page_head_title|default('Flask skeleton project', true) }}</title>
+        <title>{{ page_head_title_brand|default('Hokus Mokus', true) }} | {{ page_head_title|default('Flask project', true) }}</title>
 
         {# Meta tags #}
         {% block page_head_meta %}
             <meta charset="UTF-8"/>
-            <meta name="author" content="Barak Pinchovski"/>
-            <meta name="description" content="Flask skeleton project as a base to start developing on"/>
+            <meta name="author" content="Hadar, Rotem, Jonathan, Gil"/>
+            <meta name="description" content="Flask project about Hokus Mokus Shop"/>
             <meta name="keywords" content="flask, lean, skeleton, project, structure, environment, setup, template, fullstack, web, development, app, university, education"/>
-            <link rel="icon" href="{{ url_for('static', filename='img/favicon/flask-favicon.png') }}"/>
+            <link rel="icon" href="{{ url_for('static', filename='/img/favicon/favicon2.png') }}"/>
+
+
             {% block page_head_meta_extra %}{% endblock %}
         {% endblock %}
 
         {# Base #}
-        <base href="/"/>
+        <base href="group1"/>
 
         {# CSS #}
         <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}"/>
+
         {% block page_head_css %}{% endblock %}
     {% endblock %}
     </head>
@@ -58,7 +61,8 @@ Base page blocks:
             {% block page_body_header %}
                 <header class="page-header">
                     {% block page_body_header_content %}
-
+                        <img src="/img/logo/logo.png" alt="Hokus Mokus Logo" height="42" width="42">
+                        <p>Hello Guest, <a href="">Sign In</a></p>
                         {# Main Menu #}
                         {% block page_body_header_content__main_menu %}
                             <nav class="main-menu">
@@ -88,6 +92,18 @@ Base page blocks:
             {% block page_body_footer %}
                 <footer class="page-footer">
                   {% block page_body_footer_content %}
+                        <div id="footer-data" class="footer-info">
+                            <p>Address: </p>
+                            <ul>
+                                <li>Page of the Login</li>
+                                <li>Page of Contact us</li>
+                                <li><a href="tel:+4403450840900" class="phone">Phone Number</li>
+                                <li><a href = "mailto: hokusmokus2020@gmail.com">E-mail</a></li>
+                                <li><a href="https://www.facebook.com/hokus.mokus.9">Facebook</a></li>
+                            </ul>
+                            <p>Phone:  +44-0345-084-0900 </p>
+                            <p>Copyright © 2020-2035 Hokus Mokus Inc. All Rights Reserved.</p>
+                        </div>
                   {% endblock %}
                 </footer>
             {% endblock %}
@@ -99,3 +115,10 @@ Base page blocks:
         {% block page_body_js %}{% endblock %}
     </body>
 </html>
+
+
+
+
+
+
+

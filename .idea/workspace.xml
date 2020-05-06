@@ -1,16 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bf218991-89da-46c1-a675-f1b05ee5d3cb" name="Default Changelist" comment="" />
+    <list default="true" id="bf218991-89da-46c1-a675-f1b05ee5d3cb" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/main_menu/templates/main_menu.html" beforeDir="false" afterPath="$PROJECT_DIR$/components/main_menu/templates/main_menu.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/about/templates/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/about/templates/about.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/home/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/home/templates/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/base.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/base.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>catalog.</find>
-    </findStrings>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -25,6 +34,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -39,6 +49,9 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Workspace\group1\static\img\logo" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\hadar\Desktop\group1" />
     </key>
@@ -84,7 +97,7 @@
       <updated>1584285250343</updated>
       <workItem from="1584285265169" duration="615000" />
       <workItem from="1588509708028" duration="608000" />
-      <workItem from="1588700668131" duration="326000" />
+      <workItem from="1588700668131" duration="12439000" />
     </task>
     <task id="LOCAL‎00001" summary="initial commit">
       <created>1588510576414</created>
@@ -106,6 +119,22 @@
     <option name="LAST_COMMIT_MESSAGE" value="initial commit" />
   </component>
   <component name="WindowStateProjectService">
+    <state width="1286" height="222" key="GridCell.Tab.0.bottom" timestamp="1588751309472">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1286" height="222" key="GridCell.Tab.0.bottom/0.0.1366.728/-1280.0.1280.680@0.0.1366.728" timestamp="1588751309472" />
+    <state width="1286" height="222" key="GridCell.Tab.0.center" timestamp="1588751309471">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1286" height="222" key="GridCell.Tab.0.center/0.0.1366.728/-1280.0.1280.680@0.0.1366.728" timestamp="1588751309471" />
+    <state width="1286" height="222" key="GridCell.Tab.0.left" timestamp="1588751309470">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1286" height="222" key="GridCell.Tab.0.left/0.0.1366.728/-1280.0.1280.680@0.0.1366.728" timestamp="1588751309470" />
+    <state width="1286" height="222" key="GridCell.Tab.0.right" timestamp="1588751309471">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1286" height="222" key="GridCell.Tab.0.right/0.0.1366.728/-1280.0.1280.680@0.0.1366.728" timestamp="1588751309471" />
     <state x="189" y="11" key="SettingsEditor" timestamp="1588700991870">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -116,6 +145,6 @@
     <state x="384" y="192" key="com.intellij.ide.util.TipDialog/0.0.1366.728/-1280.0.1280.680@0.0.1366.728" timestamp="1588700668546" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/group1$app.coverage" NAME="app Coverage Results" MODIFIED="1588700772213" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/group1$app.coverage" NAME="app Coverage Results" MODIFIED="1588749234589" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

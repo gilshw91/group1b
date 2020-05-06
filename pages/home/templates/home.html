@@ -3,66 +3,292 @@
 {% set page_head_title = 'Homepage' %}
 
 {% block page_body_main_content %}
-    <!DOCTYPE html>
-<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <!-- the title of the tab -->
-<title>Hokus Mokus | Home Page</title>
-    <!-- Adding icon to the tab -->
-    <link rel="icon" href="https://scontent.ftlv5-1.fna.fbcdn.net/v/t1.0-9/95345092_101033021608807_8811768939873828864_n.jpg?_nc_cat=107&_nc_sid=09cbfe&_nc_ohc=jYfTuyYuPmoAX8DEYFR&_nc_ht=scontent.ftlv5-1.fna&oh=bb6bf59f57a27f71b49f16ce2539a830&oe=5ED4DB43"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<!-- for the slide action-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style type="text/css">
+
+
+h1 {
+	color: #FF652F;
+	font-size: 18px;
+	font-weight: 300;
+	text-align: left;
+	position: relative;
+	margin: 30px 0 80px;
+}
+h2 {
+	color: #747474;
+	font-size: 26px;
+	font-weight: 300;
+	text-align: center;
+	text-transform: uppercase;
+	position: relative;
+	margin: 30px 0 80px;
+}
+h2 b {
+	color: #FF652F;
+}
+h4 {
+	color: #747474;
+	font-size: 12px;
+	font-weight: 300;
+	text-align: center;
+	text-transform: uppercase;
+	position: relative;
+	margin: 30px 0 80px;
+}
+h2::after {
+	content: "";
+	width: 100px;
+	position: absolute;
+	margin: 0 auto;
+	height: 4px;
+	background: rgba(0, 0, 0, 0.2);
+	left: 0;
+	right: 0;
+	bottom: -20px;
+}
+.center-img-home-page {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+.carousel {
+	margin: 50px auto;
+	padding: 0 70px;
+}
+.carousel .item {
+	min-height: 330px;
+    text-align: center;
+	overflow: hidden;
+}
+.carousel .item .img-box {
+	height: 160px;
+	width: 100%;
+	position: relative;
+}
+.carousel .item img {
+	max-width: 100%;
+	max-height: 100%;
+	display: inline-block;
+	position: absolute;
+	bottom: 0;
+	margin: 0 auto;
+	left: 0;
+	right: 0;
+}
+.carousel .item h4 {
+	font-size: 18px;
+	margin: 10px 0;
+}
+.carousel .item .btn {
+	color: #747474;
+    border-radius: 0;
+    font-size: 11px;
+    text-transform: uppercase;
+    font-weight: bold;
+    background: none;
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+    margin-top: 5px;
+    line-height: 16px;
+}
+.carousel .item .btn:hover, .carousel .item .btn:focus {
+	color: #747474;
+	background: #FF652F;
+	border-color: #FF652F;
+	box-shadow: none;
+}
+.carousel .item .btn i {
+	font-size: 14px;
+    font-weight: bold;
+    margin-left: 5px;
+}
+.carousel .thumb-wrapper {
+	text-align: center;
+}
+.carousel .thumb-content {
+	padding: 15px;
+}
+.carousel .carousel-control {
+	height: 100px;
+    width: 40px;
+    background: none;
+    margin: auto 0;
+    background: #FF652F;
+}
+.carousel .carousel-control i {
+    font-size: 30px;
+    position: absolute;
+    top: 50%;
+    display: inline-block;
+    margin: -16px 0 0 0;
+    z-index: 5;
+    left: 0;
+    right: 0;
+    color: rgba(0, 0, 0, 0.8);
+    text-shadow: none;
+    font-weight: bold;
+}
+.carousel .item-price {
+	font-size: 13px;
+	padding: 2px 0;
+}
+.carousel .item-price strike {
+	color: #747474;
+	margin-right: 5px;
+}
+.carousel .item-price span {
+	color: #FF652F;
+	font-size: 110%;
+}
+.carousel .carousel-control.left i {
+	margin-left: -3px;
+}
+.carousel .carousel-control.left i {
+	margin-right: -3px;
+}
+.carousel .carousel-indicators {
+	bottom: -50px;
+}
+.carousel-indicators li, .carousel-indicators li.active {
+	width: 10px;
+	height: 10px;
+	margin: 4px;
+	border-radius: 50%;
+	border-color: transparent;
+}
+.carousel-indicators li {
+	background: rgba(0, 0, 0, 0.2);
+}
+.carousel-indicators li.active {
+	background: rgba(0, 0, 0, 0.6);
+}
+</style>
 </head>
+
 <body>
-<header>
-<!-- Logo image -->
-        <img src="logo.png" alt="Hokus Mokus Logo" height="42" width="42">
-        <h1><strong>Wealys' Wizard Wheezes Shop</strong></h1>
-        <!-- The login statement, need to connect to the name after login -->
-        <p>Hello Guest, <a href="">Sign In</a></p>
-        <br/>
-        <!--The Navigation Bar at the top of the page-->
-        <nav>
-            <a href="url">Home Page</a>
-            <a href="url">About</a>
-            <a href="url">Categories</a>
-            <a href="url"Contact Us</a>
-            <a href="url">Account</a>
-            <a href="url">Cart</a>
-        </nav>
+    <header>
+        <h1>Wealys' Wizard Wheezes Shop</h1>
+            <!-- The login statement, need to connect to the name after login -->
+            <br/>
+            <!--The Navigation Bar at the top of the page-->
     </header>
     <br/>
     <main>
         <section>
-            <img src="magic.jpg" alt="Wizard's Image">
+            <img src="group1/pages/home/static/img/magic2.jpg" alt="Wizard's Image", class="center-img-home-page">
         </section>
         <br/>
-        <section>
-            <a href="https://www.w3schools.com">
-                <!--Arrows! -->
-                <a href="https://www.w3schools.com">
-                    <img border="0" alt="W3Schools" src="1.jpg" width="100" height="100"></a>
-                    <img border="0" alt="picture1" src="2.jpg" width="100" height="100">
-                    <img border="0" alt="picture2" src="3.jpg" width="100" height="100">
-                    <img border="0" alt="picture3" src="4.jpg" width="100" height="100">
-                    <img border="0" alt="picture4" src="5.jpg" width="100" height="100">
-                    <img border="0" alt="picture5" src="6.jpg" width="100" height="100">
-        </section>
-        <section>
-            <h2>Explore Popular Categories<br/></h2>
-            Games Music Books Sports Candies
-        </section>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Hokus Mokus <b>Products</b></h2>
+                <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="0">
+                <!-- Carousel indicators -->
+                <ol class="carousel-indicators">
+                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#myCarousel" data-slide-to="1"></li>
+                    <li data-target="#myCarousel" data-slide-to="2"></li>
+                </ol>
+                <!-- Wrapper for carousel items -->
+                <div class="carousel-inner">
+                    <div class="item carousel-item active">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <div class="thumb-wrapper">
+                                    <div class="img-box">
+                                        <img src="/static/img/products/product1.jpg" class="img-responsive img-fluid" alt="">
+                                    </div>
+                                    <div class="thumb-content">
+                                        <h4>Feaver Fudge</h4>
+                                        <p class="item-price"><strike>$400.00</strike> <span>$369.00</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="thumb-wrapper">
+                                    <div class="img-box">
+                                        <img src="/static/img/products/product2.jpg" class="img-responsive img-fluid" alt="">
+                                    </div>
+                                    <div class="thumb-content">
+                                        <h4>Something With Ear</h4>
+                                        <p class="item-price"><strike>$25.00</strike> <span>$23.99</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="thumb-wrapper">
+                                    <div class="img-box">
+                                        <img src="/static/img/products/product3.jpg" class="img-responsive img-fluid" alt="">
+                                    </div>
+                                    <div class="thumb-content">
+                                        <h4>Sticky Trainers</h4>
+                                        <p class="item-price"><strike>$899.00</strike> <span>$649.00</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="thumb-wrapper">
+                                    <div class="img-box">
+                                        <img src="/static/img/products/product4.jpg" class="img-responsive img-fluid" alt="">
+                                    </div>
+                                    <div class="thumb-content">
+                                        <h4>Smelly Candle</h4>
+                                        <p class="item-price"><strike>$315.00</strike> <span>$250.00</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item carousel-item">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <div class="thumb-wrapper">
+                                    <div class="img-box">
+                                        <img src="/static/img/products/product5.jpg" class="img-responsive img-fluid" alt="">
+                                    </div>
+                                    <div class="thumb-content">
+                                        <h4>Something</h4>
+                                        <p class="item-price"><strike>$289.00</strike> <span>$269.00</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="thumb-wrapper">
+                                    <div class="img-box">
+                                        <img src="/static/img/products/product6.jpg" class="img-responsive img-fluid" alt="">
+                                    </div>
+                                    <div class="thumb-content">
+                                        <h4>Wow Another Something</h4>
+                                        <p class="item-price"><strike>$1099.00</strike> <span>$869.00</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Carousel controls -->
+                <a class="carousel-control left carousel-control-prev" href="#myCarousel" data-slide="prev">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                <a class="carousel-control right carousel-control-next" href="#myCarousel" data-slide="next">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+            </div>
+        </div>
+    </div>
     </main>
-
-    <footer>
-        <p>Address: </p>
-         Login Contact Phone Facbook <br/>
-        <p>Phone: </p>
-        <p>Copyright © 2020-2035 Hokus Mokus Inc. All Rights Reserved.</p>
-    </footer>
-
-
-
 </body>
-</html>
 {% endblock %}
 
