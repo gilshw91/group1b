@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="bf218991-89da-46c1-a675-f1b05ee5d3cb" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/product_categories/templates/product_categories.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/product_categories/templates/product_categories.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -12,8 +13,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="CSS File" />
+        <option value="HTML File" />
+        <option value="Python Script" />
         <option value="JavaScript File" />
       </list>
     </option>
@@ -32,6 +34,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -47,11 +50,12 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Workspace\group1\static\img\logo" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\hadar\Desktop\group1" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\רותם\PycharmProjects\group1\pages\sign_in_registration" />
+      <recent name="C:\Workspace\group1\static\img\logo" />
     </key>
   </component>
   <component name="RunManager">
@@ -96,7 +100,8 @@
       <workItem from="1584285265169" duration="615000" />
       <workItem from="1588509708028" duration="608000" />
       <workItem from="1588700668131" duration="12439000" />
-      <workItem from="1588778450593" duration="882000" />
+      <workItem from="1588778450593" duration="1943000" />
+      <workItem from="1588839742571" duration="5773000" />
     </task>
     <task id="LOCAL‎00001" summary="initial commit">
       <created>1588510576414</created>
