@@ -46,7 +46,7 @@ Base page blocks:
         {% endblock %}
 
         {# Base #}
-        <base href="group1"/>
+        <base href="{{ url_for('static', filename="group1")}}"/>
 
         {# CSS #}
         <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}"/>

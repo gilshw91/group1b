@@ -1,12 +1,57 @@
 {% extends 'base.html' %}
 
-{% set page_head_title = 'About' %}
+{% set page_head_title = 'Extendeable Ear' %}
 
 {% block page_head_css %}
     <link rel="stylesheet" href="{{ url_for('product.static', filename='css/product.css') }}"/>
-{% endblock %}
-{% block page_body_main_content %}
+    <script src="{{ url_for('product.static', filename='js/product.js') }}"></script>
 
+{% endblock %}
+
+
+
+{% block page_body_main_content %}
+<div class="main-product">
+    <div class="main-product-details">
+        <aside>
+        <h1 class = heading-1>Extendeable Ear</h1>
+        <p>They are long, flesh-coloured pieces of string which one can insert in one's ear, then shove the other end under (for example) a door, and one will hear the conversation or other noise as clear as if it was mere feet away, unless, that is, the door has been Imperturbed (with Imperturbable Charm)</p>
+            <p>Price: 15£</p>
+            </aside>
+    </div>
+    <p></p>
+    <div class="main-product-image">
+        <aside>
+        <img src="img/extendable_ear.jpg">
+            </aside>
+    </div>
+</div>
+    <div class="main-reviews">
+    <h2 class="heading-2">Rating & Reviews</h2>
+    <div class="add-review">
+        <button type="button" class="write-review-button" onclick="showReviewForm()">Write a review</button>
+        <form id="review-form" action="" style="display: none">
+            <label for="username">User Name:</label>
+        <input id="username" placeholder="User Name" name="review" required>
+            <p></p>
+            <label for="review">Review:</label>
+        <input id="review" placeholder="Review" name="review" required>
+        <p></p>
+            <input type="submit" value="Post review">
+        </form>
+    </div>
+    <div class="show-reviews">
+        <aside class="show-reviews-details">
+            <p>user123</p>
+            <p></p>
+            <p>08.05.19 15:13</p>
+        </aside>
+        <aside class="show-reviews-content">
+            <br/>
+            <p>Best product EVER!</p>
+        </aside>
+    </div>
+    </div>
 {% endblock %}
 
 {% block page_body_footer %}

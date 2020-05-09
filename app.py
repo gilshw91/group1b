@@ -14,6 +14,9 @@ app.register_blueprint(home)
 from pages.about.about import about
 app.register_blueprint(about)
 
+# Product check
+from pages.product.product import product
+app.register_blueprint(product)
 # ## Catalog
 # from pages.catalog.catalog import catalog
 # app.register_blueprint(catalog)
