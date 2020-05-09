@@ -11,27 +11,29 @@
 </head>
  <body> 
     <div class="topblock"> <!--Title and sub-title-->
-        <h1>Feedback form</h1>
-        <h3>Please provide your feedback below:</h3>
+        <h3>Hello, fellow wizard!<br>Please provide your feedback below:</h3>
     </div>
     <form method="post" id="feedback_form" action="route">
-        <label for="fname">First name:</label><br> <!--Name and E-mail-->
+        <fieldset>
+            <legend>Feedback form</legend>
+        <label for="fname">First name:</label> <!--Info-->
         <input type="text" id="fname" name="fname"><br>
-        <label for="lname">Last name:</label><br>
-        <input type="text" id="lname" name="lname"><br><br>
+        <label for="lname">Last name:</label>
+        <input type="text" id="lname" name="lname"><br>
+        <label for="email">Email address:</label>
+        <input type="email" class="form-control" id="email" required><br><br>
 
-        <label for="subject">Message subject:</label> <!--Message subject-->
+        <label for="subject">Message subject:</label> <!--Message-->
         <select id="subject" name="subject">
             <option value="product">Product</option>
             <option value="shipment">Shipment</option>
             <option value="website">website</option>
             <option value="other">Other</option>
         </select><br>
-        <textarea name="message" rows="10" cols="30">
-        Please type your message here
-        </textarea>
-        <input type="submit" value="Submit">
+        <textarea name="message" rows="10" cols="30">Please type your message here</textarea><br>
+        <input type="submit" value="Submit by Owl Post">
+        </fieldset>
+    </form>
 
-</form>
 </body>
 </html>
