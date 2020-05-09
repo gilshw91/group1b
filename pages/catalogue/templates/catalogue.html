@@ -1,0 +1,45 @@
+<!--{% extends 'base.html' %}
+
+{% set page_head_title = 'catalogue' %}
+
+{% block page_body_main_content %}-->
+
+<!DOCTYPE html>
+<html lang="{{ page_lang|default("en", true) }}">
+<head>
+    <title>Hokus Mokus | Catalogue</title>
+    <!--Meta info-->
+    <meta charset="UTF-8"/>
+    <meta name="description" content="Catalogue page"/>
+    <meta name="keywords" content="Wizard, Magic, Spells"/>
+    <link rel="icon" href="url"/> <!--ADD URL-->
+
+    <base href=""/> <!--ADD URL-->
+</head>
+ <body> 
+    <div class="topblock"> <!--Title and sub-title-->
+        <h1>Catalogue</h1>
+        <h3>Magic is only a click away...<br/>Check out our products and let your inner wizard roam free.<br/>Expecto patronum!</h3>
+    </div>
+    <hr>
+    <ul class="catalogue" style="list-style-type:none;"> <!--List of products-->
+        <li class="product">
+            <a href="url"> <!--The picture, description and price are all links to one page-->
+                <img src="../images/Sticky_0.jpg" border="1" title="Sticky Trainers" alt="Sticky Trainers" style="width:200px">
+                <h4>Sticky Trainers</h4>
+                <p>$20.00</p> <!--UPDATE PRICE-->
+            </a>
+        </li>
+        <li class="product">
+            <a href="url">
+                <img src="../images/Nopoo_0.jpg" border="1" title="Sticky Trainers" alt="Sticky Trainers" style="width:200px">
+                <h4>No Poo Bottle</h4>
+                <p>$25.00</p> <!--UPDATE PRICE-->
+            </a>
+        </li> <!--More list items here-->
+    </ul>
+
+</body>
+</html>
+
+
