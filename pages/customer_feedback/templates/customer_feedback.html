@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="{{ page_lang|default("en", true) }}">
+<head>
+    <title>Hokus Mokus | Catalogue</title>
+    <!--Meta info-->
+    <meta charset="UTF-8"/>
+    <meta name="description" content="Customer feedback"/>
+    <link rel="icon" href="url"/> <!--ADD URL-->
+
+    <base href=""/> <!--ADD URL-->
+</head>
+ <body> 
+    <div class="topblock"> <!--Title and sub-title-->
+        <h3>Hello, fellow wizard!<br>Please provide your feedback below:</h3>
+    </div>
+    <form method="post" id="feedback_form" action="route">
+        <fieldset>
+            <legend>Feedback form</legend>
+        <label for="fname">First name:</label> <!--Info-->
+        <input type="text" id="fname" name="fname"><br>
+        <label for="lname">Last name:</label>
+        <input type="text" id="lname" name="lname"><br>
+        <label for="email">Email address:</label>
+        <input type="email" class="form-control" id="email" required><br><br>
+
+        <label for="subject">Message subject:</label> <!--Message-->
+        <select id="subject" name="subject">
+            <option value="product">Product</option>
+            <option value="shipment">Shipment</option>
+            <option value="website">website</option>
+            <option value="other">Other</option>
+        </select><br>
+        <textarea name="message" rows="10" cols="30">Please type your message here</textarea><br>
+        <input type="submit" value="Submit by Owl Post">
+        </fieldset>
+    </form>
+
+</body>
+</html>
