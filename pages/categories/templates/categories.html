@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+
+{% set page_head_title = 'productcategories' %}
+
+{% block page_body_main_content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- the title of the tab -->
+<title>Hokus Mokus | Product Categories</title>
+    <!-- Adding icon to the tab -->
+    <link rel="icon" href="https://scontent.ftlv5-1.fna.fbcdn.net/v/t1.0-9/95345092_101033021608807_8811768939873828864_n.jpg?_nc_cat=107&_nc_sid=09cbfe&_nc_ohc=jYfTuyYuPmoAX8DEYFR&_nc_ht=scontent.ftlv5-1.fna&oh=bb6bf59f57a27f71b49f16ce2539a830&oe=5ED4DB43"/>
+</head>
+<body>
+    <header>
+    <!-- Logo image -->
+        <img src="logo.png" alt="Hokus Mokus Logo" height="42" width="42">
+        <h1><strong>Hokus Mokus Shop</strong></h1>
+        <!-- The login statement, need to connect to the name after login -->
+        <p>Hello Guest, <a href="">Sign In</a></p>
+        <br/>
+        <!--The Navigation Bar at the top of the page-->
+        <nav>
+            <a href="url">Home Page</a>
+            <a href="url">About</a>
+            <a href="url">Categories</a>
+            <a href="url"Contact Us</a>
+            <a href="url">Account</a>
+            <a href="url">Cart</a>
+        </nav>
+    </header>
+    <br/>
+    <main>
+        <section>
+            <h1><b>Product's Categories</b><br/></h1>
+        </section>
+        <br/>
+        <section>
+        <!-- All asides are next to each other -->
+            <aside>
+                <section>
+                    <h2>Joke products<br/></h2>
+                </section>
+                <section>
+                    <img border="0" alt="W3Schools" src="1.jpg" width="100" height="100">
+                </section>
+            </aside>
+            <aside>
+                <section>
+                    <h2>Explosive Enterprises<br/></h2>
+                </section>
+                <section>
+                    <img border="0" alt="W3Schools" src="1.jpg" width="100" height="100">
+                </section>
+            </aside>
+            <aside>
+                <section>
+                    <h2>Muggle Magic<br/></h2>
+                </section>
+                <section>
+                    <img border="0" alt="W3Schools" src="1.jpg" width="100" height="100">
+                </section>
+            </aside>
+            <aside>
+                <section>
+                    <h2>Witch Sweets<br/></h2>
+                </section>
+                <section>
+                    <img border="0" alt="W3Schools" src="1.jpg" width="100" height="100">
+                </section>
+            </aside>
+        </section>
+    </main>
+    <footer>
+        <p>Address: </p>
+         Login Contact Phone Facbook <br/>
+        <p>Phone: </p>
+        <p>Copyright © 2020-2035 Hokus Mokus Inc. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
+{% endblock %}
