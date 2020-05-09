@@ -41,6 +41,15 @@ Base page blocks:
             <meta name="keywords" content="flask, lean, skeleton, project, structure, environment, setup, template, fullstack, web, development, app, university, education"/>
             <link rel="icon" href="{{ url_for('static', filename='/img/favicon/favicon2.png') }}"/>
 
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+            <!-- for the slide action-->
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 
             {% block page_head_meta_extra %}{% endblock %}
         {% endblock %}
@@ -50,6 +59,7 @@ Base page blocks:
 
         {# CSS #}
         <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}"/>
+
 
         {% block page_head_css %}{% endblock %}
     {% endblock %}
@@ -61,8 +71,13 @@ Base page blocks:
             {% block page_body_header %}
                 <header class="page-header">
                     {% block page_body_header_content %}
-                        <img src="/img/logo/logo.png" alt="Hokus Mokus Logo" height="42" width="42">
-                        <p>Hello Guest, <a href="">Sign In</a></p>
+<!--                        <img src="/img/logo/logo.png" alt="Hokus Mokus Logo" height="42" width="42">-->
+                    <div class="logo-header">
+                        <img src="https://scontent.fsdv3-1.fna.fbcdn.net/v/t1.0-9/95345092_101033021608807_8811768939873828864_n.jpg?_nc_cat=107&_nc_sid=09cbfe&_nc_ohc=EI0c329L_UoAX-BZMP2&_nc_ht=scontent.fsdv3-1.fna&oh=6ce78e2ffbf7e2aefb9e41f99ef7b66a&oe=5EDCC443", alt="Hokus Mokus Logo" height="100" width="100")
+                    </div>
+                        <div class="sign-in-right">
+                            <p>Hello Guest, <a href="">Sign In</a></p>
+                        </div>
                         {# Main Menu #}
                         {% block page_body_header_content__main_menu %}
                             <nav class="main-menu">
