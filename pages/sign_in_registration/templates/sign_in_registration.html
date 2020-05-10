@@ -1,3 +1,13 @@
+{% extends 'base.html' %}
+
+{% set page_head_title = 'sign_in_registration' %}
+
+{% block page_head_css %}
+    <link rel="stylesheet" href="{{ url_for('sign_in_registration.static', filename='css/sign_in_registration.css') }}"/>
+{% endblock %}
+
+{% block page_body_main_content %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,31 +18,13 @@
     <link rel="icon" href="https://scontent.ftlv5-1.fna.fbcdn.net/v/t1.0-9/95345092_101033021608807_8811768939873828864_n.jpg?_nc_cat=107&_nc_sid=09cbfe&_nc_ohc=jYfTuyYuPmoAX8DEYFR&_nc_ht=scontent.ftlv5-1.fna&oh=bb6bf59f57a27f71b49f16ce2539a830&oe=5ED4DB43"/>
 </head>
 <body>
-    <header>
-    <!-- Logo image -->
-        <img src="logo.png" alt="Hokus Mokus Logo" height="42" width="42">
-        <h1><strong>Hokus Mokus Shop</strong></h1>
-        <!-- The login statement, need to connect to the name after login -->
-        <p>Hello Guest, <a href="">Sign In</a></p>
-        <br/>
-        <!--The Navigation Bar at the top of the page-->
-        <nav>
-            <a href="url">Home Page</a>
-            <a href="url">About</a>
-            <a href="url">Categories</a>
-            <a href="url"Contact Us</a>
-            <a href="url">Account</a>
-            <a href="url">Cart</a>
-        </nav>
-    </header>
-    <br/>
     <main>
-        <aside>
+        <aside class="sign_in_block"><!--The left side of the screen-->
             <section>
                 <h1>Already Registered?</h1>
             </section>
             <section>
-                <form method="POST" action="Route" enctype="application/x-www-form-urlencoded">
+                <form method="POST" action="Route" enctype="application/x-www-form-urlencoded" class="sign_in_form">
                     <div class="form-sing-in">
                         <label for="email">Email address:</label>
                         <input type="email" class="form-control" id="email" required>
@@ -47,15 +39,16 @@
                         <label><input type="checkbox"> Remember me</label>
                     </div>
                     <br>
-                <button type="submit" class="btn btn-default">Submit</button>
+                <button type="submit" class="btn-default">Submit</button>
                 </form>
         </aside>
-        <aside>
+        <aside class="registration_block"> <!--The right side on the screen-->
             <section>
                 <h1>New to Hokus Mokus?</h1>
             </section>
             <section>
-                <form method="POST" action="Route" enctype="application/x-www-form-urlencoded">
+                <form method="POST" action="Route" enctype="application/x-www-form-urlencoded" class="registration_form">
+                    <!--all the text in the form will be inside the fill-in space-->
                     <div class="form-registration">
                         <label for="ID">ID:</label>
                         <input type="text" class="form-control" id="ID" required>
@@ -107,7 +100,7 @@
                     </div>
                     <br>
                     <div class="form-registration">
-                        <label for="phone_number">Phone number:</label>
+                        <label for="phone_number">Phone number</label>
                         <input type="number" class="form-control" id="phone_number">
                     </div>
                     <br>
@@ -116,11 +109,13 @@
             </section>
         </aside>
     </main>
-    <footer>
-        <p>Address: </p>
-         Login Contact Phone Facbook <br/>
-        <p>Phone: </p>
-        <p>Copyright © 2020-2035 Hokus Mokus Inc. All Rights Reserved.</p>
-    </footer>
 </body>
 </html>
+
+{% endblock %}
+
+{% block page_body_footer %}{% endblock %}
+
+{% block page_body_js %}
+    <script src="{{ url_for('sign_in_registration.static', filename='js/sign_in_registration.js') }}"></script>
+{% endblock %}
