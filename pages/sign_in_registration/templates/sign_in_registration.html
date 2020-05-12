@@ -7,6 +7,8 @@
 {% endblock %}
 
 {% block page_body_main_content %}
+<!-- Hi Rotem! I don't think you nned to put Something exept the <body> - look at the "base.html", you have everything there-->
+<!-- Try to connect your page: I think u need to add stuff in "app.py"-->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -21,14 +23,19 @@
 <body>
     <main>
         <aside class="sign_in_block"><!--The left side of the screen-->
+            <!--maybe change the "section"s into "div"s ? to be consistent? (Im just saying what Hadar told me LOL) -->
             <section>
+                <!--Hadar and I have changed the names of the classes to "heading-1" if its h1 or "heading-2" if h2 and so on.. -->
                 <h1>Already Registered?</h1>
             </section>
             <section>
+                <!--the POST should be in Capslock? -->
                 <form method="POST" action="Route" enctype="application/x-www-form-urlencoded" class="sign_in_form">
+                    <!--its on purpose that the classes are very similar? line 30 and line 32 -->
                     <div class="form-sing-in">
                         <label for="email" ></label>
                         <input type="email" placeholder="Email address" class="form-control" id="email"  required>*
+                        <!--Cool! in the CSS part we need to color this in red or something -->
                     </div>
                     <br>
                     <div class="form-sing-in">
@@ -37,21 +44,23 @@
                     </div>
                     <br>
                     <div class="checkbox">
+                        <!--you put space before the "Remember" -->
                         <label><input type="checkbox"> Remember me</label>
                     </div>
                     <br>
                 <button type="submit" class="btn-default">Submit</button>
                 </form>
-        </aside>
+        </aside> <!--it put a red underline under this "</aside> somewhat -->
         <aside class="registration_block"> <!--The right side on the screen-->
-            <section>
-                <h1>New to Hokus Mokus?</h1>
+            <section><!--Section\div? -->
+                <h1>New to Hokus Mokus?</h1><!--class name - heading heading-1 -->
             </section>
             <section>
                 <form method="POST" action="Route" enctype="application/x-www-form-urlencoded" class="registration_form">
                     <!--all the text in the form will be inside the fill-in space-->
                     <div class="form-registration">
                         <label for="ID"></label>
+                        <!--every input need the get also "name" attribute -->
                         <input type="text" placeholder="ID" class="form-control" id="ID" required>*
                     </div>
                     <br>
@@ -105,6 +114,7 @@
                         <input type="number" placeholder="Phone number" class="form-control" id="phone_number">
                     </div>
                     <br>
+                    <!--you wrote twice btn, on  purpose?-->
                 <button type="submit" class="btn btn-default">Submit</button>
                 </form>
             </section>
