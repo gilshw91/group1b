@@ -2,11 +2,12 @@
 
 * { box-sizing: border-box; }
 .sign-in-right {
+    position: relative;
     display: inline;
 	color: #747474;
 	font-size: 20px;
 	text-align: right;
-    padding: 8px;
+    margin-left: -10px;
 }
 .logo-header {
     display: inline;
@@ -19,7 +20,9 @@
 
 body {
     background-color: #272727;
-    cursor: url('/static/img/mouse-pointer/wand.png'), default !important;
+    cursor: url('/static/img/mouse-pointer/wand.png'), auto;
+    font-size: 20px;
+    color: #747474;
 }
 
 .links-footer{
@@ -36,3 +39,4 @@ body {
 .middle{
     text-align: center;
 }
+
