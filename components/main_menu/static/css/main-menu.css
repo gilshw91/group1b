@@ -3,28 +3,21 @@
     display: flex;
     margin: auto;
     width: 100%;
+    font-size: 20px;
 }
 
-.main-menu .nav-bar {
-  float: left;
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-}
-
- .nav-bar-link {
-  display: inline-block;
-  color: #747474;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
+.nav-bar-link {
+    display: inline-block;
+    color: #747474;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
 }
 
 .nav-bar .nav-bar-link:hover:not(.active) {
-  background-color: #FF652F;
+    background-color: #303030;
 }
 
 .active2 {
-  background-color: #272727;
+    background-color: #272727;
 }

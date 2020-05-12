@@ -1,5 +1,5 @@
 
-h1 {
+.heading-1 {
 	color: #FF652F;
 	font-size: 18px;
 	font-weight: 300;
@@ -7,7 +7,7 @@ h1 {
 	position: relative;
 	margin: 30px 0 80px;
 }
-h2 {
+.heading-2 {
 	color: #747474;
 	font-size: 26px;
 	font-weight: 300;
@@ -16,10 +16,10 @@ h2 {
 	position: relative;
 	margin: 30px 0 80px;
 }
-h2 b {
+.heading-2 b {
 	color: #FF652F;
 }
-h4 {
+.heading-4 {
 	color: #747474;
 	font-size: 12px;
 	font-weight: 300;
