@@ -17,13 +17,16 @@
     <hr>
 
 <aside id="cust_sidenav" class="sidenav">
-    <h3 class="menuheader">Shortcuts</h3> <!--Side menu header and photo-->
-    <img src="../images/Profile.png" alt="Default Photo" style="width:100px">
+    <div class="user_icon">
+        <img src="../images/Profile.png" alt="Default Photo" style="width:100px">
+    </div>
     <div class="menubody"> <!--Side menu body-->
+    <h3 class="menuheader">Shortcuts</h3> <!--Side menu header and photo-->
         <a href="#">My Orders</a><br>
         <a href="#">My Shipping Address</a><br>
-        <a href="#">My Wishlist</a><br>
+        <a href="#">My Reviews</a><br>
         <a href="#">Change Password</a><br>
+        <a href="#">Credit Card Data</a><br>
     </div>
 </aside>
 <div class="My_orders">
@@ -46,10 +49,29 @@
     </ul>
 </div>
 <div class="My_shipping">
-    <h2>Shipping Adress:</h2>
-    <h4>Tikva street 666, Petah Tikva, Israel</h4> <!--Will pull address somehow-->
+    <h2>Shipping Address:</h2>
+    <h4>This address will be pulled from the user data</h4> <!--Will pull address somehow-->
+    <input type="submit" value="Change Shipping Address">
 </div>
-
+<div class="My_reviews">
+    <h2>Recent Reviews:</h2>
+    <h4>This content will be pulled from the user data</h4> <!--Will pull content somehow-->
+</div>
+<div class="Change_password">
+    <h2>Change Password:</h2>
+    <label for="pwd">Enter old password:</label>
+    <input type="pwd" placeholder="Old Password" id="pwd" required>*<br>
+    <label for="pwd">Enter new password:</label>
+    <input type="pwd" placeholder="New Password" id="pwd" required>*<br>
+    <label for="pwd">Re-enter new password:</label>
+    <input type="pwd" placeholder="New Password" id="pwd" required>*<br>
+    <input type="submit" value="Change Password">
+</div>
+<div class="Credit">
+    <h2>Credit Card Data:</h2>
+    <h4>This content will be pulled from the user data</h4> <!--Will pull content somehow-->
+    <input type="submit" value="Change Credit Data">
+</div>
 
 
 </body>
