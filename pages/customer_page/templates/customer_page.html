@@ -10,23 +10,30 @@
     <base href=""/> <!--ADD URL-->
 </head>
 <body>
-<div class="topblock"> <!--Title and sub-title-->
-        <h1>John Doe: Profile</h1>
-        <h3>Hi, John</h3>
-    </div>
-    <hr>
+<div class="Topblock"> <!--Title and sub-title-->
+    <h1>John Doe: Profile</h1>
+    <h3>Hi, John</h3>
+</div>
+<hr>
 
-<aside id="cust_sidenav" class="sidenav">
+<aside class="Sidenav" id="Sidenav">
+    <div class="sub_sidenav" id="profile_pic">
+        <img src="../images/Profile.png" alt="Default Photo" style="width:100px">
+        <form method="post" id="profile_form" action="route" enctype="multipart/form-data">
+            <label for="profile">Change profile picture:</label> <!--Info-->
+            <input type="file" id="profile" name="profile">
+        </form>
+    </div>
+    <div class="sub_sidenav" id="shortcuts"> <!--Side menu body-->
     <h3 class="menuheader">Shortcuts</h3> <!--Side menu header and photo-->
-    <img src="../images/Profile.png" alt="Default Photo" style="width:100px">
-    <div class="menubody"> <!--Side menu body-->
         <a href="#">My Orders</a><br>
         <a href="#">My Shipping Address</a><br>
-        <a href="#">My Wishlist</a><br>
+        <a href="#">My Reviews</a><br>
         <a href="#">Change Password</a><br>
+        <a href="#">Credit Card Data</a><br>
     </div>
 </aside>
-<div class="My_orders">
+<div class="Blocks" id="Order_block">
     <h2>My Orders</h2>
     <ul class="catalogue" style="list-style-type:none;"> <!--List of products-->
         <li class="product">
@@ -45,11 +52,59 @@
         </li> <!--More list items here-->
     </ul>
 </div>
-<div class="My_shipping">
-    <h2>Shipping Adress:</h2>
-    <h4>Tikva street 666, Petah Tikva, Israel</h4> <!--Will pull address somehow-->
+<div class="Block" id="Address_block">
+    <h2 class="Section_title">Current Shipping Address:</h2>
+    <h4 class="Section_subtitle">This content will be pulled from the user data</h4>
+    <form method="post" id="Change_shipping" action="route">
+        <fieldset>
+            <legend>If you wish to update your shipping address, fill the address here:</legend>
+                <label for="city">City:</label>
+                <input type="text" class="input" name="city" id="city" required><br>
+                <label for="street">Street:</label>
+                <input type="text" class="input" name="street" id="street" required><br>
+                <label for="number">Number:</label>
+                <input type="number" class="input" name="number" id="number" required><br>
+                <label for="zip_code">Zip-code:</label>
+                <input type="number" class="input" name="zip_code" id="zip_code" required><br>
+                <input type="submit" value="Change Shipping Address">
+        </fieldset>
+    </form>
 </div>
-
+<div class="Block" id="Reviews_block">
+    <h2 class="Section_title">Recent Reviews:</h2>
+    <h4 class="Section_subtitle">This content will be pulled from the user data</h4> <!--Will pull content somehow-->
+</div>
+<div class="Block" id="Password_block">
+    <h2 class="Section_title">Password:</h2>
+    <form class="Password_form">
+        <fieldset>
+            <legend>Enter your old and new passwords here::</legend>
+            <label for="pwd">Enter old password:</label>
+            <input type="password" class="input" id="pwd" name="pwd" required>*<br>
+            <label for="pwd">Enter new password:</label>
+            <input type="password" class="input" id="pwd" name="pwd" required>*<br>
+            <label for="pwd">Re-enter new password:</label>
+            <input type="password" class="input" id="pwd" name="pwd" required>*<br>
+            <input type="submit" value="Change Password">
+        </fieldset>
+    </form>
+</div>
+<div class="Block" id="Credit_block">
+    <h2 class="Section_title">Credit Card Data:</h2>
+    <h4 class="Section_subtitle">This content will be pulled from the user data</h4> <!--Will pull content somehow-->
+    <form class="Card_form">
+        <fieldset>
+        <legend>If you wish to add or change credit data, fill in your new card here:</legend>
+        <label for="credit">Card number:</label>
+        <input type="number" class="input" id="credit" name="credit" required>*<br>
+        <label for="exp">Expiration date:</label>
+        <input type="date" class="input" id="exp" name="exp" required>*<br>
+        <label for="cvv">CVV:</label>
+        <input type="number" class="input" name="cvv" id="cvv" required>*<br>
+        <input type="submit" value="Change Credit Card">
+        </fieldset>
+    </form>
+</div>
 
 
 </body>
