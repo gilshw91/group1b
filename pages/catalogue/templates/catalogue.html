@@ -22,17 +22,35 @@
         <h3>Magic is only a click away...<br/>Check out our products and let your inner wizard roam free.<br/>Expecto patronum!</h3>
     </div>
     <hr>
+    <aside>
+        <form method="post" id="search_form" action="route">
+            <fieldset>
+                <legend>Product Search</legend>
+            <label for="fname">Search by name</label> <!--Search by name-->
+            <input type="text" id="fname" name="fname"><br>
+
+            <label for="category">Product Category</label> <!--Message-->
+            <select id="category" name="category">
+                <option value="joke">Joke products</option>
+                <option value="explosive">Explosive Enterprises</option>
+                <option value="muggle">Muggle Magic</option>
+                <option value="sweets">Witch Sweets</option>
+            </select><br>
+            <input type="submit" value="Search">
+            </fieldset>
+        </form>
+    </aside>
     <ul class="catalogue" style="list-style-type:none;"> <!--List of products-->
         <li class="product">
             <a href="url"> <!--The picture, description and price are all links to one page-->
-                <img src="../images/Sticky_0.jpg" border="1" title="Sticky Trainers" alt="Sticky Trainers" style="width:200px">
+                <img src="../images/Sticky_0.jpg" border="1" title="Sticky Trainers" alt="Sticky Trainers">
                 <h4>Sticky Trainers</h4>
                 <p>$20.00</p> <!--UPDATE PRICE-->
             </a>
         </li>
         <li class="product">
             <a href="url">
-                <img src="../images/Nopoo_0.jpg" border="1" title="Sticky Trainers" alt="Sticky Trainers" style="width:200px">
+                <img src="../images/Nopoo_0.jpg" border="1" title="Sticky Trainers" alt="Sticky Trainers">
                 <h4>No Poo Bottle</h4>
                 <p>$25.00</p> <!--UPDATE PRICE-->
             </a>
