@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{#maybe hokus mokus - home?#}
 
 {% set page_head_title = 'Homepage' %}
 
@@ -7,67 +8,72 @@
 {% endblock %}
 
 {% block page_body_main_content %}
+
 <body>
-    <header>
-        <h1>Wealys' Wizard Wheezes Shop</h1>
-            <!-- The login statement, need to connect to the name after login -->
-            <br/>
-            <!--The Navigation Bar at the top of the page-->
-    </header>
-    <br/>
+
+{# gil you will see that I write alot no space I didnt change cause you work on the css and I didnt want to break something #}
+
     <main>
+        {#    why you use only here in section and not div?    #}
         <section class="contain-img">
-            <img style="width:100%; height:350px" src="/static/img/img-home-page/magic2.jpg" alt="Wizard's Image" class="center-img-home-page">
+            <img src="/static/img/img-home-page/magic2.jpg" alt="Wizard's Image" class="center-img-home-page">
+            {# why div and not h1? and we need to decide on name in line 25 you with diffrenet name I really dont care which name just lets decide toghder and I will fix the abour (it can be both of them...  #}
+            <div class="top-left">Weaslys' Wizard Wheezes Shop</div>
         </section>
         <br/>
-
-    <div class="container">
-                <h2>Hokus Mokus <b>Products</b></h2>
-                <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="0">
+        <div class="container">
+            <h2>Hokus Mokus <b>Products</b></h2>
+    {#    only - in class name no space     #}
+            <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="0">
                 <!-- Wrapper for carousel items -->
                 <div class="carousel-inner">
                     <div class="item carousel-item active">
+                        {#          no space and col-sm-3 is really werid name              #}
+                        {#        I gave price in £ like part 3 and I will have pages to the 2 products in part 3 and
+                        the why something with ear have now new name but I dont have tag of discoynt also in the tables we dont have old an new prices cols we can add this but lets talk about that first  #}
                             <div class="col-sm-3">
                                     <div class="img-box">
-                                        <img src="/static/img/products/product1.jpg" class="img-responsive img-fluid" alt="">
+                                        <img src="/static/img/products/product1.jpg" class="img-responsive img-fluid" alt="product1">
                                     </div>
                                         <h4>Feaver Fudge</h4>
                                         <p class="item-price"><strike>$400.00</strike> <span>$369.00</span></p>
                             </div>
                             <div class="col-sm-3">
                                     <div class="img-box">
-                                        <img src="/static/img/products/product2.jpg" class="img-responsive img-fluid" alt="">
+                                        <img src="/static/img/products/product2.jpg" class="img-responsive img-fluid" alt="product2">
                                     </div>
-                                        <h4>Something With Ear</h4>
-                                        <p class="item-price"><strike>$25.00</strike> <span>$23.99</span></p>
+                                        <h4>Extendeable Ear</h4>
+                                        <p class="item-price"><strike>25£.00</strike> <span>15£.00</span></p>
                             </div>
                             <div class="col-sm-3">
                                     <div class="img-box">
-                                        <img src="/static/img/products/product3.jpg" class="img-responsive img-fluid" alt="">
+                                        <img src="/static/img/products/product3.jpg" class="img-responsive img-fluid" alt="product3">
                                     </div>
                                         <h4>Sticky Trainers</h4>
                                         <p class="item-price"><strike>$899.00</strike> <span>$649.00</span></p>
                             </div>
                             <div class="col-sm-3">
                                     <div class="img-box">
-                                        <img src="/static/img/products/product4.jpg" class="img-responsive img-fluid" alt="">
+                                        <img src="/static/img/products/product4.jpg" class="img-responsive img-fluid" alt="product4">
                                     </div>
                                         <h4>Smelly Candle</h4>
                                         <p class="item-price"><strike>$315.00</strike> <span>$250.00</span></p>
                             </div>
                     </div>
+                    {#       no space in class name             #}
                     <div class="item carousel-item">
                             <div class="col-sm-3">
                                     <div class="img-box">
-                                        <img src="/static/img/products/product5.jpg" class="img-responsive img-fluid" alt="">
+                                        <img src="/static/img/products/product5.jpg" class="img-responsive img-fluid" alt="product5">
                                     </div>
                                         <h4>Something</h4>
                                         <p class="item-price"><strike>$289.00</strike> <span>$269.00</span></p>
                             </div>
                             <div class="col-sm-3">
                                     <div class="img-box">
-                                        <img src="/static/img/products/product6.jpg" class="img-responsive img-fluid" alt="">
+                                        <img src="/static/img/products/product6.jpg" class="img-responsive img-fluid" alt="product6">
                                     </div>
+                                {#             we dont have to put so many products JJJJJ             #}
                                         <h4>Wow Another Something</h4>
                                         <p class="item-price"><strike>$1099.00</strike> <span>$869.00</span></p>
                             </div>
@@ -75,14 +81,17 @@
                 </div>
                 <!-- Carousel controls -->
                 <a class="carousel-control left carousel-control-prev" href="#myCarousel" data-slide="prev">
+                        {#         fa fa? and in english? and no space blabla..         #}
                     <i class="fa fa-angle-left"></i>
                 </a>
+                        {#      need to change space to - and fa fa? WTF?          #}
                 <a class="carousel-control right carousel-control-next" href="#myCarousel" data-slide="next">
                     <i class="fa fa-angle-right"></i>
                 </a>
             </div>
     </div>
     </main>
+
 </body>
 {% endblock %}
 

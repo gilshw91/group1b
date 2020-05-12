@@ -1,7 +1,30 @@
-.main-menu ul {
-    padding: 0;
+.main-menu .nav-bar {
+    padding: 10px;
+    display: flex;
+    margin: auto;
+    width: 100%;
 }
 
-.main-menu > ul > li {
-    display: inline-block;
+.main-menu .nav-bar {
+  float: left;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+ .nav-bar-link {
+  display: inline-block;
+  color: #747474;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.nav-bar .nav-bar-link:hover:not(.active) {
+  background-color: #FF652F;
+}
+
+.active2 {
+  background-color: #272727;
 }
