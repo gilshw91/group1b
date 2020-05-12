@@ -1,5 +1,7 @@
 <link rel="stylesheet" href="{{ url_for('main_menu.static', filename='css/main-menu.css') }}"/>
 
-<li><a href="/">Home page</a></li>
-<li><a href="{{ url_for('about.index') }}">About</a></li>
-<li><a href="{{ url_for('product.index') }}">Product check</a> </li>
+<ul>
+    <li><a class="active" href="/">Home page</a></li>
+    <li><a href="{{ url_for('about.index') }}">About</a></li>
+    <li><a href="{{ url_for('product.index') }}">Product check</a> </li>
+</ul>

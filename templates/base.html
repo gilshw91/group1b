@@ -50,9 +50,8 @@ Base page blocks:
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
             <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-
-            {% block page_head_meta_extra %}{% endblock %}
-        {% endblock %}
+        {% block page_head_meta_extra %}{% endblock %}
+    {% endblock %}
 
         {# Base #}
         <base href="{{ url_for('static', filename="group1")}}"/>
