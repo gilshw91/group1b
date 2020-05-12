@@ -61,7 +61,6 @@ Base page blocks:
         {# CSS #}
         <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}"/>
 
-
         {% block page_head_css %}{% endblock %}
     {% endblock %}
     </head>
@@ -74,10 +73,11 @@ Base page blocks:
                     {% block page_body_header_content %}
 <!--                        <img src="/img/logo/logo.png" alt="Hokus Mokus Logo" height="42" width="42">-->
                     <div class="logo-header">
-                        <img src="/static/img/logo/logo.png", alt="Hokus Mokus Logo"/>
+                        <img class="logo-header" src="/static/img/logo/logo.png" alt="Hokus Mokus Logo"/>
                     </div>
                         <div class="sign-in-right">
-                            <p>Hello Guest, <a href="">Sign In</a></p>
+                        <!--Change "Geust" if login to the user's name, and from sing in/login to logout-->
+                            <p>Hello Guest, <a href="/pages/sign_in_registration/templates/sign_in_registration.html">Sign In/Login</a></p>
                         </div>
                         {# Main Menu #}
                         {% block page_body_header_content__main_menu %}

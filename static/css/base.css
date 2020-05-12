@@ -5,25 +5,23 @@
     display: inline;
 	color: #747474;
 	font-size: 20px;
-	font-weight: 300;
 	text-align: right;
-	margin: 30px 0 80px;
-}
-.logo-header {
-    height: 30px;
-    width: 30px;
-    position: fixed;
-    top: -20px;
-    display: inline-block;
-}
-.footer-info{
     padding: 8px;
 }
-.page-header {
-    position: sticky;
-    top: 0;
-    width: 100%;
+.logo-header {
+    display: inline;
+    height: 90px;
+    width: 90px;
+    float: left;
+    top: 0px;
+    border-radius: 10%;
 }
+
+body {
+    background-color: #272727;
+    cursor: url('/static/img/mouse-pointer/wand.png'), default !important;
+}
+
 .links-footer{
     float: left;
     display: inline-block;
@@ -37,8 +35,4 @@
 }
 .middle{
     text-align: center;
-}
-body {
-    background-color: #272727;
-    cursor: url('/static/img/mouse-pointer/wand.png'), auto;
 }
