@@ -1,0 +1,37 @@
+.main-product {
+  width: 80%;
+  height: 200px;
+  margin: auto;
+  padding: 10px;
+}
+
+.main-product-details {
+  width: 25%;
+  height: 200px;
+  float: left;
+}
+
+.main-product-image {
+  margin-left: 15%;
+  height: 200px;
+}
+
+.main-reviews{
+    width: 80%;
+    height: 200px;
+    margin: auto;
+    padding: 10px;
+}
+
+.show-reviews-details{
+    width: 15%;
+    height: 200px;
+    float: left;
+
+}
+
+.show-reviews-content{
+    margin-left: 15%;
+    height: 200px;
+
+}
