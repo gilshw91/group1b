@@ -1,6 +1,5 @@
 from flask import Flask
 
-
 ###### App setup
 app = Flask(__name__)
 app.config.from_pyfile('settings.py')
@@ -15,8 +14,8 @@ from pages.about.about import about
 app.register_blueprint(about)
 
 ## Categories
-from pages.Categories.Categories import Categories
-app.register_blueprint(Categories)
+from pages.categories.categories import categories
+app.register_blueprint(categories)
 
 ## sign_in_registration
 from pages.sign_in_registration.sign_in_registration import sign_in_registration

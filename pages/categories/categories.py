@@ -5,6 +5,6 @@ categories = Blueprint('categories', __name__, static_folder='static', static_ur
 
 
 # Routes
-@about.route('/categories')
+@categories.route('/categories')
 def index():
     return render_template('categories.html')
