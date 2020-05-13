@@ -1,49 +1,47 @@
-<!--Hi Jonathan! I dont think you need all the declaration and head stuff because everything is in the base.html -->
-<!--and look at the "about.html" page and add the important lines like:
+<!--DONE Hi Jonathan! I dont think you need all the declaration and head stuff because everything is in the base.html -->
+<!--DONE and look at the "about.html" page and add the important lines like:
 {% extends 'base.html' %}
 and more... -->
 
-<!DOCTYPE html>
-<html lang="{{ page_lang|default("en", true) }}">
-<head>
-    <title>Hokus Mokus | Catalogue</title>
-    <!--Meta info-->
-    <meta charset="UTF-8"/>
-    <meta name="description" content="Customer feedback"/>
-    <link rel="icon" href="url"/> <!--ADD URL-->
+{% extends 'base.html' %}
 
-    <base href=""/> <!--ADD URL-->
-</head>
+{% set page_head_title = 'About' %}
+
+{% block page_head_css %}
+    <link rel="stylesheet" href="../static/css/customer_feedback.css">
+{% endblock %}
+
+{% block page_body_main_content %}
+
+
  <body> 
-     <!--if you have 2 words than separate them with "-"  -->
-    <div class="topblock"> <!--Title and sub-title-->
+     <!--DONE if you have 2 words than separate them with "-"  -->
+    <div class="top_block"> <!--Title and sub-title-->
         <!--maybe add to  every <h> tag a class name: <h1 class="heading-1" if its h2 so "heading-2" and so on.. :D  -->
         <h3>Hello, fellow wizard!<br>Please provide your feedback below:</h3>
     </div>
      <!--Rotem wrote the POST with capslock.. I dont know how it should be.. ask her :P  -->
      <!--in id im not sure if u need to separate with _ or with - ... -->
     <form method="post" id="feedback_form" action="route">
-        <!--maybe if you have tag that wrap another tags you should insert them a little inside right (visually) -->
-        <fieldset>
-            <legend>Feedback form</legend>
-        <label for="fname">First name:</label> <!--Info-->
-        <input type="text" id="fname" name="fname"><br>
-        <label for="lname">Last name:</label>
-        <input type="text" id="lname" name="lname"><br>
-        <label for="email">Email address:</label>
-        <input type="email" class="form-control" id="email" required><br><br><!--maybe add some * or something that the user will know thats require -->
+        <!--DONE maybe if you have tag that wrap another tags you should insert them a little inside right (visually) -->
+            <label for="fname">First name</label> <!--Info-->
+            <input type="text" id="fname" name="fname"><br>
+            <label for="lname">Last name</label>
+            <input type="text" id="lname" name="lname"><br>
+            <label for="email">Email address *</label>
+            <input type="email" class="form-control" id="email" required><br><!--DONE maybe add some * or something that the user will know thats require -->
 
-        <label for="subject">Message subject:</label> <!--Message-->
-        <select id="subject" name="subject">
-            <option value="product">Product</option>
-            <option value="shipment">Shipment</option>
-            <option value="website">website</option>
-            <option value="other">Other</option>
-        </select><br>
-        <textarea name="message" rows="10" cols="30">Please type your message here</textarea><br>
+            <label for="subject">Message subject</label> <!--Message-->
+            <select id="subject" name="subject">
+                <option value="product">Product</option>
+                <option value="shipment">Shipment</option>
+                <option value="website">website</option>
+                <option value="other">Other</option>
+            </select><br>
+            <textarea name="message" rows="10" cols="30">Please type your message here</textarea><br>
             <!--I think that every input tag needs to get a "name" attribute -->
-        <input type="submit" value="Submit by Owl Post">
-        </fieldset>
+            <input type="submit" value="Submit by Owl Post"><br>
+            * Required Field
     </form>
 
 </body>
