@@ -7,117 +7,106 @@
 {% endblock %}
 
 {% block page_body_main_content %}
-<!-- Hi Rotem! I don't think you nned to put Something exept the <body> - look at the "base.html", you have everything there-->
+
 <!-- Try to connect your page: I think u need to add stuff in "app.py"-->
+<!--done! For myself: I need to try and run it after fixing pycharm-->
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-   <meta charset="UTF-8">
-    <!-- the title of the tab -->
-<title>Hokus Mokus | Product Categories</title>
-    <!-- Adding icon to the tab -->
-
-    <link rel="icon" href="https://scontent.ftlv5-1.fna.fbcdn.net/v/t1.0-9/95345092_101033021608807_8811768939873828864_n.jpg?_nc_cat=107&_nc_sid=09cbfe&_nc_ohc=jYfTuyYuPmoAX8DEYFR&_nc_ht=scontent.ftlv5-1.fna&oh=bb6bf59f57a27f71b49f16ce2539a830&oe=5ED4DB43"/>
-</head>
 <body>
     <main>
+        <!--Notice for myself- remember to add padding in the form and to delete all of the <br> -->
         <aside class="sign_in_block"><!--The left side of the screen-->
-            <!--maybe change the "section"s into "div"s ? to be consistent? (Im just saying what Hadar told me LOL) -->
-            <section>
-                <!--Hadar and I have changed the names of the classes to "heading-1" if its h1 or "heading-2" if h2 and so on.. -->
-                <h1>Already Registered?</h1>
-            </section>
-            <section>
-                <!--the POST should be in Capslock? -->
+            <div>
+                <h1 class="heading-1">Already Registered?</h1>
+            </div>
+            <div>
+                <!--the POST should be in Capslock? --><!-- as you can see in Barak's slides yes -->
                 <form method="POST" action="Route" enctype="application/x-www-form-urlencoded" class="sign_in_form">
-                    <!--its on purpose that the classes are very similar? line 30 and line 32 -->
-                    <div class="form-sing-in">
+                    <div class="sign_in_form">
                         <label for="email" ></label>
-                        <input type="email" placeholder="Email address" class="form-control" id="email"  required>*
-                        <!--Cool! in the CSS part we need to color this in red or something -->
+                        <input type="email" name="email" placeholder="Email address" id="email"  required>*
                     </div>
                     <br>
-                    <div class="form-sing-in">
+                    <div class="sign_in_form">
                         <label for="pwd"></label>
-                        <input type="password" placeholder="Password" class="form-control" id="pwd" required>*
+                        <input type="password" name="password" placeholder="Password" id="pwd" required>*
                     </div>
                     <br>
                     <div class="checkbox">
-                        <!--you put space before the "Remember" -->
-                        <label><input type="checkbox"> Remember me</label>
+                        <label><input type="checkbox" name="checkbox">Remember me</label>
                     </div>
                     <br>
                 <button type="submit" class="btn-default">Submit</button>
                 </form>
-        </aside> <!--it put a red underline under this "</aside> somewhat -->
-        <aside class="registration_block"> <!--The right side on the screen-->
-            <section><!--Section\div? -->
-                <h1>New to Hokus Mokus?</h1><!--class name - heading heading-1 -->
-            </section>
-            <section>
+            </div>
+        </aside>
+        <aside class="registration_block"> <!--The right side of the screen-->
+            <div>
+                <h1 class="heading-1">New to Hokus Mokus?</h1>
+            </div>
+            <div>
                 <form method="POST" action="Route" enctype="application/x-www-form-urlencoded" class="registration_form">
                     <!--all the text in the form will be inside the fill-in space-->
                     <div class="form-registration">
                         <label for="ID"></label>
-                        <!--every input need the get also "name" attribute -->
-                        <input type="text" placeholder="ID" class="form-control" id="ID" required>*
+                        <input type="text" name="ID" placeholder="ID" id="ID" required>*
                     </div>
                     <br>
                     <div class="form-registration">
                         <label for="user_name"></label>
-                        <input type="text" placeholder="User name" class="form-control" id="user_name" required>*
+                        <input type="text" name="user_name" placeholder="User name" id="user_name" required>*
                     </div>
                     <br>
                     <div class="form-registration">
                     <label for="email_address"></label>
-                        <input type="email" placeholder="Email address" class="form-control" id="email_address" required>*
+                        <input type="email" name="email" placeholder="Email address" id="email_address" required>*
                     </div>
                     <br>
                     <div class="form-registration">
                         <label for="pwd"></label>
-                        <input type="pwd" placeholder="Password" class="form-control" id="pwd" required>*
+                        <input type="pwd" name="password" placeholder="Password" id="pwd" required>*
                     </div>
                     <br>
                     <div class="form-registration">
                         <label for="first_name"></label>
-                        <input type="text" placeholder="First name" class="form-control" id="first_name">
+                        <input type="text" name="first_name" placeholder="First name" id="first_name">
                     </div>
                     <br>
                     <div class="form-registration">
                         <label for="last_name"></label>
-                        <input type="text" placeholder="Last name" class="form-control" id="last_name">
+                        <input type="text" name="last_name" placeholder="Last name" id="last_name">
                     </div>
                     <br>
                     <div class="form-registration">
                         <label for="city"></label>
-                        <input type="text" placeholder="City" class="form-control" id="city" required>*
+                        <input type="text" name="city" placeholder="City" id="city" required>*
                     </div>
                     <br>
                     <div class="form-registration">
                         <label for="street"></label>
-                        <input type="text" placeholder="Street" class="form-control" id="street" required>*
+                        <input type="text" name="stret" placeholder="Street" id="street" required>*
                     </div>
                     <br>
                     <div class="form-registration">
                         <label for="number"></label>
-                        <input type="text" placeholder="Number" class="form-control" id="number" required>*
+                        <input type="text" name="number" placeholder="Number" id="number" required>*
                     </div>
                     <br>
                     <div class="form-registration">
                         <label for="zip_code"></label>
-                        <input type="number" placeholder="Zip code" class="form-control" id="zip_code" required>*
+                        <input type="number" name="zip_code" placeholder="Zip code" id="zip_code" required>*
                     </div>
                     <br>
                     <div class="form-registration">
                         <label for="phone_number"></label>
-                        <input type="number" placeholder="Phone number" class="form-control" id="phone_number">
+                        <input type="number" name="phone_number" placeholder="Phone number" id="phone_number">
                     </div>
                     <br>
                     <!--you wrote twice btn, on  purpose?-->
                 <button type="submit" class="btn btn-default">Submit</button>
                 </form>
-            </section>
+            </div>
         </aside>
     </main>
 </body>

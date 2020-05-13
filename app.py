@@ -14,6 +14,14 @@ app.register_blueprint(home)
 from pages.about.about import about
 app.register_blueprint(about)
 
+## Categories
+from pages.Categories.Categories import Categories
+app.register_blueprint(Categories)
+
+## sign_in_registration
+from pages.sign_in_registration.sign_in_registration import sign_in_registration
+app.register_blueprint(sign_in_registration)
+
 # Product check
 from pages.product.product import product
 app.register_blueprint(product)

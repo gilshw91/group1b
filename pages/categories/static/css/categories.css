@@ -1,19 +1,20 @@
-* {
-    box-sizing: border-box;
-    padding-bottom: 20px;
-}
+* {box-sizing: border-box;}
+
 h1{
     text-align: center;
     display: inline;
+    padding-bottom: 40px;
 }
 
 h2{
     text-align: center;
     display: inline;
+    padding-bottom: 20px;
 }
 
 aside{
-    border: 2px solid white; /*need to change the color to the backround color*/
+    border: 1px solid white; /*need to change the color to the backround color*/
     display: inline-block;
-    width: 30%;
+    width: 24%;
+    padding:30px;
 }
