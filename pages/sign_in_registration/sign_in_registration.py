@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template
 
-# about blueprint definition
+# sign_in_registration blueprint definition
 sign_in_registration = Blueprint('sign_in_registration', __name__, static_folder='static', static_url_path='/sign_in_registration', template_folder='templates')
 
 
