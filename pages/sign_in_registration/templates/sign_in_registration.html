@@ -8,11 +8,6 @@
 
 {% block page_body_main_content %}
 
-<!-- Try to connect your page: I think u need to add stuff in "app.py"-->
-<!--done! For myself: I need to try and run it after fixing pycharm-->
-
-<!DOCTYPE html>
-<html lang="en">
 <body>
     <main>
         <!--Notice for myself- remember to add padding in the form and to delete all of the <br> -->
@@ -50,7 +45,7 @@
                     <!--all the text in the form will be inside the fill-in space-->
                     <div class="form-registration">
                         <label for="ID"></label>
-                        <input type="text" name="ID" placeholder="ID" id="ID" required>*
+                        <input type="number" name="ID" placeholder="ID" id="ID" required>*
                     </div>
                     <br>
                     <div class="form-registration">
@@ -70,37 +65,37 @@
                     <br>
                     <div class="form-registration">
                         <label for="first_name"></label>
-                        <input type="text" name="first_name" placeholder="First name" id="first_name">
+                        <input type="text" name="first_name" placeholder="First name" id="first_name" maxlength="10">
                     </div>
                     <br>
                     <div class="form-registration">
                         <label for="last_name"></label>
-                        <input type="text" name="last_name" placeholder="Last name" id="last_name">
+                        <input type="text" name="last_name" placeholder="Last name" id="last_name" maxlength="20">
                     </div>
                     <br>
                     <div class="form-registration">
                         <label for="city"></label>
-                        <input type="text" name="city" placeholder="City" id="city" required>*
+                        <input type="text" name="city" placeholder="City" id="city" maxlength="50" required>*
                     </div>
                     <br>
                     <div class="form-registration">
                         <label for="street"></label>
-                        <input type="text" name="stret" placeholder="Street" id="street" required>*
+                        <input type="text" name="stret" placeholder="Street" id="street" maxlength="50" required>*
                     </div>
                     <br>
                     <div class="form-registration">
                         <label for="number"></label>
-                        <input type="text" name="number" placeholder="Number" id="number" required>*
+                        <input type="text" name="number" placeholder="Number" id="street_number" required>*
                     </div>
                     <br>
                     <div class="form-registration">
                         <label for="zip_code"></label>
-                        <input type="number" name="zip_code" placeholder="Zip code" id="zip_code" required>*
+                        <input type="number" name="zip_code" placeholder="Zip code" id="zip_code" maxlength="7" required>*
                     </div>
                     <br>
                     <div class="form-registration">
                         <label for="phone_number"></label>
-                        <input type="number" name="phone_number" placeholder="Phone number" id="phone_number">
+                        <input type="tel" name="phone_number" placeholder="Phone number" id="phone_number" maxlength="10">
                     </div>
                     <br>
                     <!--you wrote twice btn, on  purpose?-->

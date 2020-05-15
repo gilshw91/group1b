@@ -1,3 +1,8 @@
-*{
-    background: linear-gradient(to bottom, #303030 0%, #000000 50%);
+*{box-sizing: border-box}
+
+aside{
+    border: 1px solid white; /*need to change the color to the backround color*/
+    display: inline-block;
+    width: 24%;
+    padding:30px;
 }
