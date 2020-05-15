@@ -1,8 +1,37 @@
 *{box-sizing: border-box}
 
-aside{
-    border: 1px solid white; /*need to change the color to the backround color*/
-    display: inline-block;
-    width: 24%;
-    padding:30px;
+main{
+    align-content: center;
 }
+
+aside{
+    vertical-align: center;
+    display: inline-block;
+    vertical-align: baseline;
+    width: 25%;
+    padding:30px;
+    border-style: solid;
+    border-color: #ffecb3;
+    background-color: #303030;
+    opacity: 85%;
+}
+.heading-1{
+    padding-bottom: 25px;
+}
+
+.form-registration{
+    padding-bottom: 25px;
+}
+
+.sign_in_form{
+    padding-bottom: 25px;
+}
+/*
+aside.sign_in_block{
+    padding-right:30px;
+    padding-left: 30px;
+    padding-top: 500px;
+    padding-bottom: 500px;
+}
+ */
+
