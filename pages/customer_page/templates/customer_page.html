@@ -1,14 +1,13 @@
-<!DOCTYPE html>
-<html lang="{{ page_lang|default("en", true) }}">
-<head>
-    <title>Hokus Mokus | Catalogue</title>
-    <!--Meta info-->
-    <meta charset="UTF-8"/>
-    <meta name="description" content="Customer Page"/>
-    <link rel="icon" href="url"/> <!--ADD URL-->
+{% extends 'base.html' %}
 
-    <base href=""/> <!--ADD URL-->
-</head>
+{% set page_head_title = 'About' %}
+
+{% block page_head_css %}
+    <link rel="stylesheet" href="../static/css/customer_page.css">
+{% endblock %}
+
+{% block page_body_main_content %}
+
 <body>
 <div class="Topblock"> <!--Title and sub-title-->
     <h1>John Doe: Profile</h1>
@@ -33,7 +32,7 @@
         <a href="#">Credit Card Data</a><br>
     </div>
 </aside>
-<div class="Blocks" id="Order_block">
+<div class="Block" id="Order_block">
     <h2>My Orders</h2>
     <ul class="catalogue" style="list-style-type:none;"> <!--List of products-->
         <li class="product">

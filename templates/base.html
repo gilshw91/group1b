@@ -27,6 +27,7 @@ Base page blocks:
 -- page_body_js
  #}
 <!DOCTYPE html>
+<!--hey gil! I'm sure you remember to do it so I will just recall for updating the main menu navigator with all pages, after all will be ready :)-->
  <html lang="{{ page_lang|default('en', true) }}">
     <head>
     {% block page_head %}
@@ -72,7 +73,6 @@ Base page blocks:
             {% block page_body_header %}
                 <header class="page-header">
                     {% block page_body_header_content %}
-<!--                        <img src="/img/logo/logo.png" alt="Hokus Mokus Logo" height="42" width="42">-->
                     <div class="logo-header">
                         <img class="logo-header" src="/static/img/logo/logo.png" alt="Hokus Mokus Logo"/>
                     </div>
@@ -119,11 +119,11 @@ Base page blocks:
                                 <a class='fas fa-envelope' href = "mailto: hokusmokus2020@gmail.com" title="Mail"></a>
                                 <a class='fab fa-facebook' href="https://www.facebook.com/hokus.mokus.9" title="Facebook"></a>
                             </div>
-                            <br/><br/>
+                            <br/><br/><br/><!--notice that for spacing between lines you need to delete all of <br> and add the space in the CSS file as Barak showed this week :)-->
                             <div class="info">
-                                <p >Address: London something soemthing</p>
-                                <p>Phone:  +44-0345-084-0900 </p>
-                                <p class="middle">Copyright © 2020-2035 Hokus Mokus Inc. All Rights Reserved.</p>
+                                <p >Address: London something soemthing</p><!--the address might need to be the same as the facebook page-->
+                                <p>Phone:  +44-0345-084-0900 </p><!--why do have many white spaces? you can apply in the CSS file space between words (it may have a more correctly way to make it work)-->
+                                <p class="middle">Copyright © 2020-2035 Hokus Mokus Inc. All Rights Reserved.</p><!--I'm wondering if the class should be middle_info-->
                             </div>
                         </div>
                   {% endblock %}

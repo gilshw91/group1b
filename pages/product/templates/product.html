@@ -12,25 +12,26 @@
 
 {% block page_body_main_content %}
 <div class="main-product">
-    <div class="main-product-details">
+    <div class="main-product-details"><!--why aren't you using aside here instead of div and then aside?-->
         <aside>
         <h1 class = heading-1>Extendeable Ear</h1>
         <p>They are long, flesh-coloured pieces of string which one can insert in one's ear, then shove the other end under (for example) a door, and one will hear the conversation or other noise as clear as if it was mere feet away, unless, that is, the door has been Imperturbed (with Imperturbable Charm)</p>
             <p>Price: 15£</p>
-            </aside>
+        </aside>
     </div>
-    <p></p>
+    <p></p><!-- I'm not sure why it's empty, if you needed a line space you can use CSS padding-->
     <div class="main-product-image">
         <aside>
         <img src="img/extendable_ear.jpg">
-            </aside>
-    </div>
+            </aside><!--Unnecessary indentation?-->
+    </div><!--what about the add product to the cart? we need to ask bar about rather we need to Implement it or not-->
 </div>
     <div class="main-reviews">
     <h2 class="heading-2">Rating & Reviews</h2>
     <div class="add-review">
         <button type="button" class="write-review-button" onclick="showReviewForm()">Write a review</button>
         <form id="review-form" action="" style="display: none">
+        <!--input must have type attribute-->
             <label for="username">User Name:</label>
         <input id="username" placeholder="User Name" name="review" required>
             <p></p>
@@ -40,14 +41,14 @@
             <input type="submit" value="Post review">
         </form>
     </div>
-    <div class="show-reviews">
+    <div class="show-reviews"><!-- I'm wondering if we should add title here to separate the button and the info of reviews.. like 'Previous reviews' only an option:)-->
         <aside class="show-reviews-details">
             <p>user123</p>
-            <p></p>
+            <p></p><!--here also, remember to delete it and to add spacing in the CSS-->
             <p>08.05.19 15:13</p>
         </aside>
         <aside class="show-reviews-content">
-            <br/>
+            <br/><!--here also, remember to delete it and to add spacing in the CSS-->
             <p>Best product EVER!</p>
         </aside>
     </div>
