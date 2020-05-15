@@ -4,7 +4,7 @@
 .sign-in-right {
     position: relative;
     display: inline;
-	color: #747474;
+	color: #ffecb3;
 	font-size: 20px;
 	text-align: right;
     margin-left: -10px;
@@ -20,10 +20,14 @@
 
 
 body {
+    background-image: url("/static/img/background/background-book-darker.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
     background-color: #272727;
     cursor: url('/static/img/mouse-pointer/wand.png'), auto;
     font-size: 20px;
-    color: #747474;
+    color: #ffecb3;
 }
 
 .links-footer{
@@ -40,7 +44,7 @@ body {
 }
 .info {
     display: block;
-    color: #747474;
+    color: #ffecb3;
     font-size: 20px;
 }
 .middle{
