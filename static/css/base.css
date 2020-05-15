@@ -29,6 +29,7 @@ body {
     cursor: url('/static/img/mouse-pointer/wand.png'), auto;
     font-size: 20px;
     color: #ffecb3;
+    text-shadow: 2px 2px #272727;
 }
 
 .links-footer{
