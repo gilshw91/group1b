@@ -5,10 +5,10 @@
 {% block page_head_css %}
     <link rel="stylesheet" href="{{ url_for('about.static', filename='css/about.css') }}"/>
 {% endblock %}
-    <!--Is there no <head> section? maybe just a title so that the browser tab has content-->
 {% block page_body_main_content %}
-<section> <!--maybe use class or id so that styling will be easier-->
-<h1>About us</h1> <!--The <h1> and <h2> texts look the same size on the web page. I think it's because they are in <section> and not <div>-->
+{#  Gil I think to delete the 2 divs  #}
+<div>
+<h1 class="heading-1">About us</h1>
     <p>Hokus Mokus, also known as Weasleys' Wizard Wheezes, was a joke shop located at Number 93 Diagon Alley
         founded by Fred and George Weasley.<br/>
 The shop contained practical joke objects. This establishment started out as an 'owl-post service' led by the twins
@@ -16,19 +16,20 @@ The shop contained practical joke objects. This establishment started out as an 
 The shop was the Weasley twins' dream, they got the seed money for the shop from Harry Potter</p>
 <p>Fred participated in the Battle of Hogwarts (1998), defending the castle's passageways with his twin.
     While fighting he was killed in an explosion.</p>
-<p>Today George and his younger brother Ron manged together the company and countinue to bring laugh and joy to young wizards and muggle.</p> <!--Just a few typos: manage, continue, muggles-->
-    </section>
-<section> <!--maybe use class or id so that styling will be easier-->
-<h2>We are here for you</h2>
-    <p>We are here for any request, idea, complain or even just to share a good joke.<br/>You can find us on:</p> <!--Just a typo: complainT-->
+<p>Today George and his younger brother Ron manged together the company and continue to bring laugh and joy to young wizards and muggle.</p> <!--Just a few typos: manage, continue, muggles-->
+    </div>
+<div>
+<h2 class="heading-2">We are here for you</h2>
+    <p>We are here for any request, idea, complaint or even just to share a good joke.<br/>You can find us on:</p>
     <ul>
-        <li>Contact us page</li>
-        <li>Phone: +44-0345-084-0900</li> <!--You can use a call link (href="call: +44-0345...")-->
+            {#    link will works after customer_feedback.py will be exsite    #}
+        <li><a href = "{{ url_for('categories.index') }}">Contact us page</a></li>
+        <li><a href = "tel:+44-0345-084-0900">+44-0345-084-0900</a></li>
         <li><a href = "mailto: hokusmokus2020@gmail.com">Email</a></li>
         <li><a href="https://www.facebook.com/hokus.mokus.9">Facebook</a></li>
         <li>Your owl will always find us</li>
     </ul>
-    </section>
+    </div>
 {% endblock %}
 
 {% block page_body_footer %}{% endblock %}
