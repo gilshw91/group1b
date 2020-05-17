@@ -74,14 +74,14 @@ Base page blocks:
                 <header class="page-header">
                     {% block page_body_header_content %}
                     <div class="logo-header">
-                        <a href="/pages/home/templates/home.html"> <!--Fix the url!-->
+                        <a href = "{{ url_for('home.index') }}"></a> <!--Fix the url!-->
                             <img class="logo-header" border="0" alt="Hokus Mokus Logo" src="/static/img/logo/logo.png" >
                         </a>
 {#                        <img class="logo-header" src="/static/img/logo/logo.png" alt="Hokus Mokus Logo"/>#}
                     </div>
                         <div class="sign-in-right">
                         <!--Change "Geust" if login to the user's name, and from sing in/login to logout-->
-                            <p>Hello Guest, <a href="/pages/sign_in_registration/templates/sign_in_registration.html">Sign In/Login</a></p>
+                            <p>Hello Guest,<a href = "{{ url_for('sign_in_registration.index') }}"> Sign In/Login</a></p>
                         </div>
                         {# Main Menu #}
                         {% block page_body_header_content__main_menu %}
@@ -115,7 +115,7 @@ Base page blocks:
                         <div id="footer-data" class="footer-info">
                             <div class="links-footer">
                                 <hr/>
-                                <a class='material-icons' href="/pages/sign_in_registration/templates/sign_in_registration.html" title="Login">&#xe7fd;</a>
+                                <a class='material-icons' href = "{{ url_for('sign_in_registration.index') }}" title="Login">&#xe7fd;</a>
                                 <!--put the correct pages links-->
                                 <a class='fas fa-envelope' href="/pages/customer_feedback/templates/customer_feedback.html" title="Contact Us"></a>
                                 <a class="fas fa-phone-square-alt" href="tel:+4403450840900" title="Phone"></a>
