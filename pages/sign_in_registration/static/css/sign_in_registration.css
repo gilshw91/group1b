@@ -1,37 +1,42 @@
 *{box-sizing: border-box}
 
-main{
-    align-content: center;
+.sign_in_block{
+    position:relative;
+    bottom: 270px;
+    left: 100px;
+}
+
+.registration_block {
+    position:relative;
+    left : 100px;
+}
+
+.container{
+    vertical-align: center;
+    display: block;
+    padding: 100px;
 }
 
 aside{
     vertical-align: center;
     display: inline-block;
-    vertical-align: baseline;
-    width: 25%;
-    padding:30px;
+    width: 40%;
+    padding:45px;
     border-style: solid;
     border-color: #ffecb3;
-    background-color: #303030;
-    opacity: 85%;
+    background: rgba(40,40,40,0.85);
+    left: 1000px;
 }
+
 .heading-1{
-    padding-bottom: 25px;
+    padding-bottom: 35px;
 }
 
 .form-registration{
-    padding-bottom: 25px;
+    padding-bottom: 35px;
 }
 
 .sign_in_form{
-    padding-bottom: 25px;
+    padding-bottom: 35px;
+    bottom: 30000px;
 }
-/*
-aside.sign_in_block{
-    padding-right:30px;
-    padding-left: 30px;
-    padding-top: 500px;
-    padding-bottom: 500px;
-}
- */
-
