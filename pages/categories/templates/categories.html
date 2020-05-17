@@ -8,34 +8,34 @@
 
 {% block page_body_main_content %}
 
-<!DOCTYPE html>
+<!DOCTYPE html> <!--Isnt this supposed to be in the base?-->
 <html lang="en">
 <head>
-    <base href="pages/categories/static/img" target="_blank"> <--!To check the URL-->
+    <base href="pages/categories/static/img" target="_blank"> <--!To check the URL--> <!--The base points to images library, but the src of the images is from the html library-->
 </head>
 <body>
     <main>
         <section>
             <h1><b>Product's Categories</b><br/></h1>
         </section>
-        <br/>
+        <br/> <!--Dont think this is good place for a <br/>. It's the first line of the tag-->
         <!-- Wrapper for all categories -->
         <section class="cg-main">
         <!-- All asides are next to each other -->
-            <aside class="col-1">
-                <div>
+            <aside class="col-1"> <!--If you want the categories next to each other, why are you using the aside tag?-->
+                <div> <!--Maybe this should have a class value like "category_name"-->
                     <h2>Joke products<br/></h2>
                 </div>
                 <div>
-                    <img border="0" alt="Joke_products" src="../static/img/cat_1.jpg" width="100" height="100" id="category1">
-                </div>
+                    <img border="0" alt="Joke_products" src="../static/img/cat_1.jpg" width="100" height="100" id="category1"> <!--The scr url is not compatible with the base-->
+                </div> <!--Im not sure the styling (width, height) should be in the html document (Im facing the same problem in catalogue page)-->
             </aside>
             <aside class="col-2">
                 <div>
                     <h2>Explosive Enterprises<br/></h2>
                 </div>
                 <div>
-                    <img border="0" alt="Explosive Enterprises" src="../static/img/cat_2.jpg" width="100" height="100" id="category2">
+                    <img border="0" alt="Explosive Enterprises" src="../static/img/cat_2.jpg" width="100" height="100" id="category2"> <!--The scr url is not compatible with the base-->
                 </div>
             </aside>
             <aside class="col-3">
@@ -43,7 +43,7 @@
                     <h2>Muggle Magic<br/></h2>
                 </div>
                 <div>
-                    <img border="0" alt="Muggle Magic" src="../static/img/cat_3.jpg" width="100" height="100" id="category3">
+                    <img border="0" alt="Muggle Magic" src="../static/img/cat_3.jpg" width="100" height="100" id="category3"> <!--The scr url is not compatible with the base-->
                 </div>
             </aside>
             <aside class="col-4">
@@ -51,7 +51,7 @@
                     <h2>Witch Sweets<br/></h2>
                 </div>
                 <div>
-                    <img border="0" alt="Witch Sweets" src="../static/img/cat_4.jpg" width="100" height="100" id="category4">
+                    <img border="0" alt="Witch Sweets" src="../static/img/cat_4.jpg" width="100" height="100" id="category4"> <!--The scr url is not compatible with the base-->
                 <!-- cg-container end -->
                 </div>
             </aside>
