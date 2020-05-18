@@ -64,10 +64,12 @@ body {
 .middle{
     text-align: center;
 }
-
-
-
 .main-menu {
     width: 100%;
     overflow: hidden;
+
+/*buttons by hadar*/
+button, input[type=submit]{
+    background-color: purple;
+    color: #ffecb3;
 }

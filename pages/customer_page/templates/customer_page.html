@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{#About is not the page title#}
 {% set page_head_title = 'About' %}
 
 {% block page_head_css %}
@@ -9,14 +9,20 @@
 {% block page_body_main_content %}
 
 <body>
+{# class name like Barak... small letters only and - between words#}
+{# same note about all the id #}
+{# I'm not fixing this because the css I dont want to break something#}
 <div class="Topblock"> <!--Title and sub-title-->
+{#    you need to add class to h* we have same design to all of them#}
     <h1>John Doe: Profile</h1>
     <h3>Hi, John</h3>
 </div>
 <hr>
-
+{# why side menue if all the contect in the page and the user just need to roll? and the links dosent work? - we can talk about it..#}
+{#future note fot the css - the colors need to be like the base.css this file decide the website colors #}
 <aside class="Sidenav" id="Sidenav">
     <div class="sub_sidenav" id="profile_pic">
+                {#   style ... ? O_O     #}
         <img src="../images/Profile.png" alt="Default Photo" style="width:100px">
         <form method="post" id="profile_form" action="route" enctype="multipart/form-data">
             <label for="profile">Change profile picture:</label> <!--Info-->
