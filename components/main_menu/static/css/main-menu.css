@@ -4,6 +4,11 @@
     margin: auto;
     width: 100%;
     font-size: 20px;
+    top: 18px;
+    position: relative;
+    background-color: #272727;
+    right: 22px;
+
 }
 .nav-bar-link {
     display: inline-block;
