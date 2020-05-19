@@ -1,9 +1,5 @@
 * {box-sizing: border-box;}
 
-body {
-  background-color: white;
-}
-
 input, select, textarea {
   width: 100%;
   padding: 10px 20px;
@@ -33,7 +29,7 @@ form {
   padding: 20px;
 }
 
-.top_block{
+.top-block{
     text-align: center;
     display: inline;
     padding-bottom: 20px;

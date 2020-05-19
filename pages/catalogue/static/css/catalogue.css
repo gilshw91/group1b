@@ -1,0 +1,17 @@
+* {box-sizing: border-box;}
+
+.top-block{
+    text-align: center;
+    display: inline;
+    padding-bottom: 40px;
+}
+
+h2{
+    text-align: center;
+    display: inline;
+    padding-bottom: 20px;
+}
+
+img{
+    width: 150px;
+}

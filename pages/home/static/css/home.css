@@ -16,8 +16,6 @@
 	position: relative;
 	margin: 30px 0 80px;
 }
-
-
 .heading-4 {
 	color: #ffecb3;
 	font-size: 12px;
@@ -131,12 +129,4 @@
 }
 .carousel .carousel-indicators {
    bottom: -50px;
-}
-
-.top-left{
-    color: #ffecb3;
-    top: -80px;
-}
-.heading-2 b {
-   color: #FF652F;
 }

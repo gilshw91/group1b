@@ -2,21 +2,30 @@
 
 h1{
     text-align: center;
-    display: inline;
-    padding-bottom: 40px;
+    display: block;
+    padding: 5%;
 }
 
 h2{
     text-align: center;
-    display: inline;
-    padding-bottom: 20px;
+    display: block;
+    padding-bottom: 5%;
 }
 
-
+img{
+    width: 80%;
+    height: 80%;
+}
 
 aside{
-    border: 1px solid white; /*need to change the color to the backround color*/
+    border: 1px solid;
+    text-align: center;
     display: inline-block;
-    width: 24%;
-    padding:30px;
+    width: 24.5%;
+    height: 40%;
+    padding:1.2%;
+    padding-bottom: 2.5%;
+    background: rgba(40,40,40,0.85);
+    border-color: #ffecb3;
+    justify-content: center;
 }
