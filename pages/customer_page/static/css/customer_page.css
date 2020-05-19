@@ -1,21 +1,5 @@
 * {box-sizing: border-box;}
 
-body {
-  background-color: white;
-}
-
-.sidenav {
-  height: 100%; /* Full-height: remove this if you want "auto" height */
-  width: 160px; /* Set the width of the sidebar */
-  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
-  z-index: 1; /* Stay on top */
-  top: 0; /* Stay at the top */
-  left: 0;
-  background-color: #111; /* Black */
-  overflow-x: hidden; /* Disable horizontal scroll */
-  padding-top: 20px;
-}
-
 input, select, textarea {
   width: 98%;
   padding: 10px 20px;
@@ -37,10 +21,8 @@ input[type=submit] {
   cursor: pointer;
 }
 
-.Block {
-  margin-left: 160px; /* Same as the width of the sidebar */
+.block {
   padding: 0px 10px;
-  background-color: #f2f2f2;
   padding: 20px;
 }
 
