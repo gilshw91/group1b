@@ -8,41 +8,43 @@
 
 {% endblock %}
 
-
-
+<!-- Hi! do you know why the background image of the page is smaller? not fitted to all of the page?
+this with the picture of the product which I cant see.. needs to check if its in the base.css or in your css
+the heading of Rating & Reviews are not at the correct place. it is places aside to the product's description
+-->
 {% block page_body_main_content %}
 <div class="main-product">
     <div class="main-product-details">
         <aside>
-        <h1 class = heading-1>Extendeable Ear</h1>
-        <p>They are long, flesh-coloured pieces of string which one can insert in one's ear, then shove the other end under (for example) a door, and one will hear the conversation or other noise as clear as if it was mere feet away, unless, that is, the door has been Imperturbed (with Imperturbable Charm)</p>
-            <p>Price: 15£</p>
+        <h1 class = heading-1>Extendeable Ear</h1> <!--This is the correct spelling of the product's name? -->
+        <p>They are long, flesh-coloured pieces of string which one can insert in one's ear, then shove the other end under (for example) a door, and one will hear the conversation or other noise as clear as if it was mere feet away, unless, that is, the door has been Imperturbed (with Imperturbable Charm)</p> <!--maybe insert some /n for the p. to be more easier to read -->
+            <p>Price: 15£</p> <!--maybe add 15.00 and maybe add the previous price with <del> to be as the same as at the home page -->
             <div class="add-to-cart">
-                <button>Add to Cart</button>
+                <button>Add to Cart</button><!--remind me to check if the "hover" over any button is working  -->
             </div>
         </aside>
     </div>
     </br>
     <div class="main-product-image">
         <aside>
-        <img src="img/products/extendeable_ear.jpg">
+        <img src="img/products/extendeable_ear.jpg"> <!--add an "alt attribute, and I think also "/" in the end of the tag but i'm not sure -->
 
         </aside>
     </div>
 
 </div>
     <div class="main-reviews">
-    <h2 class="heading-2">Rating & Reviews</h2>
+    <h2 class="heading-2">Rating & Reviews</h2> <!--Telling again, that's displays next to the description and not after it-->
     <div class="add-review">
-        <button type="button" class="write-review-button" onclick="showReviewForm()">Write a review</button>
-        <form id="review-form" action="" style="display: none">
+        <button type="button" class="write-review-button" onclick="showReviewForm()">Write a review</button><!--why purple? (css, i know) if u are bored and have plenty of time, u can add a pop up which confirms that the review has been sent -->
+        <form id="review-form" action="" style="display: none"> <!--remember that the action is empty if needed to be with soemthing in the future, and I think the stlye need to be written in the css -->
             <label for="username">User Name:</label>
-        <input type="text" id="username" placeholder="User Name" name="review" required>
-            <p></p>
+        <input type="text" id="username" placeholder="User Name" name="review" required><!--user name is a separated words or not? (if yes- separate in id, if not, combine in placeholder?? and maybe add "*" coz its required.-->
+            <p></p><!--Wow! cool paragraph! :P -->
             <label for="review">Review:</label>
-        <input type="text" id="review" placeholder="Review" name="review" required>
-        <p></p>
-            <input type="submit" value="Post review">
+        <input type="text" id="review" placeholder="Review" name="review" required><!--add *, color the * in your CSS or in base.css?-->
+        <p></p><!--empty p-->
+            <input type="submit" value="Post review"><!--every input needs to get a "name" attribute by Barak Ha-Melech-->
         </form>
     </div>
     <div class="show-reviews">
@@ -51,10 +53,10 @@
             <p class="review-info">08.05.19 15:13</p>
         </div>
         <div class="show-reviews-content">
-            <p>Best product EVER!</p>
+            <p>Best product EVER!</p><!-- :O -->
         </div>
     </div>
-    </div>
+    </div><!--maybe do indentation in the elements- to be more visually read (Hazacha Bekitzur) -->
 {% endblock %}
 
 {% block page_body_footer %}
