@@ -1,6 +1,9 @@
 @import "variables.css";
 
 * { box-sizing: border-box; }
+/*hey gil :)*/
+/*Pin the menu to the left and consider to make the background with a bit of opacity*/
+/*can we change the color of the items in the footers and the sign in - where we have link from blue to our color?*/
 .page-header {
     position: sticky;
     top:0;
@@ -21,6 +24,7 @@
     right: 19px;
     margin-left: 10px;
 }
+/* I have tried to look at it with height: 150px; width: 150px; what do think?*/
 .logo-header {
     display: inline;
     height: 90px;
