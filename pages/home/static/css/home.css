@@ -16,6 +16,9 @@
 	position: relative;
 	margin: 30px 0 80px;
 }
+.heading-2 strong{
+    color: #FF652F;
+}
 .heading-4 {
 	color: #ffecb3;
 	font-size: 12px;
@@ -39,11 +42,15 @@
 }
 
 .top-left{
-   text-align: left;
-   color: #FF652F;
-   font-size: 30px;
+    text-align: left;
+    color: #ffecb3;
+    font-size: 30px;
     animation-name: slidein;
-   animation-duration: 10s;
+    animation-duration: 10s;
+    top: -60px;
+}
+.top-left strong{
+    color: #FF652F;
 }
 @keyframes slidein {
   from {
@@ -62,9 +69,9 @@
    padding: 0 70px;
 }
 .carousel .item {
-   min-height: 330px;
+    min-height: 330px;
     text-align: center;
-   overflow: hidden;
+    overflow: hidden;
 }
 .carousel .item .img-box {
    height: 160px;
@@ -83,13 +90,13 @@
 	border-radius: 10%;
 }
 .carousel .item h4 {
-   font-size: 18px;
-   margin: 10px 0;
+    font-size: 18px;
+    margin: 10px 0;
 }
 
 /*Arrows of the carousel*/
 .carousel .carousel-control {
-   height: 100px;
+    height: 100px;
     width: 40px;
     background: none;
     margin: auto 0;
@@ -101,7 +108,7 @@
     top: 50%;
     display: inline-block;
     margin: -16px 0 0 0;
-    z-index: 5;
+    z-index: 1;
     left: 0;
     right: 0;
     color: rgba(0, 0, 0, 0.8);
@@ -123,8 +130,6 @@
 }
 .carousel .carousel-control.left i {
    margin-left: -3px;
-}
-.carousel .carousel-control.left i {
    margin-right: -3px;
 }
 .carousel .carousel-indicators {

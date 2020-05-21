@@ -38,17 +38,18 @@ body {
     background-size: cover;
     background-position: center;
     background-color: #272727;
-    cursor: url('/static/img/mouse-pointer/wand.png'), auto;
+    cursor: url('https://img.icons8.com/cotton/64/000000/witch-broom.png'), auto;
     font-size: 20px;
     color: #ffecb3;
     text-shadow: 1px 1px #272727;
 }
-
 .links-footer{
     float: left;
-    display: inline;
+    display: block;
     font-size:36px;
     color:#FF652F;
+    width: 100%;
+
 }
 .material-icons {
     font-size: 36px;
@@ -56,13 +57,15 @@ body {
     top: 6px;
     left: 6px;
 }
-.info {
+.footer-address-phone {
     display: block;
+    position: relative;
     color: #ffecb3;
     font-size: 20px;
 }
-.middle{
+.middle-copyright{
     text-align: center;
+    position: relative;
 }
 .main-menu {
     width: 100%;
