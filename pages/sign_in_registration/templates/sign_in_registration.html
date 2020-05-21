@@ -7,18 +7,22 @@
 {% endblock %}
 
 {% block page_body_main_content %}
+{#you have main block of the body you dont need to add the body again you already starting from the main #}
 
 <body>
     <main>
         <!--Notice for myself- remember to add padding in the form and to delete all of the <br> -->
         <div class="container">
+{#     class name only with -       #}
         <aside class="sign_in_block"><!--The left side of the screen-->
             <div>
                 <h1 class="heading-1">Already Registered?</h1>
             </div>
             <div>
                 <!--the POST should be in Capslock? --><!-- as you can see in Barak's slides yes -->
+{#      i also want to say someting on the post but i just want to ask about the action and the werid enctype wtf? also class only with - no _         #}
                 <form method="POST" action="Route" enctype="application/x-www-form-urlencoded" class="sign_in_form">
+{#         class bla bla -           #}
                     <div class="sign_in_form">
                         <label for="email" ></label>
                         <input type="email" name="email" placeholder="Email address" id="email"  required>*
@@ -30,6 +34,7 @@
                     <div class="checkbox">
                         <label><input type="checkbox" name="checkbox">Remember me</label>
                     </div>
+{#       you have the power to write default but not button? any way the design for all the defalut button should be in the base.css so this is future note for the css             #}
                 <button type="submit" class="btn-default">Submit</button>
                 </form>
             </div>
@@ -39,13 +44,16 @@
                 <h1 class="heading-1">New to Hokus Mokus?</h1>
             </div>
             <div>
+                {#      i also want to say someting on the post but i just want to ask about the action and the werid enctype wtf? also class only with - no _         #}
                 <form method="POST" action="Route" enctype="application/x-www-form-urlencoded" class="registration_form">
                     <!--all the text in the form will be inside the fill-in space-->
                     <div class="form-registration">
+{#                        we dont need id #}
                         <label for="ID"></label>
                         <input type="number" name="ID" placeholder="ID" id="ID" required>*
                     </div>
                     <div class="form-registration">
+{#              no _           #}
                         <label for="user_name"></label>
                         <input type="text" name="user_name" placeholder="User name" id="user_name" required>*
                     </div>
@@ -85,6 +93,8 @@
                         <label for="phone_number"></label>
                         <input type="tel" name="phone_number" placeholder="Phone number" id="phone_number" maxlength="10">
                     </div>
+{#          no _ for all the form... and fot the button same note also you can use input for both of the forms.. https://www.w3schools.com/html/html_forms.asp   they dont have button in the end       #}
+{#         if you change to input same future note about the base.css and this also exsit           #}
                 <button type="submit" class="btn-default">Submit</button>
                 </form>
             </div>
@@ -93,11 +103,13 @@
 
     </main>
 </body>
+{#    why you have html? also you dont need main and body #}
 </html>
 
 {% endblock %}
 
 {% block page_body_footer %}{% endblock %}
+{# if you dont use js you can delete this and the js folder..#}
 
 {% block page_body_js %}
     <script src="{{ url_for('sign_in_registration.static', filename='js/sign_in_registration.js') }}"></script>

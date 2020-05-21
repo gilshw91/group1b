@@ -1,34 +1,41 @@
 {% extends 'base.html' %}
-
-{% set page_head_title = 'categories' %}
+{% set page_head_title = 'Categories' %}
 
 {% block page_head_css %}
     <link rel="stylesheet" href="{{ url_for('categories.static', filename='css/categories.css') }}"/>
 {% endblock %}
-
+{#you have main block of the body you dont need to add the body and main again just start from the secton#}
 {% block page_body_main_content %}
 
 <body>
     <main>
+{#        why not div ? #}
         <section>
             <h1><b>Product's Categories</b><br/></h1>
         </section>
+{#    what is cg? maybe diffrent name?    #}
         <section class="cg-main"><!-- Wrapper for all categories -->
         <!-- All asides are next to each other -->
             <aside class="col-1"> <!--If you want the categories next to each other, why are you using the aside tag?-->
+{#      why not aside?          #}
+{#         in class name only -       #}
                 <div class="category_name">
                     <h2>Joke products</h2>
                 </div>
                 <div>
+{#                    in alt you can write regularf string.. #}
                     <img border="0" alt="Joke_products" src="img/categories/cat_1.jpg" id="category1"> <!--The scr url is not compatible with the base-->
                 </div>
             </aside>
             <aside class="col-2">
+{#        no _ only -        #}
+{#                here you have div and not section.. #}
                 <div class="category_name">
                     <h2>Spyware Products</h2>
                 </div>
                 <div>
-                    <a href="{{ url_for('product.index') }}"><img border="0" alt="Spyware_Products" src="img/categories/cat_2.jpg" id="category2"> <!--The scr url is not compatible with the base-->
+{#      just reminadr product.index should be catalogue.index            #}
+                    <a href="{{ url_for('product.index') }}"><img border="0" alt="Spyware_Products" src="img/categories/cat_2.jpg" id="category2"></a> <!--The scr url is not compatible with the base-->
                 </div>
             </aside>
             <aside class="col-3">
@@ -44,7 +51,8 @@
                     <h2>Games</h2>
                 </div>
                 <div>
-                    <a href="{{ url_for('product.index') }}"><img border="0" alt="Games" src="img/categories/cat_4.jpg" id="category4"> <!--The scr url is not compatible with the base-->
+                    {#      just reminadr product.index should be catalogue.index  but an diffrent one...           #}
+                    <a href="{{ url_for('product.index') }}"><img border="0" alt="Games" src="img/categories/cat_4.jpg" id="category4"></a> <!--The scr url is not compatible with the base-->
                 <!-- cg-container end -->
                 </div>
             </aside>
@@ -56,7 +64,7 @@
 {% endblock %}
 
 {% block page_body_footer %}{% endblock %}
-
+{# if you dont use js you can delete this and the js folder..#}
 {% block page_body_js %}
     <script src="{{ url_for('categories.static', filename='js/categories.js') }}"></script>
 {% endblock %}

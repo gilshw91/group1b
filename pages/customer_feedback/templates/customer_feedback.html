@@ -1,7 +1,7 @@
 
 
 {% extends 'base.html' %}
-
+{# this is not about page... this is Contact us page i would also change rthe files names#}
 {% set page_head_title = 'About' %}
 
 {% block page_head_css %}
@@ -10,6 +10,7 @@
 
 {% block page_body_main_content %}
 
+{#you have main block of the body you dont need to add the body again you already starting from the main #}
 
  <body> 
     <div class="top-block"> <!--Title and sub-title-->
@@ -17,7 +18,10 @@
         <h3 class="sub-text">Hello, fellow wizard!<br>Please provide your feedback below:</h3>
     </div>
      <!--Rotem wrote the POST with capslock.. I dont know how it should be.. ask her :P  -->
+{#  deciide with Rotem if it post or POST I also have form and we need same design  #}
+{#  route?  #}
     <form method="post" id="feedback-form" action="route">
+{#   you need placeholder for the email     #}
             <label for="email">Email address *</label>
             <input type="email" class="form-control" id="email" required><br><!--DONE maybe add some * or something that the user will know thats require -->
 
@@ -29,11 +33,20 @@
                 <option value="website">website</option>
                 <option value="other">Other</option>
             </select><br>
+{#    no br we treat this in the css    #}
             <textarea name="message" id="message" rows="10" cols="30" required>Please type your message here</textarea><br>
             <!--I think that every input tag needs to get a "name" attribute -->
+{#    to you she said "think" in my page she was very sure....    #}
             <input type="submit" value="Submit by Owl Post"><br>
             * Required Field
     </form>
 
 </body>
 </html>
+{#why you have html? you dont have open tag#}
+{# you need to add block for footer#}
+{#and you need the add the py files if you want this to works and thats connects to...#}
+{# you need to do second check to the base.css so you will see what i talk about#}
+{# we need to have defult design for everything even buttons and input from type subnit you cant see the design if you will not run app.py#}
+{# but you also can cancel it in your css so this is also note for the css #}
+{# the base file need to get an answer maybe for more things you can add your note to Rotem and Gil there #}
