@@ -72,6 +72,7 @@ body {
 }
 
 button, input[type=submit]{
-    background-color: purple;
+    background-color: rgb(40,40,40);
     color: #ffecb3;
+    border-color: #ffecb3;
 }

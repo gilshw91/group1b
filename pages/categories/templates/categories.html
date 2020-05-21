@@ -4,67 +4,50 @@
 {% block page_head_css %}
     <link rel="stylesheet" href="{{ url_for('categories.static', filename='css/categories.css') }}"/>
 {% endblock %}
-{#you have main block of the body you dont need to add the body and main again just start from the secton#}
 {% block page_body_main_content %}
 
-<body>
-    <main>
-{#        why not div ? #}
-        <section>
-            <h1><b>Product's Categories</b><br/></h1>
-        </section>
-{#    what is cg? maybe diffrent name?    #}
-        <section class="cg-main"><!-- Wrapper for all categories -->
-        <!-- All asides are next to each other -->
-            <aside class="col-1"> <!--If you want the categories next to each other, why are you using the aside tag?-->
-{#      why not aside?          #}
-{#         in class name only -       #}
-                <div class="category_name">
-                    <h2>Joke products</h2>
-                </div>
-                <div>
-{#                    in alt you can write regularf string.. #}
-                    <img border="0" alt="Joke_products" src="img/categories/cat_1.jpg" id="category1"> <!--The scr url is not compatible with the base-->
-                </div>
-            </aside>
-            <aside class="col-2">
-{#        no _ only -        #}
-{#                here you have div and not section.. #}
-                <div class="category_name">
-                    <h2>Spyware Products</h2>
-                </div>
-                <div>
-{#      just reminadr product.index should be catalogue.index            #}
-                    <a href="{{ url_for('product.index') }}"><img border="0" alt="Spyware_Products" src="img/categories/cat_2.jpg" id="category2"></a> <!--The scr url is not compatible with the base-->
-                </div>
-            </aside>
-            <aside class="col-3">
-                <div class="category_name">
-                    <h2>Muggle Magic</h2>
-                </div>
-                <div class="category_name">
-                    <img border="0" alt="Muggle Magic" src="img/categories/cat_3.jpg" id="category3"> <!--The scr url is not compatible with the base-->
-                </div>
-            </aside>
-            <aside class="col-4">
-                <div class="category_name">
-                    <h2>Games</h2>
-                </div>
-                <div>
-                    {#      just reminadr product.index should be catalogue.index  but an diffrent one...           #}
-                    <a href="{{ url_for('product.index') }}"><img border="0" alt="Games" src="img/categories/cat_4.jpg" id="category4"></a> <!--The scr url is not compatible with the base-->
+    <div>
+        <h1><b>Product's Categories</b></h1>
+    </div>
+    <div class="categories-main"><!-- Wrapper for all categories -->
+        <!-- All asides will be next to each other -->
+        <aside class="col-1">
+            <div class="category-name">
+                <h2>Joke products</h2>
+            </div>
+            <div>
+                <img border="0" alt="Joke products" src="img/categories/cat_1.jpg" id="category1">
+            </div>
+        </aside>
+        <aside class="col-2">
+            <div class="category-name">
+                <h2>Spyware Products</h2>
+            </div>
+            <div>
+                                <!-- remember to update the about.index into catalogue.index-->
+                <a href="{{ url_for('about.index') }}"><img border="0" alt="Spyware_Products" src="img/categories/cat_2.jpg" id="category2"></a>
+            </div>
+        </aside>
+        <aside class="col-3">
+            <div class="category-name">
+                <h2>Muggle Magic</h2>
+            </div>
+            <div class="category-name">
+                <img border="0" alt="Muggle Magic" src="img/categories/cat_3.jpg" id="category3">
+            </div>
+        </aside>
+        <aside class="col-4">
+            <div class="category-name">
+                <h2>Games</h2>
+            </div>
+            <div>
+                <!-- remember to update the about.index into catalogue.index-->
+                <a href="{{ url_for('about.index') }}"><img border="0" alt="Games" src="img/categories/cat_4.jpg" id="category4"></a>
                 <!-- cg-container end -->
-                </div>
-            </aside>
-        </section>
-    </main>
-</body>
-</html>
+            </div>
+        </aside>
+    </div>
 
 {% endblock %}
 
 {% block page_body_footer %}{% endblock %}
-{# if you dont use js you can delete this and the js folder..#}
-{% block page_body_js %}
-    <script src="{{ url_for('categories.static', filename='js/categories.js') }}"></script>
-{% endblock %}
