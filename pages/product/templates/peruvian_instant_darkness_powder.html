@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% set page_head_title = 'Peruvian Instant Darkness Powder' %}
+
+{% block page_head_css %}
+    <link rel="stylesheet" href="{{ url_for('product.static', filename='css/product.css') }}"/>
+    <script src="{{ url_for('product.static', filename='js/product.js') }}"></script>
+
+{% endblock %}
+
+<!-- Hi! do you know why the background image of the page is smaller? not fitted to all of the page?
+this with the picture of the product which I cant see.. needs to check if its in the base.css or in your css
+the heading of Rating & Reviews are not at the correct place. it is places aside to the product's description
+-->
+{% block page_body_main_content %}
+    <div class="main-product">
+        <div class="main-product-details">
+            <aside>
+                 <h1 class = heading-1>Peruvian Instant Darkness Powder</h1>
+            <p>This darkness powder creates darkness when used, allowing the user to escape.
+        As its name indicates, it was originally invented by the wizarding community in Peru, which is the place from which the
+                Weasley twins imported the powder. The darkness produced is resistant to many Light-creation spells.</p>
+                <p>Price: 35£</p>
+                <div class="add-to-cart">
+                    <button type="button">Add to Cart</button><!--remind me to check if the "hover" over any button is working  -->
+                </div>
+            </aside>
+        </div>
+        </br>
+        <div class="main-product-image">
+            <aside>
+            <img src="img/products/peruvian_instant_darkness_powder.jpg" alt="Peruvian Instant Darkness Powder"/>
+
+            </aside>
+        </div>
+
+    </div>
+    <div class="main-reviews">
+    <h2 class="heading-2">Rating & Reviews</h2>
+        <div class="add-review">
+            <button type="button" class="write-review-button" onclick="showReviewForm()">Write a review</button>
+            <form id="review-form" action="" style="display:none;">
+                <label for="user-name">User Name*: </label>
+            <input type="text" id="user-name" placeholder="User Name" name="review" required>
+
+                <label for="review">Review*: </label>
+            <input type="text" id="review" placeholder="Review" name="review" required>
+                <input type="submit" value="Post review" name="submit-review">
+            </form>
+        </div>
+        <div class="show-reviews">
+            <div class="show-reviews-details">
+                <p class="review-info">Jake#56</p>
+                <p class="review-info">19.05.20 17:34</p>
+            </div>
+            <div class="show-reviews-content">
+                <p>use all the time the powder to escape covid-19</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

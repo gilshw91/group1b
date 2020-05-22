@@ -1,7 +1,7 @@
 
 .main-product {
   width: 80%;
-  margin: auto;
+  margin-left: 100px;
   padding: 10px;
 }
 
@@ -17,6 +17,7 @@
 .main-reviews{
     width: 80%;
     margin-top: 40px;
+    margin-left: 100px;
     padding: 10px;
 }
 .add-review{
@@ -29,6 +30,7 @@
 
 }
 .review-info{
+    padding-top: 15px;
     font-style: italic;
     font-size: 18px;
 }

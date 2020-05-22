@@ -24,7 +24,6 @@ Base page blocks:
 ---- page_body_main_content
 --- page_body_footer
 ---- page_body_footer_content
--- page_body_js
  #}
 <!DOCTYPE html>
 <!--hey gil! I'm sure you remember to do it so I will just recall for updating the main menu navigator with all pages, after all will be ready :)-->
@@ -133,9 +132,6 @@ Base page blocks:
 
         {% endblock %}
 
-        {# JS #}
-        <script src="{{ url_for('static', filename='js/base.js') }}"></script>
-        {% block page_body_js %}{% endblock %}
     </body>
 </html>
 
