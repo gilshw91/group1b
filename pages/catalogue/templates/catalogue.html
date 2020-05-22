@@ -1,40 +1,42 @@
-<!--{% extends 'base.html' %}
-{% set page_head_title = 'catalogue' %}
+{% extends 'base.html' %}
+{% set page_head_title = 'Catalogue' %}
 
-{% block page_body_main_content %}-->
-{# we dont use html tags and blocks tags#}
-<!DOCTYPE html>
+{% block page_head_css %}
+    <link rel="stylesheet" href="{{ url_for('catalogue.static', filename='css/catalogue.css') }}"/>
+{% endblock %}
+
+{% block page_body_main_content %}
+<!--<!DOCTYPE html>
 <html lang="{{ page_lang|default("en", true) }}">
 <head>
     <title>Hokus Mokus | Catalogue</title>
-    <!--Meta info-->
     <meta charset="UTF-8"/>
     <meta name="description" content="Catalogue page"/>
     <meta name="keywords" content="Wizard, Magic, Spells"/>
     <link rel="icon" href="url"/> <!--ADD URL-->
-    <link rel="stylesheet" href="../static/css/catalogue.css"/>
+    <link rel="stylesheet" href="../static/css/catalogue.css"/> <!--Keep here for now, until Flask is properly installed-->
     <base href=""/> <!--ADD URL-->
 </head>
  <body> 
 
     <div class="top-block"> <!--Title and sub-title-->
-        <h1 class="page-name">Joke Products</h1>
+        <h1 class="page-name">Spyware Products</h1>
         <h3 class="sub-text">Magic is only a click away...<br/>Check out our products and let your inner wizard roam free.<br/>Expecto patronum!</h3>
     </div>
     <hr>
     <ul class="catalogue" style="list-style-type:none;"> <!--List of products-->
         <li class="product">
-            <a href="../../product/templates/product.html"> <!--The picture, description and price are all links to one page-->
-                <img src="../../../static/img/products/extendeable_ear.jpg" border="1" title="Sticky Trainers" alt="Sticky Trainers">
+            <a href="../../product/templates/extendable_ears.html"> <!--The picture, description and price are all links to one page-->
+                <img src="../../../static/img/products/extendeable_ear.jpg" border="1" title="Extendable Ear" alt="Extendable Ear">
                 <h4>Extendable Ear</h4>
-                <p>£20.00</p> <!--UPDATE PRICE-->
+                <p>£15.00</p>
             </a>
         </li>
         <li class="product">
-            <a href="url"> <!--Just to note that the second product is a placeholder and will not link-->
-                <img src="../../../static/img/products/product5.jpg" border="1" title="No Poo Bottle" alt="No Poo Bottle">
-                <h4>No Poo Bottle</h4>
-                <p>£25.00</p> <!--UPDATE PRICE-->
+            <a href="../../product/templates/peruvian_instant_darkness_powder.html"> <!--Just to note that the second product is a placeholder and will not link-->
+                <img src="../../../static/img/products/Peruvian_Instant_Darkness_Powder.jpg" border="1" title="Peruvain Instant Darkness Powder" alt="Peruvain Instant Darkness Powder">
+                <h4>Peruvian Instant Darkness Powder</h4>
+                <p>£25.00</p> <!--UPDATE PRICE WHEN PRODUCT PAGE IS FINISHED-->
             </a>
         </li> <!--More list items here-->
     </ul>
