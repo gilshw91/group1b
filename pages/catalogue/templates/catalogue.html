@@ -6,6 +6,11 @@
 {% endblock %}
 
 {% block page_body_main_content %}
+<!-- HEY :) you need to delete the doctype+head for this page, also when you have the block of the body main
+ content -as you can notice on line above you do not need to leave the body tag in the html. start from the div.
+ you have a spare html tag at the end of the page - delete it :)
+ I'm wondering if we will have time to add more product for the page to make it feel real hmmm what do you say?-->
+
 <!--<!DOCTYPE html>
 <html lang="{{ page_lang|default("en", true) }}">
 <head>
@@ -13,7 +18,7 @@
     <meta charset="UTF-8"/>
     <meta name="description" content="Catalogue page"/>
     <meta name="keywords" content="Wizard, Magic, Spells"/>
-    <link rel="icon" href="url"/> <!--ADD URL-->
+    <link rel="icon" href="url"/>--> <!--ADD URL-->
     <link rel="stylesheet" href="../static/css/catalogue.css"/> <!--Keep here for now, until Flask is properly installed-->
     <base href=""/> <!--ADD URL-->
 </head>
@@ -21,6 +26,8 @@
 
     <div class="top-block"> <!--Title and sub-title-->
         <h1 class="page-name">Spyware Products</h1>
+        <!-- where is your h2? we can not skip from h1 to h3.. if you make it like that in order to make a difference by size
+        the right way to do it is not by the numbers of h's.. you will do it in the CSS page-->
         <h3 class="sub-text">Magic is only a click away...<br/>Check out our products and let your inner wizard roam free.<br/>Expecto patronum!</h3>
     </div>
     <hr>
@@ -28,6 +35,7 @@
         <li class="product">
             <a href="../../product/templates/extendable_ears.html"> <!--The picture, description and price are all links to one page-->
                 <img src="../../../static/img/products/extendeable_ear.jpg" border="1" title="Extendable Ear" alt="Extendable Ear">
+                <!--also here you need to fit it to number of h's after the correction above -->
                 <h4>Extendable Ear</h4>
                 <p>£15.00</p>
             </a>
@@ -35,6 +43,7 @@
         <li class="product">
             <a href="../../product/templates/peruvian_instant_darkness_powder.html"> <!--Just to note that the second product is a placeholder and will not link-->
                 <img src="../../../static/img/products/Peruvian_Instant_Darkness_Powder.jpg" border="1" title="Peruvain Instant Darkness Powder" alt="Peruvain Instant Darkness Powder">
+                <!--also here you need to fit it to number of h's after the correction above -->
                 <h4>Peruvian Instant Darkness Powder</h4>
                 <p>£25.00</p> <!--UPDATE PRICE WHEN PRODUCT PAGE IS FINISHED-->
             </a>
