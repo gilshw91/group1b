@@ -5,6 +5,11 @@ product = Blueprint('product', __name__, static_folder='static', static_url_path
 
 
 # Routes
-@product.route('/product')
-def index():
-    return render_template('product.html')
+@product.route('/extendable_ears')
+def extendable_ears():
+    return render_template('extendable_ears.html')
+
+
+@product.route('/peruvian_instant_darkness_powder')
+def peruvian_instant_darkness_powder():
+    return render_template('peruvian_instant_darkness_powder.html')

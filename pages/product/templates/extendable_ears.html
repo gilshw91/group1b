@@ -1,10 +1,61 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
 
-</body>
-</html>
+{% set page_head_title = 'Extendeable Ear' %}
+
+{% block page_head_css %}
+    <link rel="stylesheet" href="{{ url_for('product.static', filename='css/product.css') }}"/>
+    <script src="{{ url_for('product.static', filename='js/product.js') }}"></script>
+
+{% endblock %}
+
+<!-- Hi! do you know why the background image of the page is smaller? not fitted to all of the page?
+this with the picture of the product which I cant see.. needs to check if its in the base.css or in your css
+the heading of Rating & Reviews are not at the correct place. it is places aside to the product's description
+-->
+{% block page_body_main_content %}
+    <div class="main-product">
+        <div class="main-product-details">
+            <aside>
+                 <h1 class = heading-1>Extendeable Ears</h1>
+            <p>They are long, flesh-coloured pieces of string which one can insert in one's ear, then shove the other
+                end under (for example) a door, and one will hear the conversation or other noise as clear as if it was
+                mere feet away, unless, that is, the door has been Imperturbed (with Imperturbable Charm)</p>
+                <p>Price: <del>25£</del> 15£</p>
+                <div class="add-to-cart">
+                    <button>Add to Cart</button><!--remind me to check if the "hover" over any button is working  -->
+                </div>
+            </aside>
+        </div>
+        </br>
+        <div class="main-product-image">
+            <aside>
+            <img src="img/products/extendeable_ear.jpg" alt="Extendeable Ears"/>
+
+            </aside>
+        </div>
+
+    </div>
+    <div class="main-reviews">
+    <h2 class="heading-2">Rating & Reviews</h2>
+        <div class="add-review">
+            <button type="button" class="write-review-button" onclick="showReviewForm()">Write a review</button>
+            <form id="review-form" action="" style="display:none;">
+                <label for="user-name">User Name*: </label>
+            <input type="text" id="user-name" placeholder="User Name" name="review" required>
+
+                <label for="review">Review*: </label>
+            <input type="text" id="review" placeholder="Review" name="review" required>
+                <input type="submit" value="Post review" name="submit-review">
+            </form>
+        </div>
+        <div class="show-reviews">
+            <div class="show-reviews-details">
+                <p class="review-info">user123</p>
+                <p class="review-info">08.05.19 15:13</p>
+            </div>
+            <div class="show-reviews-content">
+                <p>Best product EVER!</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}
