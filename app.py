@@ -24,10 +24,16 @@ app.register_blueprint(sign_in_registration)
 # Product check
 from pages.product.product import product
 app.register_blueprint(product)
-# ## Catalog
-# from pages.catalog.catalog import catalog
-# app.register_blueprint(catalog)
-#
+
+## catalogue
+from pages.catalogue.catalogue import catalogue
+app.register_blueprint(catalogue)
+
+## customer_feedback
+from pages.customer_feedback.customer_feedback import customer_feedback
+app.register_blueprint(customer_feedback)
+
+
 # ## Login
 # from pages.login.login import login
 # app.register_blueprint(login)
