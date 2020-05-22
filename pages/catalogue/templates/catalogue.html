@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+
 {% set page_head_title = 'Catalogue' %}
 
 {% block page_head_css %}
@@ -20,38 +21,30 @@
     <meta name="keywords" content="Wizard, Magic, Spells"/>
     <link rel="icon" href="url"/>--> <!--ADD URL-->
     <link rel="stylesheet" href="../static/css/catalogue.css"/> <!--Keep here for now, until Flask is properly installed-->
-    <base href=""/> <!--ADD URL-->
-</head>
- <body> 
+    <!--<base href=""/> <!--ADD URL-->
 
     <div class="top-block"> <!--Title and sub-title-->
         <h1 class="page-name">Spyware Products</h1>
-        <!-- where is your h2? we can not skip from h1 to h3.. if you make it like that in order to make a difference by size
-        the right way to do it is not by the numbers of h's.. you will do it in the CSS page-->
-        <h3 class="sub-text">Magic is only a click away...<br/>Check out our products and let your inner wizard roam free.<br/>Expecto patronum!</h3>
+        <h2 class="sub-text">Magic is only a click away...<br/>Check out our products and let your inner wizard roam free.<br/>Expecto patronum!</h2>
     </div>
     <hr>
     <ul class="catalogue" style="list-style-type:none;"> <!--List of products-->
         <li class="product">
             <a href="../../product/templates/extendable_ears.html"> <!--The picture, description and price are all links to one page-->
                 <img src="../../../static/img/products/extendeable_ear.jpg" border="1" title="Extendable Ear" alt="Extendable Ear">
-                <!--also here you need to fit it to number of h's after the correction above -->
-                <h4>Extendable Ear</h4>
-                <p>£15.00</p>
+                <h3>Extendable Ear</h3>
+                <p>Price: <del>£25</del> £15</p>
             </a>
         </li>
         <li class="product">
-            <a href="../../product/templates/peruvian_instant_darkness_powder.html"> <!--Just to note that the second product is a placeholder and will not link-->
+            <a href="../../product/templates/peruvian_instant_darkness_powder.html">
                 <img src="../../../static/img/products/Peruvian_Instant_Darkness_Powder.jpg" border="1" title="Peruvain Instant Darkness Powder" alt="Peruvain Instant Darkness Powder">
-                <!--also here you need to fit it to number of h's after the correction above -->
-                <h4>Peruvian Instant Darkness Powder</h4>
-                <p>£25.00</p> <!--UPDATE PRICE WHEN PRODUCT PAGE IS FINISHED-->
+                <h3>Peruvian Instant Darkness Powder</h3>
+                <p>Price: £35</p>
             </a>
         </li> <!--More list items here-->
     </ul>
 
-</body>
-</html>
 {% endblock %}
 
 
