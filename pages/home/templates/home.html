@@ -36,8 +36,8 @@
                     </div>
                     <div class="col-sm-3">
                         <div class="img-box">
-                            <a href = "/pages/product/templates/product.html">
-                                <img src="/static/img/products/extendeable_ear.jpg"
+                            <a href = "{{ url_for('product.extendable_ears') }}">
+                                <img src="/static/img/products/extendable_ear.jpg"
                                      class="img-responsive img-fluid"
                                      alt="product2"/>
                             </a>
@@ -83,8 +83,23 @@
                         <h4 class="heading-4"><storng>Wow Another Something</storng></h4>
                             <p class="item-price"><del>£1099.00</del> <span>£869.00</span></p>
                     </div>
+                     <div class="col-sm-3">
+                        <div class="img-box">
+                            <a href="{{ url_for('product.peruvian_instant_darkness_powder') }}">
+                                <img src="img/products/peruvian_instant_darkness_powder.jpg"
+                                     alt="Peruvian Instant Darkness Powder"
+                                    class="img-responsive img-fluid"/>
+                            </a>
+                        </div>
+                        <h4 class="heading-4"><storng>Peruvian Instant Darkness Powder</storng></h4>
+                            <p class="item-price"> <span>£35.00</span></p>
+                    </div>
                 </div>
             </div>
+
+
+
+
             <!-- Carousel controls -->
             <a class="carousel-control left carousel-control-prev" href="#myCarousel" data-slide="prev">
                 <i class="fa fa-angle-left"></i>
