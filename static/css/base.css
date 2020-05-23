@@ -13,6 +13,7 @@
     background-size: cover;
     background-position: center;
     padding-top: 30px;
+    opacity: 0.9;
 }
 .sign-in-right {
     position: relative;
@@ -20,20 +21,17 @@
 	color: #ffecb3;
 	font-size: 20px;
 	text-align: right;
-    margin-left: -10px;
     right: 19px;
-    margin-left: 10px;
 }
 /* I have tried to look at it with height: 150px; width: 150px; what do think?*/
 .logo-header {
     display: inline;
-    height: 90px;
-    width: 90px;
+    width: 29%;
     float: left;
-    top: -10px;
-    left: 7px;
+    top: -18px;
     border-radius: 10%;
     position: relative;
+    z-index: 1;
 }
 
 body {
@@ -73,6 +71,7 @@ body {
 }
 .main-menu {
     width: 100%;
+
 }
 
 button, input[type=submit]{
