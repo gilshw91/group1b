@@ -33,6 +33,10 @@ app.register_blueprint(catalogue)
 from pages.customer_feedback.customer_feedback import customer_feedback
 app.register_blueprint(customer_feedback)
 
+## customer_page
+from pages.customer_page.customer_page import customer_page
+app.register_blueprint(customer_page)
+
 
 # ## Login
 # from pages.login.login import login
