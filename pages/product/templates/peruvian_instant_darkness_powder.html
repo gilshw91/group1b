@@ -29,7 +29,7 @@ the heading of Rating & Reviews are not at the correct place. it is places aside
         </br>
         <div class="main-product-image">
             <aside>
-            <img src="img/products/peruvian_instant_darkness_powder.jpg" alt="Peruvian Instant Darkness Powder"/>
+            <img src="img/products/peruvian_instant_darkness_powder.jpg" alt="Peruvian Instant Darkness Powder" width="350" height="400"/>
 
             </aside>
         </div>
@@ -40,11 +40,14 @@ the heading of Rating & Reviews are not at the correct place. it is places aside
         <div class="add-review">
             <button type="button" class="write-review-button" onclick="showReviewForm()">Write a review</button>
             <form id="review-form" action="" style="display:none;">
-                <label for="user-name">User Name*: </label>
-            <input type="text" id="user-name" placeholder="User Name" name="review" required>
-
-                <label for="review">Review*: </label>
-            <input type="text" id="review" placeholder="Review" name="review" required>
+                <div>
+                    <label for="user-name">User Name*: </label>
+                    <input type="text" id="user-name" placeholder="User Name" name="review" required>
+                </div>
+                <div>
+                    <label for="review">Review*: </label>
+                    <textarea  id="review" rows="4" placeholder="Review" name="review" required></textarea>
+                </div>
                 <input type="submit" value="Post review" name="submit-review">
             </form>
         </div>

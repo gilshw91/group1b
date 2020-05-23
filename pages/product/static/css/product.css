@@ -1,8 +1,6 @@
 
 .main-product {
-  width: 80%;
-  margin-left: 100px;
-  padding: 10px;
+  margin-left: 2%;
 }
 
 .main-product-details {
@@ -11,26 +9,38 @@
 }
 
 .main-product-image {
-  margin-left: 45%;
+  margin-left: 65%;
 }
 
 .main-reviews{
+    margin-left: 2%;
     width: 80%;
-    margin-top: 40px;
-    margin-left: 100px;
-    padding: 10px;
 }
 .add-review{
     width: 40%;
-    padding-top: 10px;
-    padding-bottom: 15px;
 }
-.show-reviews-details{
-    width: 15%;
+button, input[type=submit]{
+    margin-bottom: 5%;
+}
+form {
+    padding: 2%;
+}
+label, input[type=submit]{
+    width: 35%;
+}
 
+input[type=text], textarea{
+    margin: 3%;
+    width: 55%;
+}
+textarea{
+    vertical-align: top;
+}
+
+.show-reviews{
+    margin-top: 1%;
 }
 .review-info{
-    padding-top: 15px;
     font-style: italic;
-    font-size: 18px;
+    font-size: 85%;
 }

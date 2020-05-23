@@ -6,7 +6,6 @@
     <link rel="stylesheet" href="{{ url_for('about.static', filename='css/about.css') }}"/>
 {% endblock %}
 {% block page_body_main_content %}
-{#  Gil I think to delete the 2 divs  #}
 <div>
 <h1 class="heading-1">About us</h1>
     <p>Hokus Mokus, also known as Weasleys' Wizard Wheezes, was a joke shop located at Number 93 Diagon Alley
@@ -22,8 +21,7 @@ The shop was the Weasley twins' dream, they got the seed money for the shop from
 <h2 class="heading-2">We are here for you</h2>
     <p>We are here for any request, idea, complaint or even just to share a good joke.<br/>You can find us on:</p>
     <ul>
-            {#    link will works after customer_feedback.py will be exsite    #}
-        <li><a href = "{{ url_for('categories.index') }}">Contact us page</a></li>
+        <li><a href = "{{ url_for('customer_feedback.index') }}">Contact us page</a></li>
         <li><a href = "tel:+44-0345-084-0900">+44-0345-084-0900</a></li>
         <li><a href = "mailto: hokusmokus2020@gmail.com">Email</a></li>
         <li><a href="https://www.facebook.com/hokus.mokus.9">Facebook</a></li>

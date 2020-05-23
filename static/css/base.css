@@ -79,3 +79,10 @@ button, input[type=submit]{
     color: #ffecb3;
     border-color: #ffecb3;
 }
+
+/* hi I add that cause all forms need same design*/
+form{
+    border-style: solid;
+    border-color: #ffecb3;
+    background: rgba(40,40,40,0.85);
+}
