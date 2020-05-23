@@ -1,3 +1,12 @@
+p, li, h1, h2{
+  margin-left: 2%;
+}
+li{
+    margin-left: 2%;
+}
+h2{
+    margin-top: 2%;
+}
 a {
     cursor: pointer;
 }
