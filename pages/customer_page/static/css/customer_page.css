@@ -43,3 +43,11 @@ input[type=submit] {
     display: inline;
     padding-bottom: 20px;
 }
+
+.nav-link {
+    display: inline-block;
+    color: #ffecb3;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
