@@ -1,8 +1,8 @@
-p, li, h1, h2{
+p, li, h1, h2, li{
   margin-left: 2%;
 }
-li{
-    margin-left: 2%;
+p{
+    width: 55%;
 }
 h2{
     margin-top: 2%;

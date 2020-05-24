@@ -45,6 +45,7 @@ body {
     color: #ffecb3;
     text-shadow: 1px 1px #272727;
 }
+
 .links-footer{
     float: left;
     display: block;
@@ -82,7 +83,11 @@ button, input[type=submit]{
 
 /* hi I add that cause all forms need same design*/
 form{
+
     border-style: solid;
     border-color: #ffecb3;
     background: rgba(40,40,40,0.85);
+}
+form >div> input, form >div> textarea{
+    color: black;
 }
