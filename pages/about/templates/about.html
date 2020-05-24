@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+<!--Hello! it's me.-->
 {% set page_head_title = 'About' %}
 
 {% block page_head_css %}
@@ -7,7 +7,9 @@
 {% endblock %}
 {% block page_body_main_content %}
 <div>
-<h1 class="heading-1">About us</h1>
+<!--teh headline is not in the middle in purpose? -->
+<h1 class="heading-1">About us</h1><!--select one of the words here and put in a <strong> tag for the css-->
+    <!--U need the <br> tags? p is a block no? the new p will be i a new line anyway no?-->
     <p>Hokus Mokus, also known as Weasleys' Wizard Wheezes, was a joke shop located at Number 93 Diagon Alley
         founded by Fred and George Weasley.<br/>
 The shop contained practical joke objects. This establishment started out as an 'owl-post service' led by the twins
@@ -18,9 +20,10 @@ The shop was the Weasley twins' dream, they got the seed money for the shop from
 <p>Today George and his younger brother Ron manged together the company and continue to bring laugh and joy to young wizards and muggle.</p> <!--Just a few typos: manage, continue, muggles-->
     </div>
 <div>
-<h2 class="heading-2">We are here for you</h2>
+<h2 class="heading-2">We are here for you</h2><!--Also here, you can choose maybe "for you" in <strong>-->
     <p>We are here for any request, idea, complaint or even just to share a good joke.<br/>You can find us on:</p>
     <ul>
+        <!--we need to cancel the color blue and the underline of the links-->
         <li><a href = "{{ url_for('customer_feedback.index') }}">Contact us page</a></li>
         <li><a href = "tel:+44-0345-084-0900">+44-0345-084-0900</a></li>
         <li><a href = "mailto: hokusmokus2020@gmail.com">Email</a></li>
@@ -28,6 +31,7 @@ The shop was the Weasley twins' dream, they got the seed money for the shop from
         <li>Your owl will always find us</li>
     </ul>
     </div>
+    <!--just fix the indetation like here the last div is not as the open tag of this div-->
 {% endblock %}
 
 
