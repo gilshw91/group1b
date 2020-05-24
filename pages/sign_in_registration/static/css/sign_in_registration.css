@@ -2,41 +2,51 @@
 
 .sign-in-block{
     position:relative;
-    bottom: 577px;
-    left: 100px;
+    vertical-align: top;
+    left: 7%;
 }
 
 .registration-block {
     position:relative;
-    left : 100px;
+    left : 5%;
 }
 
 .container{
     vertical-align: center;
     display: block;
-    padding: 100px;
+    padding: 3%;
 }
 
 aside{
     vertical-align: center;
     display: inline-block;
-    width: 40%;
-    padding:45px;
-    border-style: solid;
-    border-color: #ffecb3;
-    background: rgba(40,40,40,0.85);
-    left: 1000px;
+    width: 43%;
+    padding:1%;
+}
+
+.button-default{
+    position:relative;
+    left: 6.5%;
+    padding: 1%;
+}
+
+.checkbox{
+    position:relative;
+    left: 6.5%;
 }
 
 .heading-1{
-    padding-bottom: 35px;
+    padding-top:3%;
 }
 
-.form-registration{
-    padding-bottom: 35px;
+.registration-form{
+    padding: 3%;
+    padding-bottom: 4%;
+    padding-left: 5%;
 }
 
 .sign-in-form{
-    padding-bottom: 35px;
-    bottom: 30000px;
+    padding: 3%;
+    padding-bottom:4%;
+    padding-left: 5%;
 }

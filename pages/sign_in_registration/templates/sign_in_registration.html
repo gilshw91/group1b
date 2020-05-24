@@ -9,11 +9,10 @@
 
     <div class="container">
         <aside class="sign-in-block"><!--The left side of the screen-->
-            <div>
-                <h1 class="heading-1">Already Registered?</h1>
-            </div>
-            <div>
                 <form method="post" action="route" class="sign-in-form">
+                    <div class="sign-in-form">
+                        <h1 class="heading-1">Already Registered?</h1>
+                    </div>
                     <div class="sign-in-form">
                         <label for="email-address" ></label>
                         <input type="email" name="email" placeholder="Email address" id="email-address"  required>*
@@ -29,56 +28,54 @@
                         <input type="submit" value="Submit" class="button-default">
                     </div>
                 </form>
-            </div>
         </aside>
         <aside class="registration-block"> <!--The right side of the screen-->
-            <div>
-                <h1 class="heading-1">New to Hokus Mokus?</h1>
-            </div>
-            <div>
                 <form method="post" action="route" class="registration-form">
                     <!--all the text in the form will be inside the fill-in space-->
-                    <div class="form-registration">
+                    <div class="registration-form">
+                        <h1 class="heading-1">New to Hokus Mokus?</h1>
+                    </div>
+                    <div class="registration-form">
                         <label for="user-name"></label>
                         <input type="text" name="user-name" placeholder="User name" id="user-name" required>*
                     </div>
-                    <div class="form-registration">
+                    <div class="registration-form">
                     <label for="email-address"></label>
                         <input type="email" name="email" placeholder="Email address" id="email-address" required>*
                     </div>
-                    <div class="form-registration">
+                    <div class="registration-form">
                         <label for="pwd"></label>
                         <input type="pwd" name="password" placeholder="Password" id="pwd" required>*
                     </div>
-                    <div class="form-registration">
+                    <div class="registration-form">
                         <label for="first-name"></label>
                         <input type="text" name="first-name" placeholder="First name" id="first-name" maxlength="10" required>*
                     </div>
-                    <div class="form-registration">
+                    <div class="registration-form">
                         <label for="last-name"></label>
                         <input type="text" name="last-name" placeholder="Last name" id="last-name" maxlength="20" required>*
                     </div>
-                    <div class="form-registration">
+                    <div class="registration-form">
                         <label for="country"></label>
                         <input type="text" name="country" placeholder="Country" id="country" maxlength="50" required>*
                     </div>
-                    <div class="form-registration">
+                    <div class="registration-form">
                         <label for="city"></label>
                         <input type="text" name="city" placeholder="City" id="city" maxlength="50" required>*
                     </div>
-                    <div class="form-registration">
+                    <div class="registration-form">
                         <label for="street"></label>
                         <input type="text" name="street" placeholder="Street" id="street" maxlength="50" required>*
                     </div>
-                    <div class="form-registration">
+                    <div class="registration-form">
                         <label for="number"></label>
                         <input type="text" name="number" placeholder="Number" id="street-number" required>*
                     </div>
-                    <div class="form-registration">
+                    <div class="registration-form">
                         <label for="zip-code"></label>
                         <input type="number" name="zip-code" placeholder="Zip code" id="zip-code" maxlength="7" required>*
                     </div>
-                    <div class="form-registration">
+                    <div class="registration-form">
                         <label for="phone-number"></label>
                         <input type="tel" name="phone-number" placeholder="Phone number" id="phone-number" maxlength="10">
                     </div>
@@ -86,11 +83,7 @@
                         <input type="submit" value="Submit" class="button-default">
                     </div>
                 </form>
-            </div>
         </aside>
         </div>
 
 {% endblock %}
-
-{% block page_body_footer %}{% endblock %}
-
