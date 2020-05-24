@@ -1,5 +1,17 @@
 * {box-sizing: border-box;}
 
+h1{
+    text-align: center;
+    display: block;
+    padding: 5%;
+}
+
+h2{
+    text-align: center;
+    display: block;
+    padding-bottom: 5%;
+}
+
 input, select, textarea {
   width: 98%;
   padding: 10px 20px;
