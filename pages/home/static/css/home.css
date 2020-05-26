@@ -1,15 +1,15 @@
 .heading-1 {
-   color: #FF652F;
-   font-size: 26px;
-   font-weight: 300;
+   /*color: #FF652F;*/
+   /*font-size: 26px;*/
+   /*font-weight: 300;*/
    text-align: left;
    position: relative;
    margin: 30px 0 80px;
 }
 .heading-2 {
-	color: #ffecb3;
-	font-size: 18px;
-	font-weight: 300;
+	/*color: #ffecb3;*/
+	/*font-size: 18px;*/
+	/*font-weight: 300;*/
 	text-align: center;
 	text-transform: uppercase;
 	position: relative;
@@ -17,9 +17,9 @@
 }
 
 .heading-4 {
-	color: #ffecb3;
-	font-size: 12px;
-	font-weight: 300;
+	/*color: #ffecb3;*/
+	/*font-size: 12px;*/
+	/*font-weight: 300;*/
 	text-align: center;
 	text-transform: uppercase;
 	position: relative;
@@ -33,7 +33,7 @@
     /*height: 400px;*/
     /* I prefer with the height*/
     color: #ffecb3;
-    font-size: 12px;
+    /*font-size: 12px;*/
     font-weight: 300;
     text-align: center;
     text-transform: uppercase;
@@ -44,7 +44,7 @@
 .top-left{
     text-align: left;
     color: #ffecb3;
-    font-size: 30px;
+    /*font-size: 30px;*/
     animation-name: slidein;
     animation-duration: 10s;
     top: -60px;
@@ -96,7 +96,7 @@
 	border-radius: 10%;
 }
 .carousel .item h4 {
-    font-size: 18px;
+    /*font-size: 18px;*/
     margin: 10px 0;
 }
 
@@ -109,7 +109,7 @@
     background: #FF652F;
 }
 .carousel .carousel-control i {
-    font-size: 30px;
+    /*font-size: 30px;*/
     position: absolute;
     top: 50%;
     display: inline-block;
@@ -117,12 +117,12 @@
     z-index: 1;
     left: 0;
     right: 0;
-    color: rgba(0, 0, 0, 0.8);
+    color: #272727;
     text-shadow: none;
     font-weight: bold;
 }
 .carousel .item-price {
-   font-size: 13px;
+   /*font-size: 13px;*/
    padding: 2px 0;
 }
 .carousel .item-price strike {

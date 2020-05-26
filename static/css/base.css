@@ -21,18 +21,21 @@
     color: #FF652F;
 }
 .heading-3 {
-    color: #FF652F;
+    color:  #ffecb3;
     font-size: 150%;
     font-weight: 300;
 }
 .heading-4 {
-    color: #FF652F;
-    font-size: 130%;
+    color:  #ffecb3;
+    font-size: 100%;
     font-weight: 300;
+}
+.heading-4 strong{
+    color: #FF652F;
 }
 P {
     color: #ffecb3;
-    font-size: 100%;
+    font-size: 90%;
 }
 
 .page-header {
