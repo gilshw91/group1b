@@ -1,9 +1,7 @@
 @import "variables.css";
 
 * { box-sizing: border-box; }
-/*hey gil :)*/
 /*Pin the menu to the left and consider to make the background with a bit of opacity*/
-/*can we change the color of the items in the footers and the sign in - where we have link from blue to our color?*/
 .heading-1 {
     color: #ffecb3;
     font-size: 250%;
@@ -57,12 +55,11 @@ P {
 	text-align: right;
     right: 19px;
 }
-/* I have tried to look at it with height: 150px; width: 150px; what do think?*/
 .logo-header {
     display: inline;
-    width: 29%;
+    width: 30%;
     float: left;
-    top: -18px;
+    top: -15px;
     border-radius: 10%;
     position: relative;
     z-index: 1;
@@ -74,12 +71,16 @@ body {
     background-size: cover;
     background-position: center;
     background-color: #272727;
-    cursor: url('https://img.icons8.com/cotton/64/000000/witch-broom.png'), auto;
+
     font-size: 20px;
     color: #ffecb3;
     text-shadow: 1px 1px #272727;
+    line-height: 1.5;
+    bottom: 0px;
 }
-
+html body{
+    cursor: url('https://img.icons8.com/cotton/64/000000/witch-broom.png') 60 0, auto !important;
+}
 .links-footer{
     float: left;
     display: block;
@@ -123,4 +124,9 @@ form{
 }
 textarea, input[type=text]{
     color: #303030;
+}
+
+a:-webkit-any-link {
+    color: #FF652F;
+    cursor: pointer;
 }

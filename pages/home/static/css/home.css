@@ -1,15 +1,9 @@
 .heading-1 {
-   /*color: #FF652F;*/
-   /*font-size: 26px;*/
-   /*font-weight: 300;*/
    text-align: left;
    position: relative;
    margin: 30px 0 80px;
 }
 .heading-2 {
-	/*color: #ffecb3;*/
-	/*font-size: 18px;*/
-	/*font-weight: 300;*/
 	text-align: center;
 	text-transform: uppercase;
 	position: relative;
@@ -17,49 +11,39 @@
 }
 
 .heading-4 {
-	/*color: #ffecb3;*/
-	/*font-size: 12px;*/
-	/*font-weight: 300;*/
 	text-align: center;
 	text-transform: uppercase;
 	position: relative;
 	margin: 30px 0 80px;
 }
-/*all the above you need to define on the base but just the color and size setting the rest need to stay here*/
 
 .center-img-home-page {
 	display: block;
 	width: 100%;
-    /*height: 400px;*/
-    /* I prefer with the height*/
+    height: 400px;
     color: #ffecb3;
-    /*font-size: 12px;*/
     font-weight: 300;
     text-align: center;
     text-transform: uppercase;
     position: relative;
     margin: 30px 0 80px;
 }
-
-.top-left{
+.top-left > .heading-2{
     text-align: left;
     color: #ffecb3;
-    /*font-size: 30px;*/
     animation-name: slidein;
     animation-duration: 10s;
-    top: -60px;
+    position: relative;
+    top: -65px;
 }
-/* why the strong is here? he need to be in h2*/
-/*             {#    maybe change it to div top-left and inside the div only h2?    #} */
+
 .top-left strong{
     color: #FF652F;
 }
-/* i did some changes */
+
 @keyframes slidein {
   from {
     margin-left: 58%;
-    /* original: margin-left: 100%;
-    width: 300%;*/
   }
 
   to {
@@ -67,9 +51,7 @@
     width: 100%;
   }
 }
-/*remainder to you the carousel need to be higher you -I saw that you write that in the html (br..) */
-/* also it spell carousel */
-/* Centering the products in the carousle*/
+
 .carousel {
    margin: 50px auto;
    padding: 0 70px;
@@ -96,7 +78,6 @@
 	border-radius: 10%;
 }
 .carousel .item h4 {
-    /*font-size: 18px;*/
     margin: 10px 0;
 }
 
@@ -107,9 +88,9 @@
     background: none;
     margin: auto 0;
     background: #FF652F;
+    top: -40%;
 }
 .carousel .carousel-control i {
-    /*font-size: 30px;*/
     position: absolute;
     top: 50%;
     display: inline-block;
@@ -122,7 +103,6 @@
     font-weight: bold;
 }
 .carousel .item-price {
-   /*font-size: 13px;*/
    padding: 2px 0;
 }
 .carousel .item-price strike {

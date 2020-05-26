@@ -8,39 +8,30 @@
 {% endblock %}
 
 {% block page_body_main_content %}
-<!--hi gil! I think that we need to start the h for the headlines from 1 and not from 2, Barak said it several times..-->
 <main>
     <div class="contain-img">
-        <img src="https://scontent.ftlv5-1.fna.fbcdn.net/v/t1.0-0/p280x280/97236401_114028826975893_6130294803985858560_o.jpg?_nc_cat=110&_nc_sid=8024bb&_nc_oc=AQkI5mkVt3YqlNKmH5-OgC1BML6aADPTJRdwGJV8Vf9rwqIUMp2O7FkfJKTXdhLZKOA&_nc_ht=scontent.ftlv5-1.fna&_nc_tp=6&oh=576b8e0ef6acb2c736a8c3ecb505f72a&oe=5EE43698" alt="Home Page Image" class="center-img-home-page"/>
-        <!--in class notice that you supposed to put only - and no white space-->
-            {#    maybe change it to div top-left and inside the div only h2?    #}
-        <h2 class="heading-2 top-left"><strong>Hokus Mokus</strong> | Weaslys' Wizard Wheezes Shop</h2>
+        <img src="/static/img/img-home-page/weaslys_shorter.jpg" alt="Home Page Image" class="center-img-home-page"/>
+        <div class="top-left">
+            <h1 class="heading-2"><strong>Hokus Mokus</strong> | Weaslys' Wizard Wheezes Shop</h1>
+        </div>
     </div>
-    <br/> <!--remember to delete br and to make spacing using the css-->
     <div class="container">
         <h2 class="heading-2">Hokus Mokus <strong>Products</strong></h2>
-        <!--in class notice that you supposed to put only - and no white space-->
-        <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="0">
+        <div id="myCarousel" class="carousel slide"> {# 'slide'- makes the items to slide #}
             <!-- Wrapper for carousel items -->
-            <div class="carousel-inner">
-                        <!--in class notice that you supposed to put only - and no white space-->
+            <div class="carousel-inner"> {# responsive on the inner carousel #}
                 <div class="item carousel-item active">
                     <div class="col-sm-3">
                         <div class="img-box">
-                            <!--in class notice that you supposed to put only - and no white space-->
-                            <img src="/static/img/products/product1.jpg"
-                                 class="img-responsive img-fluid"
-                                 alt="product1"/>
+                            <img src="/static/img/products/product1.jpg" alt="product1"/>
                         </div>
                         <h4 class="heading-4">Fever Fudge</h4>
-                            <p class="item-price"><del>£400.00</del> <span>£369.00</span></p>
+                            <p class="item-price"><del>£45.00</del> <span>£39.90</span></p>
                     </div>
                     <div class="col-sm-3">
                         <div class="img-box">
                             <a href = "{{ url_for('product.extendable_ears') }}">
-                                <img src="/static/img/products/extendable_ear.jpg"
-                                     class="img-responsive img-fluid"
-                                     alt="product2"/>
+                                <img src="/static/img/products/extendable_ear.jpg" alt="product2"/>
                             </a>
                         </div>
                         <h4 class="heading-4">Extendeable Ear</h4>
@@ -48,18 +39,14 @@
                     </div>
                     <div class="col-sm-3">
                         <div class="img-box">
-                            <img src="/static/img/products/product3.jpg"
-                                 class="img-responsive img-fluid"
-                                 alt="product3"/>
+                            <img src="/static/img/products/product3.jpg" alt="product3"/>
                         </div>
                         <h4 class="heading-4">Sticky Trainers</h4>
-                            <p class="item-price"><del>£899.00</del> <span>£649.00</span></p>
+                            <p class="item-price"><del>£89.00</del> <span>£69.00</span></p>
                     </div>
                     <div class="col-sm-3">
                         <div class="img-box">
-                            <img src="/static/img/products/product4.jpg"
-                                 class="img-responsive img-fluid"
-                                 alt="product4"/>
+                            <img src="/static/img/products/product4.jpg" alt="product4"/>
                         </div>
                         <h4 class="heading-4">Smelly Candle</h4>
                             <p class="item-price"><del>£315.00</del> <span>£250.00</span></p>
@@ -68,28 +55,22 @@
                 <div class="item carousel-item">
                     <div class="col-sm-3">
                         <div class="img-box">
-                            <img src="/static/img/products/product5.jpg"
-                                 class="img-responsive img-fluid"
-                                 alt="product5"/>
+                            <img src="/static/img/products/product5.jpg" alt="product5"/>
                         </div>
                         <h4 class="heading-4">Something</h4>
-                            <p class="item-price"><del>£289.00</del> <span>£269.00</span></p>
+                            <p class="item-price"><del>£29.00</del> <span>£19.99</span></p>
                     </div>
                     <div class="col-sm-3">
                         <div class="img-box">
-                            <img src="/static/img/products/product6.jpg"
-                                 class="img-responsive img-fluid"
-                                 alt="product6"/>
+                            <img src="/static/img/products/product6.jpg" alt="product6"/>
                         </div>
                         <h4 class="heading-4">Wow Another Something</h4>
-                            <p class="item-price"><del>£1099.00</del> <span>£869.00</span></p>
+                            <p class="item-price"><del>£29.90</del> <span>£19.90</span></p>
                     </div>
                      <div class="col-sm-3">
                         <div class="img-box">
                             <a href="{{ url_for('product.peruvian_instant_darkness_powder') }}">
-                                <img src="img/products/peruvian_instant_darkness_powder.jpg"
-                                     alt="Peruvian Instant Darkness Powder"
-                                    class="img-responsive img-fluid"/>
+                                <img src="img/products/peruvian_instant_darkness_powder.jpg" alt="Peruvian Instant Darkness Powder"/>
                             </a>
                         </div>
                         <h4 class="heading-4">Peruvian Instant Darkness Powder</h4>
@@ -97,9 +78,6 @@
                     </div>
                 </div>
             </div>
-
-
-
 
             <!-- Carousel controls -->
             <a class="carousel-control left carousel-control-prev" href="#myCarousel" data-slide="prev">
