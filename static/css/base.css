@@ -117,15 +117,14 @@ button, input[type=submit]{
 }
 
 form{
-
     border-style: solid;
     border-color: #ffecb3;
     background: rgba(40,40,40,0.85);
 }
-textarea, input[type=text]{
+
+textarea, input[type=text],input[type=email], input[type=tel],input[type=number],input[type=password]{
     color: #303030;
 }
-
 a:-webkit-any-link {
     color: #FF652F;
     cursor: pointer;

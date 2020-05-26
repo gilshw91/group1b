@@ -7,13 +7,13 @@
 {% block page_body_main_content %}
 
     <div>
-        <h1><b>Product's Categories</b></h1>
+        <h1 class="heading-1">Products <strong>Categories</strong></h1>
     </div>
     <div class="categories-main"><!-- Wrapper for all categories -->
         <!-- All asides will be next to each other -->
         <aside class="col-1">
             <div class="category-name">
-                <h2>Joke products</h2>
+                <h2 class="heading-2">Joke products</h2heading-1>
             </div>
             <div>
                 <img border="0" alt="Joke products" src="img/categories/cat_1.jpg" id="category1">
@@ -21,16 +21,16 @@
         </aside>
         <aside class="col-2">
             <div class="category-name">
-                <h2>Spyware Products</h2>
+                <h2 class="heading-2">Spyware Products</h2>
             </div>
             <div>
                                 <!-- remember to update the about.index into catalogue.index-->
-                <a href="{{ url_for('about.index') }}"><img border="0" alt="Spyware_Products" src="img/categories/cat_2.jpg" id="category2"></a>
+                <a href="{{ url_for('catalogue.index') }}"><img border="0" alt="Spyware_Products" src="img/categories/cat_2.jpg" id="category2"></a>
             </div>
         </aside>
         <aside class="col-3">
             <div class="category-name">
-                <h2>Muggle Magic</h2>
+                <h2 class="heading-2">Muggle Magic</h2>
             </div>
             <div class="category-name">
                 <img border="0" alt="Muggle Magic" src="img/categories/cat_3.jpg" id="category3">
@@ -38,11 +38,11 @@
         </aside>
         <aside class="col-4">
             <div class="category-name">
-                <h2>Games</h2>
+                <h2 class="heading-2">Games</h2>
             </div>
             <div>
                 <!-- remember to update the about.index into catalogue.index-->
-                <a href="{{ url_for('about.index') }}"><img border="0" alt="Games" src="img/categories/cat_4.jpg" id="category4"></a>
+                <a href="{{ url_for('catalogue.index') }}"><img border="0" alt="Games" src="img/categories/cat_4.jpg" id="category4"></a>
                 <!-- cg-container end -->
             </div>
         </aside>

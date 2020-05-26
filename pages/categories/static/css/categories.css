@@ -4,6 +4,7 @@ h1{
     text-align: center;
     display: block;
     padding: 5%;
+    padding-bottom: 10%;
 }
 
 h2{
@@ -23,7 +24,7 @@ aside{
     display: inline-block;
     width: 24.5%;
     height: 40%;
-    padding:1.2%;
+    padding:0.5%;
     padding-bottom: 2.5%;
     background: rgba(40,40,40,0.85);
     border-color: #ffecb3;
