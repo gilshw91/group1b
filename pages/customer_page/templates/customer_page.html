@@ -11,36 +11,36 @@
     <link rel="stylesheet" href="../static/css/customer_page.css"> <!--Yes, i know. but keep this here for now-->
 
 <div class="top-block"> <!--Title and sub-title-->
-    <h1 class="heading-1">John Doe: Profile</h1>
-    <h2 class="heading-2">Hi, John</h2>
+    <h1 class="heading-1"><b>Profile Page</b></h1>
+    <h2 class="heading-2">Hello, fellow wizard</h2>
 </div>
 <hr>
 {# why side menue if all the contect in the page and the user just need to roll? and the links dosent work? - we can talk about it..#}
 {#future note fot the css - the colors need to be like the base.css this file decide the website colors #}
 <div class="nav" id="nav"> <!--Side menu body-->
     <h3 class="heading-3">Shortcuts</h3> <!--Side menu header and photo-->
-        <a href="#order-block">My Orders</a>
-        <a href="#address-block">My Shipping Address</a>
-        <a href="#review-block">My Reviews</a>
-        <a href="#password-block">Change Password</a>
-        <a href="#credit-block">Credit Card Data</a>
+        <a class=nav-link href="#order-block">My Orders</a>
+        <a class=nav-link href="#address-block">My Shipping Address</a>
+        <a class=nav-link href="#review-block">My Reviews</a>
+        <a class=nav-link href="#password-block">Change Password</a>
+        <a class=nav-link href="#credit-block">Credit Card Data</a>
 </div>
 
 <div class="block" id="order-block" name="order-block">
-    <h2 class="heading-2">>My Orders</h2>
-    <ul class="catalogue" style="list-style-type:none;"> <!--List of products-->
+    <h2 class="heading-2">My Orders</h2>
+    <ul class="orders" style="list-style-type:none;"> <!--List of products-->
         <li class="product">
             <a href="url"> <!--The picture, description and price are all links to one page-->
-                <img src="../../catalogue/images/Sticky_0.jpg" border="1" title="Sticky Trainers" alt="Sticky Trainers" style="width:75px">
-                <h4 class="heading-4">>Sticky Trainers</h4>
-                <p>Date of Order</p> <!--UPDATE PRICE-->
+                <img src="../../../static/img/products/product1.jpg" border="1" title="Sticky Trainers" alt="Sticky Trainers" style="width:75px">
+                <h4 class="heading-4">Fever Fudge</h4>
+                <p>Date of Order: 04/11/1995</p> <!--UPDATE PRICE-->
             </a>
         </li>
         <li class="product">
             <a href="url">
-                <img src="../../catalogue/images/Nopoo_0.jpg" border="1" title="No Poo" alt="No Poo" style="width:75px">
+                <img src="../../../static/img/products/product5.jpg" border="1" title="No Poo" alt="No Poo" style="width:75px">
                 <h4 class="heading-4">>No Poo Bottle</h4>
-                <p>Date of Order</p> <!--UPDATE PRICE-->
+                <p>Date of Order: 09/11/2001</p> <!--UPDATE PRICE-->
             </a>
         </li> <!--More list items here-->
     </ul>

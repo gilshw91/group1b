@@ -1,5 +1,17 @@
 * {box-sizing: border-box;}
 
+h1{
+    text-align: center;
+    display: block;
+    padding: 5%;
+}
+
+h2{
+    text-align: center;
+    display: block;
+    padding-bottom: 5%;
+}
+
 input, select, textarea {
   width: 98%;
   padding: 10px 20px;
@@ -30,4 +42,12 @@ input[type=submit] {
     text-align: center;
     display: inline;
     padding-bottom: 20px;
+}
+
+.nav-link {
+    display: inline-block;
+    color: #ffecb3;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
 }
