@@ -3,12 +3,12 @@
 .sign-in-block{
     position:relative;
     vertical-align: top;
-    left: 7%;
+    left: 4%;
 }
 
 .registration-block {
     position:relative;
-    left : 5%;
+    left :2%;
 }
 
 .container{
@@ -20,13 +20,13 @@
 aside{
     vertical-align: center;
     display: inline-block;
-    width: 43%;
+    width: 49%;
     padding:1%;
 }
 
 .button-default{
     position:relative;
-    left: 6.5%;
+    left: 5.5%;
     padding: 1%;
 }
 
@@ -49,4 +49,9 @@ aside{
     padding: 3%;
     padding-bottom:4%;
     padding-left: 5%;
+}
+
+input[type=text],input[type=email], input[type=tel],input[type=number],input[type=password]{
+    width: 57%;
+    float: right;
 }
