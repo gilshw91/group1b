@@ -4,6 +4,37 @@
 /*hey gil :)*/
 /*Pin the menu to the left and consider to make the background with a bit of opacity*/
 /*can we change the color of the items in the footers and the sign in - where we have link from blue to our color?*/
+.heading-1 {
+    color: #ffecb3;
+    font-size: 250%;
+    font-weight: 300;
+}
+.heading-1 strong{
+    color: #FF652F;
+}
+.heading-2 {
+    color: #ffecb3;
+    font-size: 200%;
+    font-weight: 300;
+}
+.heading-2 strong{
+    color: #FF652F;
+}
+.heading-3 {
+    color: #FF652F;
+    font-size: 150%;
+    font-weight: 300;
+}
+.heading-4 {
+    color: #FF652F;
+    font-size: 130%;
+    font-weight: 300;
+}
+P {
+    color: #ffecb3;
+    font-size: 100%;
+}
+
 .page-header {
     position: sticky;
     top:0;
@@ -86,5 +117,7 @@ form{
     border-style: solid;
     border-color: #ffecb3;
     background: rgba(40,40,40,0.85);
+}
+textarea, input[type=text]{
     color: #303030;
 }

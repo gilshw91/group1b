@@ -1,6 +1,6 @@
 .heading-1 {
    color: #FF652F;
-   font-size: 18px;
+   font-size: 26px;
    font-weight: 300;
    text-align: left;
    position: relative;
@@ -8,16 +8,14 @@
 }
 .heading-2 {
 	color: #ffecb3;
-	font-size: 26px;
+	font-size: 18px;
 	font-weight: 300;
 	text-align: center;
 	text-transform: uppercase;
 	position: relative;
 	margin: 30px 0 80px;
 }
-.heading-2 strong{
-    color: #FF652F;
-}
+
 .heading-4 {
 	color: #ffecb3;
 	font-size: 12px;
