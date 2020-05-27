@@ -8,14 +8,14 @@
 
 {% block page_body_main_content %}
 
-<link rel="stylesheet" href="../static/css/customer_feedback.css"> <!--This is for me-->
+<link rel="stylesheet" href="../../../static/css/base.css">
+<link rel="stylesheet" href="../static/css/customer_feedback.css"><!--This is for me-->
     <div class="top-block"> <!--Title and sub-title-->
-        <h1 class="heading-1">Feedback</h1>
-        <h3 class="heading-2">Hello, fellow wizard!<br>Please provide your feedback below:</h3>
+        <h1 class="heading-1">Hello, <strong>fellow wizard!</strong></h1>
+        <h3 class="heading-3">Please provide your feedback below:</h3>
     </div>
+<aside class="form">
      <!--Rotem wrote the POST with capslock.. I dont know how it should be.. ask her :P  -->
-{#  deciide with Rotem if it post or POST I also have form and we need same design  #}
-{#  route?  #}
     <form method="post" id="feedback-form" action="route">
             <label for="email">Email address *</label>
             <input type="email" class="form-control" placeholder="wizard@hogwarts.com" id="email" name="email" required><br><!--DONE maybe add some * or something that the user will know thats require -->
@@ -34,6 +34,8 @@
             <input type="submit" value="Submit by Owl Post"><br>
             * Required Field
     </form>
+</aside>
+
 
 {#why you have html? you dont have open tag#}
 {# you need to add block for footer#}

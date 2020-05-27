@@ -1,6 +1,6 @@
 * {box-sizing: border-box;}
 
-input, select, textarea {
+/*input, select, textarea {
   width: 100%;
   padding: 10px 20px;
   margin: 8px 0;
@@ -9,28 +9,33 @@ input, select, textarea {
   border-radius: 4px;
   box-sizing: border-box;
 }
-
+*/
 input[type=submit] {
-  width: 100%;
-  background-color: #4CAF50;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+    position:relative;
+    left: 5.5%;
+    padding: 1%;
 }
 
-form {
-  margin: auto;
-  width: 70%;
-  border-radius: 10px;
-  background-color: #f2f2f2;
-  padding: 20px;
+.form{
+    vertical-align: center;
+    width: 49%;
+    padding:1%;
+}
+
+form{
+    width: 70%;
+    padding: 3%;
+    padding-bottom: 4%;
+    padding-left: 5%;
 }
 
 .top-block{
     text-align: center;
     display: inline;
     padding-bottom: 20px;
+}
+
+input[type=text],input[type=email],input[type=number]{
+    width: 57%;
+    float: right;
 }
