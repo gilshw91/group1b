@@ -1,18 +1,20 @@
+/*hey gil just a reminder, the old version is in comments... we just need to fix the location of the logo, and to change all px values to % :)*/
 .main-menu .nav-bar {
-    padding: 10px;
-    width: 100%;
+    padding: 0.7%; /* padding: 10px; */
+    width: 105%; /*width: 100%;*/
     /*font-size: 20px;*/
     background-color: #272727;
     position: relative;
     bottom: 0px;
     top: 18px;
+    left: -5%; /*change*/
 }
 
 .nav-bar-link {
     display: inline-block;
     color: #ffecb3;
     text-align: center;
-    padding: 14px 16px;
+    padding: 0.7% 1.5%; /*padding: 14px 16px;*/
     text-decoration: none;
 }
 
