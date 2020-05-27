@@ -87,7 +87,6 @@ html body{
     float: left;
     display: block;
     font-size:36px;
-    color:#FF652F;
     width: 100%;
     border-top: 1px solid #ffecb3;
 
@@ -113,9 +112,10 @@ html body{
     width: 100%;
 
 }
-
+/* HADAR I've changed the background color to ours color */
 button, input[type=submit]{
-    background-color: rgb(40,40,40);
+    /*background-color: rgb(40,40,40);*/
+    background-color: #272727;
     color: #ffecb3;
     border-color: #ffecb3;
 }
@@ -123,11 +123,12 @@ button, input[type=submit]{
 form{
     border-style: solid;
     border-color: #ffecb3;
-    background: rgba(40,40,40,0.85);
+    /*background: rgba(40,40,40,0.85);*/
+    background-color: #272727;
 }
 
 textarea, input[type=text],input[type=email], input[type=tel],input[type=number],input[type=password]{
-    color: #303030;
+    color: #272727;
 }
 a:-webkit-any-link {
     color: #ffecb3;

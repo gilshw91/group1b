@@ -1,7 +1,7 @@
 .heading-1 {
-   text-align: left;
-   position: relative;
-   margin: 30px 0 80px;
+    text-align: left;
+    position: relative;
+    margin: 30px 0 80px;
 }
 .heading-2 {
 	text-align: center;
@@ -28,7 +28,7 @@
     position: relative;
     margin: 30px 0 80px;
 }
-.top-left > .heading-2{
+.top-left > .heading-1{
     text-align: left;
     color: #ffecb3;
     animation-name: slidein;
@@ -37,24 +37,22 @@
     top: -65px;
 }
 
-.top-left strong{
-    color: #FF652F;
-}
-
 @keyframes slidein {
   from {
-    margin-left: 58%;
+      overflow: hidden;
+      margin-left: 58%;
   }
 
   to {
-    margin-left: 0%;
-    width: 100%;
+      overflow: auto;
+      margin-left: 0%;
+      width: auto;
   }
 }
 
 .carousel {
-   margin: 50px auto;
-   padding: 0 70px;
+    margin: 50px auto;
+    padding: 0 70px;
 }
 .carousel .item {
     min-height: 330px;
@@ -62,9 +60,9 @@
     overflow: hidden;
 }
 .carousel .item .img-box {
-   height: 160px;
-   width: 100%;
-   position: relative;
+    height: 160px;
+    width: 100%;
+    position: relative;
 }
 .carousel .item img {
 	max-width: 100%;
@@ -103,7 +101,7 @@
     font-weight: bold;
 }
 .carousel .item-price {
-   padding: 2px 0;
+    padding: 2px 0;
 }
 .carousel .item-price strike {
 	color: #ffecb3;
@@ -111,14 +109,14 @@
 
 }
 .carousel .item-price span {
-   color: #FF652F;
-   font-size: 110%;
+    color: #FF652F;
+    font-size: 110%;
 }
 .carousel .carousel-control.left i {
-   margin-left: -3px;
-   margin-right: -3px;
+    margin-left: -3px;
+    margin-right: -3px;
 }
 .carousel .carousel-indicators {
-   bottom: -50px;
+    bottom: -50px;
 }
 
