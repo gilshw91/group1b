@@ -73,12 +73,12 @@ Base page blocks:
                 <header class="page-header">
                     {% block page_body_header_content %}
                     <div class="logo-header">
-                        <a href = "{{ url_for('home.index') }}"></a> <!--Fix the url!-->
-                            <img class="logo-header"  alt="Hokus Mokus Logo" src="/static/img/logo/logo.png"/>
+                        <a href = "{{ url_for('home.index') }}" title="Hokus Mokus Home Page">
+                            <img class="logo-header" alt="Hokus Mokus Logo" src="/static/img/logo/logo.png"/>
                         </a>
                     </div>
                         <div class="sign-in-right">
-                        <!--Change "Geust" if login to the user's name, and from sing in/login to logout-->
+                       {# Change "Geust" if login to the user's name, and from sing in/login to logout #}
                             <p>Hello Guest,<a href = "{{ url_for('sign_in_registration.index') }}"> Sign In/Login</a></p>
                         </div>
                         {# Main Menu #}
@@ -110,11 +110,8 @@ Base page blocks:
             {% block page_body_footer %}
                 <footer class="page-footer">
                   {% block page_body_footer_content %}
-                        <div id="footer-data" class="footer-info">
-                            <div class="links-footer">
-                                <hr/>
+                            <div>
                                 <a class='material-icons' href = "{{ url_for('sign_in_registration.index') }}" title="Sign In/Login">&#xe7fd;</a>
-                                <!--put the correct pages links-->
                                 <a class='fas' href="{{ url_for('customer_feedback.index') }}" title="Contact Us">&#xf658;</a>
                                 <a class="fas fa-phone-square-alt" href="tel:+4403450840900" title="Phone"></a>
                                 <a class='fas fa-envelope' href = "mailto: hokusmokus2020@gmail.com" title="Mail" target="_blank"></a>
@@ -125,13 +122,10 @@ Base page blocks:
                                 <p>Phone: +44-0345-084-0900 </p>
                                 <p class="middle-copyright">Copyright © 2020-2035 Hokus Mokus Inc. All Rights Reserved.</p>
                             </div>
-                        </div>
                   {% endblock %}
                 </footer>
             {% endblock %}
-
         {% endblock %}
-
     </body>
 </html>
 
