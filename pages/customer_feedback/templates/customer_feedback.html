@@ -8,19 +8,20 @@
 
 {% block page_body_main_content %}
 
-<link rel="stylesheet" href="../../../static/css/base.css">
+<link rel="stylesheet" href="../../../static/css/base.css"> <!--This is for me-->
 <link rel="stylesheet" href="../static/css/customer_feedback.css"><!--This is for me-->
     <div class="top-block"> <!--Title and sub-title-->
         <h1 class="heading-1">Hello, <strong>fellow wizard!</strong></h1>
         <h3 class="heading-3">Please provide your feedback below:</h3>
     </div>
-<aside class="form">
-     <!--Rotem wrote the POST with capslock.. I dont know how it should be.. ask her :P  -->
+<div class="form-space">
     <form method="post" id="feedback-form" action="route">
-            <label for="email">Email address *</label>
+        <div class="input">
+            <label for="email">Email address: *</label>
             <input type="email" class="form-control" placeholder="wizard@hogwarts.com" id="email" name="email" required><br><!--DONE maybe add some * or something that the user will know thats require -->
-
-            <label for="subject">Message subject *</label> <!--Message-->
+        </div>
+        <div class="input">
+            <label for="subject">Message subject: *</label> <!--Message-->
             <select id="subject" name="subject" class="form-control">
                 <option value="" hidden>Please Select Subject</option>
                 <option value="product">Product</option>
@@ -28,13 +29,17 @@
                 <option value="website">website</option>
                 <option value="other">Other</option>
             </select>
-
-        <label for="message">Message *</label>
-            <textarea name="message" id="message" rows="10" cols="30" required>Please type your message here</textarea><br>
+        </div>
+        <div class="input">
+            <label for="message">Message: *</label>
+            <textarea name="message" id="message" class="form-control" required>Please type your message here</textarea><br>
+        </div>
+        <div class="button-input">
             <input type="submit" value="Submit by Owl Post"><br>
             * Required Field
+        </div>
     </form>
-</aside>
+</div>
 
 
 {#why you have html? you dont have open tag#}
