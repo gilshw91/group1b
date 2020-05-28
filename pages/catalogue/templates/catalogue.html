@@ -7,28 +7,17 @@
 {% endblock %}
 
 {% block page_body_main_content %}
-<!-- HEY :) you need to delete the doctype+head for this page, also when you have the block of the body main
- content -as you can notice on line above you do not need to leave the body tag in the html. start from the div.
- you have a spare html tag at the end of the page - delete it :)
- I'm wondering if we will have time to add more product for the page to make it feel real hmmm what do you say?-->
 
-<!--<!DOCTYPE html>
-<html lang="{{ page_lang|default("en", true) }}">
-<head>
-    <title>Hokus Mokus | Catalogue</title>
-    <meta charset="UTF-8"/>
-    <meta name="description" content="Catalogue page"/>
-    <meta name="keywords" content="Wizard, Magic, Spells"/>
-    <link rel="icon" href="url"/>--> <!--ADD URL-->
+    <link rel="stylesheet" href="../../../static/css/base.css"> <!--This is for me-->
     <link rel="stylesheet" href="../static/css/catalogue.css"/> <!--Keep here for now, until Flask is properly installed-->
-    <!--<base href=""/> <!--ADD URL-->
 
     <div class="top-block"> <!--Title and sub-title-->
-        <h1 class="heading-1">Spyware Products</h1>
-        <h2 class="heading-2">Magic is only a click away...<br/>Check out our products and let your inner wizard roam free.<br/>Expecto patronum!</h2>
+        <h1 class="heading-1">Spyware <strong>Products</strong></h1>
+        <h2 class="heading-2">Magic is only a click away... Expecto patronum!</h2>
     </div>
     <hr>
-    <ul class="catalogue" style="list-style-type:none;"> <!--List of products-->
+<div class="product-list-area">
+    <ul class="product-list"> <!--List of products-->
         <li class="product">
             <a href="../../product/templates/extendable_ears.html"> <!--The picture, description and price are all links to one page-->
                 <img src="../../../static/img/products/extendable_ear.jpg" border="1" title="Extendable Ear" alt="Extendable Ear">
@@ -36,14 +25,33 @@
                 <p>Price: <del>£25</del> £15</p>
             </a>
         </li>
+        <hr>
         <li class="product">
             <a href="../../product/templates/peruvian_instant_darkness_powder.html">
                 <img src="../../../static/img/products/Peruvian_Instant_Darkness_Powder.jpg" border="1" title="Peruvain Instant Darkness Powder" alt="Peruvain Instant Darkness Powder">
                 <h3>Peruvian Instant Darkness Powder</h3>
                 <p>Price: £35</p>
             </a>
-        </li> <!--More list items here-->
+        </li>
+        <hr>
+        <li class="product">
+            <a href=""> <!--The picture, description and price are all links to one page-->
+                <img src="../../../static/img/products/product3.jpg" border="1" title="Sticky Trainers" alt="Sticky Trainers">
+                <h3>Sticky Trainers</h3>
+                <p>Price: <del>£50</del> £40</p>
+            </a>
+        </li>
+        <hr>
+        <li class="product">
+            <a href=""> <!--The picture, description and price are all links to one page-->
+                <img src="../../../static/img/products/product5.jpg" border="1" title="No Poo Bottle" alt="No Poo Bottle">
+                <h3>No Poo Bottle</h3>
+                <p>Price: <del>£25</del> £20</p>
+            </a>
+        </li>
+        <hr>
     </ul>
+</div>
 
 {% endblock %}
 
