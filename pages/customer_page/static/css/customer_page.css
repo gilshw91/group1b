@@ -1,38 +1,21 @@
 * {box-sizing: border-box;}
 
-h1{
-    text-align: center;
-    display: block;
-    padding: 5%;
+form {
+    margin: auto;
+    width: 50%;
+    padding: 2%;
 }
 
-h2{
-    text-align: center;
-    display: block;
-    padding-bottom: 5%;
+input[type=submit]{
+    margin-top: 10%;
+    margin-bottom: 5%;
 }
 
-input, select, textarea {
-  width: 98%;
-  padding: 10px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
+input[type=text], input[type=email], input[type=number], input[type=password], input[type=date]{
+    width: 57%;
+    float: right;
 }
-
-input[type=submit] {
-  width: 98%;
-  background-color: #4CAF50;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
+/*
 .block {
   padding: 0px 10px;
   padding: 20px;
@@ -43,7 +26,7 @@ input[type=submit] {
     display: inline;
     padding-bottom: 20px;
 }
-
+*/
 .nav-link {
     display: inline-block;
     color: #ffecb3;
