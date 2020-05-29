@@ -3,12 +3,12 @@
 .sign-in-block{
     position:relative;
     vertical-align: top;
-    left: 4%;
+    left: 3%;
 }
 
 .registration-block {
     position:relative;
-    left :2%;
+    left :1%;
 }
 
 .container{
@@ -26,13 +26,13 @@ aside{
 
 .button-default{
     position:relative;
-    left: 5.5%;
+    left: 3.5%;
     padding: 1%;
 }
 
 .checkbox{
     position:relative;
-    left: 6.5%;
+    left: 4.5%;
 }
 
 .heading-1{
@@ -42,13 +42,13 @@ aside{
 .registration-form{
     padding: 3%;
     padding-bottom: 4%;
-    padding-left: 5%;
+    padding-left: 4%;
 }
 
 .sign-in-form{
     padding: 3%;
     padding-bottom:4%;
-    padding-left: 5%;
+    padding-left: 4%;
 }
 
 input[type=text],input[type=email], input[type=tel],input[type=number],input[type=password]{

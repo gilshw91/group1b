@@ -1,4 +1,7 @@
 * {box-sizing: border-box;}
+.categories-main{
+    Padding-bottom: 5%;
+}
 
 h1{
     text-align: center;
