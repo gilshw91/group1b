@@ -1,7 +1,6 @@
 @import "variables.css";
 
 * { box-sizing: border-box; }
-/*Pin the menu to the left and consider to make the background with a bit of opacity*/
 .heading-1 {
     color: #ffecb3;
     font-size: 250%;
