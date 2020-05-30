@@ -1,5 +1,11 @@
 * {box-sizing: border-box;}
-
+.container-padding{
+    padding: 2%;
+}
+.input {
+    display: block;
+    position: relative;
+}
 form {
     margin: auto;
     width: 50%;
@@ -7,19 +13,8 @@ form {
 }
 
 input[type=submit]{
-    margin-top: 10%;
-    margin-bottom: 5%;
+    margin-top: 14%;
 }
-
-input[type=text], input[type=email], select, textarea{
-    width: 57%;
-    float: right;
-}
-
-textarea{
+textarea {
     height: 10%;
 }
-
-
-
-
