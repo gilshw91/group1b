@@ -9,14 +9,12 @@
 	position: relative;
 	margin: 30px 0 80px;
 }
-
 .heading-4 {
 	text-align: center;
 	text-transform: uppercase;
 	position: relative;
 	margin: 30px 0 80px;
 }
-
 .center-img-home-page {
 	display: block;
 	width: 100%;
@@ -36,7 +34,6 @@
     position: relative;
     top: -65px;
 }
-
 @keyframes slidein {
   from {
       overflow: hidden;
@@ -49,7 +46,6 @@
       width: auto;
   }
 }
-
 .carousel {
     margin: 50px auto;
     padding: 0 70px;
@@ -78,12 +74,11 @@
 .carousel .item h4 {
     margin: 10px 0;
 }
-
 /*Arrows of the carousel*/
 .carousel .carousel-control {
     height: 100px;
     width: 40px;
-    background: none;
+    /*background: none;*/
     margin: auto 0;
     background: #FF652F;
     top: -40%;
@@ -106,7 +101,6 @@
 .carousel .item-price strike {
 	color: #ffecb3;
 	margin-right: 5px;
-
 }
 .carousel .item-price span {
     color: #FF652F;
@@ -119,4 +113,3 @@
 .carousel .carousel-indicators {
     bottom: -50px;
 }
-

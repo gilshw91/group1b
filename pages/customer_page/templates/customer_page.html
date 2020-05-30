@@ -9,116 +9,117 @@
 {% block page_body_main_content %}
     <link rel="stylesheet" href="../../../static/css/base.css"> <!--This is for me-->
     <link rel="stylesheet" href="../static/css/customer_page.css"> <!--Yes, i know. but keep this here for now-->
+    <div class="padding-left">
+    <div class="top-block"> <!--Title and sub-title-->
+        <h1 class="heading-1">Profile <strong>Page</strong></h1>
+        <h3 class="heading-3">Hello, fellow wizard</h3>
+    </div>
+    <hr/>
+    <div class="nav" id="nav"> <!--Side menu body-->
+        <h3 class="heading-3">Shortcuts</h3> <!--Side menu header and photo-->
+            <a class=nav-link href="#order-block">My Orders</a>
+            <a class=nav-link href="#address-block">My Shipping Address</a>
+            <a class=nav-link href="#review-block">My Reviews</a>
+            <a class=nav-link href="#password-block">Change Password</a>
+            <a class=nav-link href="#credit-block">Credit Card Data</a>
+    </div>
+    <hr/>
 
-<div class="top-block"> <!--Title and sub-title-->
-    <h1 class="heading-1">Profile <strong>Page</strong></h1>
-    <h3 class="heading-2">Hello, fellow wizard</h3>
-</div>
-<hr>
-<div class="nav" id="nav"> <!--Side menu body-->
-    <h3 class="heading-3">Shortcuts</h3> <!--Side menu header and photo-->
-        <a class=nav-link href="#order-block">My Orders</a>
-        <a class=nav-link href="#address-block">My Shipping Address</a>
-        <a class=nav-link href="#review-block">My Reviews</a>
-        <a class=nav-link href="#password-block">Change Password</a>
-        <a class=nav-link href="#credit-block">Credit Card Data</a>
-</div>
-<hr>
-
-<div class="block" id="order-block" name="order-block">
-    <h2 class="heading-2">My Orders</h2>
-    <ul class="orders" style="list-style-type:none;"> <!--List of products-->
-        <li class="product">
-            <a href="url"> <!--The picture, description and price are all links to one page-->
-                <img src="../../../static/img/products/product1.jpg" border="1" title="Sticky Trainers" alt="Sticky Trainers" style="width:75px">
-                <h4 class="heading-4">Fever Fudge</h4>
-                <p>Date of Order: 04/11/1995</p> <!--UPDATE PRICE-->
-            </a>
-        </li>
-        <li class="product">
-            <a href="url">
-                <img src="../../../static/img/products/product5.jpg" border="1" title="No Poo" alt="No Poo" style="width:75px">
-                <h4 class="heading-4">No Poo Bottle</h4>
-                <p>Date of Order: 11/09/2001</p> <!--UPDATE PRICE-->
-            </a>
-        </li> <!--More list items here-->
-    </ul>
-</div>
-<div class="block" id="address-block">
-    <h2 class="heading-2">My Shipping Address</h2>
-    <h4 class="heading-4" id="current-address">Current Address: Melania Av. 24, Ramat Trump, Golan Heights</h4>
-    <form method="post" id="Change_shipping" action="route">
-        <legend>If you wish to update your shipping address, fill the address here:</legend>
-        <div class="customer-form">
-            <label for="city">City: *</label>
-            <input type="text" class="input" name="city" id="city" required>
+    <div class="block" id="order-block" name="order-block">
+        <h2 class="heading-2">My <strong>Orders</strong></h2>
+        <ul class="orders" style="list-style-type:none;"> <!--List of products-->
+            <li class="product">
+                <a href="url"> <!--The picture, description and price are all links to one page-->
+                    <img class="my-product-img" src="../../../static/img/products/product1.jpg" border="1" title="Sticky Trainers" alt="Sticky Trainers"/>
+                    <h4 class="heading-4">Fever Fudge</h4>
+                    <p>Date of Order: 04/11/1995</p> <!--UPDATE PRICE-->
+                </a>
+            </li>
+            <li class="product">
+                <a href="url">
+                    <img class="my-product-img" src="../../../static/img/products/product5.jpg" border="1" title="No Poo" alt="No Poo"/>
+                    <h4 class="heading-4">No Poo Bottle</h4>
+                    <p>Date of Order: 11/09/2001</p> <!--UPDATE PRICE-->
+                </a>
+            </li> <!--More list items here-->
+        </ul>
+    </div>
+    <div class="block" id="address-block">
+        <h2 class="heading-2">My <strong>Shipping</strong> Address</h2>
+        <h4 class="heading-4" id="current-address">Current Address: Melania Av. 24, Ramat Trump, Golan Heights</h4>
+        <form method="post" id="Change_shipping" action="route">
+            <legend>If you wish to update your shipping address, fill the address here:</legend>
+            <div class="customer-form">
+                <label for="city">City: *</label>
+                <input type="text" class="input" name="city" id="city" required/>
+            </div>
+            <div class="customer-form">
+                <label for="street">Street: *</label>
+                <input type="text" class="input" name="street" id="street" required/>
+            </div>
+            <div class="customer-form">
+                <label for="number">Number: *</label>
+                <input type="number" class="input" name="number" id="number" required/>
+            </div>
+            <div class="customer-form">
+                <label for="zip_code">Zip-code: *</label>
+                <input type="number" class="input" name="zip_code" id="zip_code" required/>
+            </div>
+            <div class="customer-form">
+                <input type="submit" value="Change Shipping Address"/>
+            </div>
+        </form>
+    </div>
+    <div class="block" id="review-block">
+        <h2 class="heading-2">Recent <strong>Reviews</strong></h2>
+        <div class="review">
+        <p>Product: No Poo Bottle<br/>Review Date: 11/10/2001<br/>Review: Just wanted to binge 'Stranger things'. Taking 2 pills at once was such a mistake!</p>
         </div>
-        <div class="customer-form">
-            <label for="street">Street: *</label>
-            <input type="text" class="input" name="street" id="street" required>
-        <div class="customer-form">
-            <label for="number">Number: *</label>
-            <input type="number" class="input" name="number" id="number" required>
+    </div>
+    <div class="block" id="password-block">
+        <h2 class="heading-2"><strong>Password</strong></h2>
+        <form class="password-form">
+            <legend>Enter your old and new passwords here:</legend>
+            <div class="customer-form">
+                <label for="pwd">Enter old password: *</label>
+                <input type="password" class="input" id="pwd" name="pwd" required/>
+            </div>
+            <div class="customer-form">
+                <label for="pwd">Enter new password: *</label>
+                <input type="password" class="input" id="pwd" name="pwd" required/>
+            </div>
+            <div class="customer-form">
+                <label for="pwd">Re-enter new password: *</label>
+                <input type="password" class="input" id="pwd" name="pwd" required/>
+            </div>
+            <div class="customer-form">
+            <input type="submit" value="Change Password"/>
+            </div>
+        </form>
+    </div>
+    <div class="block" id="credit-block">
+        <h2 class="heading-2"><strong>Credit Card</strong> Data</h2>
+        <div class="current-credit">
+        <p>Current credit card: ****-****-****-4928</p><!--Will pull content somehow-->
         </div>
-        <div class="customer-form">
-            <label for="zip_code">Zip-code: *</label>
-            <input type="number" class="input" name="zip_code" id="zip_code" required>
-        </div>
-        <div class="customer-form">
-            <input type="submit" value="Change Shipping Address">
-        </div>
-    </form>
-</div>
-<div class="block" id="review-block">
-    <h2 class="heading-2">Recent Reviews</h2>
-    <div class="review">
-    <p>Product: No Poo Bottle<br>Review Date: 11/10/2001<br>Review: Just wanted to binge 'Stranger things'. Taking 2 pills at once was such a mistake!</p>
+        <form class="card-form">
+            <legend>If you wish to add or change credit data, fill in your new card here:</legend>
+            <div class="customer-form">
+                <label for="credit">Card number: *</label>
+                <input type="number" class="input" id="credit" name="credit" required/>
+            </div>
+            <div class="customer-form">
+                <label for="exp">Expiration date: *</label>
+                <input type="date" class="input" id="exp" name="exp" required/>
+            </div>
+            <div class="customer-form">
+                <label for="cvv">CVV: *</label>
+                <input type="number" class="input" name="cvv" id="cvv" required/>
+            </div>
+            <div class="customer-form">
+                <input type="submit" value="Change Credit Card"/>
+            </div>
+        </form>
     </div>
 </div>
-<div class="block" id="password-block">
-    <h2 class="heading-2">Password</h2>
-    <form class="password-form">
-        <legend>Enter your old and new passwords here:</legend>
-        <div class="customer-form">
-            <label for="pwd">Enter old password: *</label>
-            <input type="password" class="input" id="pwd" name="pwd" required>
-        </div>
-        <div class="customer-form">
-            <label for="pwd">Enter new password: *</label>
-            <input type="password" class="input" id="pwd" name="pwd" required>
-        </div>
-        <div class="customer-form">
-            <label for="pwd">Re-enter new password: *</label>
-            <input type="password" class="input" id="pwd" name="pwd" required>
-        </div>
-        <div class="customer-form">
-        <input type="submit" value="Change Password">
-        </div>
-    </form>
-</div>
-<div class="block" id="credit-block">
-    <h2 class="heading-2">Credit Card Data</h2>
-    <div class="current-credit">
-    <p>Current credit card: ****-****-****-4928</p><!--Will pull content somehow-->
-    </div>
-    <form class="card-form">
-        <legend>If you wish to add or change credit data, fill in your new card here:</legend>
-        <div class="customer-form">
-            <label for="credit">Card number: *</label>
-            <input type="number" class="input" id="credit" name="credit" required>
-        </div>
-        <div class="customer-form">
-            <label for="exp">Expiration date: *</label>
-            <input type="date" class="input" id="exp" name="exp" required>
-        </div>
-        <div class="customer-form">
-            <label for="cvv">CVV: *</label>
-            <input type="number" class="input" name="cvv" id="cvv" required>
-        </div>
-        <div class="customer-form">
-            <input type="submit" value="Change Credit Card">
-        </div>
-    </form>
-</div>
-
 {% endblock %}

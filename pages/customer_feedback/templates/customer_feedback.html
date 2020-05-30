@@ -7,40 +7,42 @@
 {% endblock %}
 
 {% block page_body_main_content %}
-
-<link rel="stylesheet" href="../../../static/css/base.css"> <!--This is for me-->
-<link rel="stylesheet" href="../static/css/customer_feedback.css"><!--This is for me-->
-    <div class="top-block"> <!--Title and sub-title-->
-        <h1 class="heading-1">Hello, <strong>fellow wizard!</strong></h1>
-        <h3 class="heading-3">Please provide your feedback below:</h3>
+<div class="container-padding">
+    <link rel="stylesheet" href="../../../static/css/base.css"> <!--This is for me-->
+    <link rel="stylesheet" href="../static/css/customer_feedback.css"><!--This is for me-->
+        <div class="top-block"> <!--Title and sub-title-->
+            <h1 class="heading-1">Hello, <strong>fellow wizard!</strong></h1>
+            <h3 class="heading-3">Please provide your feedback below:</h3>
+        </div>
+    <div class="form-space">
+        <form method="post" id="feedback-form" action="route">
+            <div class="input">
+                <label class="input-email" for="email">Email address: *</label><br/>
+                <input type="email" class="form-control" placeholder="wizard@hogwarts.com" id="email" name="email" required/><!--DONE maybe add some * or something that the user will know thats require -->
+            </div>
+            <br/>
+            <div class="input">
+                <label class="input-subject" for="subject">Message subject: *</label> <!--Message-->
+                <select id="subject" name="subject" class="form-control">
+                    <option value="" hidden>Please Select Subject</option>
+                    <option value="product">Product</option>
+                    <option value="shipment">Shipment</option>
+                    <option value="website">website</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+            <br/>
+            <div class="input">
+                <label class="label-msg" for="message">Message: *</label>
+                <textarea name="message" id="message" class="form-control" required>Please type your message here</textarea>
+            </div>
+            <div class="button-input">
+                <input type="submit" value="Submit by Owl Post"/>
+                * Required Field
+            </div>
+        </form>
     </div>
-<div class="form-space">
-    <form method="post" id="feedback-form" action="route">
-        <div class="input">
-            <label for="email">Email address: *</label>
-            <input type="email" class="form-control" placeholder="wizard@hogwarts.com" id="email" name="email" required><br><!--DONE maybe add some * or something that the user will know thats require -->
-        </div>
-        <div class="input">
-            <label for="subject">Message subject: *</label> <!--Message-->
-            <select id="subject" name="subject" class="form-control">
-                <option value="" hidden>Please Select Subject</option>
-                <option value="product">Product</option>
-                <option value="shipment">Shipment</option>
-                <option value="website">website</option>
-                <option value="other">Other</option>
-            </select>
-        </div>
-        <div class="input">
-            <label for="message">Message: *</label>
-            <textarea name="message" id="message" class="form-control" required>Please type your message here</textarea><br>
-        </div>
-        <div class="button-input">
-            <input type="submit" value="Submit by Owl Post"><br>
-            * Required Field
-        </div>
-    </form>
 </div>
-
 
 {#why you have html? you dont have open tag#}
 {# you need to add block for footer#}

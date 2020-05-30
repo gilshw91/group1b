@@ -17,5 +17,6 @@ hr{
 
 img{
     display: inline-block;
-    width: 15%;
+    width: 20%;
+    border-radius: 10%;
 }
