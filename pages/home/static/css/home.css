@@ -113,3 +113,46 @@
 .carousel .carousel-indicators {
     bottom: -50px;
 }
+/* modal -product of the week */
+#popup {
+    position: absolute;
+    display:none;
+    top:2%;
+    right:2%;
+    width:40%;
+    border:1px solid #ffecb3;
+    padding:20px;
+    background-color: #303030;
+    background-color: rgba(40, 40, 40, 0.9); /* with opacity */
+    z-index: 2;
+    color: #ffecb3;
+    border-radius: 8%;
+    text-align: center;
+
+}
+/* The Close Button */
+.close {
+  color: #ffecb3;
+  float: right;
+  font-size: 200%;
+  font-weight: bold;
+}
+.close:hover, .close:focus {
+  color: #FF652F;
+  text-decoration: none;
+  cursor: pointer;
+}
+.sale-product {
+    width: 40%;
+    border-radius: 10%;
+    left: 50%;
+
+}
+.modal-text > span{
+    color: #FF652F;
+    font-size: 150%;
+}
+.modal-heading {
+    text-align: center;
+    margin: 2%;
+}

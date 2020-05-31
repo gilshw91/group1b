@@ -4,6 +4,30 @@
 
 {% block page_head_css %}
     <link rel="stylesheet" href="{{ url_for('home.static', filename='css/home.css') }}"/>
+    <!-- jQuery -->
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<!-- BS JavaScript -->
+<script type="text/javascript" src="js/bootstrap.js"></script>
+<!-- Have fun using Bootstrap JS -->
+    <script>
+        function show_popup()
+        {
+          document.getElementById('popup').style.display = 'block';
+        }
+        window.onload = show_popup;
+        //Close modal
+        function closeDialog(element)
+        {
+            var modal = document.getElementById("popup");
+	        modal.style.display = "none";
+        }
+        // Close when click oitside the modal ----> DOESNT WORK
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
 {% endblock %}
 
 {% block page_body_main_content %}
@@ -14,6 +38,17 @@
             <h1 class="heading-1"><strong>Hokus Mokus</strong> | Weaslys' Wizard Wheezes Shop</h1>
         </div>
     </div>
+
+    <div id="popup" class="popup">
+        <span class="close" onclick="closeDialog(this)">&times;</span><br/>
+        <h1 class="heading-1 modal-heading">Hokus Mokus <strong>SALE!</strong></h1>
+        <h2 class="heading-2 modal-heading"> Product of the <strong>week</strong></h2>
+        <a href = "{{ url_for('product.extendable_ears') }}">
+            <img class="sale-product" src="/static/img/products/extendable_ear.jpg" alt="product2"/>
+            <p class="modal-text"><strong>ONLY</strong> <span>£15.00</span></p>
+        </a>
+    </div>
+
     <div class="container">
         <h2 class="heading-2">Hokus Mokus <strong>Products</strong></h2>
         <div id="myCarousel" class="carousel slide"> {# 'slide'- makes the items to slide #}
