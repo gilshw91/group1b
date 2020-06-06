@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
 
-{% set page_head_title = 'Home' %}
+{% set page_head_title = 'Homepage' %}
 
 {% block page_head_css %}
-    <link rel="stylesheet" href="{{ url_for('home.static', filename='css/home.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('homepage.static', filename='css/homepage.css') }}"/>
     <!-- jQuery -->
 <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 <!-- BS JavaScript -->
@@ -124,4 +124,3 @@
     </div>
 </main>
 {% endblock %}
-

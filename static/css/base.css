@@ -64,6 +64,9 @@ P {
     z-index: 1;
 }
 body {
+    /*TODO: we can use this insted variables.css */
+    /*margin: 0;*/
+    /*font-family: Tahoma, serif;*/
     background-image: url("/static/img/background/background-book-darker.jpg");
     background-repeat: no-repeat;
     background-size: cover;

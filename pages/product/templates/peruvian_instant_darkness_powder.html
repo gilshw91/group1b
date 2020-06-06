@@ -4,8 +4,9 @@
 
 {% block page_head_css %}
     <link rel="stylesheet" href="{{ url_for('product.static', filename='css/product.css') }}"/>
+{% endblock %}
+{% block page_body_js %}
     <script src="{{ url_for('product.static', filename='js/product.js') }}"></script>
-
 {% endblock %}
 
 {% block page_body_main_content %}

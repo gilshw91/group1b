@@ -2,7 +2,7 @@
 Base page variables:
 - page_lang | default: 'en'
 - page_head_title_brand | default: 'Hokus Mokus'
-- page_head_title | default: 'Flask project'
+- page_head_title | default: 'Flask skeleton project'
 #}
 
 {#
@@ -24,22 +24,21 @@ Base page blocks:
 ---- page_body_main_content
 --- page_body_footer
 ---- page_body_footer_content
+-- page_body_js
  #}
 <!DOCTYPE html>
-<!--hey gil! I'm sure you remember to do it so I will just recall for updating the main menu navigator with all pages, after all will be ready :)-->
- <html lang="{{ page_lang|default('en', true) }}">
+ <html lang="{{ page_lang|default("en", true) }}">
     <head>
     {% block page_head %}
         {# Title #}
-        <title>{{ page_head_title_brand|default('Hokus Mokus', true) }} | {{ page_head_title|default('Flask project', true) }}</title>
+        <title>{{ page_head_title_brand|default('Hokus Mokus', true) }} | {{ page_head_title|default('Flask skeleton project', true) }}</title>
 
         {# Meta tags #}
         {% block page_head_meta %}
             <meta charset="UTF-8"/>
             <meta name="author" content="Hadar, Rotem, Jonathan, Gil"/>
-            <meta name="description" content="Flask project about Hokus Mokus Shop"/>
-            <meta name="keywords" content="flask, lean, skeleton, project, structure, environment, setup, template, fullstack, web, development, app, university, education, base, logo. info"/>
-            <link rel="icon" href="{{ url_for('static', filename='/img/favicon/favicon2.png') }}"/>
+            <meta name="description" content="Flask skeleton project about Hokus Mokus Shop"/>
+            <meta name="keywords" content="flask, lean, skeleton, project, structure, environment, setup, template, fullstack, web, development, app, university, education"/>
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
             <meta name="viewport" content="width=device-width, initial-scale=1">
             <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
@@ -51,17 +50,18 @@ Base page blocks:
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
             <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> <!--fonts-->
             <script src='https://kit.fontawesome.com/a076d05399.js'></script><!--for the icons-->
+            {% block page_head_meta_extra %}{% endblock %}
+        {% endblock %}
 
-
-        {% block page_head_meta_extra %}{% endblock %}
-    {% endblock %}
+        {# favicon #}
+        <link rel="icon" href="{{ url_for('static', filename='media/img/favicon/favicon2.png') }}"/>
 
         {# Base #}
+{#        TODO: check base tag up in this page#}
         <base href="{{ url_for('static', filename="group1")}}"/>
 
         {# CSS #}
         <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}"/>
-
         {% block page_head_css %}{% endblock %}
     {% endblock %}
     </head>
@@ -73,7 +73,7 @@ Base page blocks:
                 <header class="page-header">
                     {% block page_body_header_content %}
                     <div class="logo-header">
-                        <a href = "{{ url_for('home.index') }}" title="Hokus Mokus Home Page">
+                        <a href = "{{ url_for('homepage.index') }}" title="Hokus Mokus Home Page">
                             <img class="logo-header" alt="Hokus Mokus Logo" src="/static/img/logo/logo.png"/>
                         </a>
                     </div>
@@ -126,12 +126,9 @@ Base page blocks:
                 </footer>
             {% endblock %}
         {% endblock %}
+
+        {# JS #}
+        <script src="{{ url_for('static', filename='js/base.js') }}"></script>
+        {% block page_body_js %}{% endblock %}
     </body>
 </html>
-
-
-
-
-
-
-

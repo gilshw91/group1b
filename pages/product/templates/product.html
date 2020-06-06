@@ -4,8 +4,9 @@
 
 {% block page_head_css %}
     <link rel="stylesheet" href="{{ url_for('product.static', filename='css/product.css') }}"/>
+{% endblock %}
+{% block page_body_js %}
     <script src="{{ url_for('product.static', filename='js/product.js') }}"></script>
-
 {% endblock %}
 
 <!-- Hi! do you know why the background image of the page is smaller? not fitted to all of the page?

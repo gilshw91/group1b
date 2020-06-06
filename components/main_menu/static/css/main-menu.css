@@ -19,3 +19,14 @@
 .nav-bar .nav-bar-link:hover:not(.active) {
     background-color: #303030;
 }
+/*
+.main-menu ul {
+    padding: 0;
+}
+.main-menu > ul > li {
+    display: inline-block;
+}
+.main-menu > ul li a.active {
+    color: lightblue;
+}
+*/
