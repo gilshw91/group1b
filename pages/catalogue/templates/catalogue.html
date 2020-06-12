@@ -20,16 +20,16 @@
     <div class="product-list-area">
         <ul class="product-list"> <!--List of products-->
             <li class="product">
-                <a href="{{ url_for('extendable_ears.index') }}"> <!--../../product/templates/extendable_ears.html-->
-                    <img src="/static/img/products/extendable_ear.jpg" border="1" title="Extendable Ear" alt="Extendable Ear"/>
+                <a href="{{ url_for('product.extendable_ears') }}">
+                    <img src="img/products/extendable_ear.jpg" border="1" title="Extendable Ear" alt="Extendable Ear"/>
                     <h3 class="heading-3">Extendable Ear</h3>
                     <p>Price: <del>£25.00</del> £15.00</p>
                 </a>
             </li>
             <hr/>
             <li class="product">
-                <a href="{{ url_for('peruvian_instant_darkness_powder.index') }}"> <!--../../product/templates/peruvian_instant_darkness_powder.html-->
-                    <img src="/static/img/products/Peruvian_Instant_Darkness_Powder.jpg" border="1" title="Peruvain Instant Darkness Powder" alt="Peruvain Instant Darkness Powder"/>
+                <a href="{{ url_for('product.peruvian_instant_darkness_powder') }}"> <!--../../product/templates/peruvian_instant_darkness_powder.html-->
+                    <img src="img/products/peruvian_instant_darkness_powder.jpg" border="1" title="Peruvain Instant Darkness Powder" alt="Peruvain Instant Darkness Powder"/>
                     <h3 class="heading-3">Peruvian Instant Darkness Powder</h3>
                     <p>Price: £35.00</p>
                 </a>
@@ -37,7 +37,7 @@
             <hr/>
             <li class="product">
                 <a href=""> <!--The picture, description and price are all links to one page-->
-                    <img src="/static/img/products/product3.jpg" border="1" title="Sticky Trainers" alt="Sticky Trainers"/>
+                    <img src="img/products/product3.jpg" border="1" title="Sticky Trainers" alt="Sticky Trainers"/>
                     <h3 class="heading-3">Sticky Trainers</h3>
                     <p>Price: <del>£80.00</del> £69.00</p>
                 </a>
@@ -45,7 +45,7 @@
             <hr/>
             <li class="product">
                 <a href=""> <!--The picture, description and price are all links to one page-->
-                    <img src="/static/img/products/product5.jpg" border="1" title="No Poo Bottle" alt="No Poo Bottle"/>
+                    <img src="img/products/product5.jpg" border="1" title="No Poo Bottle" alt="No Poo Bottle"/>
                     <h3 class="heading-3">No Poo Bottle</h3>
                     <p>Price: <del>£25.00</del> £20.00</p>
                 </a>
@@ -54,43 +54,7 @@
         </ul>
     </div>
 
-    <hr>
-<div class="product-list-area">
-    <ul class="product-list" style=""> <!--List of products-->
-        <li class="product">
-            <a href = "{{ url_for('product.extendable_ears') }}"> <!--The picture, description and price are all links to one page-->
-                <img src="/static/img/products/extendable_ear.jpg" border="1" title="Extendable Ear" alt="Extendable Ear"/>
-                <h3>Extendable Ear</h3>
-                <p>Price: <del>£25</del> £15</p>
-            </a>
-        </li>
-        <hr/>
-        <li class="product">
-            <a href="{{ url_for('product.peruvian_instant_darkness_powder') }}">
-                <img src="/static/img/products/Peruvian_Instant_Darkness_Powder.jpg" border="1" title="Peruvain Instant Darkness Powder" alt="Peruvain Instant Darkness Powder"/>
-                <h3>Peruvian Instant Darkness Powder</h3>
-                <p>Price: £35.00</p>
-            </a>
-        </li>
-        <hr/>
-        <li class="product">
-            <a href=""> <!--The picture, description and price are all links to one page-->
-                <img src="/static/img/products/product3.jpg" border="1" title="Sticky Trainers" alt="Sticky Trainers"/>
-                <h3>Sticky Trainers</h3>
-                <p>Price: <del>£89.00</del> £69.00</p>
-            </a>
-        </li>
-        <hr/>
-        <li class="product">
-            <a href=""> <!--The picture, description and price are all links to one page-->
-                <img src="/static/img/products/product5.jpg" border="1" title="No Poo Bottle" alt="No Poo Bottle"/>
-                <h3>No Poo Bottle</h3>
-                <p>Price: <del>£25</del> £20</p>
-            </a>
-        </li>
-        <hr/>
-    </ul>
-</div>
+
 
 {% endblock %}
 
