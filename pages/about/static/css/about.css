@@ -1,7 +1,7 @@
 p, li, h1, h2{
   margin-left: 2%;
 }
-p{
+.about-us, .contact-information{
     width: 55%;
 }
 h2{
