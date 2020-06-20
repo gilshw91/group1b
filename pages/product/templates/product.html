@@ -30,6 +30,7 @@ the heading of Rating & Reviews are not at the correct place. it is places aside
         <div class="main-product-image">
             <aside>
             <img src="/static/media/img/products/extendeable_ear.jpg" alt="Extendeable Ears"/>
+{#            <img src="{{ url_for('static.media' filename="/img/}}"#}
 
             </aside>
         </div>
@@ -58,4 +59,8 @@ the heading of Rating & Reviews are not at the correct place. it is places aside
             </div>
         </div>
     </div>
+{% endblock %}
+{# footer #}
+{% block page_body_footer %}
+     {{  super() }}
 {% endblock %}
