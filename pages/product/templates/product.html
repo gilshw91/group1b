@@ -17,11 +17,9 @@ the heading of Rating & Reviews are not at the correct place. it is places aside
     <div class="main-product">
         <div class="main-product-details">
             <aside>
-                 <h1 class = heading-1>Extendeable Ears</h1>
-            <p>They are long, flesh-coloured pieces of string which one can insert in one's ear, then shove the other
-                end under (for example) a door, and one will hear the conversation or other noise as clear as if it was
-                mere feet away, unless, that is, the door has been Imperturbed (with Imperturbable Charm)</p>
-                <p>Price: <del>25£</del> 15£</p>
+                <h1 class = heading-1>{{ product.name }}</h1>
+                <p>{{ product.description }}</p>
+                <p>Price: £{{ product.price }}</p>
                 <div class="add-to-cart">
                     <button>Add to Cart</button><!--remind me to check if the "hover" over any button is working  -->
                 </div>
@@ -29,7 +27,7 @@ the heading of Rating & Reviews are not at the correct place. it is places aside
         </div>
         <div class="main-product-image">
             <aside>
-            <img src="/static/media/img/products/extendeable_ear.jpg" alt="Extendeable Ears"/>
+                <img src="{{ url_for('catalog.static', filename=product.img) }}" border="1" title="{{ product.name }}" alt={{ product.name }}/>
 
             </aside>
         </div>
