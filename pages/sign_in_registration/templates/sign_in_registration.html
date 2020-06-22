@@ -3,14 +3,14 @@
 {% set page_head_title = 'sign_in_registration' %}
 
 {% block page_head_css %}
-    <link rel="stylesheet" href="{{ url_for('sign_in_registration.static', filename='css/sign_in_registration.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('sign_in_registration.static', filename='css/sign_out.css') }}"/>
 {% endblock %}
 {% block page_body_main_content %}
 
     <div class="container">
         <aside class="sign-in-block"><!--The left side of the screen-->
-                <form method="post" action="route" class="sign-in-form">
-                    <div class="sign-in-form">
+                <form method="post" action="/sign_in_registration" class="sign-in-form">
+                    <div c lass="sign-in-form">
                         <h1 class="heading-1">Already Registered?</h1>
                     </div>
                     <div class="sign-in-form">
