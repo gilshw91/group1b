@@ -31,6 +31,13 @@ app.register_blueprint(categories)
 from pages.sign_in_registration.sign_in_registration import sign_in_registration
 app.register_blueprint(sign_in_registration)
 
+## sign_up
+from pages.sign_up.sign_up import sign_up
+app.register_blueprint(sign_up)
+
+## sign_out
+from pages.sign_out.sign_out import sign_out
+app.register_blueprint(sign_out)
 
 # Product check
 from pages.product.product import product

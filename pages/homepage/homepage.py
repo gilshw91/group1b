@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, redirect, url_for, request
+from flask import Blueprint, render_template, redirect, url_for, request, session
 from utilities.db.db_manager import dbManager
 # homepage blueprint definition
 homepage = Blueprint('homepage', __name__, static_folder='static', static_url_path='/homepage', template_folder='templates')
