@@ -11,6 +11,5 @@ product = Blueprint('product', __name__, static_folder='static', static_url_path
 @product.route('/product')
 def index():
     product_data = dbManager.fetch('SELECT * FROM product WHERE id=%s', (request.args['id'],))
-    return render_template('product.html', product=product_data[0])
-
-
+    review_data = dbManager.fetch('SELECT * FROM review WHERE id=%s', (request.args['id'],))
+    return render_template('product.html', product=product_data[0], review=review_data[0])

@@ -40,15 +40,11 @@ aside{
 }
 
 .registration-form{
-    padding: 3%;
-    padding-bottom: 4%;
-    padding-left: 4%;
+    padding: 3% 3% 4% 4%;
 }
 
 .sign-in-form{
-    padding: 3%;
-    padding-bottom:4%;
-    padding-left: 4%;
+    padding: 3% 3% 4% 4%;
 }
 
 input[type=text],input[type=email], input[type=tel],input[type=number],input[type=password]{

@@ -9,4 +9,4 @@ catalog = Blueprint('catalog', __name__, static_folder='static', static_url_path
 @catalog.route('/catalog')
 def index():
     products_data = dbManager.fetch('SELECT * FROM product')
-    return render_template('catalog.html', products = products_data)
+    return render_template('catalog.html', products=products_data)

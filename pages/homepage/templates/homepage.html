@@ -4,10 +4,13 @@
 
 {% block page_head_css %}
     <link rel="stylesheet" href="{{ url_for('homepage.static', filename='css/homepage.css') }}"/>
+
     <!-- jQuery -->
 <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 <!-- BS JavaScript -->
-<script type="text/javascript" src="js/bootstrap.js"></script>
+{#    <link rel="script" href="{% static 'js/bootstrap.js' %}"/>#}
+
+<script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.js') }}"></script>
 <!-- Have fun using Bootstrap JS -->
     <script>
         function show_popup()
@@ -21,7 +24,7 @@
             var modal = document.getElementById("popup");
 	        modal.style.display = "none";
         }
-        // Close when click oitside the modal ----> DOESNT WORK
+        // Close when clicked outside the modal ----> DOESNT WORK
         window.onclick = function(event) {
             if (event.target == modal) {
                 modal.style.display = "none";
@@ -32,24 +35,26 @@
 
 {% block page_body_main_content %}
 <main>
-    <div class="contain-img">
-        <img src="/static/media/img/img-home-page/weaslys_shorter.jpg" alt="Home Page Image" class="center-img-home-page"/>
-        <div class="top-left">
-            <h1 class="heading-1"><strong>Hokus Mokus</strong> | Weaslys' Wizard Wheezes Shop</h1>
+
+        <div class="contain-img">
+
+            <img src="/static/media/img/img-home-page/weaslys_shorter.jpg" alt="Home Page Image" class="center-img-home-page"/>
+            <div class="top-left">
+                <h1 class="heading-1"><strong>Hokus Mokus</strong> | Weaslys' Wizard Wheezes Shop</h1>
+            </div>
         </div>
-    </div>
-
-    <div id="popup" class="popup">
-        <span class="close" onclick="closeDialog(this)">&times;</span><br/>
-        <h1 class="heading-1 modal-heading">Hokus Mokus <strong>SALE!</strong></h1>
-        <h2 class="heading-2 modal-heading"> Product of the <strong>week</strong></h2>
-        <a href = "{{ url_for('product.extendable_ears') }}">
-            <img class="sale-product" src="/static/media/img/products/extendable_ear.jpg" alt="product2"/>
-            <p class="modal-text"><strong>ONLY</strong> <span>£15.00</span></p>
-        </a>
-    </div>
-
-    <div class="container">
+    {% for product in products %}
+        <div id="popup" class="popup">
+            <span class="close" onclick="closeDialog(this)">&times;</span><br/>
+            <h1 class="heading-1 modal-heading">Hokus Mokus <strong>SALE!</strong></h1>
+            <h2 class="heading-2 modal-heading"> Product of the <strong>week</strong></h2>
+            <a href = "/product?id={{ product.id }}">
+                <img class="sale-product" src="{{ url_for('static', filename='media/img/products/' + product.img) }}" alt={{ product.name }}/>
+                <p class="modal-text"><strong>ONLY</strong> <span>£15.00</span></p>
+            </a>
+        </div>
+    {% endfor %}
+   <div class="container">
         <h2 class="heading-2">Hokus Mokus <strong>Products</strong></h2>
         <div id="myCarousel" class="carousel slide"> {# 'slide'- makes the items to slide #}
             <!-- Wrapper for carousel items -->
@@ -57,14 +62,16 @@
                 <div class="item carousel-item active">
                     <div class="col-sm-3">
                         <div class="img-box">
-                            <img src="/static/media/img/products/product1.jpg" alt="product1"/>
+                            <a href = "/product?id=602456888">
+                                <img src="/static/media/img/products/product1.jpg" alt="product1"/>
+                            </a>
                         </div>
                         <h4 class="heading-4">Fever Fudge</h4>
                             <p class="item-price"><del>£45.00</del> <span>£39.90</span></p>
                     </div>
                     <div class="col-sm-3">
                         <div class="img-box">
-                            <a href = "{{ url_for('product.extendable_ears') }}">
+                            <a href = "/product?id=100000001">
                                 <img src="/static/media/img/products/extendable_ear.jpg" alt="product2"/>
                             </a>
                         </div>
@@ -73,14 +80,18 @@
                     </div>
                     <div class="col-sm-3">
                         <div class="img-box">
-                            <img src="/static/media/img/products/product3.jpg" alt="product3"/>
+                            <a href = "/product?id=499990012">
+                              <img src="/static/media/img/products/product3.jpg" alt="product3"/>
+                            </a>
                         </div>
                         <h4 class="heading-4">Sticky Trainers</h4>
                             <p class="item-price"><del>£89.00</del> <span>£69.00</span></p>
                     </div>
                     <div class="col-sm-3">
                         <div class="img-box">
-                            <img src="/static/media/img/products/product4.jpg" alt="product4"/>
+                            <a href = "/product?id=222222222">
+                                <img src="/static/media/img/products/product4.jpg" alt="product4"/>
+                            </a>
                         </div>
                         <h4 class="heading-4">Smelly Candle</h4>
                             <p class="item-price"><del>£315.00</del> <span>£250.00</span></p>
@@ -89,21 +100,25 @@
                 <div class="item carousel-item">
                     <div class="col-sm-3">
                         <div class="img-box">
-                            <img src="/static/img/products/product5.jpg" alt="product5"/>
+                            <a href = "/product?id=190225832">
+                                <img src="/static/img/products/product5.jpg" alt="product5"/>
+                            </a>
                         </div>
                         <h4 class="heading-4">No Poo Bottle</h4>
                             <p class="item-price"><del>£29.00</del> <span>£19.99</span></p>
                     </div>
                     <div class="col-sm-3">
                         <div class="img-box">
-                            <img src="/static/media/img/products/product6.jpg" alt="product6"/>
+                            <a href = "/product?id=602456888">
+                                <img src="/static/media/img/products/product6.jpg" alt="product6"/>
+                            </a>
                         </div>
                         <h4 class="heading-4">Special Girl</h4>
                             <p class="item-price"><del>£29.90</del> <span>£19.90</span></p>
                     </div>
                      <div class="col-sm-3">
                         <div class="img-box">
-                            <a href="{{ url_for('product.peruvian_instant_darkness_powder') }}">
+                            <a href="/product?id=399200019">
                                 <img src="/static/media/img/products/peruvian_instant_darkness_powder.jpg" alt="Peruvian Instant Darkness Powder"/>
                             </a>
                         </div>

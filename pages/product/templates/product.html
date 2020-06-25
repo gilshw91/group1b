@@ -27,7 +27,7 @@ the heading of Rating & Reviews are not at the correct place. it is places aside
         </div>
         <div class="main-product-image">
             <aside>
-                <img src="{{ url_for('catalog.static', filename=product.img) }}" border="1" title="{{ product.name }}" alt={{ product.name }}/>
+                <img src="{{ url_for('catalog.static', filename='img/'+product.img) }}" border="1" title="{{ product.name }}" alt={{ product.name }}/>
 
             </aside>
         </div>
@@ -37,7 +37,7 @@ the heading of Rating & Reviews are not at the correct place. it is places aside
     <h2 class="heading-2">Rating & Reviews</h2>
         <div class="add-review">
             <button type="button" class="write-review-button" onclick="showReviewForm()">Write a review</button>
-            <form id="review-form"  method=“POST” id="review-form" action="pages/product/templates/extendable_ears.html">
+            <form id="review-form"  method="POST" id="review-form" action='pages/product/templates/{{ product.name|lower|replace(" ","")}}.html'></form>
                 <label for="user-name">User Name: * </label>
             <input type="text" id="user-name" placeholder="User Name" name="review" required>
 
@@ -48,11 +48,11 @@ the heading of Rating & Reviews are not at the correct place. it is places aside
         </div>
         <div class="show-reviews">
             <div class="show-reviews-details">
-                <p class="review-info">user123</p>
-                <p class="review-info">08.05.19 15:13</p>
+                <p class="review-info">{{ review.email_address }}</p> {# INSERT QUERY BY JOIN PRODUCT ID #}
+                <p class="review-info">{{ review.date }}</p>
             </div>
             <div class="show-reviews-content">
-                <p>Best product EVER!</p>
+                <p>{{ review.content }}</p>
             </div>
         </div>
     </div>

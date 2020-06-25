@@ -19,6 +19,9 @@
 .add-review{
     width: 40%;
 }
+img {
+    width: 50%;
+}
 button, input[type=submit]{
     margin-bottom: 5%;
 }

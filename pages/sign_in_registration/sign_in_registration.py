@@ -27,9 +27,10 @@ def index():
             del session['login.errors']
             return redirect(url_for('homepage.index'))
         else:  # if not registered
-            user = dbManager.commit('INSERT INTO customer VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)',
-                                    (email_address, user, password, first_name, last_name, country, city,
-                                     street, number, phone_number)
-                                    )
+            # # user = dbManager.commit('INSERT INTO customer VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)',
+            # #                         (email_address, user, password, first_name, last_name, country, city,
+            # #                          street, number, phone_number)
+            #                         )
+            return redirect(url_for('homepage.index'))
     session['login.errors'] = 'Login Failed'
     return redirect(url_for('sign_in_registration.index'))
