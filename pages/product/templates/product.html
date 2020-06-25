@@ -21,7 +21,7 @@ the heading of Rating & Reviews are not at the correct place. it is places aside
                 <p>{{ product.description }}</p>
                 <p>Price: £{{ product.price }}</p>
                 <div class="add-to-cart">
-                    <button>Add to Cart</button><!--remind me to check if the "hover" over any button is working  -->
+                    <a href="{{  url_for('cart', filename='template.cart.html') }}"><button>Add to Cart</button></a><!--remind me to check if the "hover" over any button is working  -->
                 </div>
             </aside>
         </div>
@@ -38,10 +38,10 @@ the heading of Rating & Reviews are not at the correct place. it is places aside
         <div class="add-review">
             <button type="button" class="write-review-button" onclick="showReviewForm()">Write a review</button>
             <form id="review-form"  method="POST" id="review-form" action='pages/product/templates/{{ product.name|lower|replace(" ","")}}.html'></form>
-                <label for="user-name">User Name: * </label>
+                <label for="user-name">User Name: *</label>
             <input type="text" id="user-name" placeholder="User Name" name="review" required>
 
-                <label for="review">Review: * </label>
+                <label for="review">Review: *</label>
             <input type="text" id="review" placeholder="Review" name="review" required>
                 <input type="submit" value="Post review" name="submit-review">
             </form>
