@@ -8,22 +8,28 @@
 
 {% block page_body_main_content %}
     <div class="top-block"> <!--Title and sub-title-->
-        <h1 class="heading-1">Spyware <strong>Products</strong></h1>
+        <h1 class="heading-1"><strong>Products</strong></h1>
         <h2 class="heading-2">Magic is only a click away... Expecto patronum!</h2>
     </div> <!--Picture, description and price-->
+    <div class="grid">
     {% for product in products %}
         <div class="product">
             <a href = "/product?id={{ product.id }}">
             <img src="{{ url_for('catalog.static', filename=product.img) }}" border="1" title="{{ product.name }}" alt={{ product.name }}/>
-            <h3 class="heading-3">{{ product.name }}</h3>
-            <p>Price: £{{ product.price }}</p>
+                <div class="product-text">
+                    <h3 class="heading-3">{{ product.name }}</h3>
+                    <p>Price: £{{ product.price }}</p>
+                </div>
             </a>
         </div>
     {% endfor %}
+    </div>
 
 {% endblock %}
 
-{% block page_body_footer %}{% endblock %}
+{% block page_body_footer %}
+    {{  super() }}
+{% endblock %}
 
 {% block page_body_js %}
     <script src="{{ url_for('catalog.static', filename='js/catalog.js') }}"></script>

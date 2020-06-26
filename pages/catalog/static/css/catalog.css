@@ -1,18 +1,21 @@
 * {box-sizing: border-box;}
 
-h1, h3.heading-3{
+h1, h2, h3, p{
   margin-left: 2%;
 }
 
-ul.product-list {
-    list-style-type: none;
-    margin-left: 5%;
-    margin-right: 5%;
+.product{
+    position: relative;
+    border: 1px solid;
+    display: inline-block;
+    margin-left: 2%;
+    width: 100%;
+    padding: 5%;
 }
 
-li{
-    padding-bottom: 2%;
-    padding-top: 2%;
+.product-text{
+    position: absolute;
+    bottom: 5%;
 }
 
 hr{
@@ -20,6 +23,12 @@ hr{
 }
 
 img{
-    width: 15%;
+    width: 100%;
     border-radius: 10%;
+}
+
+.grid{
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    padding: 10px;
 }
