@@ -15,7 +15,7 @@
     {% for product in products %}
         <div class="product">
             <a href = "/product?id={{ product.id }}">
-            <img src="{{ url_for('catalog.static', filename=product.img) }}" border="1" title="{{ product.name }}" alt={{ product.name }}/>
+            <img src="{{ url_for('static', filename='media/img/products/'+product.img) }}" border="1" title="{{ product.name }}" alt={{ product.name }}/>
                 <div class="product-text">
                     <h3 class="heading-3">{{ product.name }}</h3>
                     <p>Price: £{{ product.price }}</p>
