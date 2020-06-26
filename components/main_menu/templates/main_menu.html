@@ -4,17 +4,21 @@
         'homepage': '/',
         'categories': url_for('categories.index'),
         'about': url_for('about.index'),
-        'customer Page': url_for('customer_page.index'),
-        'customer Feedback': url_for('customer_feedback.index'),
+
+        'cart': url_for('cart'),
     }
 %}
 <div class="nav-bar">
 {% for item in menu_items %}
         <a class="nav-bar-link"
             href="{{ menu_items[item] }}"
-            {% if menu_items[item] == request.path %}
-                class="nav-bar-link active"
-            {% endif %}
+                {% if menu_items[item] == request.path %}
+                    class="nav-bar-link active"
+                {% endif %}
         >{{ item | capitalize }}</a>
 {% endfor %}
+{%  if session['logged-in'] %}
+    <a class="nav-bar-link active" href="{{ url_for('customer_page.index') }}">Profile</a>
+    <a class="nav-bar-link active" href="{{ url_for('customer_feedback.index') }}">Customer Feedback</a>
+{% endif %}
 </div>

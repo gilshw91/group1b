@@ -9,4 +9,4 @@ categories = Blueprint('categories', __name__, static_folder='static', static_ur
 @categories.route('/categories')
 def index():
     category_data = dbManager.fetch('SELECT * FROM category')
-    return render_template('categories.html', categories = category_data)
+    return render_template('categories.html', categories=category_data)

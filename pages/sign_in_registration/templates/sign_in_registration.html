@@ -4,6 +4,8 @@
 
 {% block page_head_css %}
     <link rel="stylesheet" href="{{ url_for('sign_in_registration.static', filename='css/sign_in_registration.css') }}"/>
+    <script type="text/javascript" src="{{ url_for('sign_in_registration.static', filename = 'js/validateForm.js') }}"></script>
+
 {% endblock %}
 {% block page_body_main_content %}
 
@@ -38,7 +40,7 @@
                 </form>
         </aside>
         <aside class="registration-block"> <!--The right side of the screen-->
-                <form method="post" action="/sign_up" class="registration-form">
+                <form method="post" action="/sign_up" class="registration-form" onsubmit="return validate()">
                     <!--all the text in the form will be inside the fill-in space-->
                     <div class="registration-form">
                         <h1 class="heading-1">New to Hokus Mokus?</h1>
@@ -54,6 +56,10 @@
                     <div class="registration-form">
                         <label for="pwd-sign-in">Password:</label>
                         <input type="password" name="password" placeholder="Password" id="pwd" title="Please enter a password" required/>*
+                    </div>
+                    <div class="registration-form">
+                        <label for="pwd-sign-in">Confirm:</label>
+                        <input type="password" name="cpassword" placeholder="Confirm Password" id="cpwd" title="Please enter a password again" required/>*
                     </div>
                     <div class="registration-form">
                         <label for="first-name">First name:</label>

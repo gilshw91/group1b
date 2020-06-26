@@ -94,7 +94,15 @@ create table `order`
     constraint order_fk
         foreign key (email_address) references customer (email_address)
 );
-
+create table cart
+(
+    email_address varchar(50) not null primary key,
+    product_id int not null,
+    constraint cart_email_fk
+        foreign key (email_address) references customer (email_address),
+	constraint cart_product_id_fk
+        foreign key (product_id) references product (id)
+);
 INSERT INTO group3.`order` (number, date_of_order, email_address) VALUES (2, '2020-03-01 10:19:03', 'israeli@bezeqint.net');
 INSERT INTO group3.`order` (number, date_of_order, email_address) VALUES (100, '2009-12-11 12:25:00', 'chani@gmail.com');
 INSERT INTO group3.`order` (number, date_of_order, email_address) VALUES (32324, '2010-03-02 18:10:30', 'chani@gmail.com');

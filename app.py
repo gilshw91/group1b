@@ -1,4 +1,5 @@
-from flask import Flask
+from flask import Flask, session, redirect, url_for, render_template
+from utilities.db.db_manager import dbManager
 
 
 ###### App setup
@@ -58,3 +59,23 @@ app.register_blueprint(customer_page)
 ## Main menu
 from components.main_menu.main_menu import main_menu
 app.register_blueprint(main_menu)
+
+
+@app.route("/cart")
+def cart():
+    if not session.get('email'):
+        return redirect(url_for('sign_in_registration.index'))
+    user_mail = session['email']
+    user_items = dbManager.fetch('''
+        SELECT product.id, product.name, product.price, product.img 
+        FROM product 
+        JOIN kart
+        WHERE product.id = kart.product_id 
+        AND kart.email_address = user_mail
+        ''')
+    number_of_items = dbManager.fetch("SELECT count(product_id) FROM kart WHERE email_address = %s", (user_mail,))
+    total_price = 0
+    for row in user_items:
+        total_price += row[2]
+    return render_template("cart.html", products=user_items, totalPrice=total_price, loggedIn=session['logged-in'],
+                           firstName=session['name'], noOfItems=number_of_items)

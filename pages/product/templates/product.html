@@ -21,7 +21,7 @@ the heading of Rating & Reviews are not at the correct place. it is places aside
                 <p>{{ product.description }}</p>
                 <p>Price: £{{ product.price }}</p>
                 <div class="add-to-cart">
-                    <a href="{{  url_for('cart', filename='template.cart.html') }}"><button>Add to Cart</button></a><!--remind me to check if the "hover" over any button is working  -->
+                    <a href="{{  url_for('cart') }}"><button class="fa fa-shopping-cart">Add to Cart</button></a><!--remind me to check if the "hover" over any button is working  -->
                 </div>
             </aside>
         </div>

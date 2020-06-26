@@ -32,5 +32,6 @@ def index():
                          country, city, street, number, phone))
         session['logged-in']: True
         session['name'] = first_name
+        session['email'] = email
         return redirect(url_for('homepage.index'))
 
