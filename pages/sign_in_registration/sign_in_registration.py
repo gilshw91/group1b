@@ -21,6 +21,7 @@ def index():
             session['logged-in'] = True
             session['name'] = user[0].first_name
             session['email'] = email
+            # session['noOfItems'] = dbManager.fetch('SELECT count(product_id) FROM cart')
             if session.get('login.errors'):
                 del session['login.errors']
             return redirect(url_for('homepage.index'))

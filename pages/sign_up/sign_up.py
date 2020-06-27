@@ -33,5 +33,6 @@ def index():
         session['logged-in']: True
         session['name'] = first_name
         session['email'] = email
+        session['noOfItems'] = 0
         return redirect(url_for('homepage.index'))
 

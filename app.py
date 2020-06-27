@@ -69,11 +69,11 @@ def cart():
     user_items = dbManager.fetch('''
         SELECT product.id, product.name, product.price, product.img 
         FROM product 
-        JOIN kart
-        WHERE product.id = kart.product_id 
-        AND kart.email_address = user_mail
+        JOIN cart
+        WHERE product.id = cart.product_id 
+        AND cart.email_address = user_mail
         ''')
-    number_of_items = dbManager.fetch("SELECT count(product_id) FROM kart WHERE email_address = %s", (user_mail,))
+    number_of_items = dbManager.fetch("SELECT count(product_id) FROM cart WHERE email_address = %s", (user_mail,))
     total_price = 0
     for row in user_items:
         total_price += row[2]

@@ -3,7 +3,9 @@
 {% set page_head_title = 'Contact Us' %}
 
 {% block page_head_css %}
-    <link rel="stylesheet" href="{{ url_for('customer_page.static', filename='css/customer_page.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('customer_page.static', filename='css/customer_page.css') }}"/>     <script type="text/javascript" src="{{ url_for('sign_in_registration.static', filename = 'js/validateForm.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('customer_page.static', filename = 'js/validateForm.js') }}"></script>
+
 {% endblock %}
 
 {% block page_body_main_content %}
@@ -17,11 +19,13 @@
     <hr/>
     <div class="nav" id="nav"> <!--Side menu body-->
         <h3 class="heading-3">Shortcuts</h3> <!--Side menu header and photo-->
-            <a class=nav-link href="#order-block">My Orders</a>
+            <a class=nav-link href="#order-block">My Orders</a>{# the links doesnt working#}
             <a class=nav-link href="#address-block">My Shipping Address</a>
             <a class=nav-link href="#review-block">My Reviews</a>
             <a class=nav-link href="#password-block">Change Password</a>
             <a class=nav-link href="#credit-block">Credit Card Data</a>
+            <a class="nav-link" href="#cart">Cart {{ session['noOfItems'] }}</a> {# doesnt work #}
+	</div>
     </div>
     <hr/>
 
@@ -47,7 +51,7 @@
     <div class="block" id="address-block">
         <h2 class="heading-2">My <strong>Shipping</strong> Address</h2>
         <h4 class="heading-4" id="current-address">Current Address: Melania Av. 24, Ramat Trump, Golan Heights</h4>
-        <form method="post" id="Change_shipping" action="route">
+        <form method="post" id="Change_shipping" action="/update_address">
             <legend>If you wish to update your shipping address, fill the address here:</legend>
             <div class="customer-form">
                 <label for="city">City: *</label>
@@ -70,27 +74,28 @@
             </div>
         </form>
     </div>
+    {# If there is review so display? #}
     <div class="block" id="review-block">
         <h2 class="heading-2">Recent <strong>Reviews</strong></h2>
         <div class="review">
-        <p>Product: No Poo Bottle<br/>Review Date: 11/10/2001<br/>Review: Just wanted to binge 'Stranger things'. Taking 2 pills at once was such a mistake!</p>
+        <p>Product: {{ product_name }}<br/>Review Date: review.date <br/>Review: review.content </p> {# how to loop all review? mayebe display only the last one? #}
         </div>
     </div>
     <div class="block" id="password-block">
         <h2 class="heading-2"><strong>Password</strong></h2>
-        <form class="password-form">
+        <form method="post" action="/update_password" class="password-form" onsubmit="return validate()">
             <legend>Enter your old and new passwords here:</legend>
             <div class="customer-form">
                 <label for="pwd">Enter old password: *</label>
-                <input type="password" class="input" id="pwd" name="pwd" required/>
+                <input type="password" class="input" placeholder="Enter old Password" id="pwd" name="pwd" required/>
             </div>
             <div class="customer-form">
                 <label for="pwd">Enter new password: *</label>
-                <input type="password" class="input" id="pwd" name="pwd" required/>
+                <input type="password" class="input" placeholder="Enter new Password" id="npwd" name="npwd" required/>
             </div>
             <div class="customer-form">
                 <label for="pwd">Re-enter new password: *</label>
-                <input type="password" class="input" id="pwd" name="pwd" required/>
+                <input type="password" class="input" placeholder="Enter new Password again" id="npwd2" name="npwd2" required/>
             </div>
             <div class="customer-form">
             <input type="submit" value="Change Password"/>

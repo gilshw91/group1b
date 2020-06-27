@@ -94,6 +94,13 @@ create table `order`
     constraint order_fk
         foreign key (email_address) references customer (email_address)
 );
+
+INSERT INTO group3.`order` (number, date_of_order, email_address) VALUES (2, '2020-03-01 10:19:03', 'israeli@bezeqint.net');
+INSERT INTO group3.`order` (number, date_of_order, email_address) VALUES (100, '2009-12-11 12:25:00', 'chani@gmail.com');
+INSERT INTO group3.`order` (number, date_of_order, email_address) VALUES (32324, '2010-03-02 18:10:30', 'chani@gmail.com');
+INSERT INTO group3.`order` (number, date_of_order, email_address) VALUES (1128492, '2001-09-11 11:15:00', 'dadisa@gmail.com');
+INSERT INTO group3.`order` (number, date_of_order, email_address) VALUES (1983022, '2020-02-20 20:20:20', 'nlodoch@yahoo.com');
+
 create table cart
 (
     email_address varchar(50) not null primary key,
@@ -103,12 +110,12 @@ create table cart
 	constraint cart_product_id_fk
         foreign key (product_id) references product (id)
 );
-INSERT INTO group3.`order` (number, date_of_order, email_address) VALUES (2, '2020-03-01 10:19:03', 'israeli@bezeqint.net');
-INSERT INTO group3.`order` (number, date_of_order, email_address) VALUES (100, '2009-12-11 12:25:00', 'chani@gmail.com');
-INSERT INTO group3.`order` (number, date_of_order, email_address) VALUES (32324, '2010-03-02 18:10:30', 'chani@gmail.com');
-INSERT INTO group3.`order` (number, date_of_order, email_address) VALUES (1128492, '2001-09-11 11:15:00', 'dadisa@gmail.com');
-INSERT INTO group3.`order` (number, date_of_order, email_address) VALUES (1983022, '2020-02-20 20:20:20', 'nlodoch@yahoo.com');
 
+INSERT INTO group3.cart (email_address, product_id) VALUES ('abc@gmail.com', 100000001);
+INSERT INTO group3.cart (email_address, product_id) VALUES ('abc@gmail.com', 190225832);
+INSERT INTO group3.cart (email_address, product_id) VALUES ('abc@gmail.com', 399200019);
+INSERT INTO group3.cart (email_address, product_id) VALUES ('abc@gmail.com', 499990012);
+INSERT INTO group3.cart (email_address, product_id) VALUES ('abc@gmail.com', 602456888);
 
 create table product
 (
