@@ -47,3 +47,12 @@ def update_password():
         flash("Wrong Password")
 
     return render_template('customer_page.html')
+
+@customer_page.route('/update_credit', methods=['POST'])
+def update_credit():
+    credit = request.form.get('credit')
+    exp = request.form.get('exp')
+    cvv = request.form.get('cvv')
+    dbManager.commit('UPDATE credit SET credit_card_number = %s, expiration_date = %s, cvv = %s WHERE email_address = %s', (credit, exp, cvv, session['email']))
+
+    return render_template('customer_page.html')

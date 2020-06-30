@@ -9,8 +9,6 @@
 {% endblock %}
 
 {% block page_body_main_content %}
-    <link rel="stylesheet" href="../../../static/css/base.css"> <!--This is for me-->
-    <link rel="stylesheet" href="../static/css/customer_page.css"> <!--Yes, i know. but keep this here for now-->
     <div class="padding-left">
     <div class="top-block"> <!--Title and sub-title-->
         <h1 class="heading-1">Profile <strong>Page</strong></h1>
@@ -102,7 +100,7 @@
         <div class="current-credit">
         <p>Current credit card: {{ credit[0].credit_card_number }}</p><!--Will pull content somehow-->
         </div>
-        <form class="card-form">
+        <form method="post" class="card-form" id="change_card" action="/update_credit">
             <legend>If you wish to add or change credit data, fill in your new card here:</legend>
             <div class="customer-form">
                 <label for="credit">Card number: *</label>
