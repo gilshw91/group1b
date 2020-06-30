@@ -10,15 +10,29 @@ customer_page = Blueprint('customer_page', __name__, static_folder='static', sta
 @customer_page.route('/customer_page')
 def index():
     products = dbManager.fetch('SELECT * FROM product')
-    reviews = dbManager.fetch('SELECT r.date, r.rank, r.content, r.email_address, p.name FROM review r JOIN product p ON r.id=p.id WHERE email_address=%s', (session['email'],))
+    reviews = dbManager.fetch('''SELECT r.date, r.rank, r.content, r.email_address, p.name
+                                FROM review AS r 
+                                JOIN product AS p ON r.id=p.id 
+                                WHERE email_address=%s''', (session['email'],))
     credit = dbManager.fetch('SELECT * FROM credit WHERE email_address=%s', (session['email'],))
-    histories = dbManager.fetch('SELECT o.number, o.date_of_order, o.email_address, i.quantity, p.id, p.name, p.price, p.img FROM `order` o JOIN include i ON o.number=i.number JOIN product p ON i.sku=p.id WHERE email_address=%s', (session['email'],))
-    address = dbManager.fetch('SELECT c.email_address, c.country, c.city, c.street, c.number, z.zip FROM customer c JOIN zips z ON c.country=z.country AND c.city=z.city AND c.street=z.street AND c.number=z.number WHERE email_address=%s', (session['email'],))
+    histories = dbManager.fetch('''SELECT o.number, o.date_of_order, o.email_address, i.quantity, p.id,
+                                            p.name, p.price, p.img
+                                FROM `order` AS o 
+                                JOIN include AS i ON o.number=i.number 
+                                JOIN product AS p ON i.sku=p.id
+                                WHERE email_address=%s''', (session['email'],))
+    address = dbManager.fetch('''SELECT c.email_address, c.country, c.city, c.street, c.number, z.zip 
+                                FROM customer AS c 
+                                JOIN zips AS z ON c.country=z.country 
+                                AND c.city=z.city AND c.street=z.street AND c.number=z.number 
+                                WHERE email_address=%s''', (session['email'],))
     # product_name = dbManager.fetch('''
     # SELECT name from product
     # WHERE product.id = %s''', (reviews.id,))
     user_data = dbManager.fetch('SELECT * FROM customer WHERE email_address = %s', (session['email'],))
-    return render_template('customer_page.html', products=products, user_data=user_data, reviews=reviews, credit=credit, histories=histories, address=address)
+    return render_template('customer_page.html', products=products, user_data=user_data, reviews=reviews, credit=credit,
+                           histories=histories, address=address)
+
                            #, reviews=reviews, product_name=product_name)
 
 
@@ -48,11 +62,13 @@ def update_password():
 
     return render_template('customer_page.html')
 
+
 @customer_page.route('/update_credit', methods=['POST'])
 def update_credit():
     credit = request.form.get('credit')
     exp = request.form.get('exp')
     cvv = request.form.get('cvv')
-    dbManager.commit('UPDATE credit SET credit_card_number = %s, expiration_date = %s, cvv = %s WHERE email_address = %s', (credit, exp, cvv, session['email']))
+    dbManager.commit('''UPDATE credit SET credit_card_number = %s, expiration_date = %s, cvv = %s
+                        WHERE email_address = %s''', (credit, exp, cvv, session['email']))
 
     return render_template('customer_page.html')

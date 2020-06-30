@@ -12,7 +12,7 @@
     <div class="padding-left">
     <div class="top-block"> <!--Title and sub-title-->
         <h1 class="heading-1">Profile <strong>Page</strong></h1>
-        <h3 class="heading-3">Hello, {{ user_data[0].first_name | capitalize }}!</h3>
+        <h3 class="heading-3">Hello, {{ session['name'] | capitalize }}!</h3>
     </div>
     <hr/>
     <div class="nav" id="nav">
@@ -30,6 +30,10 @@
     <div class="block" id="order-block" name="order-block">
         <h2 class="heading-2">My <strong>Orders</strong></h2>
         <div class="grid">
+            {% if not histories.name %}
+                <h4 class="heading-4"> You have not ordered anything! <strong>Hurry Up!</strong></h4>
+                <h4 class="heading-4">You <strong>snooze</strong> you lose! <strong>;)</strong></h4>
+            {% else %}
             {% for history in histories %}
                 <div class="product">
                     <div class="product-text">
@@ -37,6 +41,7 @@
                     </div>
                 </div>
             {% endfor %}
+        {% endif %}
         </div>
     </div>
     <div class="block" id="address-block">
@@ -46,22 +51,22 @@
             <legend>If you wish to update your shipping address, fill the address here:</legend>
             <div class="customer-form">
                 <label for="city">City: *</label>
-                <input type="text" class="input" name="city" id="city" required/>
+                <input type="text" class="input" name="city" id="city" placeholder="{{ address[0].city }}" required/>
             </div>
             <div class="customer-form">
                 <label for="street">Street: *</label>
-                <input type="text" class="input" name="street" id="street" required/>
+                <input type="text" class="input" name="street" id="street" placeholder="{{ address[0].street }}" required/>
             </div>
             <div class="customer-form">
                 <label for="number">Number: *</label>
-                <input type="number" class="input" name="number" id="number" required/>
+                <input type="number" class="input" name="number" id="number" placeholder="{{ address[0].number }}" required/>
             </div>
             <div class="customer-form">
                 <label for="zip_code">Zip-code: *</label>
-                <input type="number" class="input" name="zip_code" id="zip_code" required/>
+                <input type="number" class="input" name="zip_code" id="zip_code" placeholder="{{ address[0].zip | replace("'", "")}}" required/>
             </div>
             <div class="customer-form">
-                <input type="submit" value="Change Shipping Address"/>
+                <input type="submit" value="Change Shipping Address" name="submit"/>
             </div>
         </form>
     </div>
@@ -91,20 +96,20 @@
                 <input type="password" class="input" placeholder="Enter new Password again" id="npwd2" name="npwd2" required/>
             </div>
             <div class="customer-form">
-            <input type="submit" value="Change Password"/>
+            <input type="submit" value="Change Password" name="submit"/>
             </div>
         </form>
     </div>
     <div class="block" id="credit-block">
         <h2 class="heading-2"><strong>Credit Card</strong> Data</h2>
         <div class="current-credit">
-        <p>Current credit card: {{ credit[0].credit_card_number }}</p><!--Will pull content somehow-->
+        <p>Current credit card: ************{{ credit[0].credit_card_number[-4:] }}</p><!--Will pull content somehow-->
         </div>
         <form method="post" class="card-form" id="change_card" action="/update_credit">
             <legend>If you wish to add or change credit data, fill in your new card here:</legend>
             <div class="customer-form">
                 <label for="credit">Card number: *</label>
-                <input type="number" class="input" id="credit" name="credit" required/>
+                <input type="number" class="input" id="credit" name="credit" placeholder="Please insert your card number" required/>
             </div>
             <div class="customer-form">
                 <label for="exp">Expiration date: *</label>
@@ -112,10 +117,10 @@
             </div>
             <div class="customer-form">
                 <label for="cvv">CVV: *</label>
-                <input type="number" class="input" name="cvv" id="cvv" required/>
+                <input type="number" class="input" name="cvv" id="cvv" placeholder="Please insert your CVV" required/>
             </div>
             <div class="customer-form">
-                <input type="submit" value="Change Credit Card"/>
+                <input type="submit" value="Change Credit Card" name="submit"/>
             </div>
         </form>
     </div>
