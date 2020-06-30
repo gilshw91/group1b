@@ -9,21 +9,19 @@
 {% endblock %}
 
 {% block page_body_main_content %}
-    <link rel="stylesheet" href="../../../static/css/base.css"> <!--This is for me-->
-    <link rel="stylesheet" href="../static/css/customer_page.css"> <!--Yes, i know. but keep this here for now-->
     <div class="padding-left">
     <div class="top-block"> <!--Title and sub-title-->
         <h1 class="heading-1">Profile <strong>Page</strong></h1>
-        <h3 class="heading-3">Hello, fellow wizard</h3>
+        <h3 class="heading-3">Hello, {{ user_data[0].first_name | capitalize }}!</h3>
     </div>
     <hr/>
-    <div class="nav" id="nav"> <!--Side menu body-->
-        <h3 class="heading-3">Shortcuts</h3> <!--Side menu header and photo-->
-            <a class=nav-link href="#order-block">My Orders</a>{# the links doesnt working#}
-            <a class=nav-link href="#address-block">My Shipping Address</a>
-            <a class=nav-link href="#review-block">My Reviews</a>
-            <a class=nav-link href="#password-block">Change Password</a>
-            <a class=nav-link href="#credit-block">Credit Card Data</a>
+    <div class="nav" id="nav">
+        <h3 class="heading-3">Shortcuts</h3>
+            <a class=nav-link href="{{ url_for('customer_page.index', _anchor='order-block') }}">My Orders</a>{# the links doesnt working#}
+            <a class=nav-link href="{{ url_for('customer_page.index', _anchor='address-block') }}">My Shipping Address</a>
+            <a class=nav-link href="{{ url_for('customer_page.index', _anchor='review-block') }}">My Reviews</a>
+            <a class=nav-link href="{{ url_for('customer_page.index', _anchor='password-block') }}">Change Password</a>
+            <a class=nav-link href="{{ url_for('customer_page.index', _anchor='credit-block') }}">Credit Card Data</a>
             <a class="nav-link" href="#cart">Cart {{ session['noOfItems'] }}</a> {# doesnt work #}
 	</div>
     </div>
@@ -31,26 +29,19 @@
 
     <div class="block" id="order-block" name="order-block">
         <h2 class="heading-2">My <strong>Orders</strong></h2>
-        <ul class="orders" style="list-style-type:none;"> <!--List of products-->
-            <li class="product">
-                <a href="url"> <!--The picture, description and price are all links to one page-->
-                    <img class="my-product-img" src="../../../static/media/img/products/product1.jpg" border="1" title="Sticky Trainers" alt="Sticky Trainers"/>
-                    <h4 class="heading-4">Fever Fudge</h4>
-                    <p>Date of Order: 04/11/1995</p> <!--UPDATE PRICE-->
-                </a>
-            </li>
-            <li class="product">
-                <a href="url">
-                    <img class="my-product-img" src="../../../static/media/img/products/product5.jpg" border="1" title="No Poo" alt="No Poo"/>
-                    <h4 class="heading-4">No Poo Bottle</h4>
-                    <p>Date of Order: 11/09/2001</p> <!--UPDATE PRICE-->
-                </a>
-            </li> <!--More list items here-->
-        </ul>
+        <div class="grid">
+            {% for history in histories %}
+                <div class="product">
+                    <div class="product-text">
+                        <p>Product: {{ history.name }}, Order time: {{ history.date_of_order }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
     </div>
     <div class="block" id="address-block">
         <h2 class="heading-2">My <strong>Shipping</strong> Address</h2>
-        <h4 class="heading-4" id="current-address">Current Address: Melania Av. 24, Ramat Trump, Golan Heights</h4>
+        <p class="heading-4" id="current-address">Current Address: {{ address[0].number }} {{ address[0].street | capitalize }} st., {{ address[0].city | capitalize }}, {{ address[0].country | capitalize }}</p>
         <form method="post" id="Change_shipping" action="/update_address">
             <legend>If you wish to update your shipping address, fill the address here:</legend>
             <div class="customer-form">
@@ -77,9 +68,11 @@
     {# If there is review so display? #}
     <div class="block" id="review-block">
         <h2 class="heading-2">Recent <strong>Reviews</strong></h2>
-        <div class="review">
-        <p>Product: {{ product_name }}<br/>Review Date: review.date <br/>Review: review.content </p> {# how to loop all review? mayebe display only the last one? #}
-        </div>
+        {% for review in reviews %}
+            <div class="review">
+                <p>Product: {{ review.name }}<br/>Review Date: {{ review.date }} <br/>Review: {{ review.content }} </p> {# how to loop all review? mayebe display only the last one? #}
+            </div>
+        {% endfor %}
     </div>
     <div class="block" id="password-block">
         <h2 class="heading-2"><strong>Password</strong></h2>
@@ -105,9 +98,9 @@
     <div class="block" id="credit-block">
         <h2 class="heading-2"><strong>Credit Card</strong> Data</h2>
         <div class="current-credit">
-        <p>Current credit card: ****-****-****-4928</p><!--Will pull content somehow-->
+        <p>Current credit card: {{ credit[0].credit_card_number }}</p><!--Will pull content somehow-->
         </div>
-        <form class="card-form">
+        <form method="post" class="card-form" id="change_card" action="/update_credit">
             <legend>If you wish to add or change credit data, fill in your new card here:</legend>
             <div class="customer-form">
                 <label for="credit">Card number: *</label>

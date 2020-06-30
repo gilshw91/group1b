@@ -1,5 +1,15 @@
 * {box-sizing: border-box;}
 
+h1, h2, h3, h4, p{
+    margin-left: 2%;
+}
+
+
+img{
+    width: 100%;
+    border-radius: 10%;
+}
+
 form {
     margin: auto;
     width: 50%;
@@ -19,12 +29,11 @@ input[type=text], input[type=email], input[type=number], input[type=password], i
     width: 57%;
     float: right;
 }
-/*
-.block {
-  padding: 0px 10px;
-  padding: 20px;
-}
 
+.block {
+  padding: 2%;
+}
+/*
 .top_block{
     text-align: center;
     display: inline;
