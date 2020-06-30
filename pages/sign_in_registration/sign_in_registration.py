@@ -9,6 +9,7 @@ sign_in_registration = Blueprint('sign_in_registration', __name__, static_folder
 # Routes
 @sign_in_registration.route('/sign_in_registration', methods=['GET', 'POST'])
 def index():
+    error = None
     if request.method == 'GET':
         return render_template('sign_in_registration.html')
     else:
@@ -24,15 +25,16 @@ def index():
             # session['noOfItems'] = dbManager.fetch('SELECT count(product_id) FROM cart')
             if session.get('login.errors'):
                 del session['login.errors']
+                flash('You were successfully logged in')
             return redirect(url_for('homepage.index'))
         else:  # if not registered
             # # user = dbManager.commit('INSERT INTO customer VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)',
             # #                         (email_address, user, password, first_name, last_name, country, city,
             # #                          street, number, phone_number)
             #
-            flash('Please check your login details and try again.')
+            error = 'Please check your login details and try again.'
             session['login.errors'] = 'Login Failed'
-    return redirect(url_for('sign_in_registration.index'))
+    return render_template('sign_in_registration.html', error=error)
 
 
 # @sign_in_registration.route('/sign_in_registration')

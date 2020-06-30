@@ -122,3 +122,8 @@ a:-webkit-any-link {
     color: #ffecb3;
     cursor: pointer;
 }
+.alert-warning {
+    background-color: #272727;
+    color: #ffecb3;
+    text-align: center;
+}

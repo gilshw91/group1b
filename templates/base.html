@@ -50,6 +50,9 @@ Base page blocks:
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
             <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> <!--fonts-->
             <script src='https://kit.fontawesome.com/a076d05399.js'></script><!--for the icons-->
+
+            <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
             {% block page_head_meta_extra %}{% endblock %}
         {% endblock %}
 
@@ -63,6 +66,17 @@ Base page blocks:
         {# CSS #}
         <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}"/>
         {% block page_head_css %}{% endblock %}
+
+         {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                  <div class="alert alert-warning alert-dismissible" role="alert">
+                      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+                        {{message}}
+                  </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
     {% endblock %}
     </head>
     <body>

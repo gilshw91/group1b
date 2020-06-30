@@ -8,39 +8,33 @@
 
 {% endblock %}
 {% block page_body_main_content %}
-
-{#    {% with messages = get_flashed_messages() %}#}
-{#{% if messages %}#}
-{#    <div class="notification is-danger">#}
-{#        {{ messages[0] }}#}
-{#    </div>#}
-{#{% endif %}#}
-{#{% endwith %}#}
-
     <div class="container">
         <aside class="sign-in-block"><!--The left side of the screen-->
-                <form method="post" action="/sign_in_registration" class="sign-in-form">
-                    <div class="sign-in-form">
-                        <h1 class="heading-1">Already Registered?</h1>
-                    </div>
-                    <div class="sign-in-form">
-                        <label for="email-address" >Email address:</label>
-                        <input type="email" name="email" placeholder="Email address" id="email-address"  required/>*
-                    </div>
-                    <div class="sign-in-form">
-                        <label for="pwd">Password:</label>
-                        <input type="password" name="password" placeholder="Password" id="pwd" required/>*
-                    </div>
-                    <div class="checkbox">
-                        <label><input type="checkbox" name="checkbox">Remember me</label>
-                    </div>
-                    <div>
-                        <input type="submit" value="Submit" class="button-default"/>
-                    </div>
-                </form>
+            {% if error %}
+                <h4 class=heading-4><strong>Error:</strong> {{ error }} </h4>
+            {% endif %}
+            <form method="post" action="/sign_in_registration" class="sign-in-form">
+                <div class="sign-in-form">
+                    <h1 class="heading-1">Already Registered?</h1>
+                </div>
+                <div class="sign-in-form">
+                    <label for="email-address" >Email address:</label>
+                    <input type="email" name="email" placeholder="Email address" id="email-address"  required/>*
+                </div>
+                <div class="sign-in-form">
+                    <label for="pwd">Password:</label>
+                    <input type="password" name="password" placeholder="Password" id="pwd" required/>*
+                </div>
+                <div class="checkbox">
+                    <label><input type="checkbox" name="checkbox">Remember me</label>
+                </div>
+                <div>
+                    <input type="submit" value="Submit" class="button-default"/>
+                </div>
+            </form>
         </aside>
         <aside class="registration-block"> <!--The right side of the screen-->
-                <form method="post" action="/sign_up" class="registration-form" onsubmit="return validate()">
+                <form method="post" action="/sign_up" class="registration-form" onsubmit="return PassValidate()">
                     <!--all the text in the form will be inside the fill-in space-->
                     <div class="registration-form">
                         <h1 class="heading-1">New to Hokus Mokus?</h1>
@@ -89,6 +83,7 @@
 {#                        <label for="zip-code">Zip code:</label>#}
 {#                        <input type="zip-code" name="zip-code" placeholder="Zip code" id="zip-code" maxlength="7" title="Please enter exactly 7 digits" required/>*#}
 {#                    </div>#}
+
                     <div class="registration-form">
                         <label for="phone-number">Phone number:</label>
                         <input type="tel" name="phone-number" placeholder="Phone number" id="phone-number" maxlength="11" title="Format: 012-3456789" pattern="[0-9]{3}-[0-9]{7}"/>

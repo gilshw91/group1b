@@ -1,4 +1,4 @@
-function validate() {
+function PassValidate() {
     var pass = document.getElementById("pwd").value;
     var cpass = document.getElementById("cpwd").value;
     if (pass == cpass) {

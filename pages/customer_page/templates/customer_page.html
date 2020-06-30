@@ -3,7 +3,8 @@
 {% set page_head_title = 'Contact Us' %}
 
 {% block page_head_css %}
-    <link rel="stylesheet" href="{{ url_for('customer_page.static', filename='css/customer_page.css') }}"/>     <script type="text/javascript" src="{{ url_for('sign_in_registration.static', filename = 'js/validateForm.js') }}"></script>
+    <link rel="stylesheet" href="{{ url_for('customer_page.static', filename='css/customer_page.css') }}"/>
+    <script type="text/javascript" src="{{ url_for('sign_in_registration.static', filename = 'js/validateForm.js') }}"></script>
     <script type="text/javascript" src="{{ url_for('customer_page.static', filename = 'js/validateForm.js') }}"></script>
 
 {% endblock %}
@@ -17,7 +18,7 @@
     <hr/>
     <div class="nav" id="nav">
         <h3 class="heading-3">Shortcuts</h3>
-            <a class=nav-link href="{{ url_for('customer_page.index', _anchor='order-block') }}">My Orders</a>{# the links doesnt working#}
+            <a class=nav-link href="{{ url_for('customer_page.index', _anchor='order-block') }}">My Orders</a>
             <a class=nav-link href="{{ url_for('customer_page.index', _anchor='address-block') }}">My Shipping Address</a>
             <a class=nav-link href="{{ url_for('customer_page.index', _anchor='review-block') }}">My Reviews</a>
             <a class=nav-link href="{{ url_for('customer_page.index', _anchor='password-block') }}">Change Password</a>
@@ -46,24 +47,31 @@
     </div>
     <div class="block" id="address-block">
         <h2 class="heading-2">My <strong>Shipping</strong> Address</h2>
-        <p class="heading-4" id="current-address">Current Address: {{ address[0].number }} {{ address[0].street | capitalize }} st., {{ address[0].city | capitalize }}, {{ address[0].country | capitalize }}</p>
+        <p class="heading-4" id="current-address">Current Address:
+            {{ address[0].number }} {{ address[0].street | capitalize }} st.,
+            {{ address[0].city | capitalize }}, {{ address[0].country | capitalize }}
+        </p>
         <form method="post" id="Change_shipping" action="/update_address">
             <legend>If you wish to update your shipping address, fill the address here:</legend>
             <div class="customer-form">
                 <label for="city">City: *</label>
-                <input type="text" class="input" name="city" id="city" placeholder="{{ address[0].city }}" required/>
+                <input type="text" class="input" name="city" id="city" placeholder="Please fill your city"
+                       value="{{ address[0].city }}" required/>
             </div>
             <div class="customer-form">
                 <label for="street">Street: *</label>
-                <input type="text" class="input" name="street" id="street" placeholder="{{ address[0].street }}" required/>
+                <input type="text" class="input" name="street" id="street" placeholder="Please fill your street"
+                       value="{{ address[0].street }}" required/>
             </div>
             <div class="customer-form">
                 <label for="number">Number: *</label>
-                <input type="number" class="input" name="number" id="number" placeholder="{{ address[0].number }}" required/>
+                <input type="number" class="input" name="number" id="number" placeholder="Please fill your street number"
+                       value="{{ address[0].number }}" required/>
             </div>
             <div class="customer-form">
                 <label for="zip_code">Zip-code: *</label>
-                <input type="number" class="input" name="zip_code" id="zip_code" placeholder="{{ address[0].zip | replace("'", "")}}" required/>
+                <input type="number" class="input" name="zip_code" id="zip_code" placeholder="Please fill your zip code"
+                       value="{{ address[0].zip | replace("'", "") }}" required/>
             </div>
             <div class="customer-form">
                 <input type="submit" value="Change Shipping Address" name="submit"/>

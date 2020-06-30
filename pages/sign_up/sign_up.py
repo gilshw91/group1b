@@ -7,6 +7,7 @@ sign_up = Blueprint('sign_up', __name__, static_folder='static', static_url_path
 
 @sign_up.route('/sign_up', methods=['GET', 'POST'])
 def index():
+    error = None
     if request.method == 'GET':
         return render_template('sign_up.html')
     else:
@@ -24,8 +25,8 @@ def index():
         phone = request.form.get('phone-number') # default, coz not required?
         customer = dbManager.fetch('SELECT * FROM customer WHERE customer.user=%s', (new_user,))
         if new_user == customer:  # if a user already found, we want to redirect back to signup page
-            flash("User name already exist")
-            return redirect(url_for('sign_up.index'))
+            error = "User name already exist"
+            return render_template('sign_up.html', error=error)
         dbManager.commit("INSERT INTO customer('email_address', 'user', 'password', 'first_name','last_name', \
                          'country', 'city', 'street', 'number', 'phone_number') VALUES(%s, %s, \
                           %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)", (new_user, email, password, first_name, last_name,
@@ -34,5 +35,6 @@ def index():
         session['name'] = first_name
         session['email'] = email
         session['noOfItems'] = 0
+        flash('You were successfully Signed-up')
         return redirect(url_for('homepage.index'))
 
