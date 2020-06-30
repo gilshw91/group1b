@@ -36,7 +36,7 @@ P {
     position: sticky;
     top:0;
     z-index: 1;
-    background-image: url("../img/background/header.png");
+    background-image: url("../media/img/background/header.png");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -62,7 +62,7 @@ P {
     z-index: 1;
 }
 body {
-    background-image: url("../img/background/background-book-darker.jpg");
+    background-image: url("../media/img/background/background-book-darker.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -103,7 +103,7 @@ html body{
 .main-menu {
     width: 100%;
 }
-button, input[type=submit]{
+button, input[type=submit], input[type=reset]{
     background-color: #ffecb3;
     color: #272727;
     border-color: #272727;

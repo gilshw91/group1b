@@ -1,15 +1,15 @@
 
 .main-product {
-  margin-left: 2%;
+    margin-left: 2%;
 }
 
 .main-product-details {
-  width: 35%;
-  float: left;
+    width: 35%;
+    float: left;
 }
 
 .main-product-image {
-  margin-left: 65%;
+    margin-left: 65%;
 }
 
 .main-reviews{
@@ -22,7 +22,7 @@
 img {
     width: 50%;
 }
-button, input[type=submit]{
+button, input[type=submit], input[type=reset]{
     margin-bottom: 5%;
 }
 form {
@@ -30,6 +30,10 @@ form {
 }
 label, input[type=submit]{
     width: 35%;
+}
+input[type=reset] {
+    width: 15%;
+    margin-left: 43%;
 }
 
 input[type=text], textarea{
@@ -39,6 +43,10 @@ input[type=text], textarea{
 textarea{
     vertical-align: top;
 }
+/*input[type=radio]{*/
+/*    display: inline-block;*/
+/*    float: left;*/
+/*}*/
 
 .show-reviews{
     margin-top: 1%;
@@ -46,4 +54,52 @@ textarea{
 .review-info{
     font-style: italic;
     font-size: 85%;
+}
+
+#review-form {
+    display: none;
+}
+
+.hide {
+  display: none;
+}
+
+.clear {
+  /*float: none;*/
+  clear: both;
+}
+
+.rating {
+    width: 90px;
+    /*unicode-bidi: bidi-override;*/
+    direction: rtl;
+    text-align: center;
+    position: relative;
+}
+
+.rating > label {
+    float: right;
+    display: inline-block;
+    /*padding: 0;*/
+    /*margin: 0;*/
+    position: relative;
+    width: 1.4em;
+    cursor: pointer;
+    color: #ffecb3;
+}
+
+.rating > label:hover,
+.rating > label:hover ~ label,
+.rating > input.radio-btn:checked ~ label {
+    color: transparent;
+}
+
+.rating > label:hover:before,
+.rating > label:hover ~ label:before,
+.rating > input.radio-btn:checked ~ label:before,
+.rating > input.radio-btn:checked ~ label:before {
+    content: "\2605";
+    position: absolute;
+    left: 0;
+    color: #ffecb3;
 }

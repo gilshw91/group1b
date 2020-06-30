@@ -36,8 +36,8 @@ def update_password():
     old_pass = request.form.get('pwd')
     # new_pass = request.form.get('npwd')
     re_new_pass = request.form.get('npwd2')
-    password = dbManager.fetch('SELECT password FROM customer WHERE email_address=%s',(session['email'],))
-    if (password == old_pass):
+    password = dbManager.fetch('SELECT password FROM customer WHERE email_address=%s', (session['email'],))
+    if password == old_pass:
         dbManager.commit('UPDATE customer SET password = %s WHERE email_address = %s', (re_new_pass, session['email']))
         flash("Changed successfully")
     else:

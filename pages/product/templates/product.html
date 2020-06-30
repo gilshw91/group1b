@@ -1,12 +1,14 @@
 {% extends 'base.html' %}
 
-{% set page_head_title = 'Extendeable Ear' %}
+{% set page_head_title = '{{ product.name }}' %}
 
 {% block page_head_css %}
     <link rel="stylesheet" href="{{ url_for('product.static', filename='css/product.css') }}"/>
+    <link rel="stylesheet" href="//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 {% endblock %}
 {% block page_body_js %}
     <script src="{{ url_for('product.static', filename='js/product.js') }}"></script>
+
 {% endblock %}
 
 <!-- Hi! do you know why the background image of the page is smaller? not fitted to all of the page?
@@ -31,19 +33,32 @@ the heading of Rating & Reviews are not at the correct place. it is places aside
 
             </aside>
         </div>
-
     </div>
     <div class="main-reviews">
     <h2 class="heading-2">Rating & Reviews</h2>
         <div class="add-review">
             <button type="button" class="write-review-button" onclick="showReviewForm()">Write a review</button>
-            <form id="review-form"  method="POST" id="review-form" action='pages/product/templates/{{ product.name|lower|replace(" ","")}}.html'></form>
-                <label for="user-name">User Name: *</label>
-            <input type="text" id="user-name" placeholder="User Name" name="review" required>
-
+{#            <form id="review-form"  method="POST" action='pages/product/templates/{{ product.name|lower|replace(" ","_")}}.html'>#}
+            <form id="review-form" method="POST" action='/product'>
+                <label for="user-email">User Email: *</label>
+                <input type="text" id="email" name="email" {% if session['logged-in'] %} placeholder={{ session['email'] }} value='{{ session['email'] }}' {% else %} "Email" {% endif %} required>
                 <label for="review">Review: *</label>
-            <input type="text" id="review" placeholder="Review" name="review" required>
+                <textarea id="review" placeholder="Write your review here..." name="review" required></textarea><br/>
+                <div class="rating">
+                    <input id="star5" name="star" type="radio" value="5" class="radio-btn hide" />
+                    <label for="star5" >☆</label>
+                    <input id="star4" name="star" type="radio" value="4" class="radio-btn hide" />
+                    <label for="star4" >☆</label>
+                    <input id="star3" name="star" type="radio" value="3" class="radio-btn hide" />
+                    <label for="star3" >☆</label>
+                    <input id="star2" name="star" type="radio" value="2" class="radio-btn hide" />
+                    <label for="star2" >☆</label>
+                    <input id="star1" name="star" type="radio" value="1" class="radio-btn hide" />
+                    <label for="star1" >☆</label>
+                    <div class="clear"></div>
+                </div><br/>
                 <input type="submit" value="Post review" name="submit-review">
+                <input type="reset" name="reset-review">
             </form>
         </div>
         <div class="show-reviews">
