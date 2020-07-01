@@ -54,6 +54,11 @@
         <form method="post" id="Change_shipping" action="/update_address">
             <legend>If you wish to update your shipping address, fill the address here:</legend>
             <div class="customer-form">
+                <label for="country">Country: *</label>
+                <input type="text" class="input" name="country" id="country" placeholder="Please fill your country"
+                       value="{{ address[0].country }}" required/>
+            </div>
+            <div class="customer-form">
                 <label for="city">City: *</label>
                 <input type="text" class="input" name="city" id="city" placeholder="Please fill your city"
                        value="{{ address[0].city }}" required/>
@@ -81,11 +86,16 @@
     {# If there is review so display? #}
     <div class="block" id="review-block">
         <h2 class="heading-2">Recent <strong>Reviews</strong></h2>
+    {% if reviews %}
         {% for review in reviews %}
             <div class="review">
                 <p>Product: {{ review.name }}<br/>Review Date: {{ review.date }} <br/>Review: {{ review.content }} </p> {# how to loop all review? mayebe display only the last one? #}
             </div>
         {% endfor %}
+    {% else %}
+        <h4 class="heading-4">You Have not posted any review</h4>
+        <h4 class="heading-4">It's <strong>never</strong> too late...</h4>
+    {% endif %}
     </div>
     <div class="block" id="password-block">
         <h2 class="heading-2"><strong>Password</strong></h2>
@@ -111,7 +121,12 @@
     <div class="block" id="credit-block">
         <h2 class="heading-2"><strong>Credit Card</strong> Data</h2>
         <div class="current-credit">
-        <p>Current credit card: ************{{ credit[0].credit_card_number[-4:] }}</p><!--Will pull content somehow-->
+            {% if credit[0] %}
+                <p>Current credit card: ************{{ credit[0].credit_card_number[-4:] }}</p><!--Will pull content somehow-->
+            {% else %}
+                <h4 class="heading-4">You need to insert a credit card</h4>
+                <h4 class="heading-4">to <strong>Enjoy</strong> from our product...</h4>
+            {% endif %}
         </div>
         <form method="post" class="card-form" id="change_card" action="/update_credit">
             <legend>If you wish to add or change credit data, fill in your new card here:</legend>
