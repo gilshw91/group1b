@@ -1,5 +1,6 @@
 from flask import Blueprint, render_template, request, session, flash, redirect, url_for
-from utilities.db.db_manager import dbManager
+#from utilities.db.db_manager import dbManager
+from entities import *
 
 
 # customer_page blueprint definition
@@ -7,36 +8,22 @@ customer_page = Blueprint('customer_page', __name__, static_folder='static', sta
 
 
 # Routes
-@customer_page.route('/customer_page')
+@customer_page.route('/customer_page', methods=['GET', 'POST'])
 def index():
-    products = dbManager.fetch('SELECT * FROM product')
-    reviews = dbManager.fetch('''SELECT r.date, r.rank, r.content, r.email_address, p.name
-                                FROM review AS r 
-                                JOIN product AS p ON r.id=p.id 
-                                WHERE email_address=%s''', (session['email'],))
-    credit = dbManager.fetch('SELECT * FROM credit WHERE email_address=%s', (session['email'],))
-    histories = dbManager.fetch('''SELECT o.number, o.date_of_order, o.email_address, i.quantity, p.id,
-                                            p.name, p.price, p.img
-                                FROM `order` AS o 
-                                JOIN include AS i ON o.number=i.number 
-                                JOIN product AS p ON i.sku=p.id
-                                WHERE email_address=%s''', (session['email'],))
-    address = dbManager.fetch('''SELECT c.email_address, c.country, c.city, c.street, c.number, z.zip 
-                                FROM customer AS c 
-                                JOIN zips AS z ON c.country=z.country 
-                                AND c.city=z.city AND c.street=z.street AND c.number=z.number 
-                                WHERE email_address=%s''', (session['email'],))
-    # product_name = dbManager.fetch('''
-    # SELECT name from product
-    # WHERE product.id = %s''', (reviews.id,))
-    user_data = dbManager.fetch('SELECT * FROM customer WHERE email_address = %s', (session['email'],))
-    return render_template('customer_page.html', products=products, user_data=user_data, reviews=reviews, credit=credit,
+
+        products = Product().get_all()
+        reviews = Review().get_reviews(session['email'])
+        credit = Credit().get_credit(session['email'])
+        histories = Order().get_orders(session['email'])
+        address = Customer().get_address(session['email'])
+        user_data = Customer().get_user_by_email(session['email'])
+        return render_template('customer_page.html', products=products, user_data=user_data, reviews=reviews, credit=credit,
                            histories=histories, address=address)
 
                            #, reviews=reviews, product_name=product_name)
 
 
-@customer_page.route('/update_address', methods=['POST'])
+@customer_page.route('/update_address', methods=['GET', 'POST'])
 def update_address():
     city = request.form.get('city')
     street = request.form.get('street')
@@ -45,27 +32,8 @@ def update_address():
     dbManager.commit('UPDATE customer SET city = %s, street = %s, number = %s', (city, street, number))
     dbManager.commit('UPDATE zips SET zip = %s', (zip_code,))
 
-    products = dbManager.fetch('SELECT * FROM product')
-    reviews = dbManager.fetch('''SELECT r.date, r.rank, r.content, r.email_address, p.name
-                                    FROM review AS r 
-                                    JOIN product AS p ON r.id=p.id 
-                                    WHERE email_address=%s''', (session['email'],))
-    credit = dbManager.fetch('SELECT * FROM credit WHERE email_address=%s', (session['email'],))
-    histories = dbManager.fetch('''SELECT o.number, o.date_of_order, o.email_address, i.quantity, p.id,
-                                                p.name, p.price, p.img
-                                    FROM `order` AS o 
-                                    JOIN include AS i ON o.number=i.number 
-                                    JOIN product AS p ON i.sku=p.id
-                                    WHERE email_address=%s''', (session['email'],))
-    address = dbManager.fetch('''SELECT c.email_address, c.country, c.city, c.street, c.number, z.zip 
-                                    FROM customer AS c 
-                                    JOIN zips AS z ON c.country=z.country 
-                                    AND c.city=z.city AND c.street=z.street AND c.number=z.number 
-                                    WHERE email_address=%s''', (session['email'],))
-    # product_name = dbManager.fetch('''
-    # SELECT name from product
-    # WHERE product.id = %s''', (reviews.id,))
-    user_data = dbManager.fetch('SELECT * FROM customer WHERE email_address = %s', (session['email'],))
+
+    u_data = dbManager.fetch('SELECT * FROM customer WHERE email_address = %s', (session['email'],))
 
     return redirect(url_for('customer_page.index', products=products, user_data=user_data, reviews=reviews, credit=credit,
                             histories=histories, address=address))

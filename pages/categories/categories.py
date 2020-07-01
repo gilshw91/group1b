@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, request
 from utilities.db.db_manager import dbManager
 from entities import *
 
