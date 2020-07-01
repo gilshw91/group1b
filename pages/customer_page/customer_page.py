@@ -68,7 +68,7 @@ def update_address():
     user_data = dbManager.fetch('SELECT * FROM customer WHERE email_address = %s', (session['email'],))
 
     return redirect(url_for('customer_page.index', products=products, user_data=user_data, reviews=reviews, credit=credit,
-                           histories=histories, address=address))
+                            histories=histories, address=address))
 
 
 @customer_page.route('/update_password', methods=['POST'])

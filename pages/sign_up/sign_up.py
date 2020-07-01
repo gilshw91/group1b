@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request, redirect, url_for, session, flash
-from utilities.db.db_manager import dbManager
+from entities import *
 
 # sign_up blueprint definition
 sign_up = Blueprint('sign_up', __name__, static_folder='static', static_url_path='/sign_up', template_folder='templates')
@@ -11,30 +11,34 @@ def index():
     if request.method == 'GET':
         return render_template('sign_up.html')
     else:
-        new_user = request.form.get('user-name')
-        email = request.form.get('email')
-        password = request.form.get('password')
-        first_name = request.form.get('first-name')
-        last_name = request.form.get('last-name')
-        country = request.form.get('country')
-        city = request.form.get('city')
-        street = request.form.get('street')
-        number = request.form.get('number')
-        # zip = request.form.get('zip-code')
-        country = request.form.get('country')
-        phone = request.form.get('phone-number') # default, coz not required?
-        customer = dbManager.fetch('SELECT * FROM customer WHERE customer.user=%s', (new_user,))
-        if new_user == customer:  # if a user already found, we want to redirect back to signup page
+        user = request.form['user-name']
+        email = request.form['email']
+        password = request.form['password']
+        first_name = request.form['first-name']
+        last_name = request.form['last-name']
+        country = request.form['country']
+        city = request.form['city']
+        street = request.form['street']
+        number = request.form['number']
+        zip = request.form['zip-code']
+        phone = request.form['phone-number']  # default, coz not required?
+        is_same_nick = Customer(email, user, password, first_name, last_name,
+                                country, city, street, number, zip, phone).get_user_by_user()  # true/len>0 if exist
+        is_same_mail = Customer(email, user, password, first_name, last_name,
+                                country, city, street, number, zip, phone).get_user_by_email()  # true/len>0 if exist
+        if is_same_nick:  # if a user already found, we want to redirect back to sign-up page
             error = "User name already exist"
             return render_template('sign_up.html', error=error)
-        dbManager.commit("INSERT INTO customer('email_address', 'user', 'password', 'first_name','last_name', \
-                         'country', 'city', 'street', 'number', 'phone_number') VALUES(%s, %s, \
-                          %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)", (new_user, email, password, first_name, last_name,
-                         country, city, street, number, phone))
-        session['logged-in']: True
-        session['name'] = first_name
-        session['email'] = email
-        session['noOfItems'] = 0
-        flash('You were successfully Signed-up')
+        if is_same_mail:  # if a email address already found, we want to redirect back to sign-up page
+            error = "Email already exist"
+            return render_template('sign_up.html', error=error)
+        signed = Customer(email, user, password, first_name, last_name,
+                          country, city, street, number, zip, phone).add_customer()
+        if signed:
+            session['logged-in']: True
+            session['name'] = first_name
+            session['email'] = email
+            session['noOfItems'] = 0
+            flash('You were successfully Signed-up now you can Sign in')
         return redirect(url_for('homepage.index'))
 

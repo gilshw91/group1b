@@ -3,7 +3,7 @@ create table zips
     country varchar(50) not null,
     city varchar(50) not null,
     street varchar(50) not null,
-    number smallint not null,
+    `number` smallint not null,
     zip char(7) not null,
     primary key (country, city, street, number)
 );
@@ -30,14 +30,14 @@ INSERT INTO group3.category (category_code, category_name) VALUES (4, 'Games');
 create table customer
 (
     email_address  varchar(50) not null primary key,
-    user varchar(50) not null,
-    password varchar(50) not null,
+    user_name varchar(50) not null,
+    `password` varchar(50) not null,
     first_name varchar(10) not null,
     last_name varchar(20) not null,
     country varchar(50) not null,
     city varchar(50) not null,
     street varchar(50) not null,
-    number smallint not null,
+    `number` smallint not null,
     phone_number char(11) null,
     constraint customer_fk
         foreign key (country, city, street, number) references zips (country, city, street, number)
@@ -111,11 +111,11 @@ create table cart
         foreign key (product_id) references product (id)
 );
 
-INSERT INTO group3.cart (email_address, product_id) VALUES ('abc@gmail.com', 100000001);
-INSERT INTO group3.cart (email_address, product_id) VALUES ('abc@gmail.com', 190225832);
-INSERT INTO group3.cart (email_address, product_id) VALUES ('abc@gmail.com', 399200019);
-INSERT INTO group3.cart (email_address, product_id) VALUES ('abc@gmail.com', 499990012);
-INSERT INTO group3.cart (email_address, product_id) VALUES ('abc@gmail.com', 602456888);
+INSERT INTO group3.cart (email_address, product_id) VALUES ('abc@gmail.com', '100000001');
+INSERT INTO group3.cart (email_address, product_id) VALUES ('abc@gmail.com', '190225832');
+INSERT INTO group3.cart (email_address, product_id) VALUES ('abc@gmail.com', '399200019');
+INSERT INTO group3.cart (email_address, product_id) VALUES ('abc@gmail.com', '499990012');
+INSERT INTO group3.cart (email_address, product_id) VALUES ('abc@gmail.com', '602456888');
 
 create table product
 (
@@ -144,7 +144,7 @@ create table review
 (
     review_number tinyint not null primary key,
     date datetime not null,
-    `rank` tinyint not null,categorycategory
+    `rank` tinyint not null,
     `content`  varchar(300) not null,
     email_address varchar(50) not null,
     sku int not null,
