@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request, redirect, url_for, session, flash
-from utilities.db.db_manager import dbManager
+from entities import *
 
 # sign_in_registration blueprint definition
 sign_in_registration = Blueprint('sign_in_registration', __name__, static_folder='static',
@@ -15,7 +15,7 @@ def index():
     else:
         email = request.form.get('email')
         password = request.form.get('password')
-        user = dbManager.fetch('SELECT * FROM customer WHERE email_address=%s AND password=%s', (email, password))
+        user = Customer().get_by_email_password(email, password)
         remember = True if request.form.get('checkbox') else False
         # checks if user exist (len > 0)
         if len(user):
@@ -29,18 +29,6 @@ def index():
                 flash('You were successfully logged in')
             return redirect(url_for('homepage.index'))
         else:  # if not registered
-            # # user = dbManager.commit('INSERT INTO customer VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)',
-            # #                         (email_address, user, password, first_name, last_name, country, city,
-            # #                          street, number, phone_number)
-            #
             error = 'Please check your login details and try again.'
             session['login.errors'] = 'Login Failed'
     return render_template('sign_in_registration.html', error=error)
-
-
-# @sign_in_registration.route('/sign_in_registration')
-# def sign_out():
-#     if session.get('logged-in'):  # if the user clicked sign out, clear and go to homepage
-#         # session['logged-in'] = False
-#         session.clear()
-#         return render_template(url_for('homepage.index'))

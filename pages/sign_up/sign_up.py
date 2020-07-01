@@ -22,18 +22,16 @@ def index():
         number = request.form['number']
         zip = request.form['zip-code']
         phone = request.form['phone-number']  # default, coz not required?
-        is_same_nick = Customer(email, user, password, first_name, last_name,
-                                country, city, street, number, zip, phone).get_user_by_user()  # true/len>0 if exist
-        is_same_mail = Customer(email, user, password, first_name, last_name,
-                                country, city, street, number, zip, phone).get_user_by_email()  # true/len>0 if exist
-        if is_same_nick:  # if a user already found, we want to redirect back to sign-up page
+        is_same_user = Customer().get_user_by_user(user)  # true/len>0 if exist
+        is_same_mail = Customer().get_user_by_email(email)  # true/len>0 if exist
+        if is_same_user:  # if a user already found, we want to redirect back to sign-up page
             error = "User name already exist"
             return render_template('sign_up.html', error=error)
         if is_same_mail:  # if a email address already found, we want to redirect back to sign-up page
             error = "Email already exist"
             return render_template('sign_up.html', error=error)
-        signed = Customer(email, user, password, first_name, last_name,
-                          country, city, street, number, zip, phone).add_customer()
+        signed = Customer().add_customer(email, user, password, first_name, last_name,
+                          country, city, street, number, zip, phone)
         if signed:
             session['logged-in']: True
             session['name'] = first_name
