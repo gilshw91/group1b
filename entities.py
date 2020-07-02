@@ -116,7 +116,21 @@ class Product:
 
 class Review:
     def __init__(self):
-        pass
+        self.review_number = 0
+        self.date = ""
+        self.rank = 0
+        self.content = ""
+        self.email_address = ""
+        self.id = 0
+
+    def add_review(self):
+        """ Add new customer to data base"""
+        sql = '''
+                INSERT INTO review (review_number, date, `rank`, content, email_address, id)
+                VALUES (%s, %s, %s, %s, %s, %s)
+              '''
+        dbManager.commit(sql, (self.review_number, self.date, self.rank, self.content, self.email_address, self.id))
+        return
 
     def get_review_by_email(self, email):
         """ This method returns the reviews on product
