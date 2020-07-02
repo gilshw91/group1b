@@ -124,7 +124,7 @@ class Review:
         self.id = 0
 
     def add_review(self):
-        """ Add new customer to data base"""
+        """ Add new review to data base"""
         sql = '''
                 INSERT INTO review (review_number, date, `rank`, content, email_address, id)
                 VALUES (%s, %s, %s, %s, %s, %s)

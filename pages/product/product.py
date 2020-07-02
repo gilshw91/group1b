@@ -1,5 +1,5 @@
-from flask import Blueprint, render_template, request, session, url_for, flash
-from utilities.db.db_manager import dbManager
+from flask import Blueprint, render_template, request, session, url_for, redirect, flash
+from entities import *
 from datetime import datetime
 #
 # start_counter = datetime.datetime(2020, 6, 28, 0, 30)  # june 6th 2020, 0from 00:30 am
@@ -35,6 +35,24 @@ def index():
                                  VALUES(%s, %s, %s, %s, %s, %s)", (0, dt_string, rank, review, email, pid))
             return render_template('product.html', product=pid)
         flash("You should sign-in to post a review")
+
+@product.route('/add_review', methods=['GET', 'POST'])
+def add_review():
+    date = datetime.now()
+    rank = request.form.get('star')
+    content = request.form.get('review')
+    email = session['email']
+    id = request.args['id']
+
+    new_review = Review()
+    new_review.date = date
+    new_review.rank = rank
+    new_review.content = content
+    new_review.email_address = email
+    new_review.id = id
+    new_review.add_review()
+    return redirect(url_for('product.index'))
+    flash("Thank you for your review")
 
 #
 # @product.route('/product', methods=['GET', 'POST'])
