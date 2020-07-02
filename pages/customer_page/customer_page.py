@@ -74,8 +74,17 @@ def update_credit():
     else:
         new_credit = Credit()
         new_credit.email_address = email
+        new_credit.credit_number = credit
         new_credit.exp = exp
         new_credit.cvv = cvv
         new_credit.add_credit()
         return redirect(url_for('customer_page.index'))
 
+
+@customer_page.route('/delete_credit', methods=['POST'])
+def delete_credit():
+    email = session['email']
+    Credit().delete_credit(email)
+    flash("Your credit info has been deleted")
+
+    return redirect(url_for('customer_page.index'))

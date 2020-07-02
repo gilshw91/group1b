@@ -176,6 +176,8 @@ class Credit:
         dbManager.commit(sql, (self.credit_number, self.exp, self.cvv, self.email_address))
         return
 
+    def delete_credit(self, email):
+        return dbManager.commit('DELETE FROM credit WHERE email_address=%s', (email,))
 
 class Order:
     def __init__(self):
