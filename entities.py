@@ -55,9 +55,10 @@ class Customer:
         return dbManager.fetch(sql, (email_address,))
 
 
-    def update_address(self, city, street, number, zip):
-        dbManager.commit('UPDATE customer SET city = %s, street = %s, number = %s', (city, street, number))
-        dbManager.commit('UPDATE zips SET zip = %s', (zip,))
+    def update_address(self, city, street, number, zip, email):
+        dbManager.commit('INSERT INTO zips (country, city, street, number, zip) VALUES (%s, %s, %s, %s, %s)', ('whatever', city, street, number, zip))
+        dbManager.commit('UPDATE customer SET country=%s, city=%s, street=%s, number=%s WHERE email_address=%s', ('whatever', city, street, number, email))
+
 
 class Category:
     def __init__(self):

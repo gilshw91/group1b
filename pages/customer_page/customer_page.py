@@ -29,11 +29,14 @@ def update_address():
     street = request.form.get('street')
     number = request.form.get('number')
     zip_code = request.form.get('zip_code')
-    dbManager.commit('UPDATE customer SET city = %s, street = %s, number = %s', (city, street, number))
-    dbManager.commit('UPDATE zips SET zip = %s', (zip_code,))
+    Customer().update_address(city, street, number, zip_code, session['email'])
 
-
-    u_data = dbManager.fetch('SELECT * FROM customer WHERE email_address = %s', (session['email'],))
+    products = Product().get_all()
+    reviews = Review().get_reviews(session['email'])
+    credit = Credit().get_credit(session['email'])
+    histories = Order().get_orders(session['email'])
+    address = Customer().get_address(session['email'])
+    user_data = Customer().get_user_by_email(session['email'])
 
     return redirect(url_for('customer_page.index', products=products, user_data=user_data, reviews=reviews, credit=credit,
                             histories=histories, address=address))
