@@ -1,5 +1,15 @@
 from utilities.db.db_manager import dbManager
+from flask import request
 from flask import flash
+
+class Wrapper:
+    def __init__(self):
+        pass
+
+    def get_all(self, table):
+        sql = 'SELECT * FROM %s'
+        return dbManager.fetch(sql, (table,))
+
 
 class Customer:
     def __init__(self):
@@ -43,7 +53,7 @@ class Customer:
         dbManager.commit(sql_c, (email_address, user, password, first_name,
                                  last_name, country, city, street, number,
                                  phone_number))
-        flash('You were successfully Signed-up now you can Sign in')
+        flash('You were successfully Signed-up. now you can Sign in')
         return
 
     def get_address(self, email):
@@ -84,6 +94,7 @@ class Customer:
         flash('Your address has successfully updated!')
         return
 
+
 class Category:
     def __init__(self):
         pass
@@ -102,6 +113,14 @@ class Product:
         """ returns a list of all products """
         sql = 'SELECT * FROM product'
         return dbManager.fetch(sql)
+
+    def get_products(self):
+        return dbManager.fetch('SELECT * FROM product WHERE category_code=%s', (request.args['category_code'],))
+
+    def get_product(self):
+        return dbManager.fetch('SELECT * FROM product WHERE id=%s', (request.args['id'],))
+
+
 
 class Review:
     def __init__(self):
@@ -166,3 +185,12 @@ class Order:
                 # ORDER BY o.date_of_order DESC 
               '''
         return dbManager.fetch(sql, (email,))
+
+    def get_orders(self, email_address):
+        """ returns a list of orders associated to e-mail"""
+        sql = '''SELECT o.number, o.date_of_order, o.email_address, i.quantity, p.id, p.name, p.price, p.img
+                       FROM `order` AS o 
+                       JOIN include AS i ON o.number=i.number 
+                       JOIN product AS p ON i.sku=p.id
+                       WHERE email_address=%s'''
+        return dbManager.fetch(sql, (email_address,))

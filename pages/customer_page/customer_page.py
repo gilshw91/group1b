@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, session, flash, redirect, url_for
+from flask import Blueprint, render_template, request, session, redirect, url_for
 from entities import *
 
 
@@ -7,7 +7,7 @@ customer_page = Blueprint('customer_page', __name__, static_folder='static', sta
 
 
 # Routes
-@customer_page.route('/customer_page')
+@customer_page.route('/customer_page', methods=['GET', 'POST'])
 def index():
     email = session['email']
     products = Product().get_all()
@@ -15,17 +15,11 @@ def index():
     credit = Credit().get_credit_by_email(email)
     histories = Order().get_history(email)
     address = Customer().get_address(email)
-    # product_name = dbManager.fetch('''
-    # SELECT name from product
-    # WHERE product.id = %s''', (reviews.id,))
     user_data = Customer().get_user_by_email(email)
     return render_template('customer_page.html', products=products, user_data=user_data, reviews=reviews, credit=credit,
                            histories=histories, address=address)
 
-                           #, reviews=reviews, product_name=product_name)
-
-
-@customer_page.route('/update_address', methods=['POST'])
+@customer_page.route('/update_address', methods=['GET', 'POST'])
 def update_address():
     email = session['email']
     country = request.form['country']
