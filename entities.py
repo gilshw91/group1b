@@ -27,7 +27,7 @@ class Customer:
     def change_password(self, new_password, email):
         sql = 'UPDATE customer SET password = %s WHERE email_address = %s'
         dbManager.commit(sql, (new_password, email))
-        flash("Changed successfully")
+        flash("Password changed successfully")
         return
 
     def add_customer(self, email_address, user, password, first_name, last_name, country, city, street,
@@ -58,16 +58,30 @@ class Customer:
         return dbManager.fetch(sql, (email, ))
 
     def update_address(self, country, city, street, number, zip, email):
+        """Method that updates the address of the user. by adding new row in 'zips' table
+         and than change the address in 'customer' table where its fit to the zips table
+         and than delete the old row of address from 'zips'."""
+        # fetch the previous data of the user before update to delete the old data from DB
+        prev_data = '''
+                    SELECT z.country, z.city, z.street, z.number, z.zip
+                    FROM zips AS z
+                    JOIN customer AS c ON z.country=c.country AND z.city=c.city
+                    AND z.street=c.street AND z.number=c.number
+                    WHERE c.email_address = %s
+                    '''
+        prev_data = dbManager.fetch(prev_data, (email,))
         sql_1 = '''
-                    UPDATE customer SET country =%s, city = %s, street = %s, number = %s
-                    WHERE email_address = %s
+                    INSERT INTO zips (country, city, street, number, zip) 
+                    VALUES (%s, %s, %s, %s, %s)
                 '''
         sql_2 = '''
-                    UPDATE zips SET  zip = %s
-                    WHERE country = %s AND city = %s AND street = %s AND number = %s
+                    UPDATE customer SET country=%s, city=%s, street=%s, number=%s
+                    WHERE email_address=%s
                 '''
-        dbManager.commit(sql_1, (country, city, street, number, email))
-        dbManager.commit(sql_2, (zip, country, city, street, number, email))
+        dbManager.commit(sql_1, (zip, country, city, street, number))
+        dbManager.commit(sql_2, (country, city, street, number, email))
+        dbManager.execute(prev_data[0])
+        flash('Your address has successfully updated!')
         return
 
 class Category:
@@ -122,6 +136,7 @@ class Credit:
                 WHERE email_address = %s
               '''
         dbManager.commit(sql, (credit_number, exp, cvv, email))
+        flash('Your data has successfully saved!')
         return
 
     def add_credit(self, credit_number, exp, cvv, email):

@@ -1,5 +1,4 @@
 from flask import Blueprint, render_template, request, session, flash, redirect, url_for
-from utilities.db.db_manager import dbManager
 from entities import *
 
 
@@ -41,9 +40,6 @@ def update_address():
     credit = Credit().get_credit_by_email(email)
     histories = Order().get_history(email)
     address = Customer().get_address(email)
-    # product_name = dbManager.fetch('''
-    # SELECT name from product
-    # WHERE product.id = %s''', (reviews.id,))
     user_data = Customer().get_user_by_email(email)
     return redirect(url_for('customer_page.index', products=products, user_data=user_data, reviews=reviews, credit=credit,
                             histories=histories, address=address))
