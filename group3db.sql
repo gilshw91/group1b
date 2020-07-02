@@ -86,7 +86,7 @@ INSERT INTO group3.form (application_number, application_date, subject, content,
 INSERT INTO group3.form (application_number, application_date, subject, content, status, email_address) VALUES (5, '2020-06-12 09:00:00', 'Your magic ruined my computer!', 'Since buying your product, Ive been getting spam!', 'waiting', 'nlodoch@yahoo.com');
 
 
-create table `order`
+create table orders
 (
     number int not null primary key,
     date_of_order datetime not null,
@@ -95,11 +95,11 @@ create table `order`
         foreign key (email_address) references customer (email_address)
 );
 
-INSERT INTO group3.`order` (number, date_of_order, email_address) VALUES (2, '2020-03-01 10:19:03', 'israeli@bezeqint.net');
-INSERT INTO group3.`order` (number, date_of_order, email_address) VALUES (100, '2009-12-11 12:25:00', 'chani@gmail.com');
-INSERT INTO group3.`order` (number, date_of_order, email_address) VALUES (32324, '2010-03-02 18:10:30', 'chani@gmail.com');
-INSERT INTO group3.`order` (number, date_of_order, email_address) VALUES (1128492, '2001-09-11 11:15:00', 'dadisa@gmail.com');
-INSERT INTO group3.`order` (number, date_of_order, email_address) VALUES (1983022, '2020-02-20 20:20:20', 'nlodoch@yahoo.com');
+INSERT INTO group3.orders (number, date_of_order, email_address) VALUES (2, '2020-03-01 10:19:03', 'israeli@bezeqint.net');
+INSERT INTO group3.orders (number, date_of_order, email_address) VALUES (100, '2009-12-11 12:25:00', 'chani@gmail.com');
+INSERT INTO group3.orders (number, date_of_order, email_address) VALUES (32324, '2010-03-02 18:10:30', 'chani@gmail.com');
+INSERT INTO group3.orders (number, date_of_order, email_address) VALUES (1128492, '2001-09-11 11:15:00', 'dadisa@gmail.com');
+INSERT INTO group3.orders (number, date_of_order, email_address) VALUES (1983022, '2020-02-20 20:20:20', 'nlodoch@yahoo.com');
 
 create table cart
 (
@@ -168,7 +168,7 @@ create table include
     sku int not null,
     primary key (sku, number),
     constraint include_fk
-        foreign key (number) references `order` (number),
+        foreign key (number) references orders (number),
     constraint include_fk2
         foreign key (sku) references product (id)
 );

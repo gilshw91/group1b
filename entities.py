@@ -80,6 +80,11 @@ class Customer:
                     WHERE c.email_address = %s
                     '''
         prev_data = dbManager.fetch(prev_data, (email,))
+        prev_sql ='''
+                    DELETE FROM zips WHERE country = %s
+                    AND city = %s AND street = %s
+                    AND number = %s AND zip = %s
+                    '''
         sql_1 = '''
                     INSERT INTO zips (country, city, street, number, zip) 
                     VALUES (%s, %s, %s, %s, %s)
@@ -88,9 +93,10 @@ class Customer:
                     UPDATE customer SET country=%s, city=%s, street=%s, number=%s
                     WHERE email_address=%s
                 '''
-        dbManager.commit(sql_1, (zip, country, city, street, number))
+        dbManager.commit(sql_1, (country, city, street, number, zip))
         dbManager.commit(sql_2, (country, city, street, number, email))
-        dbManager.execute(prev_data[0])
+        dbManager.commit(prev_sql, (prev_data[0].country, prev_data[0].city, prev_data[0].street,
+                         prev_data[0].number, prev_data[0].zip))
         flash('Your address has successfully updated!')
         return
 
@@ -138,6 +144,18 @@ class Review:
               '''
         return dbManager.fetch(sql, (email, ))
 
+    def recent_review(self, email):
+        sql = ''' 
+                SELECT r.date, r.rank, r.content, r.email_address, p.name
+                FROM review AS r 
+                JOIN product AS p 
+                ON r.id = p.id 
+                WHERE email_address = %s
+                ORDER BY r.date DESC 
+                LIMIT 1
+              '''
+        return
+
 
 class Credit:
     def __init__(self):
@@ -177,19 +195,19 @@ class Order:
         """This method returns the history of all the orders (their details) and the products
             which the user submitted on."""
         sql = '''
-                SELECT o.number, o.date_of_order, o.email_address, i.quantity, p.id,p.name, p.price, p.img
-                FROM 'order' AS o 
-                JOIN include AS i ON o.number = i.number 
+                SELECT o.number, o.date_of_order, o.email_address, i.quantity, p.id ,p.name, p.price, p.img
+                FROM orders AS o 
+                JOIN include AS i ON o.number = i.number
                 JOIN product AS p ON i.sku = p.id
                 WHERE email_address = %s
-                # ORDER BY o.date_of_order DESC 
+                 # ORDER BY o.date_of_order DESC 
               '''
         return dbManager.fetch(sql, (email,))
 
     def get_orders(self, email_address):
         """ returns a list of orders associated to e-mail"""
         sql = '''SELECT o.number, o.date_of_order, o.email_address, i.quantity, p.id, p.name, p.price, p.img
-                       FROM `order` AS o 
+                       FROM orders AS o 
                        JOIN include AS i ON o.number=i.number 
                        JOIN product AS p ON i.sku=p.id
                        WHERE email_address=%s'''

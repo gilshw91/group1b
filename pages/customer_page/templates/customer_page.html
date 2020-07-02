@@ -90,6 +90,7 @@
         {% for review in reviews %}
             <div class="review">
                 <p>Product: {{ review.name }}<br/>Review Date: {{ review.date }} <br/>Review: {{ review.content }} </p> {# how to loop all review? mayebe display only the last one? #}
+                <hr/>
             </div>
         {% endfor %}
     {% else %}
