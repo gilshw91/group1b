@@ -47,7 +47,7 @@ aside{
     padding: 3% 3% 4% 4%;
 }
 
-input[type=text],input[type=email], input[type=tel],input[type=number],input[type=password]{
+input[type=text], input[type=email], input[type=tel], input[type=number], input[type=password]{
     width: 57%;
     float: right;
 }

@@ -23,7 +23,6 @@ def index():
             session['name'] = user[0].first_name
             session['email'] = email
             session['permanent'] = True
-            # session['noOfItems'] = dbManager.fetch('SELECT count(product_id) FROM cart')
             if session.get('login.errors'):
                 del session['login.errors']
                 flash('You were successfully logged in')

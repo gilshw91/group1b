@@ -15,10 +15,12 @@
             <h3 class="heading-3">Please provide your feedback below:</h3>
         </div>
     <div class="form-space">
-        <form method="post" id="feedback-form" action="route">
+        <form method="post" id="feedback-form" action="/customer_feedback">
             <div class="input">
                 <label class="input-email" for="email">Email address: *</label><br/>
-                <input type="email" class="form-control" placeholder="wizard@hogwarts.com" id="email" name="email" required/><!--DONE maybe add some * or something that the user will know thats require -->
+                <input type="email" class="form-control"
+                       id="email" name="email" {% if session.get['email'] %} value="{{ session['email'] }}"{% endif %}
+                       placeholder="wizard@hogwarts.com" required/>
             </div>
             <br/>
             <div class="input">

@@ -2,18 +2,21 @@ from utilities.db.db_manager import dbManager
 from flask import request
 from flask import flash
 
-class Wrapper:
-    def __init__(self):
-        pass
-
-    def get_all(self, table):
-        sql = 'SELECT * FROM %s'
-        return dbManager.fetch(sql, (table,))
-
 
 class Customer:
     def __init__(self):
-        pass
+        self.email_address = ""
+        self.user = ""
+        self.password = ""
+        self.first_name = ""
+        self.last_name = ""
+        self.country = ""
+        self.city = ""
+        self.street = ""
+        self.number = 0
+        self.zip = 0
+        self.phone_number = 0
+
 
     def get_user_by_email(self, email_address):
         """ Returns the users data where the email fits to
@@ -31,29 +34,29 @@ class Customer:
         return dbManager.fetch(sql, (email, password))
 
     def get_password(self, email):
+        """Return the password of user by his email address"""
         sql = 'SELECT password FROM customer WHERE email_address = %s'
-        return dbManager.fetch(sql, (email, ))
+        print(dbManager.fetch(sql, (email, ))[0].password)
+        return dbManager.fetch(sql, (email, ))[0].password
 
     def change_password(self, new_password, email):
+        """Changes users password by his email address"""
         sql = 'UPDATE customer SET password = %s WHERE email_address = %s'
         dbManager.commit(sql, (new_password, email))
-        flash("Password changed successfully")
         return
 
-    def add_customer(self, email_address, user, password, first_name, last_name, country, city, street,
-                 number, zip, phone_number):
+    def add_customer(self):
         """ Add new customer to data base"""
         sql_z = ''' INSERT INTO zips (country, city, street, number, zip) VALUES (%s, %s, %s, %s, %s)'''
-        sql_c =   '''
+        sql_c = '''
                 INSERT INTO customer (email_address, user, password, first_name, last_name, country, city, street,
-                 number, phone_number)
+                                      number, phone_number)
                 VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
                 '''
-        dbManager.commit(sql_z, (country, city, street, number, zip))
-        dbManager.commit(sql_c, (email_address, user, password, first_name,
-                                 last_name, country, city, street, number,
-                                 phone_number))
-        flash('You were successfully Signed-up. now you can Sign in')
+        dbManager.commit(sql_z, (self.country, self.city, self.street, self.number, self.zip))
+        dbManager.commit(sql_c, (self.email_address, self.user, self.password, self.first_name, self.last_name,
+                                 self.country, self.city, self.street, self.number, self.phone_number))
+        # flash('You were successfully Signed-up. now you can Sign in')
         return
 
     def get_address(self, email):
@@ -67,36 +70,19 @@ class Customer:
               '''
         return dbManager.fetch(sql, (email, ))
 
-    def update_address(self, country, city, street, number, zip, email):
+    def update_address(self, country, city, street, number, email):
         """Method that updates the address of the user. by adding new row in 'zips' table
-         and than change the address in 'customer' table where its fit to the zips table
-         and than delete the old row of address from 'zips'."""
-        # fetch the previous data of the user before update to delete the old data from DB
-        prev_data = '''
-                    SELECT z.country, z.city, z.street, z.number, z.zip
-                    FROM zips AS z
-                    JOIN customer AS c ON z.country=c.country AND z.city=c.city
-                    AND z.street=c.street AND z.number=c.number
-                    WHERE c.email_address = %s
-                    '''
-        prev_data = dbManager.fetch(prev_data, (email,))
-        prev_sql ='''
-                    DELETE FROM zips WHERE country = %s
-                    AND city = %s AND street = %s
-                    AND number = %s AND zip = %s
-                    '''
+         and than changes the address in 'customer' table where its fit to the zips table."""
         sql_1 = '''
-                    INSERT INTO zips (country, city, street, number, zip) 
-                    VALUES (%s, %s, %s, %s, %s)
+                    INSERT INTO zips (country, city, street, number) 
+                    VALUES (%s, %s, %s, %s)
                 '''
         sql_2 = '''
                     UPDATE customer SET country=%s, city=%s, street=%s, number=%s
                     WHERE email_address=%s
                 '''
-        dbManager.commit(sql_1, (country, city, street, number, zip))
+        dbManager.commit(sql_1, (country, city, street, number))
         dbManager.commit(sql_2, (country, city, street, number, email))
-        dbManager.commit(prev_sql, (prev_data[0].country, prev_data[0].city, prev_data[0].street,
-                         prev_data[0].number, prev_data[0].zip))
         flash('Your address has successfully updated!')
         return
 
@@ -115,6 +101,7 @@ class Product:
     def __init__(self):
         pass
 
+
     def get_all(self):
         """ returns a list of all products """
         sql = 'SELECT * FROM product'
@@ -124,8 +111,7 @@ class Product:
         return dbManager.fetch('SELECT * FROM product WHERE category_code=%s', (request.args['category_code'],))
 
     def get_product(self):
-        return dbManager.fetch('SELECT * FROM product WHERE id=%s', (request.args['id'],))
-
+        return dbManager.fetch('SELECT * FROM product WHERE id=%s', (request.args['id'],))  # self.id
 
 
 class Review:
@@ -144,7 +130,8 @@ class Review:
               '''
         return dbManager.fetch(sql, (email, ))
 
-    def recent_review(self, email):
+    def recent_reviews(self, email):
+        """Returns the top three recent reviews that the user has posted"""
         sql = ''' 
                 SELECT r.date, r.rank, r.content, r.email_address, p.name
                 FROM review AS r 
@@ -152,14 +139,17 @@ class Review:
                 ON r.id = p.id 
                 WHERE email_address = %s
                 ORDER BY r.date DESC 
-                LIMIT 1
+                LIMIT 3
               '''
-        return
+        return dbManager.fetch(sql, (email, ))
 
 
 class Credit:
     def __init__(self):
-        pass
+        self.credit_number = 0
+        self.exp = ""
+        self.cvv = 0
+        self.email_address = ""
 
     def get_credit_by_email(self, email):
         """Return the credit data by the user email"""
@@ -176,14 +166,14 @@ class Credit:
         flash('Your data has successfully saved!')
         return
 
-    def add_credit(self, credit_number, exp, cvv, email):
+    def add_credit(self):
         """if the user doesnt have a credit in the database
         this method will insert the credit data by the users' email"""
         sql = '''
                 INSERT INTO credit (credit_card_number, expiration_date, cvv, email_address)
                 VALUES (%s, %s, %s, %s)
               '''
-        dbManager.commit(sql, (credit_number, exp, cvv, email))
+        dbManager.commit(sql, (self.credit_number, self.exp, self.cvv, self.email_address))
         return
 
 

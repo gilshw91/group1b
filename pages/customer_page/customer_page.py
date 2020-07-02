@@ -11,7 +11,7 @@ customer_page = Blueprint('customer_page', __name__, static_folder='static', sta
 def index():
     email = session['email']
     products = Product().get_all()
-    reviews = Review().get_review_by_email(email)
+    reviews = Review().recent_reviews(email)
     credit = Credit().get_credit_by_email(email)
     histories = Order().get_history(email)
     address = Customer().get_address(email)
@@ -26,32 +26,39 @@ def update_address():
     city = request.form['city']
     street = request.form['street']
     number = request.form['number']
-    zip_code = request.form['zip_code']
     # Updates with address
-    Customer().update_address(country, city, street, number, zip_code, email)
+    Customer().update_address(country, city, street, number, email)
     products = Product().get_all()
-    reviews = Review().get_review_by_email(email)
+    reviews = Review().recent_reviews(email)
     credit = Credit().get_credit_by_email(email)
     histories = Order().get_history(email)
     address = Customer().get_address(email)
     user_data = Customer().get_user_by_email(email)
-    return redirect(url_for('customer_page.index', products=products, user_data=user_data, reviews=reviews, credit=credit,
-                            histories=histories, address=address))
+    return redirect(url_for('customer_page.index', products=products, user_data=user_data, reviews=reviews,
+                            credit=credit, histories=histories, address=address))
 
 
 @customer_page.route('/update_password', methods=['POST'])
 def update_password():
     email = session['email']
     old_pass = request.form.get('pwd')
-    # new_pass = request.form.get('npwd')
-    re_new_pass = request.form.get('npwd2')
+    new_pass = request.form.get('npwd')
     password = Customer().get_password(email)
     if password == old_pass:
-        Customer().change_password(re_new_pass, email)
-        # flash("Changed successfully")
+        Customer().change_password(new_pass, email)
+        flash("Changed successfully")
     else:
         flash("Wrong Password")
-    return render_template('customer_page.html')
+
+    products = Product().get_all()
+    reviews = Review().recent_reviews(email)
+    credit = Credit().get_credit_by_email(email)
+    histories = Order().get_history(email)
+    address = Customer().get_address(email)
+    user_data = Customer().get_user_by_email(email)
+
+    return redirect(url_for('customer_page.index', products=products, user_data=user_data, reviews=reviews,
+                            credit=credit, histories=histories, address=address))
 
 
 @customer_page.route('/update_credit', methods=['POST'])
@@ -63,5 +70,12 @@ def update_credit():
     has_credit = Credit().get_credit_by_email(email)
     if has_credit:
         Credit().update_credit(credit, exp, cvv, email)
+        return redirect(url_for('customer_page.index'))
+    else:
+        new_credit = Credit()
+        new_credit.email_address = email
+        new_credit.exp = exp
+        new_credit.cvv = cvv
+        new_credit.add_credit()
+        return redirect(url_for('customer_page.index'))
 
-    return redirect(url_for('customer_page.index'))

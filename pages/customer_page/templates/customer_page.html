@@ -4,30 +4,28 @@
 
 {% block page_head_css %}
     <link rel="stylesheet" href="{{ url_for('customer_page.static', filename='css/customer_page.css') }}"/>
-    <script type="text/javascript" src="{{ url_for('sign_in_registration.static', filename = 'js/sign_up.js') }}"></script>
-    <script type="text/javascript" src="{{ url_for('customer_page.static', filename = 'js/sign_up.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('customer_page.static', filename = 'js/validationForm.js') }}"></script>
 
 {% endblock %}
 
 {% block page_body_main_content %}
     <div class="padding-left">
-    <div class="top-block"> <!--Title and sub-title-->
-        <h1 class="heading-1">Profile <strong>Page</strong></h1>
-        <h3 class="heading-3">Hello, {{ session['name'] | capitalize }}!</h3>
+        <div class="top-block"> <!--Title and sub-title-->
+            <h1 class="heading-1">Profile <strong>Page</strong></h1>
+            <h3 class="heading-3">Hello, {{ session['name'] | capitalize }}!</h3>
+        </div>
+        <hr/>
+        <div class="nav" id="nav">
+            <h3 class="heading-3">Shortcuts</h3>
+                <a class=nav-link href="{{ url_for('customer_page.index', _anchor='order-block') }}">My Orders</a>
+                <a class=nav-link href="{{ url_for('customer_page.index', _anchor='address-block') }}">My Shipping Address</a>
+                <a class=nav-link href="{{ url_for('customer_page.index', _anchor='review-block') }}">My Reviews</a>
+                <a class=nav-link href="{{ url_for('customer_page.index', _anchor='password-block') }}">Change Password</a>
+                <a class=nav-link href="{{ url_for('customer_page.index', _anchor='credit-block') }}">Credit Card Data</a>
+                <a class="nav-link" href="#cart">Cart {{ session['noOfItems'] }}</a> {# doesnt work #}
+        </div>
     </div>
     <hr/>
-    <div class="nav" id="nav">
-        <h3 class="heading-3">Shortcuts</h3>
-            <a class=nav-link href="{{ url_for('customer_page.index', _anchor='order-block') }}">My Orders</a>
-            <a class=nav-link href="{{ url_for('customer_page.index', _anchor='address-block') }}">My Shipping Address</a>
-            <a class=nav-link href="{{ url_for('customer_page.index', _anchor='review-block') }}">My Reviews</a>
-            <a class=nav-link href="{{ url_for('customer_page.index', _anchor='password-block') }}">Change Password</a>
-            <a class=nav-link href="{{ url_for('customer_page.index', _anchor='credit-block') }}">Credit Card Data</a>
-            <a class="nav-link" href="#cart">Cart {{ session['noOfItems'] }}</a> {# doesnt work #}
-	</div>
-    </div>
-    <hr/>
-
     <div class="block" id="order-block" name="order-block">
         <h2 class="heading-2">My <strong>Orders</strong></h2>
         <div class="grid">
@@ -45,6 +43,7 @@
         {% endif %}
         </div>
     </div>
+    <hr/>
     <div class="block" id="address-block">
         <h2 class="heading-2">My <strong>Shipping</strong> Address</h2>
         <p class="heading-4" id="current-address">Current Address:
@@ -73,31 +72,38 @@
                 <input type="number" class="input" name="number" id="number" placeholder="Please fill your street number"
                        value="{{ address[0].number }}" required/>
             </div>
-            <div class="customer-form">
-                <label for="zip_code">Zip-code: *</label>
-                <input type="number" class="input" name="zip_code" id="zip_code" placeholder="Please fill your zip code"
-                       value="{{ address[0].zip | replace("'", "") }}" required/>
-            </div>
+{#            <div class="customer-form">#}
+{#                <label for="zip-code">Zip-code: *</label>#}
+{#                <input type="number" class="input" name="zip-code" id="zip-code" placeholder="Please fill your zip code"#}
+{#                       value="{{ address[0].zip | replace("'", "") }}" required/>#}
+{#            </div>#}
             <div class="customer-form">
                 <input type="submit" value="Change Shipping Address" name="submit"/>
             </div>
         </form>
     </div>
+    <hr/>
     {# If there is review so display? #}
     <div class="block" id="review-block">
-        <h2 class="heading-2">Recent <strong>Reviews</strong></h2>
+        <h2 class="heading-2">My Last <strong>Review</strong></h2>
     {% if reviews %}
         {% for review in reviews %}
-            <div class="review">
-                <p>Product: {{ review.name }}<br/>Review Date: {{ review.date }} <br/>Review: {{ review.content }} </p> {# how to loop all review? mayebe display only the last one? #}
-                <hr/>
-            </div>
+            <ul>
+                <div class="review">
+                    <li>
+                        <p>Product: {{ review.name }}<br/>
+                           Review Date: {{ review.date }} <br/>
+                           Review: {{ review.content }} </p>
+                    </li>
+                </div>
+            </ul>
         {% endfor %}
     {% else %}
         <h4 class="heading-4">You Have not posted any review</h4>
         <h4 class="heading-4">It's <strong>never</strong> too late...</h4>
     {% endif %}
     </div>
+    <hr/>
     <div class="block" id="password-block">
         <h2 class="heading-2"><strong>Password</strong></h2>
         <form method="post" action="/update_password" class="password-form" onsubmit="return validate()">
@@ -111,7 +117,7 @@
                 <input type="password" class="input" placeholder="Enter new Password" id="npwd" name="npwd" required/>
             </div>
             <div class="customer-form">
-                <label for="pwd">Re-enter new password: *</label>
+                <label for="pwd">Confirm password: *</label>
                 <input type="password" class="input" placeholder="Enter new Password again" id="npwd2" name="npwd2" required/>
             </div>
             <div class="customer-form">
@@ -119,11 +125,12 @@
             </div>
         </form>
     </div>
+    <hr/>
     <div class="block" id="credit-block">
         <h2 class="heading-2"><strong>Credit Card</strong> Data</h2>
         <div class="current-credit">
             {% if credit[0] %}
-                <p>Current credit card: ************{{ credit[0].credit_card_number[-4:] }}</p><!--Will pull content somehow-->
+                <p>Current credit card: ************{{ credit[0].credit_card_number[-4:] }}</p>
             {% else %}
                 <h4 class="heading-4">You need to insert a credit card</h4>
                 <h4 class="heading-4">to <strong>Enjoy</strong> products...</h4>
