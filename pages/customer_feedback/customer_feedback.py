@@ -19,14 +19,19 @@ def add_form():
     subject = request.form.get('subject')
     content = request.form.get('message')
     status = 'unread'
-    email = session['email']
+    email = request.form.get('email')
 
-    new_form = Form()
-    new_form.application_date = date
-    new_form.subject = subject
-    new_form.content = content
-    new_form.status = status
-    new_form.email_address = email
-    new_form.add_form()
-    flash("Thank you for your feedback")
-    return redirect(url_for('customer_feedback.index'))
+    user = Customer().get_user_by_email(email)
+    if len(user)==0:
+        flash("Please sign-up first")
+        return redirect(url_for('sign_in_registration.index'))
+    else:
+        new_form = Form()
+        new_form.application_date = date
+        new_form.subject = subject
+        new_form.content = content
+        new_form.status = status
+        new_form.email_address = email
+        new_form.add_form()
+        flash("Thank you for your feedback")
+        return redirect(url_for('customer_feedback.index'))
