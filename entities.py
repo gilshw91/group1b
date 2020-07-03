@@ -218,3 +218,21 @@ class Order:
                        JOIN product AS p ON i.sku=p.id
                        WHERE email_address=%s'''
         return dbManager.fetch(sql, (email_address,))
+
+class Form:
+    def __init__(self):
+        self.application_number = 0
+        self.application_date = ""
+        self.subject = ""
+        self.content = ""
+        self.status = ""
+        self.email_address = ""
+
+    def add_form(self):
+        """ Add new feedback form to data base"""
+        sql = '''
+                INSERT INTO form (application_number, application_date, subject, content, status, email_address)
+                VALUES (%s, %s, %s, %s, %s, %s)
+              '''
+        dbManager.commit(sql, (self.application_number, self.application_date, self.subject, self.content, self.status, self.email_address))
+        return

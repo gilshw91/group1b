@@ -19,7 +19,7 @@ product = Blueprint('product', __name__, static_folder='static', static_url_path
 @product.route('/product', methods=['GET', 'POST'])
 def index():
     if request.method == 'GET':
-        product_data = dbManager.fetch('SELECT * FROM product WHERE id=%s', (request.args['id'],))
+        product_data = Product().get_product()
         review_data = dbManager.fetch('SELECT * FROM review WHERE id=%s', (request.args['id'],))
         return render_template('product.html', product=product_data[0], review=review_data[0])
     else:
@@ -42,7 +42,7 @@ def add_review():
     rank = request.form.get('star')
     content = request.form.get('review')
     email = session['email']
-    id = request.args['id']
+    id = request.args['id'] #This isnt working :(
 
     new_review = Review()
     new_review.date = date
@@ -51,8 +51,9 @@ def add_review():
     new_review.email_address = email
     new_review.id = id
     new_review.add_review()
-    return redirect(url_for('product.index'))
     flash("Thank you for your review")
+    return redirect(url_for('product.index'))
+
 
 #
 # @product.route('/product', methods=['GET', 'POST'])
