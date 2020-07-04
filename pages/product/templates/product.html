@@ -61,14 +61,21 @@ the heading of Rating & Reviews are not at the correct place. it is places aside
                 <input type="reset" name="reset-review">
             </form>
         </div>
+        <hr/>
         <div class="show-reviews">
+            {% if review %}
+
             <div class="show-reviews-details">
-                <p class="review-info">{{ review.email_address }}</p> {# INSERT QUERY BY JOIN PRODUCT ID #}
-                <p class="review-info">{{ review.date }}</p>
+                    <p class="review-info">{{ review[0].email_address }}</p> {# INSERT QUERY BY JOIN PRODUCT ID #}
+                    <p class="review-info">{{ review[0].date }}</p>
             </div>
             <div class="show-reviews-content">
-                <p>{{ review.content }}</p>
+                <p>{{ review[0].content }}</p>
             </div>
+            {% else %}
+                <h4 class="heading-4">There is no reviews for this product.</h4>
+                <h4 class="heading-4">Wanna be the <strong>first?</strong></h4>
+            {% endif %}
         </div>
     </div>
 {% endblock %}

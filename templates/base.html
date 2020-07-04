@@ -132,8 +132,13 @@ Base page blocks:
                 <footer class="page-footer">
                   {% block page_body_footer_content %}
                             <div>
-                                <a class='material-icons' href = "{{ url_for('customer_page.index') }}" title="Profile">&#xe7fd;</a>
-                                <a class='fas' href="{{ url_for('customer_feedback.index') }}" title="Contact Us">&#xf658;</a>
+                                {% if not session.get['email'] %}
+                                   <a class='material-icons'href = "{{ url_for('sign_in_registration.index') }}" title="Profile">&#xe7fd;</a>
+                                    <a class='fas' href="{{ url_for('sign_in_registration.index') }}" title="Contact Us">&#xf658;</a>
+                                {% else %}
+                                    <a class='material-icons' href = "{{ url_for('customer_page.index') }}" title="Profile">&#xe7fd;</a>
+                                    <a class='fas' href="{{ url_for('customer_feedback.index') }}" title="Contact Us">&#xf658;</a>
+                                {% endif %}
                                 <a class="fas fa-phone-square-alt" href="tel:+4403450840900" title="Phone"></a>
                                 <a class='fas fa-envelope' href = "mailto: hokusmokus2020@gmail.com" title="Mail" target="_blank"></a>
                                 <a class='fab fa-facebook' href="https://www.facebook.com/hokus.mokus.9" title="Facebook" target="_blank"></a>
