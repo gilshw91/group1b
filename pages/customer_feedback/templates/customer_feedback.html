@@ -17,6 +17,11 @@
     <div class="form-space">
         <form method="post" id="feedback-form" action="/add_form">
             <div class="input">
+                <label class="input-email" for="email">Email address: *</label><br/>
+                <input type="email" class="form-control" placeholder="wizard@hogwarts.com" id="email" name="email" required/><!--DONE maybe add some * or something that the user will know thats require -->
+            </div>
+            <br/>
+            <div class="input">
                 <label class="input-subject" for="subject">Message subject: *</label> <!--Message-->
                 <select id="subject" name="subject" class="form-control">
                     <option value="" hidden>Please Select Subject</option>

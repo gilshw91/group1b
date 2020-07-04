@@ -176,7 +176,6 @@ class Credit:
                 WHERE email_address = %s
               '''
         dbManager.commit(sql, (credit_number, exp, cvv, email))
-        flash('Your data has successfully saved!')
         return
 
     def add_credit(self):

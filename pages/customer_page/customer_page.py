@@ -1,5 +1,6 @@
-from flask import Blueprint, render_template, request, session, redirect, url_for
+from flask import Blueprint, render_template, request, session, redirect, url_for, flash
 from entities import *
+from datetime import datetime
 
 
 # customer_page blueprint definition
@@ -66,19 +67,26 @@ def update_credit():
     email = session['email']
     credit = request.form.get('credit')
     exp = request.form.get('exp')
-    cvv = request.form.get('cvv')
-    has_credit = Credit().get_credit_by_email(email)
-    if has_credit:
-        Credit().update_credit(credit, exp, cvv, email)
+    exp_date = datetime.strptime(exp, '%Y-%m-%d')
+    if exp_date < datetime.now():
+        flash("Your credit is expired")
         return redirect(url_for('customer_page.index'))
     else:
-        new_credit = Credit()
-        new_credit.email_address = email
-        new_credit.credit_number = credit
-        new_credit.exp = exp
-        new_credit.cvv = cvv
-        new_credit.add_credit()
-        return redirect(url_for('customer_page.index'))
+        cvv = request.form.get('cvv')
+        has_credit = Credit().get_credit_by_email(email)
+        if has_credit:
+            Credit().update_credit(credit, exp, cvv, email)
+            flash("Your credit info has been updated")
+            return redirect(url_for('customer_page.index'))
+        else:
+            new_credit = Credit()
+            new_credit.email_address = email
+            new_credit.credit_number = credit
+            new_credit.exp = exp
+            new_credit.cvv = cvv
+            new_credit.add_credit()
+            flash("Your credit info has been added")
+            return redirect(url_for('customer_page.index'))
 
 
 @customer_page.route('/delete_credit', methods=['POST'])
