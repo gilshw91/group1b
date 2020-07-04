@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, session, redirect, url_for
+from flask import Blueprint, render_template, request, session, redirect, url_for, flash
 from entities import *
 
 
@@ -70,6 +70,7 @@ def update_credit():
     has_credit = Credit().get_credit_by_email(email)
     if has_credit:
         Credit().update_credit(credit, exp, cvv, email)
+        flash("Your credit info has been updated")
         return redirect(url_for('customer_page.index'))
     else:
         new_credit = Credit()
@@ -78,6 +79,7 @@ def update_credit():
         new_credit.exp = exp
         new_credit.cvv = cvv
         new_credit.add_credit()
+        flash("Your credit info has been added")
         return redirect(url_for('customer_page.index'))
 
 
