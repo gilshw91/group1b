@@ -56,7 +56,6 @@ class Customer:
         dbManager.commit(sql_z, (self.country, self.city, self.street, self.number, self.zip))
         dbManager.commit(sql_c, (self.email_address, self.user, self.password, self.first_name, self.last_name,
                                  self.country, self.city, self.street, self.number, self.phone_number))
-        # flash('You were successfully Signed-up. now you can Sign in')
         return
 
     def get_address(self, email):
@@ -191,6 +190,7 @@ class Credit:
         return
 
     def delete_credit(self, email):
+        """Methods that deletes the user's credit card by the user's email"""
         return dbManager.commit('DELETE FROM credit WHERE email_address=%s', (email,))
 
 class Order:
