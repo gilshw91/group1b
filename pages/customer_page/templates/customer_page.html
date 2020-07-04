@@ -85,7 +85,6 @@
         </form>
     </div>
     <hr/>
-    {# If there is review so display? #}
     <div class="block" id="review-block">
         <h2 class="heading-2">Recent <strong>Reviews</strong></h2>
     {% if reviews %}
@@ -139,7 +138,7 @@
             {% endif %}
         </div>
         <form method="post" class="card-form" id="change_card" action="/update_credit">
-            <legend>If you wish to add or change credit data, fill in your new card here:</legend>
+            <legend>If you wish to add, delete or change credit data, fill in your new card here:</legend>
             <div class="customer-form">
                 <label for="credit">Card number: *</label>
                 <input type="number" class="input" id="credit" name="credit" placeholder="Please insert your card number" value="{% if credit[0] %}{{ credit[0].credit_card_number[-4:] }}{% endif %}" required/>

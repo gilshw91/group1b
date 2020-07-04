@@ -1,15 +1,8 @@
-from flask import Blueprint, render_template, request, session, url_for, redirect, flash
+from flask import Blueprint, render_template, session, url_for, redirect, flash
 from entities import *
 from datetime import datetime
-#
-# start_counter = datetime.datetime(2020, 6, 28, 0, 30)  # june 6th 2020, 0from 00:30 am
-#
-#
-# def get_counter(when):
-#     return (when - start_counter).days
-# # get_counter(datetime.datetime(2020,6,28,0,45)) will return 0
-#
-# session['counter'] = 0  # needs to be reset everyday
+from utilities.db.db_manager import dbManager
+
 
 # product blueprint definition
 product = Blueprint('product', __name__, static_folder='static', static_url_path='/product', template_folder='templates')
@@ -19,9 +12,10 @@ product = Blueprint('product', __name__, static_folder='static', static_url_path
 @product.route('/product', methods=['GET', 'POST'])
 def index():
     if request.method == 'GET':
-        product_data = Product().get_product()
-        review_data = dbManager.fetch('SELECT * FROM review WHERE id=%s', (request.args['id'],))
-        return render_template('product.html', product=product_data[0], review=review_data[0])
+        product_data = Product().get_product(request.args['id'])
+        review_data = Review().get_review_by_pid(request.args['id'])
+        # review_data = dbManager.fetch('SELECT * FROM review WHERE id=%s', (request.args['id'],))
+        return render_template('product.html', product=product_data[0], review=review_data)
     else:
         email = request.form.get('email')
         review = request.form.get('review')

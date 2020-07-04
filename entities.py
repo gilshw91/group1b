@@ -56,7 +56,6 @@ class Customer:
         dbManager.commit(sql_z, (self.country, self.city, self.street, self.number, self.zip))
         dbManager.commit(sql_c, (self.email_address, self.user, self.password, self.first_name, self.last_name,
                                  self.country, self.city, self.street, self.number, self.phone_number))
-        # flash('You were successfully Signed-up. now you can Sign in')
         return
 
     def get_address(self, email):
@@ -99,6 +98,13 @@ class Category:
 
 class Product:
     def __init__(self):
+        # self.id = 0
+        # self.name = ""
+        # self.price = 0.0
+        # self.prev_price = 0.0
+        # self.description = ""
+        # self.img = ""
+        # self.category_code = 0
         pass
 
 
@@ -108,10 +114,14 @@ class Product:
         return dbManager.fetch(sql)
 
     def get_products(self):
-        return dbManager.fetch('SELECT * FROM product WHERE category_code=%s', (request.args['category_code'],))
 
-    def get_product(self):
-        return dbManager.fetch('SELECT * FROM product WHERE id=%s', (request.args['id'],))  # self.id
+        return dbManager.fetch('SELECT * FROM product WHERE category_code=%s', (request.args['category_code'],))
+        # return dbManager.fetch('SELECT * FROM product WHERE category_code=%s', (self.category_code'],))
+
+    def get_product(self, id):
+        # return dbManager.fetch('SELECT * FROM product WHERE id=%s', (request.args['id'],))  # self.id
+        return dbManager.fetch('SELECT * FROM product WHERE id=%s', (id,))
+        # return dbManager.fetch('SELECT * FROM product WHERE id=%s', (self.id, ))
 
 
 class Review:
@@ -143,6 +153,13 @@ class Review:
                 WHERE email_address = %s
               '''
         return dbManager.fetch(sql, (email, ))
+
+    def get_review_by_pid(self, pid):
+        """ This method returns the reviews on product
+        by it's id. """
+        sql = 'SELECT * FROM review WHERE id=%s'
+        print(dbManager.fetch(sql, (pid,)))
+        return dbManager.fetch(sql, (pid, ))
 
     def recent_reviews(self, email):
         """Returns the top three recent reviews that the user has posted"""
@@ -190,6 +207,7 @@ class Credit:
         return
 
     def delete_credit(self, email):
+        """Methods that deletes the user's credit card by the user's email"""
         return dbManager.commit('DELETE FROM credit WHERE email_address=%s', (email,))
 
 class Order:
