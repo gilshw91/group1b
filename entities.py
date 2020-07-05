@@ -113,9 +113,9 @@ class Product:
         sql = 'SELECT * FROM product'
         return dbManager.fetch(sql)
 
-    def get_products(self):
+    def get_products(self, id):
 
-        return dbManager.fetch('SELECT * FROM product WHERE category_code=%s', (request.args['category_code'],))
+        return dbManager.fetch('SELECT * FROM product WHERE category_code=%s', (id,))
         # return dbManager.fetch('SELECT * FROM product WHERE category_code=%s', (self.category_code'],))
 
     def get_product(self, id):
@@ -175,6 +175,8 @@ class Review:
               '''
         return dbManager.fetch(sql, (email, ))
 
+    def get_review(self, id):
+        return dbManager.fetch('SELECT * FROM review WHERE id=%s', (id,))
 
 class Credit:
     def __init__(self):
@@ -236,6 +238,15 @@ class Order:
                        JOIN product AS p ON i.sku=p.id
                        WHERE email_address=%s'''
         return dbManager.fetch(sql, (email_address,))
+
+    def get_product_order(self, email_address, id):
+        """ returns a specific product from orders associated to e-mail"""
+        sql = '''SELECT o.number, o.date_of_order, o.email_address, i.quantity, p.id, p.name, p.price, p.img
+                       FROM orders AS o 
+                       JOIN include AS i ON o.number=i.number 
+                       JOIN product AS p ON i.sku=p.id
+                       WHERE email_address=%s AND id=%s'''
+        return dbManager.fetch(sql, (email_address, id))
 
 class Form:
     def __init__(self):

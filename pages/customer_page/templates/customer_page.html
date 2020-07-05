@@ -35,9 +35,11 @@
             {% else %}
             {% for history in histories %}
                 <div class="product">
-                    <div class="product-text">
-                        <p>Product: {{ history.name }}, Order time: {{ history.date_of_order }}</p>
-                    </div>
+                    <a href = "/product?id={{ history.id }}">
+                        <div class="product-text">
+                            <p>Product: {{ history.name }}, Order time: {{ history.date_of_order }}</p>
+                        </div>
+                    </a>
                 </div>
             {% endfor %}
         {% endif %}
