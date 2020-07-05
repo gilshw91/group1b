@@ -22,18 +22,21 @@ def index():
     if request.method == 'GET': #Regular version
         product_data = Product().get_product(request.args['id'])
         review_data = Review().get_review(request.args['id'])
+        session['pid'] = request.args['id']
         if len(review_data):
             return render_template('product.html', product=product_data[0], review=review_data[0])
         else:
             return render_template('product.html', product=product_data[0])
     else: #After review was given
-        email = request.form.get('email')
-        review = request.form.get('review')
-        pid = request.args.get('id')
-        rank = request.form.get('star')
-        dt_string = datetime.now()#.strftime("%d-%m-%Y %H:%M:%S")  # dd-mm-YY H:M:S
-        user_data = Customer().get_user_by_email(email)
-        if len(user_data):
+        if not session.get('logged-in'):
+            flash("Please sign-in to post a review")
+            return redirect(url_for('sign_in_registration.index'))
+        else:
+            email = session['email']
+            review = request.form.get('review')
+            pid = session['pid']
+            rank = request.form.get('star')
+            dt_string = datetime.now()#.strftime("%d-%m-%Y %H:%M:%S")  # dd-mm-YY H:M:S
             new_review = Review()
             new_review.date = dt_string
             new_review.rank = rank
@@ -43,34 +46,10 @@ def index():
             new_review.add_review()
             flash("Thank you for your review")
             return redirect(url_for('homepage.index'))
-        else:
-            flash("Email doesn't match user database")
-            return redirect(url_for('homepage.index'))
-        flash("You should sign-in to post a review")
-
-#@product.route('/add_review', methods=['GET', 'POST'])
-#def add_review():
-#    date = datetime.now()
-#    rank = request.form.get('star')
-#    content = request.form.get('review')
-#    email = session['email']
-#    id = request.args['id'] #This isnt working :(
-
-#   new_review = Review()
-#   new_review.date = date
-#    new_review.rank = rank
-#    new_review.content = content
-#    new_review.email_address = email
-#    new_review.id = id
-#    new_review.add_review()
-#    flash("Thank you for your review")
-#    return redirect(url_for('product.index'))
 
 
-#
-# @product.route('/product', methods=['GET', 'POST'])
-# def add_review():
-#
+
+
 
 
 

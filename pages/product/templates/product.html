@@ -40,8 +40,6 @@ the heading of Rating & Reviews are not at the correct place. it is places aside
             <button type="button" class="write-review-button" onclick="showReviewForm()">Write a review</button>
 {#            <form id="review-form"  method="POST" action='pages/product/templates/{{ product.name|lower|replace(" ","_")}}.html'>#}
             <form id="review-form" method="post" action="/product">
-                <label for="user-email">User Email: *</label>
-                <input type="text" id="email" name="email" {% if session['logged-in'] %} placeholder={{ session['email'] }} value='{{ session['email'] }}' {% else %} "Email" {% endif %} required>
                 <label for="review">Review: *</label>
                 <textarea id="review" placeholder="Write your review here..." name="review" required></textarea><br/>
                 <div class="rating">
