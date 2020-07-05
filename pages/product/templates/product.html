@@ -6,9 +6,11 @@
     <link rel="stylesheet" href="{{ url_for('product.static', filename='css/product.css') }}"/>
     <link rel="stylesheet" href="//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 {% endblock %}
+
 {% block page_body_js %}
     <script src="{{ url_for('product.static', filename='js/product.js') }}"></script>
 {% endblock %}
+
 {% block page_body_main_content %}
     <div class="main-product">
         <div class="main-product-details">
@@ -23,8 +25,8 @@
         </div>
         <div class="main-product-image">
             <aside>
-                <img src="{{ url_for('catalog.static', filename='img/'+product.img) }}" border="1" title="{{ product.name }}" alt={{ product.name }}/>
-
+                <img src="{{ url_for('catalog.static', filename='img/'+product.img) }}"
+                     border="1" title="{{ product.name }}" alt={{ product.name }}/>
             </aside>
         </div>
     </div>

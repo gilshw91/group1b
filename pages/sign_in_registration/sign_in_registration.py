@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template, request, redirect, url_for, session, flash
-from entities import *
+from entities import Customer
 
-# sign_in_registration blueprint definition
+# Sign_in_registration blueprint definition
 sign_in_registration = Blueprint('sign_in_registration', __name__, static_folder='static',
                                  static_url_path='/sign_in_registration', template_folder='templates')
 
@@ -16,7 +16,7 @@ def index():
         email = request.form.get('email')
         password = request.form.get('password')
         user = Customer().get_by_email_password(email, password)
-        remember = True if request.form.get('checkbox') else False
+        remember = True if request.form.get('checkbox') else False  # Didnt implement this
         # checks if user exist (len > 0)
         if len(user):
             session['logged-in'] = True

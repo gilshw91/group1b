@@ -1,5 +1,5 @@
-from flask import Blueprint, render_template, request, session, url_for, redirect, flash
-from entities import *
+from flask import Blueprint, render_template, request, url_for, redirect, flash
+from entities import Customer, Form
 from datetime import datetime
 
 # customer_feedback blueprint definition
@@ -22,7 +22,7 @@ def add_form():
     email = request.form.get('email')
 
     user = Customer().get_user_by_email(email)
-    if len(user)==0:
+    if len(user) == 0:
         flash("Please sign-up first")
         return redirect(url_for('sign_in_registration.index'))
     else:

@@ -4,7 +4,7 @@ h1, h2, h3, p{
   margin-left: 2%;
 }
 
-.product{
+.product {
     position: relative;
     border: 1px solid;
     display: inline-block;
@@ -14,7 +14,7 @@ h1, h2, h3, p{
 }
 
 .product-text{
-    position: absolute;
+    position: relative;
     bottom: 5%;
 }
 
@@ -27,7 +27,7 @@ img{
     border-radius: 10%;
 }
 
-.grid{
+.grid {
     display: grid;
     grid-template-columns: 25% 25% 25% 25%;
     padding: 10px;

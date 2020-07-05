@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, session, redirect, url_for, flash
+from flask import Blueprint, render_template, request, session, redirect, url_for
 from entities import *
 from datetime import datetime
 
@@ -69,14 +69,14 @@ def update_credit():
     exp = request.form.get('exp')
     exp_date = datetime.strptime(exp, '%Y-%m-%d')
     if exp_date < datetime.now():
-        flash("Your credit is expired")
+        flash("Your credit is expired.")
         return redirect(url_for('customer_page.index'))
     else:
         cvv = request.form.get('cvv')
         has_credit = Credit().get_credit_by_email(email)
         if has_credit:
             Credit().update_credit(credit, exp, cvv, email)
-            flash("Your credit info has been updated")
+            flash("Your credit info has been updated!")
             return redirect(url_for('customer_page.index'))
         else:
             new_credit = Credit()
@@ -85,7 +85,7 @@ def update_credit():
             new_credit.exp = exp
             new_credit.cvv = cvv
             new_credit.add_credit()
-            flash("Your credit info has been added")
+            flash("Your credit info has been added!")
             return redirect(url_for('customer_page.index'))
 
 

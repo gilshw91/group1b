@@ -1,5 +1,4 @@
 from flask import Blueprint, render_template, request
-from utilities.db.db_manager import dbManager
 from entities import Product
 
 # catalog blueprint definition

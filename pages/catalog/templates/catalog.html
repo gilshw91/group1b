@@ -1,36 +1,34 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} # extends the base page
 
 {% set page_head_title = 'Catalog' %}
-
 {% block page_head_css %}
     <link rel="stylesheet" href="{{ url_for('catalog.static', filename='css/catalog.css') }}"/>
 {% endblock %}
-
 {% block page_body_main_content %}
     <div class="top-block"> <!--Title and sub-title-->
-        <h1 class="heading-1"><strong>Products</strong></h1>
+        <h1 class="heading-1"><strong>Products:</strong></h1>
         <h2 class="heading-2">Magic is only a click away... Expecto patronum!</h2>
     </div> <!--Picture, description and price-->
     <div class="grid">
-    {% for product in products %}
+    {% for product in products %} {# loop for every product from the data base #}
         <div class="product">
             <a href = "/product?id={{ product.id }}">
-            <img src="{{ url_for('static', filename='media/img/products/'+product.img) }}" border="1" title="{{ product.name }}" alt={{ product.name }}/>
+                <img src="{{ url_for('static', filename='media/img/products/'+product.img) }}" border="1"
+                 title="{{ product.name }}" alt={{ product.name }}/>
                 <div class="product-text">
                     <h3 class="heading-3">{{ product.name }}</h3>
-                    <p>Price: £{{ product.price }}</p>
+                    <p>Price: £{{ product.price }} </p>
                 </div>
             </a>
         </div>
     {% endfor %}
     </div>
-
 {% endblock %}
-
 {% block page_body_footer %}
-    {{  super() }}
+    {{  super() }} {# takes the footer from the base as is #}
+{% endblock %}
+{% block page_body_js %}
+<script src="{{ url_for('catalog.static', filename='js/catalog.js') }}"></script>
 {% endblock %}
 
-{% block page_body_js %}
-    <script src="{{ url_for('catalog.static', filename='js/catalog.js') }}"></script>
-{% endblock %}
+

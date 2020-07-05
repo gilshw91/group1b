@@ -1,4 +1,5 @@
 * { box-sizing: border-box; }
+
 .heading-1 {
     color: #ffecb3;
     font-size: 250%;
@@ -118,6 +119,7 @@ form{
 textarea, input[type=text],input[type=email], input[type=tel], input[type=number], input[type=password], input[type=date]{
     color: #272727;
 }
+
 a:-webkit-any-link {
     color: #ffecb3;
     cursor: pointer;

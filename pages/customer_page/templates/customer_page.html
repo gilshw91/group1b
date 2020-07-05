@@ -1,5 +1,4 @@
 {% extends 'base.html' %}
-<!--Hey Jonathan :) -->
 {% set page_head_title = 'Contact Us' %}
 
 {% block page_head_css %}
@@ -7,22 +6,22 @@
     <script type="text/javascript" src="{{ url_for('customer_page.static', filename = 'js/validationForm.js') }}"></script>
 
 {% endblock %}
-
 {% block page_body_main_content %}
     <div class="padding-left">
         <div class="top-block"> <!--Title and sub-title-->
             <h1 class="heading-1">Profile <strong>Page</strong></h1>
-            <h3 class="heading-3">Hello, {{ session['name'] | capitalize }}!</h3>
+            {# Takes the user's name and capitalized his name #}
+            <h3 class="heading-4">Hello, {{ session['name'] | capitalize }}!</h3>
         </div>
         <hr/>
         <div class="nav" id="nav">
-            <h3 class="heading-3">Shortcuts</h3>
-                <a class=nav-link href="{{ url_for('customer_page.index', _anchor='order-block') }}">My Orders</a>
-                <a class=nav-link href="{{ url_for('customer_page.index', _anchor='address-block') }}">My Shipping Address</a>
-                <a class=nav-link href="{{ url_for('customer_page.index', _anchor='review-block') }}">My Reviews</a>
-                <a class=nav-link href="{{ url_for('customer_page.index', _anchor='password-block') }}">Change Password</a>
-                <a class=nav-link href="{{ url_for('customer_page.index', _anchor='credit-block') }}">Credit Card Data</a>
-                <a class="nav-link" href="#cart">Cart {{ session['noOfItems'] }}</a> {# doesnt work #}
+            <h3 class="heading-3">Shortcuts</h3> {# Links to navigate in the profile page #}
+            <a class=nav-link href="{{ url_for('customer_page.index', _anchor='order-block') }}">My Orders</a>
+            <a class=nav-link href="{{ url_for('customer_page.index', _anchor='address-block') }}">My Shipping Address</a>
+            <a class=nav-link href="{{ url_for('customer_page.index', _anchor='review-block') }}">My Reviews</a>
+            <a class=nav-link href="{{ url_for('customer_page.index', _anchor='password-block') }}">Change Password</a>
+            <a class=nav-link href="{{ url_for('customer_page.index', _anchor='credit-block') }}">Credit Card Data</a>
+            <a class="nav-link" href="#cart">Cart {{ session['noOfItems'] }}</a> {# doesnt work #}
         </div>
     </div>
     <hr/>
@@ -33,11 +32,13 @@
                 <h4 class="heading-4"> You have not ordered anything! <strong>Hurry Up!</strong></h4>
                 <h4 class="heading-4">You <strong>snooze</strong> you lose! <strong>;)</strong></h4>
             {% else %}
-            {% for history in histories %}
+            {% for history in histories %} {# Itterates each order to display them #}
                 <div class="product">
                     <a href = "/product?id={{ history.id }}" title="Click to see this product">
                         <div class="product-text">
-                            <p>Product: {{ history.name }}, Order time: {{ history.date_of_order }}</p>
+                            <h4 class="heading-4"><strong>Product:</strong> {{ history.name }}<br/>
+                                <strong>Order time:</strong>
+                                {{ history.date_of_order.day  }}/{{ history.date_of_order.month  }}/{{ history.date_of_order.year  }}</h4>
                         </div>
                     </a>
                 </div>
@@ -48,12 +49,12 @@
     <hr/>
     <div class="block" id="address-block">
         <h2 class="heading-2">My <strong>Shipping</strong> Address</h2>
-        <p class="heading-4" id="current-address">Current Address:
+        <h4 class="heading-4" id="current-address"><strong>Current Address:</strong>
             {{ address[0].number }} {{ address[0].street | capitalize }} st.,
             {{ address[0].city | capitalize }}, {{ address[0].country | capitalize }}
-        </p>
+        </h4>
         <form method="post" id="Change_shipping" action="/update_address">
-            <legend>If you wish to update your shipping address, fill the address here:</legend>
+            <legend>If you wish to update your shipping address, please fill the address here:</legend>
             <div class="customer-form">
                 <label for="country">Country: *</label>
                 <input type="text" class="input" name="country" id="country" placeholder="Please fill your country"
@@ -88,13 +89,13 @@
     <div class="block" id="review-block">
         <h2 class="heading-2">Recent <strong>Reviews</strong></h2>
     {% if reviews %}
-        {% for review in reviews %}
+        {% for review in reviews %} {# Itterates the reviews to display them (top 3) #}
             <ul>
                 <div class="review">
                     <li>
-                        <p>Product: {{ review.name }}<br/>
-                           Review Date: {{ review.date }} <br/>
-                           Review: {{ review.content }} </p>
+                        <h4 class="heading-4"><strong>Product:</strong> {{ review.name }}<br/>
+                           <strong>Review Date:</strong> {{ review.date }} <br/>
+                           <strong>Review:</strong> {{ review.content }} </h4>
                     </li>
                 </div>
             </ul>
@@ -108,7 +109,7 @@
     <div class="block" id="password-block">
         <h2 class="heading-2"><strong>Password</strong></h2>
         <form method="post" action="/update_password" class="password-form" onsubmit="return validate()">
-            <legend>Enter your old and new passwords here:</legend>
+            <legend>Enter your old and new passwords to change your password:</legend>
             <div class="customer-form">
                 <label for="pwd">Enter old password: *</label>
                 <input type="password" class="input" placeholder="Enter old Password" id="pwd" name="pwd" required/>
@@ -131,7 +132,7 @@
         <h2 class="heading-2"><strong>Credit Card</strong> Data</h2>
         <div class="current-credit">
             {% if credit[0] %}
-                <p>Current credit card: ************{{ credit[0].credit_card_number[-4:] }}</p>
+                <h4 class="heading-4"><strong>Current credit card:</strong> ************{{ credit[0].credit_card_number[-4:] }}</h4>
             {% else %}
                 <h4 class="heading-4">You need to insert a credit card</h4>
                 <h4 class="heading-4">to <strong>Enjoy</strong> products...</h4>
@@ -141,19 +142,23 @@
             <legend>If you wish to add, delete or change credit data, fill in your new card here:</legend>
             <div class="customer-form">
                 <label for="credit">Card number: *</label>
-                <input type="number" class="input" id="credit" name="credit" placeholder="Please insert your card number" value="{% if credit[0] %}{{ credit[0].credit_card_number[-4:] }}{% endif %}" required/>
+                <input type="number" class="input" id="credit" name="credit" placeholder="Please insert your card number"
+                       value="{% if credit[0] %}{{ credit[0].credit_card_number[-4:] }}{% endif %}" required/>
             </div>
             <div class="customer-form">
                 <label for="exp">Expiration date: *</label>
-                <input type="date" class="input" id="exp" name="exp" placeholder="YYYY-MM-01" value="{% if credit[0] %}{{ credit[0].expiration_date }}{% endif %}" required/>
+                <input type="date" class="input" id="exp" name="exp" placeholder="YYYY-MM-01"
+                       value="{% if credit[0] %}{{ credit[0].expiration_date }}{% endif %}" required/>
             </div>
             <div class="customer-form">
                 <label for="cvv">CVV: *</label>
-                <input type="number" class="input" name="cvv" id="cvv" placeholder="XXX" value="{% if credit[0] %}{{ credit[0].cvv }}{% endif %}" required/>
+                <input type="number" class="input" name="cvv" id="cvv" placeholder="XXX"
+                       value="{% if credit[0] %}{{ credit[0].cvv }}{% endif %}" required/>
             </div>
             <div class="customer-form">
-                <input type="submit" value="Save Credit Card" name="submit"/>
-                <button type="submit" name="delete" formaction="/delete_credit">Delete Card</button>
+                <input type="submit" value="Save Credit Card" name="submit" title="Click here to update your credit info"/>
+                <button type="submit" name="delete" formaction="/delete_credit"
+                        title="Click here to delete your credit info">Delete Card</button>
             </div>
         </form>
     </div>

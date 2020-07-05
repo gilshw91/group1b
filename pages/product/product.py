@@ -1,21 +1,16 @@
 from flask import Blueprint, render_template, request, session, url_for, redirect, flash
-from entities import *
+from entities import Product, Review, Order
 from datetime import datetime
 
 product = Blueprint('product', __name__, static_folder='static', static_url_path='/product', template_folder='templates')
 
-
 # Routes
 @product.route('/product', methods=['GET', 'POST'])
 def index():
-    print("HERE")
     if request.method == 'GET':  # Regular version
-        print("HERE1")
         product_data = Product().get_product(request.args['id'])
-        print("HERE2")
         review_data = Review().get_review_by_pid(request.args['id'])
         session['pid'] = request.args['id']
-        print([session['pid']])
         if len(review_data):
             return render_template('product.html', product=product_data[0], review=review_data[0])
         else:
@@ -34,7 +29,7 @@ def index():
             else:
                 review = request.form.get('review')
                 rank = request.form.get('star')
-                dt_string = datetime.now()  # .strftime("%d-%m-%Y %H:%M:%S")  # dd-mm-YY H:M:S
+                dt_string = datetime.now()  # dd-mm-YY H:M:S
                 new_review = Review()
                 new_review.date = dt_string
                 new_review.rank = rank
@@ -44,10 +39,3 @@ def index():
                 new_review.add_review()
                 flash("Thank you for your review")
                 return redirect(url_for('homepage.index'))
-
-
-
-
-
-
-

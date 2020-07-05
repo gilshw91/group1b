@@ -1,11 +1,12 @@
 from flask import Blueprint, render_template, redirect, url_for
 from entities import *
 
-# homepage blueprint definition
-homepage = Blueprint('homepage', __name__, static_folder='static', static_url_path='/homepage', template_folder='templates')
+# Homepage Blueprint Definition
+homepage = Blueprint('homepage', __name__, static_folder='static', static_url_path='/homepage',
+                     template_folder='templates')
 
 
-# Routes
+#  Routes
 @homepage.route('/')
 def index():
     products_data = Product().get_all()

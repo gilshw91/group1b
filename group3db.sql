@@ -111,7 +111,7 @@ create table cart
         foreign key (product_id) references product (id)
 );
 
-INSERT INTO group3.cart (email_address, product_id) VALUES ('abc@gmail.com', '100000001');
+INSERT INTO group3.cart (email_address, product_id) VALUES ('abc@gmail.com', '100000002');
 INSERT INTO group3.cart (email_address, product_id) VALUES ('abc@gmail.com', '190225832');
 INSERT INTO group3.cart (email_address, product_id) VALUES ('abc@gmail.com', '399200019');
 INSERT INTO group3.cart (email_address, product_id) VALUES ('abc@gmail.com', '499990012');
@@ -130,7 +130,7 @@ create table product
         foreign key (category_code) references category (category_code)
 );
 
-INSERT INTO group3.product (id, name, price, prev_price, description, img, category_code) VALUES (100000001, 'Extendable Ears', 14.99, 24.90, 'A piece of string for eavesdropping', 'extendable_ear.jpg', 2);
+INSERT INTO group3.product (id, name, price, prev_price, description, img, category_code) VALUES (100000002, 'Extendable Ears', 14.99, 24.90, 'A piece of string for eavesdropping', 'extendable_ear.jpg', 2);
 INSERT INTO group3.product (id, name, price, prev_price, description, img, category_code) VALUES (190225832, 'No Poo Bottle', 25, 'Name says it all', 'product5.jpg', 1);
 INSERT INTO group3.product (id, name, price, prev_price, description, img, category_code) VALUES (399200019, 'Peruvian Instant Darkness Powder', 35, 'Creates darkness when used, allowing the user to escape', 'Peruvian_Instant_Darkness_Powder.jpg', 1);
 INSERT INTO group3.product (id, name, price, prev_price, description, img, category_code) VALUES (499990012, 'Sticky Trainers', 60.00, 80.00, 'Yellow trainers with suction cups attached to the soles', 'product3.jpg', 1);
@@ -158,7 +158,7 @@ INSERT INTO group3.review (review_number, date, `rank`, `content`, email_address
 INSERT INTO group3.review (review_number, date, `rank`, `content`, email_address, sku) VALUES (2, '2009-12-11 12:25:00', 5, 'HAHA thank you! it was just as i imagined!', 'chani@gmail.com', 399200019);
 INSERT INTO group3.review (review_number, date, `rank`, `content`, email_address, sku) VALUES (7, '2001-09-11 10:19:00', 5, 'great product!', 'chani@gmail.com', 602456888);
 INSERT INTO group3.review (review_number, date, `rank`, `content`, email_address, sku) VALUES (21, '2010-03-02 18:10:00', 4, 'the size is a bit smaller than we thought', 'abc@gmail.com', 499990012);
-INSERT INTO group3.review (review_number, date, `rank`, `content`, email_address, sku) VALUES (102, '2019-03-01 16:15:40', 5, 'Good product, I got the delivery very fast!', 'nlodoch@yahoo.com', 100000001);
+INSERT INTO group3.review (review_number, date, `rank`, `content`, email_address, sku) VALUES (102, '2019-03-01 16:15:40', 5, 'Good product, I got the delivery very fast!', 'nlodoch@yahoo.com', 100000002);
 
 
 create table include
@@ -173,7 +173,7 @@ create table include
         foreign key (sku) references product (id)
 );
 
-INSERT INTO group3.include (quantity, number, sku) VALUES (1, 1983022, 100000001);
+INSERT INTO group3.include (quantity, number, sku) VALUES (1, 1983022, 100000002);
 INSERT INTO group3.include (quantity, number, sku) VALUES (1, 100, 399200019);
 INSERT INTO group3.include (quantity, number, sku) VALUES (1, 2, 499990012);
 INSERT INTO group3.include (quantity, number, sku) VALUES (2, 32324, 602456888);
