@@ -33,19 +33,24 @@ def index():
             return redirect(url_for('sign_in_registration.index'))
         else:
             email = session['email']
-            review = request.form.get('review')
             pid = session['pid']
-            rank = request.form.get('star')
-            dt_string = datetime.now()#.strftime("%d-%m-%Y %H:%M:%S")  # dd-mm-YY H:M:S
-            new_review = Review()
-            new_review.date = dt_string
-            new_review.rank = rank
-            new_review.content = review
-            new_review.email_address = email
-            new_review.id = pid
-            new_review.add_review()
-            flash("Thank you for your review")
-            return redirect(url_for('homepage.index'))
+            has_bought = Order().get_product_order(email, pid)
+            if len(has_bought) == 0:
+                flash("Only customers who bought this item may review it")
+                return redirect(url_for('homepage.index'))
+            else:
+                review = request.form.get('review')
+                rank = request.form.get('star')
+                dt_string = datetime.now()#.strftime("%d-%m-%Y %H:%M:%S")  # dd-mm-YY H:M:S
+                new_review = Review()
+                new_review.date = dt_string
+                new_review.rank = rank
+                new_review.content = review
+                new_review.email_address = email
+                new_review.id = pid
+                new_review.add_review()
+                flash("Thank you for your review")
+                return redirect(url_for('homepage.index'))
 
 
 
