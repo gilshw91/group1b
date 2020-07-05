@@ -113,9 +113,9 @@ class Product:
         sql = 'SELECT * FROM product'
         return dbManager.fetch(sql)
 
-    def get_products(self):
+    def get_products(self, id):
 
-        return dbManager.fetch('SELECT * FROM product WHERE category_code=%s', (request.args['category_code'],))
+        return dbManager.fetch('SELECT * FROM product WHERE category_code=%s', (id,))
         # return dbManager.fetch('SELECT * FROM product WHERE category_code=%s', (self.category_code'],))
 
     def get_product(self, id):
@@ -174,6 +174,8 @@ class Review:
               '''
         return dbManager.fetch(sql, (email, ))
 
+    def get_review(self, id):
+        return dbManager.fetch('SELECT * FROM review WHERE id=%s', (id,))
 
 class Credit:
     def __init__(self):

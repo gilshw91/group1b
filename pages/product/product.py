@@ -20,28 +20,32 @@ product = Blueprint('product', __name__, static_folder='static', static_url_path
 @product.route('/product', methods=['GET', 'POST'])
 def index():
     if request.method == 'GET': #Regular version
-        product_data = Product().get_product()
-        review_data = Review().get_review()
-        return render_template('product.html', product=product_data[0], review=review_data[0])
+        product_data = Product().get_product(request.args['id'])
+        review_data = Review().get_review(request.args['id'])
+        if len(review_data):
+            return render_template('product.html', product=product_data[0], review=review_data[0])
+        else:
+            return render_template('product.html', product=product_data[0])
     else: #After review was given
         email = request.form.get('email')
         review = request.form.get('review')
-        product = Product().get_product()
-        pid = product.id
+        pid = request.args.get('id')
         rank = request.form.get('star')
-        dt_string = datetime.now().strftime("%d-%m-%Y %H:%M:%S")  # dd-mm-YY H:M:S
-        if session.get('logged-in'):
-            if email == session['email']:
-                new_review = Review()
-                new_review.date = dt_string
-                new_review.rank = rank
-                new_review.content = review
-                new_review.email_address = email
-                new_review.id = pid
-                new_review.add_review()
-                flash("Thank you for your review")
-                return redirect(url_for('product.index'))
-            return render_template('product.html', product=pid)
+        dt_string = datetime.now()#.strftime("%d-%m-%Y %H:%M:%S")  # dd-mm-YY H:M:S
+        user_data = Customer().get_user_by_email(email)
+        if len(user_data):
+            new_review = Review()
+            new_review.date = dt_string
+            new_review.rank = rank
+            new_review.content = review
+            new_review.email_address = email
+            new_review.id = pid
+            new_review.add_review()
+            flash("Thank you for your review")
+            return redirect(url_for('homepage.index'))
+        else:
+            flash("Email doesn't match user database")
+            return redirect(url_for('homepage.index'))
         flash("You should sign-in to post a review")
 
 #@product.route('/add_review', methods=['GET', 'POST'])
