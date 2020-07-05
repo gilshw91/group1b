@@ -238,6 +238,15 @@ class Order:
                        WHERE email_address=%s'''
         return dbManager.fetch(sql, (email_address,))
 
+    def get_product_order(self, email_address, id):
+        """ returns a specific product from orders associated to e-mail"""
+        sql = '''SELECT o.number, o.date_of_order, o.email_address, i.quantity, p.id, p.name, p.price, p.img
+                       FROM orders AS o 
+                       JOIN include AS i ON o.number=i.number 
+                       JOIN product AS p ON i.sku=p.id
+                       WHERE email_address=%s AND id=%s'''
+        return dbManager.fetch(sql, (email_address, id))
+
 class Form:
     def __init__(self):
         self.application_number = 0
