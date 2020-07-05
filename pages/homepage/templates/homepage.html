@@ -30,95 +30,57 @@
 {% block page_body_main_content %}
 <main>
         <div class="contain-img">
-            <img src="/static/media/img/img-home-page/weaslys_shorter.jpg" alt="Home Page Image" class="center-img-home-page"/>
+            <img src="/static/media/img/img-home-page/weaslys_shorter.jpg" alt="Home Page Image"
+                 class="center-img-home-page"/>
             <div class="top-left">
                 <h1 class="heading-1"><strong>Hokus Mokus</strong> | Weaslys' Wizard Wheezes Shop</h1>
             </div>
         </div>
-    {% for product in products %}
         <div id="popup" class="popup">
             <span class="close" onclick="closeDialog(this)">&times;</span><br/>
             <h1 class="heading-1 modal-heading">Hokus Mokus <strong>SALE!</strong></h1>
             <h2 class="heading-2 modal-heading"> Product of the <strong>week</strong></h2>
-            <a href = "/product?id=100000002">
-                <img class="sale-product" src="{{ url_for('static', filename='media/img/products/' + product.img) }}"
-                     alt={{ product.name }}/>
-                <p class="modal-text"><strong>ONLY</strong> <span>£15.00</span></p>
+            <a href = "/product?id={{ product_week[0].id }}">
+                <img class="sale-product"
+                     src="{{ url_for('static', filename='media/img/products/' + product_week[0].img) }}"
+                     alt={{ product_week[0].name }}/>
+                <p class="modal-text"><strong>ONLY</strong> <span>£{{ product_week[0].price }}</span></p>
             </a>
         </div>
-    {% endfor %}
    <div class="container">
         <h2 class="heading-2">Hokus Mokus <strong>Products</strong></h2>
         <div id="myCarousel" class="carousel slide"> {# 'slide'- makes the items to slide #}
             <!-- Wrapper for carousel items -->
             <div class="carousel-inner"> {# responsive on the inner carousel #}
                 <div class="item carousel-item active">
-                    <div class="col-sm-3">
-                        <div class="img-box">
-                            <a href = "/product?id=100025460">
-                                <img src="/static/media/img/products/product1.jpg" alt="product1"/>
-                            </a>
+                    {% for product in products[:4] %}
+                        <div class="col-sm-3">
+                            <div class="img-box">
+                                <a href = "/product?id={{ product.id }}">
+                                    <img src="{{ url_for('static', filename='media/img/products/'+product.img) }}"
+                                         alt="{{ product.name }}"/>
+                                </a>
+                            </div>
+                            <h4 class="heading-4">{{ product.name }}</h4>
+                                <p class="item-price">
+                                    {% if product.prev_price %}<del>£{{ product.prev_price }}</del>{% endif %}
+                                    <span>£{{ product.price }}</span></p>
                         </div>
-                        <h4 class="heading-4">Fever Fudge</h4>
-                            <p class="item-price"><del>£45.00</del> <span>£39.90</span></p>
-                    </div>
-                    <div class="col-sm-3">
-                        <div class="img-box">
-                            <a href = "/product?id=100000002">
-                                <img src="/static/media/img/products/extendable_ear.jpg" alt="product2"/>
-                            </a>
-                        </div>
-                        <h4 class="heading-4">Extendable Ear</h4>
-                            <p class="item-price"><del>£25.00</del> <span>£15.00</span></p>
-                    </div>
-                    <div class="col-sm-3">
-                        <div class="img-box">
-                            <a href = "/product?id=499990012">
-                              <img src="/static/media/img/products/product3.jpg" alt="product3"/>
-                            </a>
-                        </div>
-                        <h4 class="heading-4">Sticky Trainers</h4>
-                            <p class="item-price"><del>£89.00</del> <span>£69.00</span></p>
-                    </div>
-                    <div class="col-sm-3">
-                        <div class="img-box">
-                            <a href = "/product?id=222222222">
-                                <img src="/static/media/img/products/product4.jpg" alt="product4"/>
-                            </a>
-                        </div>
-                        <h4 class="heading-4">Smelly Candle</h4>
-                            <p class="item-price"><del>£315.00</del> <span>£250.00</span></p>
-                    </div>
+                    {% endfor %}
                 </div>
                 <div class="item carousel-item">
-                    <div class="col-sm-3">
-                        <div class="img-box">
-                            <a href = "/product?id=190225832">
-                                <img src="/static/media/img/products/product5.jpg" alt="product5"/>
-                            </a>
+                    {% for product in products[4:] %}
+                        <div class="col-sm-3">
+                            <div class="img-box">
+                                <a href = "/product?id={{ product.id }}">
+                                    <img src="{{ url_for('static', filename='media/img/products/'+product.img) }}"
+                                         alt="{{ product.name }}"/>
+                                </a>
+                            </div>
+                            <h4 class="heading-4">{{ product.name }}</h4>
+                            <p class="item-price"> {% if product.prev_price %}<del>£{{ product.prev_price }}</del>{% endif %} <span>£{{ product.price }}</span></p>
                         </div>
-                        <h4 class="heading-4">No Poo Bottle</h4>
-                            <p class="item-price"><del>£29.00</del> <span>£19.99</span></p>
-                    </div>
-                    <div class="col-sm-3">
-                        <div class="img-box">
-                            <a href = "/product?id=602456888">
-                                <img src="/static/media/img/products/product6.jpg" alt="product6"/>
-                            </a>
-                        </div>
-                        <h4 class="heading-4">Special Girl</h4>
-                            <p class="item-price"><del>£29.90</del> <span>£19.90</span></p>
-                    </div>
-                     <div class="col-sm-3">
-                        <div class="img-box">
-                            <a href="/product?id=399200019">
-                                <img src="/static/media/img/products/peruvian_instant_darkness_powder.jpg"
-                                     alt="Peruvian Instant Darkness Powder"/>
-                            </a>
-                        </div>
-                        <h4 class="heading-4">Peruvian Instant Darkness Powder</h4>
-                            <p class="item-price"> <span>£35.00</span></p>
-                    </div>
+                    {% endfor %}
                 </div>
             </div>
             <!-- Carousel controls -->
