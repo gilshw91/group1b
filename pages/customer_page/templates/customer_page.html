@@ -4,7 +4,6 @@
 {% block page_head_css %}
     <link rel="stylesheet" href="{{ url_for('customer_page.static', filename='css/customer_page.css') }}"/>
     <script type="text/javascript" src="{{ url_for('customer_page.static', filename = 'js/validationForm.js') }}"></script>
-
 {% endblock %}
 {% block page_body_main_content %}
     <div class="padding-left">
@@ -143,7 +142,8 @@
             <div class="customer-form">
                 <label for="credit">Card number: *</label>
                 <input type="number" class="input" id="credit" name="credit" placeholder="Please insert your card number"
-                       value="{% if credit[0] %}{{ credit[0].credit_card_number[-4:] }}{% endif %}" required/>
+                       value="{% if credit[0] %}{{ credit[0].credit_card_number[-4:] }}{% endif %}"
+                       maxlength="16"  required/>
             </div>
             <div class="customer-form">
                 <label for="exp">Expiration date: *</label>

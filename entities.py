@@ -35,7 +35,6 @@ class Customer:
     def get_password(self, email):
         """Return the password of user by his email address"""
         sql = 'SELECT password FROM customer WHERE email_address = %s'
-        print(dbManager.fetch(sql, (email, ))[0].password)
         return dbManager.fetch(sql, (email, ))[0].password
 
     def change_password(self, new_password, email):
@@ -99,7 +98,6 @@ class Product:
     def __init__(self):
         pass
 
-
     def get_all(self):
         """ returns a list of all products """
         sql = 'SELECT * FROM product'
@@ -144,11 +142,6 @@ class Review:
               '''
         return dbManager.fetch(sql, (email, ))
 
-    def get_review_by_pid(self, pid):
-        """ This method returns the reviews on product
-        by it's id. """
-        sql = 'SELECT * FROM review WHERE id=%s'
-        return dbManager.fetch(sql, (pid, ))
 
     def recent_reviews(self, email):
         """Returns the top three recent reviews that the user has posted"""
@@ -164,6 +157,7 @@ class Review:
         return dbManager.fetch(sql, (email, ))
 
     def get_review(self, id):
+        """Returns the review which the id is associated with"""
         return dbManager.fetch('SELECT * FROM review WHERE id=%s', (id,))
 
 class Credit:
@@ -179,7 +173,7 @@ class Credit:
         return dbManager.fetch(sql, (email,))
 
     def update_credit(self, credit_number, exp, cvv, email):
-        """updates and changes a credit data by the users' email"""
+        """Updates and changes a credit data by the users' email"""
         sql = '''
                 UPDATE credit SET credit_card_number = %s, expiration_date = %s, cvv = %s
                 WHERE email_address = %s
@@ -188,7 +182,7 @@ class Credit:
         return
 
     def add_credit(self):
-        """if the user doesnt have a credit in the database
+        """If the user doesnt have a credit in the database
         this method will insert the credit data by the users' email"""
         sql = '''
                 INSERT INTO credit (credit_card_number, expiration_date, cvv, email_address)
@@ -200,6 +194,7 @@ class Credit:
     def delete_credit(self, email):
         """Methods that deletes the user's credit card by the user's email"""
         return dbManager.commit('DELETE FROM credit WHERE email_address=%s', (email,))
+
 
 class Order:
     def __init__(self):
@@ -214,18 +209,8 @@ class Order:
                 JOIN include AS i ON o.number = i.number
                 JOIN product AS p ON i.sku = p.id
                 WHERE email_address = %s
-                 # ORDER BY o.date_of_order DESC 
               '''
         return dbManager.fetch(sql, (email,))
-
-    # def get_orders(self, email_address):
-    #     """ returns a list of orders associated to e-mail"""
-    #     sql = '''SELECT o.number, o.date_of_order, o.email_address, i.quantity, p.id, p.name, p.price, p.img
-    #                    FROM orders AS o
-    #                    JOIN include AS i ON o.number=i.number
-    #                    JOIN product AS p ON i.sku=p.id
-    #                    WHERE email_address=%s'''
-    #     return dbManager.fetch(sql, (email_address,))
 
     def get_product_order(self, email_address, id):
         """ returns a specific product from orders associated to e-mail"""
@@ -235,6 +220,7 @@ class Order:
                        JOIN product AS p ON i.sku=p.id
                        WHERE email_address=%s AND id=%s'''
         return dbManager.fetch(sql, (email_address, id))
+
 
 class Form:
     def __init__(self):

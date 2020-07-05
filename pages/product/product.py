@@ -9,7 +9,7 @@ product = Blueprint('product', __name__, static_folder='static', static_url_path
 def index():
     if request.method == 'GET':  # Regular version
         product_data = Product().get_product(request.args['id'])
-        review_data = Review().get_review_by_pid(request.args['id'])
+        review_data = Review().get_review(request.args['id'])
         session['pid'] = request.args['id']
         if len(review_data):
             return render_template('product.html', product=product_data[0], review=review_data[0])
