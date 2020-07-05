@@ -15,6 +15,7 @@
 .main-reviews{
     margin-left: 2%;
     width: 80%;
+    margin-top: 2%
 }
 .add-review{
     width: 40%;
@@ -44,10 +45,6 @@ input[type=text], textarea{
 textarea{
     vertical-align: top;
 }
-/*input[type=radio]{*/
-/*    display: inline-block;*/
-/*    float: left;*/
-/*}*/
 
 .show-reviews{
     margin-top: 1%;

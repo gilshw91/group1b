@@ -58,8 +58,8 @@
         <div class="show-reviews">
             {% if review %}
             <div class="show-reviews-details">
-                    <p class="review-info">{{ review.email_address }}</p>
-                    <p class="review-info">{{ review.date }}</p>
+                    <p class="review-info"><strong>User:</strong> </p>
+                    <p class="review-info">{{ review.date.day  }}/{{ review.date.month  }}/{{ review.date.year  }}</p>
             </div>
             <div class="show-reviews-content">
                 <p>{{ review.content }}</p>
