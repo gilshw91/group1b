@@ -154,11 +154,11 @@ create table review
         foreign key (sku) references product (id)
 );
 
-INSERT INTO group3.review (review_number, date, `rank`, `content`, email_address, sku) VALUES (1, '2011-09-11 11:15:00', 5, 'My son was happy to get this product, the quality of it is more than expected :)', 'dadisa@gmail.com', 602456888);
-INSERT INTO group3.review (review_number, date, `rank`, `content`, email_address, sku) VALUES (2, '2009-12-11 12:25:00', 5, 'HAHA thank you! it was just as i imagined!', 'chani@gmail.com', 399200019);
-INSERT INTO group3.review (review_number, date, `rank`, `content`, email_address, sku) VALUES (7, '2001-09-11 10:19:00', 5, 'great product!', 'chani@gmail.com', 602456888);
-INSERT INTO group3.review (review_number, date, `rank`, `content`, email_address, sku) VALUES (21, '2010-03-02 18:10:00', 4, 'the size is a bit smaller than we thought', 'abc@gmail.com', 499990012);
-INSERT INTO group3.review (review_number, date, `rank`, `content`, email_address, sku) VALUES (102, '2019-03-01 16:15:40', 5, 'Good product, I got the delivery very fast!', 'nlodoch@yahoo.com', 100000001);
+INSERT INTO group3.review (review_number, date, ranking, `content`, email_address, sku) VALUES (1, '2011-09-11 11:15:00', 5, 'My son was happy to get this product, the quality of it is more than expected :)', 'dadisa@gmail.com', 602456888);
+INSERT INTO group3.review (review_number, date, ranking, `content`, email_address, sku) VALUES (2, '2009-12-11 12:25:00', 5, 'HAHA thank you! it was just as i imagined!', 'chani@gmail.com', 399200019);
+INSERT INTO group3.review (review_number, date, ranking, `content`, email_address, sku) VALUES (7, '2001-09-11 10:19:00', 5, 'great product!', 'chani@gmail.com', 602456888);
+INSERT INTO group3.review (review_number, date, ranking, `content`, email_address, sku) VALUES (21, '2010-03-02 18:10:00', 4, 'the size is a bit smaller than we thought', 'abc@gmail.com', 499990012);
+INSERT INTO group3.review (review_number, date, ranking, `content`, email_address, sku) VALUES (102, '2019-03-01 16:15:40', 5, 'Good product, I got the delivery very fast!', 'nlodoch@yahoo.com', 100000001);
 
 
 create table include

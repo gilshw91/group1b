@@ -128,25 +128,27 @@ class Review:
     def __init__(self):
         self.review_number = 0
         self.date = ""
-        self.rank = 0
+        self.ranking = 0
         self.content = ""
         self.email_address = ""
         self.id = 0
 
     def add_review(self):
         """ Add new review to data base"""
+        print("HERE ENTITY1")
         sql = '''
-                INSERT INTO review (review_number, date, `rank`, content, email_address, id)
+                INSERT INTO review (review_number, date, ranking, content, email_address, id)
                 VALUES (%s, %s, %s, %s, %s, %s)
               '''
-        dbManager.commit(sql, (self.review_number, self.date, self.rank, self.content, self.email_address, self.id))
+        print("HERE ENTITY2")
+        dbManager.commit(sql, (self.review_number, self.date, self.ranking, self.content, self.email_address, self.id))
         return
 
     def get_review_by_email(self, email):
         """ This method returns the reviews on product
         which was submitted by user (his email address). """
         sql = ''' 
-                SELECT r.date, r.rank, r.content, r.email_address, p.name
+                SELECT r.date, r.ranking, r.content, r.email_address, p.name
                 FROM review AS r 
                 JOIN product AS p 
                 ON r.id = p.id 
@@ -158,13 +160,12 @@ class Review:
         """ This method returns the reviews on product
         by it's id. """
         sql = 'SELECT * FROM review WHERE id=%s'
-        print(dbManager.fetch(sql, (pid,)))
         return dbManager.fetch(sql, (pid, ))
 
     def recent_reviews(self, email):
         """Returns the top three recent reviews that the user has posted"""
         sql = ''' 
-                SELECT r.date, r.rank, r.content, r.email_address, p.name
+                SELECT r.date, r.ranking, r.content, r.email_address, p.name
                 FROM review AS r 
                 JOIN product AS p 
                 ON r.id = p.id 

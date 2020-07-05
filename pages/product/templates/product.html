@@ -39,9 +39,13 @@ the heading of Rating & Reviews are not at the correct place. it is places aside
         <div class="add-review">
             <button type="button" class="write-review-button" onclick="showReviewForm()">Write a review</button>
 {#            <form id="review-form"  method="POST" action='pages/product/templates/{{ product.name|lower|replace(" ","_")}}.html'>#}
-            <form id="review-form" method="post" action="/add_review">
+            <form id="review-form" method="post" action="/product">
                 <label for="user-email">User Email: *</label>
-                <input type="text" id="email" name="email" {% if session['logged-in'] %} placeholder={{ session['email'] }} value='{{ session['email'] }}' {% else %} "Email" {% endif %} required>
+                <input type="text" id="email" name="email"
+                        {% if session.get('email') %}
+                            placeholder="{{ session['email'] }}" value="{{ session['email'] }}"
+                        {% else %}
+                            placeholder="Email" title="You must login first" {% endif %} required/>
                 <label for="review">Review: *</label>
                 <textarea id="review" placeholder="Write your review here..." name="review" required></textarea><br/>
                 <div class="rating">
@@ -57,7 +61,7 @@ the heading of Rating & Reviews are not at the correct place. it is places aside
                     <label for="star1" >☆</label>
                     <div class="clear"></div>
                 </div><br/>
-                <input type="submit" value="Post review" name="submit-review">
+                <input type="submit" value="Post review" name="submit">
                 <input type="reset" name="reset-review">
             </form>
         </div>
