@@ -4,14 +4,8 @@
 
 {% block page_head_css %}
     <link rel="stylesheet" href="{{ url_for('homepage.static', filename='css/homepage.css') }}"/>
-
-    <!-- jQuery -->
-<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-<!-- BS JavaScript -->
-{#    <link rel="script" href="{% static 'js/bootstrap.js' %}"/>#}
-
-<script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.js') }}"></script>
-<!-- Have fun using Bootstrap JS -->
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.js') }}"></script>
     <script>
         function show_popup()
         {
@@ -35,9 +29,7 @@
 
 {% block page_body_main_content %}
 <main>
-
         <div class="contain-img">
-
             <img src="/static/media/img/img-home-page/weaslys_shorter.jpg" alt="Home Page Image" class="center-img-home-page"/>
             <div class="top-left">
                 <h1 class="heading-1"><strong>Hokus Mokus</strong> | Weaslys' Wizard Wheezes Shop</h1>
@@ -48,8 +40,9 @@
             <span class="close" onclick="closeDialog(this)">&times;</span><br/>
             <h1 class="heading-1 modal-heading">Hokus Mokus <strong>SALE!</strong></h1>
             <h2 class="heading-2 modal-heading"> Product of the <strong>week</strong></h2>
-            <a href = "/product?id={{ product.id }}">
-                <img class="sale-product" src="{{ url_for('static', filename='media/img/products/' + product.img) }}" alt={{ product.name }}/>
+            <a href = "/product?id=100000002">
+                <img class="sale-product" src="{{ url_for('static', filename='media/img/products/' + product.img) }}"
+                     alt={{ product.name }}/>
                 <p class="modal-text"><strong>ONLY</strong> <span>£15.00</span></p>
             </a>
         </div>
@@ -71,7 +64,7 @@
                     </div>
                     <div class="col-sm-3">
                         <div class="img-box">
-                            <a href = "/product?id=100000001">
+                            <a href = "/product?id=100000002">
                                 <img src="/static/media/img/products/extendable_ear.jpg" alt="product2"/>
                             </a>
                         </div>
@@ -119,7 +112,8 @@
                      <div class="col-sm-3">
                         <div class="img-box">
                             <a href="/product?id=399200019">
-                                <img src="/static/media/img/products/peruvian_instant_darkness_powder.jpg" alt="Peruvian Instant Darkness Powder"/>
+                                <img src="/static/media/img/products/peruvian_instant_darkness_powder.jpg"
+                                     alt="Peruvian Instant Darkness Powder"/>
                             </a>
                         </div>
                         <h4 class="heading-4">Peruvian Instant Darkness Powder</h4>
@@ -127,7 +121,6 @@
                     </div>
                 </div>
             </div>
-
             <!-- Carousel controls -->
             <a class="carousel-control left carousel-control-prev" href="#myCarousel" data-slide="prev">
                 <i class="fa fa-angle-left"></i>

@@ -29,13 +29,13 @@
     <div class="block" id="order-block" name="order-block">
         <h2 class="heading-2">My <strong>Orders</strong></h2>
         <div class="grid">
-            {% if histories is not iterable %}
+            {% if not histories %}
                 <h4 class="heading-4"> You have not ordered anything! <strong>Hurry Up!</strong></h4>
                 <h4 class="heading-4">You <strong>snooze</strong> you lose! <strong>;)</strong></h4>
             {% else %}
             {% for history in histories %}
                 <div class="product">
-                    <a href = "/product?id={{ history.id }}">
+                    <a href = "/product?id={{ history.id }}" title="Click to see this product">
                         <div class="product-text">
                             <p>Product: {{ history.name }}, Order time: {{ history.date_of_order }}</p>
                         </div>

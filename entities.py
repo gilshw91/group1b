@@ -1,5 +1,4 @@
 from utilities.db.db_manager import dbManager
-from flask import request
 from flask import flash
 
 
@@ -98,13 +97,6 @@ class Category:
 
 class Product:
     def __init__(self):
-        # self.id = 0
-        # self.name = ""
-        # self.price = 0.0
-        # self.prev_price = 0.0
-        # self.description = ""
-        # self.img = ""
-        # self.category_code = 0
         pass
 
 
@@ -114,41 +106,37 @@ class Product:
         return dbManager.fetch(sql)
 
     def get_products(self, id):
-
+        """ returns the products that belongs to specific category"""
         return dbManager.fetch('SELECT * FROM product WHERE category_code=%s', (id,))
-        # return dbManager.fetch('SELECT * FROM product WHERE category_code=%s', (self.category_code'],))
 
     def get_product(self, id):
-        # return dbManager.fetch('SELECT * FROM product WHERE id=%s', (request.args['id'],))  # self.id
+        """Returns the product with the given id"""
         return dbManager.fetch('SELECT * FROM product WHERE id=%s', (id,))
-        # return dbManager.fetch('SELECT * FROM product WHERE id=%s', (self.id, ))
 
 
 class Review:
     def __init__(self):
         self.review_number = 0
         self.date = ""
-        self.ranking = 0
+        self.rank = 0
         self.content = ""
         self.email_address = ""
         self.id = 0
 
     def add_review(self):
         """ Add new review to data base"""
-        print("HERE ENTITY1")
         sql = '''
-                INSERT INTO review (review_number, date, ranking, content, email_address, id)
+                INSERT INTO review (review_number, date, `rank`, content, email_address, id)
                 VALUES (%s, %s, %s, %s, %s, %s)
               '''
-        print("HERE ENTITY2")
-        dbManager.commit(sql, (self.review_number, self.date, self.ranking, self.content, self.email_address, self.id))
+        dbManager.commit(sql, (self.review_number, self.date, self.rank, self.content, self.email_address, self.id))
         return
 
     def get_review_by_email(self, email):
         """ This method returns the reviews on product
         which was submitted by user (his email address). """
         sql = ''' 
-                SELECT r.date, r.ranking, r.content, r.email_address, p.name
+                SELECT r.date, r.rank, r.content, r.email_address, p.name
                 FROM review AS r 
                 JOIN product AS p 
                 ON r.id = p.id 
@@ -165,7 +153,7 @@ class Review:
     def recent_reviews(self, email):
         """Returns the top three recent reviews that the user has posted"""
         sql = ''' 
-                SELECT r.date, r.ranking, r.content, r.email_address, p.name
+                SELECT r.date, r.rank, r.content, r.email_address, p.name
                 FROM review AS r 
                 JOIN product AS p 
                 ON r.id = p.id 
@@ -230,14 +218,14 @@ class Order:
               '''
         return dbManager.fetch(sql, (email,))
 
-    def get_orders(self, email_address):
-        """ returns a list of orders associated to e-mail"""
-        sql = '''SELECT o.number, o.date_of_order, o.email_address, i.quantity, p.id, p.name, p.price, p.img
-                       FROM orders AS o 
-                       JOIN include AS i ON o.number=i.number 
-                       JOIN product AS p ON i.sku=p.id
-                       WHERE email_address=%s'''
-        return dbManager.fetch(sql, (email_address,))
+    # def get_orders(self, email_address):
+    #     """ returns a list of orders associated to e-mail"""
+    #     sql = '''SELECT o.number, o.date_of_order, o.email_address, i.quantity, p.id, p.name, p.price, p.img
+    #                    FROM orders AS o
+    #                    JOIN include AS i ON o.number=i.number
+    #                    JOIN product AS p ON i.sku=p.id
+    #                    WHERE email_address=%s'''
+    #     return dbManager.fetch(sql, (email_address,))
 
     def get_product_order(self, email_address, id):
         """ returns a specific product from orders associated to e-mail"""
