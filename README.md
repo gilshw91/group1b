@@ -17,7 +17,8 @@ flask, lean, skeleton, project, structure, environment, setup, template, fullsta
 ##### By Barak Pinchovski
 [LinkedIn](https://www.linkedin.com/in/barakpinch/)
 ##
- 
+
+#### And continued by Hadar Ben-Yaakov, Rotem Fallek, Yonatan Baram and Gil Shwartz 
 ### Setup and run instructions:
 
 #### Prerequisites:

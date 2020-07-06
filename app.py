@@ -1,5 +1,4 @@
-from flask import Flask, session, redirect, url_for, render_template
-from utilities.db.db_manager import dbManager
+from flask import Flask
 
 
 ###### App setup
@@ -8,7 +7,6 @@ app.config.from_pyfile('settings.py')
 
 ###### Pages
 ## Homepage
-#TODO: we need to change homepage to homepage page
 from pages.homepage.homepage import homepage
 app.register_blueprint(homepage)
 
