@@ -65,3 +65,11 @@ app.register_blueprint(cart)
 ## content_manager
 from pages.content_manager.content_manager import content_manager
 app.register_blueprint(content_manager)
+
+## product_manager
+from pages.product_manager.product_manager import product_manager
+app.register_blueprint(product_manager)
+
+## categories_manager
+from pages.categories_manager.categories_manager import categories_manager
+app.register_blueprint(categories_manager)

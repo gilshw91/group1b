@@ -18,7 +18,6 @@
             </div>
             <div>
                 <a href = "/catalog?category_code={{ category.category_code }}">
-                    {# <img border="0" alt="{{ category.category_name }}" src="/static/media/img/categories/cat_2.jpg" id="category2"/> #}
                     <img src="{{ url_for('static', filename='media/img/categories/'+category.img) }}" border="0" title="{{ category.category_name }}" alt={{ category.category_name }}/>
                 </a>
             </div>

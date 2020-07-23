@@ -101,6 +101,27 @@ class Category:
         sql = 'SELECT * FROM category'
         return dbManager.fetch(sql)
 
+    def add_category(self):
+        """ Method that insert a new Category to DB """
+        sql = '''
+                    INSERT INTO category (category_code, category_name, img)
+                    VALUES (%s, %s, %s)
+              '''
+        dbManager.commit(sql, (self.category_code, self.category_name, self.img))
+        return
+
+    def update_category(self, category_code, category_name, img):
+        """ Method that update an existing category by the category' code"""
+        sql = '''  
+                    UPDATE category SET category_code = %s, category_name = %s, img =%s
+                    WHERE category_code = %s
+              '''
+        dbManager.commit(sql, (category_code, category_name, img, category_code))
+        return
+
+    def delete_category(self, category_code):
+        """ Method that delete category form DB by the category code """
+        return dbManager.commit('DELETE FROM category WHERE category_code=%s', (category_code,))
 
 class Product:
     def __init__(self):

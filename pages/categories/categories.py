@@ -8,6 +8,5 @@ categories = Blueprint('categories', __name__, static_folder='static', static_ur
 # Routes
 @categories.route('/categories')
 def index():
-
     categories_data = Category().get_all()
     return render_template('categories.html', categories=categories_data)
