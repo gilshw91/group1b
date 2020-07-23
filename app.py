@@ -73,3 +73,7 @@ app.register_blueprint(product_manager)
 ## categories_manager
 from pages.categories_manager.categories_manager import categories_manager
 app.register_blueprint(categories_manager)
+
+## admin
+from pages.admin.admin import admin
+app.register_blueprint(admin)

@@ -15,6 +15,7 @@ class Customer:
         self.number = 0
         # self.zip = 0
         self.phone_number = 0
+        self.role = ""
 
     def get_all(self):
         """ Returns all users data from database """
@@ -91,6 +92,18 @@ class Customer:
         dbManager.commit('DELETE FROM customer WHERE email_address=%s', (email,))
         return
 
+    def update_customer(self, email_address, user, password, first_name, last_name,
+                        country, city, street, number, phone_number, role):
+        ''' Updates the data of a user, by its email address.'''
+        sql = '''  
+                    UPDATE customer SET email_address = %s, user = %s, password =%s, first_name = %s,
+                    last_name = %s, country = %s, city = %s, street = %s, number = %s, phone_number = %s,
+                    role = %s
+                    WHERE email_address = %s
+              '''
+        dbManager.commit(sql, (email_address, user, password, first_name, last_name,
+                        country, city, street, number, phone_number, role, email_address))
+        return
 
 class Category:
     def __init__(self):
@@ -183,23 +196,16 @@ class Product:
         if id != given_id:
             include_data = dbManager.fetch('SELECT * FROM include WHERE sku=%s', (given_id,))
             if include_data:
-                print(include_data)
                 quantity = include_data[0].quantity
                 number = include_data[0].number
-                print("1")
                 dbManager.commit('DELETE FROM include WHERE sku=%s', (given_id,))
-                print("2")
-                print("5")
                 dbManager.commit(sql, (id, name, price, prev_price, description, img, category_code, given_id))
-                print("6")
                 sql_include = ''' 
                                 INSERT INTO include (quantity, number, sku)
                                 VALUES (%s, %s, %s)
                               '''
                 dbManager.commit(sql_include, (quantity, number, id))
-        print("4")
         dbManager.commit(sql, (id, name, price, prev_price, description, img, category_code, given_id))
-        print("444")
         return
 
     def delete_product(self, id):

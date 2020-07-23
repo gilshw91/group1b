@@ -23,5 +23,8 @@
 {% endif %}
 {% if session['role'] != 'customer' and session['role'] %} {# Displays only for users whos not a regular customer #}
     <a class="nav-bar-link active" href="{{ url_for('content_manager.index') }}">Manager Page</a>
+    {% if session['role'] == 'admin' %}
+        <a class="nav-bar-link active" href="{{ url_for('admin.index') }}">Admin Page</a>
+    {% endif %}
 {% endif %}
 </div>

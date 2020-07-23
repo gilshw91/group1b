@@ -7,6 +7,8 @@
 table {
     background-color: #272727;
     opacity: 0.9;
+    position: relative;
+    right: 8%;
 }
 
 td {
@@ -23,12 +25,13 @@ a > .btn-warning, .btn-primary {
 .btn-primary:hover {
     background-color: rgba(242,219,169,0.9);
 }
+
 .btn-warning{
     background-color: #ffecb3;
+    color: #272727;
 }
 .btn-warning:hover {
     background-color: rgba(243,99,46,0.9);
-    color: #272727;
 }
 
 .btn-danger {
@@ -42,12 +45,6 @@ a > .btn-warning, .btn-primary {
     background-color: #272727;
 }
 
-.add-category:hover {
+.add-customer:hover {
     background-color: rgba(242,219,169,0.9);
-}
-
-.go-to-category {
-    display: inline-block;
-    padding-left: 70%;
-    padding-bottom: 1%;
 }

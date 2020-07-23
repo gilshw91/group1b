@@ -24,6 +24,11 @@ a > .btn-warning, .btn-primary {
     background-color: rgba(242,219,169,0.9);
 }
 
+.btn-warning{
+    background-color: #ffecb3;
+    color: #272727;
+}
+
 .btn-warning:hover {
     background-color: rgba(243,99,46,0.9);
 }
