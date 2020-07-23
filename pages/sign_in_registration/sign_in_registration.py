@@ -19,6 +19,7 @@ def index():
         remember = True if request.form.get('checkbox') else False  # Didnt implement this
         # checks if user exist (len > 0)
         if len(user):
+            session['role'] = user[0].role
             session['logged-in'] = True
             session['name'] = user[0].first_name
             session['email'] = email

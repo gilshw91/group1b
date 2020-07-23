@@ -11,6 +11,16 @@ def index():
     if request.method == 'GET':
         return render_template('sign_up.html')
     else:
+        # signed = Customer(email_adress=request.form['email'],
+        #                   user=request.form['user-name'],
+        #                   password=request.form['password'],
+        #                   first_name=request.form['first-name'],
+        #                   last_name=request.form['last-name'],
+        #                   country=request.form['country'],
+        #                   city=request.form['city'],
+        #                   street=request.form['street'],
+        #                   number=request.form['number'],
+        #                   phone_number=request.form['phone_number'], )
         signed = Customer()
         signed.email_address = request.form['email']
         signed.user = request.form['user-name']

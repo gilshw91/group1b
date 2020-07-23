@@ -89,6 +89,7 @@ def update_credit():
             return redirect(url_for('customer_page.index'))
 
 
+
 @customer_page.route('/delete_credit', methods=['POST'])
 def delete_credit():
     email = session['email']

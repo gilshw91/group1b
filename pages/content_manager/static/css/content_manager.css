@@ -1,0 +1,40 @@
+* {box-sizing: border-box;}
+
+.table {
+    background-color: #272727;
+    opacity: 0.9;
+}
+
+td {
+    padding: 2%;
+}
+
+a > .btn-warning, .btn-primary {
+    background-color: #ffecb3;
+    color: #272727;
+    border-color: #272727;
+    font-family: Tahoma;
+}
+
+.btn-primary:hover {
+    background-color: rgba(242,219,169,0.9);
+}
+
+.btn-warning:hover {
+    background-color: rgba(243,99,46,0.9);
+}
+
+.btn-danger {
+    background-color: #FF652F;
+    color: #272727;
+    border-color: #272727;
+}
+.modal-content {
+    border-style: solid;
+    border-color: #ffecb3;
+    background-color: #272727;
+}
+
+.add-product:hover {
+    background-color: rgba(242,219,169,0.9);
+}

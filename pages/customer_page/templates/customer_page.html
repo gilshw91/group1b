@@ -49,7 +49,7 @@
     <div class="block" id="address-block">
         <h2 class="heading-2">My <strong>Shipping</strong> Address</h2>
         <h4 class="heading-4" id="current-address"><strong>Current Address:</strong>
-            {{ address[0].number }} {{ address[0].street | capitalize }} st.,
+            {{ address[0].number }} {{ address[0].street | capitalize }}
             {{ address[0].city | capitalize }}, {{ address[0].country | capitalize }}
         </h4>
         <form method="post" id="Change_shipping" action="/update_address">
@@ -93,8 +93,8 @@
                 <div class="review">
                     <li>
                         <h4 class="heading-4"><strong>Product:</strong> {{ review.name }}<br/>
-                           <strong>Review Date:</strong> {{ review.date }} <br/>
-                           <strong>Review:</strong> {{ review.content }} </h4>
+                        <strong>Review Date:</strong> {{ review.date.day }}/{{ review.date.month }}/{{ review.date.year }} <br/>
+                        <strong>Review:</strong> {{ review.content }} </h4>
                     </li>
                 </div>
             </ul>

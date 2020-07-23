@@ -13,9 +13,12 @@ class Customer:
         self.city = ""
         self.street = ""
         self.number = 0
-        self.zip = 0
+        # self.zip = 0
         self.phone_number = 0
 
+    def get_all(self):
+        """ Returns all users data from database """
+        return dbManager.fetch('SELECT * FROM customer')
 
     def get_user_by_email(self, email_address):
         """ Returns the users data where the email fits to
@@ -45,13 +48,13 @@ class Customer:
 
     def add_customer(self):
         """ Add new customer to data base"""
-        sql_z = ''' INSERT INTO zips (country, city, street, number, zip) VALUES (%s, %s, %s, %s, %s)'''
+        # sql_z = ''' INSERT INTO zips (country, city, street, number, zip) VALUES (%s, %s, %s, %s, %s)'''
         sql_c = '''
                 INSERT INTO customer (email_address, user, password, first_name, last_name, country, city, street,
                                       number, phone_number)
                 VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
                 '''
-        dbManager.commit(sql_z, (self.country, self.city, self.street, self.number, self.zip))
+        # dbManager.commit(sql_z, (self.country, self.city, self.street, self.number, self.zip))
         dbManager.commit(sql_c, (self.email_address, self.user, self.password, self.first_name, self.last_name,
                                  self.country, self.city, self.street, self.number, self.phone_number))
         return
@@ -59,10 +62,11 @@ class Customer:
     def get_address(self, email):
         """ Returns the full address of a user, which identify by his email"""
         sql = '''
-                SELECT c.email_address, c.country, c.city, c.street, c.number, z.zip 
+                SELECT c.email_address, c.country, c.city, c.street, c.number 
+                #, z.zip 
                 FROM customer AS c 
-                JOIN zips AS z ON c.country=z.country 
-                AND c.city=z.city AND c.street=z.street AND c.number=z.number 
+                # JOIN zips AS z ON c.country=z.country 
+                # AND c.city=z.city AND c.street=z.street AND c.number=z.number 
                 WHERE email_address=%s
               '''
         return dbManager.fetch(sql, (email, ))
@@ -70,17 +74,21 @@ class Customer:
     def update_address(self, country, city, street, number, email):
         """Method that updates the address of the user. by adding new row in 'zips' table
          and than changes the address in 'customer' table where its fit to the zips table."""
-        sql_1 = '''
-                    INSERT INTO zips (country, city, street, number) 
-                    VALUES (%s, %s, %s, %s)
-                '''
+        # sql_1 = '''
+        #             INSERT INTO zips (country, city, street, number)
+        #             VALUES (%s, %s, %s, %s)
+        #         '''
         sql_2 = '''
                     UPDATE customer SET country=%s, city=%s, street=%s, number=%s
                     WHERE email_address=%s
                 '''
-        dbManager.commit(sql_1, (country, city, street, number))
+        # dbManager.commit(sql_1, (country, city, street, number))
         dbManager.commit(sql_2, (country, city, street, number, email))
         flash('Your address has successfully updated!')
+        return
+
+    def delete_customer(self, email):
+        dbManager.commit('DELETE FROM customer WHERE email_address=%s', (email,))
         return
 
 
@@ -96,7 +104,13 @@ class Category:
 
 class Product:
     def __init__(self):
-        pass
+        id = 0
+        name = ""
+        price = 0
+        prev_price = 0
+        description = ""
+        img = ""
+        category_code = 0
 
     def get_all(self):
         """ returns a list of all products """
@@ -111,6 +125,48 @@ class Product:
         """Returns the product with the given id"""
         return dbManager.fetch('SELECT * FROM product WHERE id=%s', (id,))
 
+    def add_product(self):
+        """ Method that insert a new product to DB """
+        sql = '''
+            INSERT INTO product (id, name, price, description, img, category_code)
+            VALUES (%s, %s, %s, %s, %s, %s)
+            '''
+        dbManager.commit(sql, (self.id, self.name, self.price, self.description,
+                               self.img, self.category_code))
+        return
+
+    def update_product(self, id, name, price, prev_price, description, img, category_code, given_id):
+        """ Method that update an existing product by the products' current ID """
+        sql = '''  
+                    UPDATE product SET id = %s, name = %s, price =%s, prev_price = %s,
+                    description = %s, img = %s, category_code = %s
+                    WHERE id = %s
+              '''
+        if id != given_id:
+            include_data = dbManager.fetch('SELECT * FROM include WHERE sku=%s', (given_id,))
+            if include_data:
+                print(include_data)
+                quantity = include_data[0].quantity
+                number = include_data[0].number
+                print("1")
+                dbManager.commit('DELETE FROM include WHERE sku=%s', (given_id,))
+                print("2")
+                print("5")
+                dbManager.commit(sql, (id, name, price, prev_price, description, img, category_code, given_id))
+                print("6")
+                sql_include = ''' 
+                                INSERT INTO include (quantity, number, sku)
+                                VALUES (%s, %s, %s)
+                              '''
+                dbManager.commit(sql_include, (quantity, number, id))
+        print("4")
+        dbManager.commit(sql, (id, name, price, prev_price, description, img, category_code, given_id))
+        print("444")
+        return
+
+    def delete_product(self, id):
+        """ Method that delete product form DB by the products' ID """
+        return dbManager.commit('DELETE FROM product WHERE id=%s', (id,))
 
 class Review:
     def __init__(self):
@@ -237,5 +293,16 @@ class Form:
                 INSERT INTO form (application_number, application_date, subject, content, status, email_address)
                 VALUES (%s, %s, %s, %s, %s, %s)
               '''
-        dbManager.commit(sql, (self.application_number, self.application_date, self.subject, self.content, self.status, self.email_address))
+        dbManager.commit(sql, (self.application_number, self.application_date, self.subject, self.content, self.status,
+                               self.email_address))
         return
+
+
+# class Manager:
+#     def __init__(self):
+#         pass
+#
+#     def get_tables_names(self):
+#         table1 = 'Products'
+#         table2 = 'Categories'
+#         return

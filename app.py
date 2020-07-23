@@ -61,3 +61,7 @@ app.register_blueprint(main_menu)
 ## cart
 from pages.cart.cart import cart
 app.register_blueprint(cart)
+
+## content_manager
+from pages.content_manager.content_manager import content_manager
+app.register_blueprint(content_manager)

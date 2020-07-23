@@ -21,4 +21,7 @@
     <a class="nav-bar-link active" href="{{ url_for('customer_page.index') }}">Profile</a>
     <a class="nav-bar-link active" href="{{ url_for('customer_feedback.index') }}">Customer Feedback</a>
 {% endif %}
+{% if session['role'] != 'customer' and session['role'] %} {# Displays only for users whos not a regular customer #}
+    <a class="nav-bar-link active" href="{{ url_for('content_manager.index') }}">Manager Page</a>
+{% endif %}
 </div>
