@@ -1,6 +1,10 @@
 * {box-sizing: border-box;}
 
-.table {
+.heading-1 {
+    text-align: center;
+}
+
+table {
     background-color: #272727;
     opacity: 0.9;
 }
@@ -35,11 +39,11 @@ a > .btn-warning, .btn-primary {
     background-color: #272727;
 }
 
-.add-product:hover {
+.add-category:hover {
     background-color: rgba(242,219,169,0.9);
 }
 
-.go-to-category > a {
+.go-to-category {
     display: inline-block;
     padding-left: 70%;
     padding-bottom: 1%;

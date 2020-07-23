@@ -3,7 +3,7 @@
 {% set page_head_title = 'product_manager' %}
 
 {% block page_head_css %}
-    <link rel="stylesheet" href="{{ url_for('content_manager.static', filename='css/content_manager.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('product_manager.static', filename='css/product_manager.css') }}"/>
 {% endblock %}
 
 {% block page_body_main_content %}
@@ -12,7 +12,6 @@
     <div class="container">
         <div class="starter-template">
             <h1 class="heading-1"><strong>Products</strong> Data</h1>
-            <div class="table-container">
                 <button type="button" class="add-product" data-toggle="modal" data-target="#myModal">Add Product</button>
                 <div class="go-to-category">
                     <a href="/categories_manager">Go to Categories Page Manager</a>
@@ -20,14 +19,14 @@
                 <table class="table">
                     <thead>
                         <tr>
-                        <td><strong>ID</strong></td>
-                        <td><strong>Name</strong></td>
-                        <td><strong>Price</strong></td>
-                        <td><strong>Previous Price</strong></td>
-                        <td><strong>Description</strong></td>
-                        <td><strong>Image Name</strong></td>
-                        <td><strong>Category Code</strong></td>
-                        <td><strong>Actions</strong></td>
+                            <td><strong>ID</strong></td>
+                            <td><strong>Name</strong></td>
+                            <td><strong>Price</strong></td>
+                            <td><strong>Previous Price</strong></td>
+                            <td><strong>Description</strong></td>
+                            <td><strong>Image Name</strong></td>
+                            <td><strong>Category Code</strong></td>
+                            <td><strong>Actions</strong></td>
                         </tr>
                     </thead>
                 <tbody>
@@ -62,31 +61,38 @@
                                             </div>
                                             <div class="form-group">
                                                 <label>ID:</label>
-                                                <input type="number" class="form-control" name="id" value="{{ row.0 }}">
+                                                <input type="number" class="form-control" name="id" value="{{ row.0 }}"
+                                                placeholder="Insert ID">
                                             </div>
                                             <div>
                                                 <label>Name:</label>
-                                                <input type="text" class="form-control" name="name" value="{{ row.1 }}">
+                                                <input type="text" class="form-control" name="name" value="{{ row.1 }}"
+                                                placeholder="Insert Name">
                                             </div>
                                             <div>
                                                 <label>Price:</label>
-                                                <input type="text" class="form-control" name="price" value="{{ row.2 }}">
+                                                <input type="text" class="form-control" name="price" value="{{ row.2 }}"
+                                                placeholder="Insert Price">
                                             </div>
                                             <div>
                                                 <label>Previous Price:</label>
-                                                <input type="text" class="form-control" name="prev-price" value="{{ row.3 }}">
+                                                <input type="text" class="form-control" name="prev-price" value="{{ row.3 }}"
+                                                placeholder="Insert previous Price">
                                             </div>
                                             <div>
                                                 <label>Description:</label>
-                                                <input type="text" class="form-control" name="description" value="{{ row.4 }}">
+                                                <input type="text" class="form-control" name="description" value="{{ row.4 }}"
+                                                placeholder="Insert Description">
                                             </div>
                                             <div>
                                                 <label>Image Name:</label>
-                                                <input type="text" class="form-control" name="img" value="{{ row.5 }}">
+                                                <input type="text" class="form-control" name="img" value="{{ row.5 }}"
+                                                placeholder="Insert Image name">
                                             </div>
                                             <div>
                                                 <label>Category Code:</label>
-                                                <input type="number" class="form-control" name="category-code" value="{{ row.6 }}">
+                                                <input type="number" class="form-control" name="category-code" value="{{ row.6 }}"
+                                                placeholder="Insert Category Code">
                                             </div>
                                             <div class="form-group">
                                                 <button class="btn btn-warning" type="submit">Update</button>
@@ -106,7 +112,6 @@
                     {% endfor %}
                 </tbody>
                 </table>
-            </div>
         </div>
     </div>
     <!-- Modal -->

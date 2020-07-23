@@ -101,6 +101,15 @@ class Category:
         sql = 'SELECT * FROM category'
         return dbManager.fetch(sql)
 
+    def is_category_code(self, category_code):
+        ''' Returns True if there is category with the given code,
+        otherwise reutrn False'''
+        sql = 'SELECT * FROM category WHERE category_code=%s'
+        data = dbManager.fetch(sql, (category_code,))
+        if len(data)>0:
+            return True
+        return False
+
     def add_category(self):
         """ Method that insert a new Category to DB """
         sql = '''
@@ -145,6 +154,14 @@ class Product:
     def get_product(self, id):
         """Returns the product with the given id"""
         return dbManager.fetch('SELECT * FROM product WHERE id=%s', (id,))
+
+    def is_product_by_category_code(self, category_code):
+        """Returns the True if there is a product with a given category code,
+        False otherwise"""
+        data =  dbManager.fetch('SELECT * FROM product WHERE category_code=%s', (category_code,))
+        if len(data) > 0:
+            return True
+        return False
 
     def add_product(self):
         """ Method that insert a new product to DB """
