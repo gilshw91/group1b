@@ -1,7 +1,8 @@
 from flask import Blueprint, render_template, redirect, url_for, request, flash
 from entities import Customer
+import re
 
-# Categories Blueprint Definition
+# Admin Blueprint Definition
 admin = Blueprint('admin', __name__, static_folder='static', static_url_path='/admin',
                      template_folder='templates')
 
@@ -27,6 +28,17 @@ def add_customer():
     customer.number = request.form['number']
     customer.phone_number = request.form['phone-number']
     customer.role = request.form['role']
+    is_same_user = customer.get_user_by_user(user=request.form['user-name'])  # true/len>0 if exist
+    is_same_mail = customer.get_user_by_email(email_address=request.form['email'])  # true/len>0 if exist
+    if not re.match(r"^[A-Za-z0-9\\.\\+_-]+@[A-Za-z0-9\\._-]+\.[a-zA-Z]*$", request.form['email']):
+        error = "Email not valid"
+        return render_template('sign_up.html', error=error)
+    if is_same_user:  # if a user already found, we want to redirect back to sign-up page
+        error = "User name already exist"
+        return render_template('sign_up.html', error=error)
+    if is_same_mail:  # if a email address already found, we want to redirect back to sign-up page
+        error = "Email already exist"
+        return render_template('sign_up.html', error=error)
     customer.add_customer()
     flash('Added Successfully!')
     return redirect(url_for('admin.index'))
@@ -44,7 +56,7 @@ def update_customer():
 
 @admin.route('/delete_customer/<string:email_address>', methods=["GET"])
 def delete_customer(email_address):
-    Customer().delete_category(email_address)
+    Customer().delete_customer(email_address)
     flash('Deleted Successfully!')
     return redirect(url_for('admin.index'))
 

@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, request, redirect, url_for, session, flash
 from entities import Customer
-
+import re
 # sign_up blueprint definition
 sign_up = Blueprint('sign_up', __name__, static_folder='static', static_url_path='/sign_up', template_folder='templates')
 
@@ -31,10 +31,14 @@ def index():
         signed.city = request.form['city']
         signed.street = request.form['street']
         signed.number = request.form['number']
-        signed.zip = request.form['zip-code']
+        # signed.zip = request.form['zip-code']
         signed.phone_number = request.form.get('phone-number')
         is_same_user = signed.get_user_by_user(user=request.form['user-name'])  # true/len>0 if exist
         is_same_mail = signed.get_user_by_email(email_address=request.form['email'])  # true/len>0 if exist
+        # Check that the email address is valid
+        if not re.match(r"^[A-Za-z0-9\\.\\+_-]+@[A-Za-z0-9\\._-]+\.[a-zA-Z]*$", request.form['email']):
+            error = "Email not valid"
+            return render_template('sign_up.html', error=error)
         if is_same_user:  # if a user already found, we want to redirect back to sign-up page
             error = "User name already exist"
             return render_template('sign_up.html', error=error)

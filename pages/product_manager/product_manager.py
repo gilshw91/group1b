@@ -45,6 +45,9 @@ def update():
     if int(request.form['id']) < 0 or int(request.form['id']) > 2147483647:
         flash("The ID is not valid. Try again!")
         return redirect(url_for('product_manager.index'))
+    if request.form['given-id'] != request.form['id']:
+        flash("Can't update ID, You can delete and add new product.")
+        return redirect(url_for('product_manager.index'))
     Product().update_product(request.form['id'], request.form['name'], request.form['price'],
                              request.form['prev-price'], request.form['description'], request.form['img'],
                              request.form['category-code'], request.form['given-id'])

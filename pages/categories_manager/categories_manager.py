@@ -31,9 +31,11 @@ def add_category():
 def update():
     # Updates another field which isnt the category code
     if request.form['given-code'] != request.form['category-code']:
-        if Category().is_category_code(request.form['category-code']):
-            flash("Category Code is already exist. Try again!")
-            return redirect(url_for('categories_manager.index'))
+        # if Category().is_category_code(request.form['category-code']):
+        #     flash("Category Code is already exist. Try again!")
+        flash("Can't update Category code, You can delete and add new category.")
+        return redirect(url_for('categories_manager.index'))
+
     Category().update_category(request.form['category-code'], request.form['category-name'], request.form['img'])
     flash('Updated Successfully!')
     return redirect(url_for('categories_manager.index'))

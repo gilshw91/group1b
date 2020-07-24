@@ -193,18 +193,18 @@ class Product:
                     description = %s, img = %s, category_code = %s
                     WHERE id = %s
               '''
-        if id != given_id:
-            include_data = dbManager.fetch('SELECT * FROM include WHERE sku=%s', (given_id,))
-            if include_data:
-                quantity = include_data[0].quantity
-                number = include_data[0].number
-                dbManager.commit('DELETE FROM include WHERE sku=%s', (given_id,))
-                dbManager.commit(sql, (id, name, price, prev_price, description, img, category_code, given_id))
-                sql_include = ''' 
-                                INSERT INTO include (quantity, number, sku)
-                                VALUES (%s, %s, %s)
-                              '''
-                dbManager.commit(sql_include, (quantity, number, id))
+        # if id != given_id:
+        #     include_data = dbManager.fetch('SELECT * FROM include WHERE sku=%s', (given_id,))
+        #     if include_data:
+        #         quantity = include_data[0].quantity
+        #         number = include_data[0].number
+        #         dbManager.commit('DELETE FROM include WHERE sku=%s', (given_id,))
+        #         dbManager.commit(sql, (id, name, price, prev_price, description, img, category_code, given_id))
+        #         sql_include = '''
+        #                         INSERT INTO include (quantity, number, sku)
+        #                         VALUES (%s, %s, %s)
+        #                       '''
+        #         dbManager.commit(sql_include, (quantity, number, id))
         dbManager.commit(sql, (id, name, price, prev_price, description, img, category_code, given_id))
         return
 
