@@ -39,3 +39,8 @@ def index():
                 new_review.add_review()
                 flash("Thank you for your review")
                 return redirect(url_for('homepage.index'))
+
+
+@product.route('/content_manager')
+def content_manager():
+    return render_template('content_manager.html')

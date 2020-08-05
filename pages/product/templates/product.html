@@ -12,6 +12,11 @@
 {% endblock %}
 
 {% block page_body_main_content %}
+    {% if session['role'] != 'customer' %}
+        <div class="go-to-manager-page">
+            <a href="/content_manager">Go to Manager Page</a>
+        </div>
+    {% endif %}
     <div class="main-product">
         <div class="main-product-details">
             <aside>

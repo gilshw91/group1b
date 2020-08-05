@@ -52,13 +52,14 @@ class Customer:
         # sql_z = ''' INSERT INTO zips (country, city, street, number, zip) VALUES (%s, %s, %s, %s, %s)'''
         sql_c = '''
                 INSERT INTO customer (email_address, user, password, first_name, last_name, country, city, street,
-                                      number, phone_number)
-                VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+                                      number, phone_number, role)
+                VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
                 '''
         # dbManager.commit(sql_z, (self.country, self.city, self.street, self.number, self.zip))
         dbManager.commit(sql_c, (self.email_address, self.user, self.password, self.first_name, self.last_name,
-                                 self.country, self.city, self.street, self.number, self.phone_number))
+                                 self.country, self.city, self.street, self.number, self.phone_number, self.role))
         return
+
 
     def get_address(self, email):
         """ Returns the full address of a user, which identify by his email"""
@@ -93,8 +94,9 @@ class Customer:
         return
 
     def update_customer(self, email_address, user, password, first_name, last_name,
-                        country, city, street, number, phone_number, role):
-        ''' Updates the data of a user, by its email address.'''
+                        country, city, street, number, phone_number, role, given_email):
+        """ This Method Updates the data of a user, by the users' email address. """
+        print("here")
         sql = '''  
                     UPDATE customer SET email_address = %s, user = %s, password =%s, first_name = %s,
                     last_name = %s, country = %s, city = %s, street = %s, number = %s, phone_number = %s,
@@ -102,8 +104,9 @@ class Customer:
                     WHERE email_address = %s
               '''
         dbManager.commit(sql, (email_address, user, password, first_name, last_name,
-                        country, city, street, number, phone_number, role, email_address))
+                         country, city, street, number, phone_number, role, given_email))
         return
+
 
 class Category:
     def __init__(self):

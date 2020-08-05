@@ -26,11 +26,12 @@ a > .btn-warning, .btn-primary {
     background-color: rgba(242,219,169,0.9);
 }
 
-.btn-warning{
+.btn-warning, .btn-default{
     background-color: #ffecb3;
     color: #272727;
 }
-.btn-warning:hover {
+
+.btn-warning:hover, .btn-default:hover {
     background-color: rgba(242,219,169,0.9);
     color: #272727;
 }

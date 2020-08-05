@@ -9,6 +9,11 @@
     <div>
         <h1 class="heading-1">Products <strong>Categories</strong></h1>
     </div>
+    {% if session['role'] != 'customer' %}
+        <div class="go-to-manager-page">
+            <a href="/content_manager">Go to Manager Page</a>
+        </div>
+    {% endif %}
     <div class="categories-main"><!-- Wrapper for all categories -->
         <!-- All asides will be next to each other -->
         {% for category in categories %}

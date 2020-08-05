@@ -13,7 +13,7 @@ td {
     padding: 2%;
 }
 
-a > .btn-warning, .btn-primary {
+.btn-warning, .btn-primary, .btn-default {
     background-color: #ffecb3;
     color: #272727;
     border-color: #272727;
@@ -23,11 +23,8 @@ a > .btn-warning, .btn-primary {
 .btn-primary:hover {
     background-color: rgba(242,219,169,0.9);
 }
-.btn-warning{
-    background-color: #ffecb3;
-    color: #272727;
-}
-.btn-warning:hover {
+
+.btn-warning:hover, .btn-default:hover {
     background-color: rgba(242,219,169,0.9);
     color: #272727;
 }
@@ -43,7 +40,7 @@ a > .btn-warning, .btn-primary {
     background-color: #272727;
 }
 
-.add-category:hover {
+.add-product:hover {
     background-color: rgba(242,219,169,0.9);
 }
 

@@ -32,9 +32,9 @@
                             <td>{{ row.1 }}</td>
                             <td>{{ row.2 }}</td>
                             <td>
-                                <a href="#!" class="btn btn-warning btn-s" data-toggle="modal"
+                                <a href="#!" class="btn btn-warning" data-toggle="modal"
                                    data-target="#modalEdit{{ row.0 }}">Edit</a>
-                                <a href="/delete_category/{{ row.0 }}" class="btn btn-danger btn-s"
+                                <a href="/delete_category/{{ row.0 }}" class="btn btn-danger"
                                    onclick="return confirm('Are you sure you want to delete this category?')">Delete</a>
                             </td>
                         </tr>
@@ -49,19 +49,20 @@
                                     <div class="modal-body">
                                         <form action="/update_category" method="POST">
                                             <div class="form-group">
-                                                <input type="hidden" class="form-control" name="given-code" value="{{ row.0 }}">
+                                                <input type="hidden" class="form-control" name="given-code"
+                                                       value="{{ row.0 }}">
                                             </div>
                                             <div class="form-group">
                                                 <label>Category Code:</label>
                                                 <input type="number" class="form-control" name="category-code"
                                                        value="{{ row.0 }}" placeholder="Insert Category Code">
                                             </div>
-                                            <div>
+                                            <div class="form-group">
                                                 <label>Category Name:</label>
                                                 <input type="text" class="form-control" name="category-name"
                                                        value="{{ row.1 }}" placeholder="Insert Category Name">
                                             </div>
-                                            <div>
+                                            <div class="form-group">
                                                 <label>Image Name:</label>
                                                 <input type="text" class="form-control" name="img"
                                                        value="{{ row.2 }}" placeholder="Insert Image Name">
