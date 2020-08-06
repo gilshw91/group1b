@@ -93,17 +93,16 @@ class Customer:
         dbManager.commit('DELETE FROM customer WHERE email_address=%s', (email,))
         return
 
-    def update_customer(self, email_address, user, password, first_name, last_name,
+    def update_customer(self, user, password, first_name, last_name,
                         country, city, street, number, phone_number, role, given_email):
         """ This Method Updates the data of a user, by the users' email address. """
-        print("here")
         sql = '''  
-                    UPDATE customer SET email_address = %s, user = %s, password =%s, first_name = %s,
+                    UPDATE customer SET user = %s, password =%s, first_name = %s,
                     last_name = %s, country = %s, city = %s, street = %s, number = %s, phone_number = %s,
                     role = %s
                     WHERE email_address = %s
               '''
-        dbManager.commit(sql, (email_address, user, password, first_name, last_name,
+        dbManager.commit(sql, (user, password, first_name, last_name,
                          country, city, street, number, phone_number, role, given_email))
         return
 
@@ -189,10 +188,10 @@ class Product:
                                self.img, self.category_code))
         return
 
-    def update_product(self, id, name, price, prev_price, description, img, category_code, given_id):
+    def update_product(self, name, price, prev_price, description, img, category_code, given_id):
         """ Method that update an existing product by the products' current ID """
         sql = '''  
-                    UPDATE product SET id = %s, name = %s, price =%s, prev_price = %s,
+                    UPDATE product SET name = %s, price =%s, prev_price = %s,
                     description = %s, img = %s, category_code = %s
                     WHERE id = %s
               '''
@@ -208,7 +207,7 @@ class Product:
         #                         VALUES (%s, %s, %s)
         #                       '''
         #         dbManager.commit(sql_include, (quantity, number, id))
-        dbManager.commit(sql, (id, name, price, prev_price, description, img, category_code, given_id))
+        dbManager.commit(sql, (name, price, prev_price, description, img, category_code, given_id))
         return
 
     def delete_product(self, id):

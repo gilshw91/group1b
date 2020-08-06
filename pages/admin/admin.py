@@ -16,6 +16,7 @@ def index():
 
 @admin.route('/add_customer', methods=["POST"])
 def add_customer():
+    customers_data = Customer().get_all()
     customer = Customer()
     customer.email_address = request.form['email-address']
     customer.user = request.form['user']
@@ -32,14 +33,14 @@ def add_customer():
     is_same_user = customer.get_user_by_user(user=request.form['user'])  # true/len>0 if exist
     is_same_mail = customer.get_user_by_email(email_address=request.form['email-address'])  # true/len>0 if exist
     if not re.match(r"^[A-Za-z0-9\\.\\+_-]+@[A-Za-z0-9\\._-]+\.[a-zA-Z]*$", request.form['email-address']):
-        error = "Email not valid"
-        return render_template('sign_up.html', error=error)
-    if is_same_user:  # if a user already found, we want to redirect back to sign-up page
-        error = "User name already exist"
-        return render_template('sign_up.html', error=error)
+        flash("Email not valid. Try Again!")
+        return render_template('admin.html', customers=customers_data)
+    # if is_same_user:  # if a user already found and we dont wont to allow this:
+    #     flash("User name already exist. Try Again!")
+    #     return render_template('admin.html', customers=customers_data)
     if is_same_mail:  # if a email address already found, we want to redirect back to sign-up page
-        error = "Email already exist"
-        return render_template('sign_up.html', error=error)
+        flash("Email already exist. Try Again!")
+        return render_template('admin.html', customers=customers_data)
     customer.add_customer()
     flash('Added Successfully!')
     return redirect(url_for('admin.index'))
@@ -47,12 +48,10 @@ def add_customer():
 
 @admin.route('/update_customer', methods=["POST"])
 def update_customer():
-    print("11111111")
-    Customer().update_customer(request.form['email-address'], request.form['user'], request.form['password'],
+    Customer().update_customer(request.form['user'], request.form['password'],
                                request.form['first-name'], request.form['last-name'], request.form['country'],
                                request.form['city'], request.form['street'], request.form['number'],
                                request.form['phone-number'], request.form['role'], request.form['given-email'])
-    print("33331")
     flash('Updated Successfully!')
     return redirect(url_for('admin.index'))
 

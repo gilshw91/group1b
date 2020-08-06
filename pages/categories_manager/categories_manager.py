@@ -28,7 +28,7 @@ def add_category():
 
 
 @categories_manager.route('/update_category', methods=["POST"])
-def update():
+def update_category():
     # Updates another field which isnt the category code
     if request.form['given-code'] != request.form['category-code']:
         # if Category().is_category_code(request.form['category-code']):
@@ -42,7 +42,7 @@ def update():
 
 
 @categories_manager.route('/delete_category/<string:category_code>', methods=["GET"])
-def delete(category_code):
+def delete_category(category_code):
     if Product().is_product_by_category_code(category_code):
         flash("There is a Product in this Category, Deleted Failed!")
         flash("You can delete this product from 'Product Page'")

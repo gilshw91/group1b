@@ -22,6 +22,10 @@ def add_product():
     product.description = request.form['description']
     product.img = request.form['img']
     product.category_code = request.form['category-code']
+    # Checks that the ID doesnt exist already
+    if Product().get_product(request.form['id']):
+        flash("The ID is already exist. Try again!")
+        return redirect(url_for('product_manager.index'))
     # Checks that the category code exists:
     if not Category().is_category_code(product.category_code):
         flash("Category Code doesn't exist. Try again!")
@@ -41,14 +45,14 @@ def update():
     if not Category().is_category_code(request.form['category-code']):
         flash("Category Code doesn't exist. Try again!")
         return redirect(url_for('product_manager.index'))
-    # Checks that the ID inserted in the range
-    if int(request.form['id']) < 0 or int(request.form['id']) > 2147483647:
-        flash("The ID is not valid. Try again!")
-        return redirect(url_for('product_manager.index'))
+    # # Checks that the ID inserted in the range
+    # if int(request.form['id']) < 0 or int(request.form['id']) > 2147483647:
+    #     flash("The ID is not valid. Try again!")
+    #     return redirect(url_for('product_manager.index'))
     if request.form['given-id'] != request.form['id']:
         flash("Can't update ID, You can delete and add new product.")
         return redirect(url_for('product_manager.index'))
-    Product().update_product(request.form['id'], request.form['name'], request.form['price'],
+    Product().update_product(request.form['name'], request.form['price'],
                              request.form['prev-price'], request.form['description'], request.form['img'],
                              request.form['category-code'], request.form['given-id'])
     flash('Updated Successfully!')
