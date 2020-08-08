@@ -36,17 +36,20 @@
                 <h1 class="heading-1"><strong>Hokus Mokus</strong> | Weaslys' Wizard Wheezes Shop</h1>
             </div>
         </div>
+        {% if product_week %}
         <div id="popup" class="popup">
             <span class="close" onclick="closeDialog(this)">&times;</span><br/>
             <h1 class="heading-1 modal-heading">Hokus Mokus <strong>SALE!</strong></h1>
             <h2 class="heading-2 modal-heading"> Product of the <strong>week</strong></h2>
-            <a href = "/product?id={{ product_week[0].id }}">
-                <img class="sale-product"
-                     src="{{ url_for('static', filename='media/img/products/' + product_week[0].img) }}"
-                     alt={{ product_week[0].name }}/>
-                <p class="modal-text"><strong>ONLY</strong> <span>£{{ product_week[0].price }}</span></p>
-            </a>
+
+                <a href = "/product?id={{ product_week[0].id }}">
+                    <img class="sale-product"
+                         src="{{ url_for('static', filename='media/img/products/' + product_week[0].img) }}"
+                         alt={{ product_week[0].name }}/>
+                    <p class="modal-text"><strong>ONLY</strong> <span>£{{ product_week[0].price }}</span></p>
+                </a>
         </div>
+        {%  endif %}
    <div class="container">
         <h2 class="heading-2">Hokus Mokus <strong>Products</strong></h2>
         <div id="myCarousel" class="carousel slide"> {# 'slide'- makes the items to slide #}
