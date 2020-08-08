@@ -3,7 +3,7 @@ from entities import Category, Product
 
 # Categories Blueprint Definition
 categories_manager = Blueprint('categories_manager', __name__, static_folder='static', static_url_path='/categories_manager',
-                     template_folder='templates')
+                               template_folder='templates')
 
 
 #  Routes
@@ -18,6 +18,12 @@ def add_category():
     if not request.form['category-code'].isdigit():
         flash("Category Code must be an integer. Try again!")
         return redirect(url_for('categories_manager.index'))
+    if Category().is_category_code(request.form['category-code']):
+        flash("Category Code is already exist. Try again!")
+        return redirect(url_for('categories_manager.index'))
+    if int(request.form['category-code']) < 0 or int(request.form['category-code']) > 127:
+        flash("Category Code is not valid (should be between 0 to 127). Try again!")
+        return redirect(url_for('categories_manager.index'))
     category = Category()
     category.category_code = request.form['category-code']
     category.category_name = request.form['category-name']
@@ -29,7 +35,7 @@ def add_category():
 
 @categories_manager.route('/update_category', methods=["POST"])
 def update_category():
-    # Updates another field which isnt the category code
+    # Updates another field which isn't the category code
     if request.form['given-code'] != request.form['category-code']:
         # if Category().is_category_code(request.form['category-code']):
         #     flash("Category Code is already exist. Try again!")

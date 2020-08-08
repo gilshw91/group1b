@@ -55,17 +55,17 @@
                                             <div class="form-group">
                                                 <label>Category Code:</label>
                                                 <input type="number" class="form-control" name="category-code"
-                                                       value="{{ row.0 }}" placeholder="Insert Category Code">
+                                                       value="{{ row.0 }}" placeholder="{{ row.0 }}" required>
                                             </div>
                                             <div class="form-group">
                                                 <label>Category Name:</label>
                                                 <input type="text" class="form-control" name="category-name"
-                                                       value="{{ row.1 }}" placeholder="Insert Category Name">
+                                                       value="{{ row.1 }}" placeholder="{{ row.1 }}" required>
                                             </div>
                                             <div class="form-group">
                                                 <label>Image Name:</label>
                                                 <input type="text" class="form-control" name="img"
-                                                       value="{{ row.2 }}" placeholder="Insert Image Name">
+                                                       value="{{ row.2 }}" placeholder="{{ row.2 }}" required>
                                             </div>
                                             <div class="form-group">
                                                 <button class="btn btn-warning" type="submit">Update</button>
