@@ -1,24 +1,6 @@
-# Flask Skeleton Project
+# Flask Project
 
-### Flask skeleton project as a base project for app development
-##### [https://github.com/barakpinchovski/flask-skeleton-project](https://github.com/barakpinchovski/flask-skeleton-project)
-<br/>
-
-##### Description: 
-This is a base skeleton Flask project to start developing on.
-<br/>
-You may want to modify some of the configurations and files as needed. 
-   
-###
-##### Keywords: 
-flask, lean, skeleton, project, structure, environment, setup, template, fullstack, web, development, app, university, education.
-###
-
-##### By Barak Pinchovski
-[LinkedIn](https://www.linkedin.com/in/barakpinch/)
-##
-
-#### And continued by Hadar Ben-Yaakov, Rotem Fallek, Yonatan Baram and Gil Shwartz 
+#### The project skelaton was made by Barak Pinchovsky And continued by Hadar Ben-Yaakov, Rotem Fallek, Yonatan Baram and Gil Shwartz 
 =======
 #### The project was continued by Hadar Ben-Yaakov, Rotem Fallek, Yonatan Baram and Gil Shwartz
 
