@@ -2,7 +2,6 @@
 
 #### The project skelaton was made by Barak Pinchovsky And continued by Hadar Ben-Yaakov, Rotem Fallek, Yonatan Baram and Gil Shwartz 
 =======
-#### The project was continued by Hadar Ben-Yaakov, Rotem Fallek, Yonatan Baram and Gil Shwartz
 
 ### Setup and run instructions:
 
