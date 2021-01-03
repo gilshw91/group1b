@@ -28,4 +28,5 @@ Open the website by clicking the link
 =======
 - This final group project is for 'Information Systems and Databases' course at Tel Aviv University
 - This project was developed by Hadar Ben-Yaakov, Rotem Fallek, Yonatan Baram and Gil Shwartz and the skelaton was made by Barak Pinchovsky
+
 =======
