@@ -5,6 +5,7 @@ In this projects, we have created a website that any visitor can easily register
 The products are classified under categories.
 The admin and the managers are the only people allowed to add, delete or modify the products and customers (CRUD).
 The customer can post a review on a product or a feedback on the website.
+This project was developed using Python, Flask, MySQL, HTML, CSS and JavaScript
 
 ### Setup and run instructions:
 
